@@ -1,0 +1,248 @@
+fileFormatVersion: 2
+guid: 81ff2a4bbc8bb4e4894cdd14cc9831e9
+timeCreated: 1460628131
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Animal bones
+    100002: Camera002
+    100004: Camera002.Target
+    100006: Circle001
+    100008: Circle001 1
+    100010: Circle001 2
+    100012: Circle001 3
+    100014: Iceberg009
+    100016: Iceberg011
+    100018: Iceberg014
+    100020: Iceberg018
+    100022: Iceberg020
+    100024: Icethree044
+    100026: Icethree045
+    100028: Icethree078
+    100030: Icethree079
+    100032: Icethree080
+    100034: Icethree082
+    100036: Icethree083
+    100038: Icethree085
+    100040: Icethree088
+    100042: Icethree091
+    100044: Icethree092
+    100046: Icethree093
+    100048: Icethree097
+    100050: Icethree099
+    100052: Icethree100
+    100054: Icethree101
+    100056: Icethree102
+    100058: Icethree103
+    100060: //RootNode
+    100062: Object006
+    100064: Object006 1
+    100066: Object006 2
+    100068: Object006 3
+    100070: Particle View 001
+    100072: Particle View 001 1
+    100074: Particle View 001 2
+    100076: Particle View 001 3
+    100078: Stone04
+    100080: tereno1
+    100082: Wooden3
+    400000: Animal bones
+    400002: Camera002
+    400004: Camera002.Target
+    400006: Circle001
+    400008: Circle001 1
+    400010: Circle001 2
+    400012: Circle001 3
+    400014: Iceberg009
+    400016: Iceberg011
+    400018: Iceberg014
+    400020: Iceberg018
+    400022: Iceberg020
+    400024: Icethree044
+    400026: Icethree045
+    400028: Icethree078
+    400030: Icethree079
+    400032: Icethree080
+    400034: Icethree082
+    400036: Icethree083
+    400038: Icethree085
+    400040: Icethree088
+    400042: Icethree091
+    400044: Icethree092
+    400046: Icethree093
+    400048: Icethree097
+    400050: Icethree099
+    400052: Icethree100
+    400054: Icethree101
+    400056: Icethree102
+    400058: Icethree103
+    400060: //RootNode
+    400062: Object006
+    400064: Object006 1
+    400066: Object006 2
+    400068: Object006 3
+    400070: Particle View 001
+    400072: Particle View 001 1
+    400074: Particle View 001 2
+    400076: Particle View 001 3
+    400078: Stone04
+    400080: tereno1
+    400082: Wooden3
+    2300000: Animal bones
+    2300002: Circle001
+    2300004: Circle001 1
+    2300006: Circle001 2
+    2300008: Circle001 3
+    2300010: Iceberg009
+    2300012: Iceberg011
+    2300014: Iceberg014
+    2300016: Iceberg018
+    2300018: Iceberg020
+    2300020: Icethree044
+    2300022: Icethree045
+    2300024: Icethree078
+    2300026: Icethree079
+    2300028: Icethree080
+    2300030: Icethree082
+    2300032: Icethree083
+    2300034: Icethree085
+    2300036: Icethree088
+    2300038: Icethree091
+    2300040: Icethree092
+    2300042: Icethree093
+    2300044: Icethree097
+    2300046: Icethree099
+    2300048: Icethree100
+    2300050: Icethree101
+    2300052: Icethree102
+    2300054: Icethree103
+    2300056: Stone04
+    2300058: tereno1
+    2300060: Wooden3
+    3300000: Animal bones
+    3300002: Circle001
+    3300004: Circle001 1
+    3300006: Circle001 2
+    3300008: Circle001 3
+    3300010: Iceberg009
+    3300012: Iceberg011
+    3300014: Iceberg014
+    3300016: Iceberg018
+    3300018: Iceberg020
+    3300020: Icethree044
+    3300022: Icethree045
+    3300024: Icethree078
+    3300026: Icethree079
+    3300028: Icethree080
+    3300030: Icethree082
+    3300032: Icethree083
+    3300034: Icethree085
+    3300036: Icethree088
+    3300038: Icethree091
+    3300040: Icethree092
+    3300042: Icethree093
+    3300044: Icethree097
+    3300046: Icethree099
+    3300048: Icethree100
+    3300050: Icethree101
+    3300052: Icethree102
+    3300054: Icethree103
+    3300056: Stone04
+    3300058: tereno1
+    3300060: Wooden3
+    4300000: Circle001
+    4300002: Circle001
+    4300004: Circle001
+    4300006: Wooden3
+    4300008: Stone04
+    4300010: Circle001
+    4300012: Iceberg009
+    4300014: Iceberg011
+    4300016: Iceberg014
+    4300018: Iceberg018
+    4300020: Icethree044
+    4300022: Icethree045
+    4300024: tereno1
+    4300026: Animal bones
+    4300028: Iceberg020
+    4300030: Icethree078
+    4300032: Icethree079
+    4300034: Icethree080
+    4300036: Icethree082
+    4300038: Icethree083
+    4300040: Icethree085
+    4300042: Icethree088
+    4300044: Icethree091
+    4300046: Icethree092
+    4300048: Icethree093
+    4300050: Icethree097
+    4300052: Icethree099
+    4300054: Icethree100
+    4300056: Icethree101
+    4300058: Icethree102
+    4300060: Icethree103
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,240 @@
+fileFormatVersion: 2
+guid: 885ab7809050adb47939051a5f5e0aa4
+timeCreated: 1460618009
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Animal bones
+    100002: Bone3
+    100004: Camera002
+    100006: Camera002.Target
+    100008: Circle001
+    100010: Iceberg01
+    100012: Iceberg011
+    100014: Iceberg016
+    100016: Iceberg017
+    100018: Iceberg018
+    100020: Iceberg019
+    100022: Iceberg021
+    100024: Iceberg022
+    100026: Iceberg023
+    100028: Iceberg024
+    100030: //RootNode
+    100032: Object006
+    100034: Particle View 001
+    100036: Planet13
+    100038: Stone002
+    100040: tereno1
+    100042: Three
+    100044: Three001
+    100046: Three005
+    100048: Three008
+    100050: Three009
+    100052: Three024
+    100054: Three057
+    100056: Three082
+    100058: Three086
+    100060: Three088
+    100062: Three089
+    100064: Three090
+    100066: Three091
+    100068: Three092
+    100070: Three095
+    100072: Three096
+    100074: Three097
+    400000: Animal bones
+    400002: Bone3
+    400004: Camera002
+    400006: Camera002.Target
+    400008: Circle001
+    400010: Iceberg01
+    400012: Iceberg011
+    400014: Iceberg016
+    400016: Iceberg017
+    400018: Iceberg018
+    400020: Iceberg019
+    400022: Iceberg021
+    400024: Iceberg022
+    400026: Iceberg023
+    400028: Iceberg024
+    400030: //RootNode
+    400032: Object006
+    400034: Particle View 001
+    400036: Planet13
+    400038: Stone002
+    400040: tereno1
+    400042: Three
+    400044: Three001
+    400046: Three005
+    400048: Three008
+    400050: Three009
+    400052: Three024
+    400054: Three057
+    400056: Three082
+    400058: Three086
+    400060: Three088
+    400062: Three089
+    400064: Three090
+    400066: Three091
+    400068: Three092
+    400070: Three095
+    400072: Three096
+    400074: Three097
+    2300000: Animal bones
+    2300002: Circle001
+    2300004: Iceberg01
+    2300006: Iceberg011
+    2300008: Iceberg016
+    2300010: Iceberg017
+    2300012: Iceberg018
+    2300014: Iceberg019
+    2300016: Iceberg021
+    2300018: Iceberg022
+    2300020: Iceberg023
+    2300022: Iceberg024
+    2300024: Stone002
+    2300026: tereno1
+    2300028: Three
+    2300030: Three001
+    2300032: Three005
+    2300034: Three008
+    2300036: Three009
+    2300038: Three024
+    2300040: Three057
+    2300042: Three082
+    2300044: Three086
+    2300046: Three088
+    2300048: Three089
+    2300050: Three090
+    2300052: Three091
+    2300054: Three092
+    2300056: Three095
+    2300058: Three096
+    2300060: Three097
+    3300000: Animal bones
+    3300002: Circle001
+    3300004: Iceberg01
+    3300006: Iceberg011
+    3300008: Iceberg016
+    3300010: Iceberg017
+    3300012: Iceberg018
+    3300014: Iceberg019
+    3300016: Iceberg021
+    3300018: Iceberg022
+    3300020: Iceberg023
+    3300022: Iceberg024
+    3300024: Stone002
+    3300026: tereno1
+    3300028: Three
+    3300030: Three001
+    3300032: Three005
+    3300034: Three008
+    3300036: Three009
+    3300038: Three024
+    3300040: Three057
+    3300042: Three082
+    3300044: Three086
+    3300046: Three088
+    3300048: Three089
+    3300050: Three090
+    3300052: Three091
+    3300054: Three092
+    3300056: Three095
+    3300058: Three096
+    3300060: Three097
+    4300000: tereno1
+    4300002: Three005
+    4300004: Three001
+    4300006: Three
+    4300008: Three008
+    4300010: Three009
+    4300012: Three024
+    4300014: Animal bones
+    4300016: Circle001
+    4300018: Iceberg01
+    4300020: Iceberg011
+    4300022: Three057
+    4300024: Iceberg016
+    4300026: Iceberg017
+    4300028: Iceberg018
+    4300030: Iceberg019
+    4300032: Iceberg021
+    4300034: Iceberg022
+    4300036: Iceberg023
+    4300038: Stone002
+    4300040: Three082
+    4300042: Three086
+    4300044: Three088
+    4300046: Three089
+    4300048: Three090
+    4300050: Three091
+    4300052: Three092
+    4300054: Three095
+    4300056: Three096
+    4300058: Three097
+    4300060: Iceberg024
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

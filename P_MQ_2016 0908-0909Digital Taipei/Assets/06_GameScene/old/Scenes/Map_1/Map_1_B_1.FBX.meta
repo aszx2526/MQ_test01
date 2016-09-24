@@ -1,0 +1,246 @@
+fileFormatVersion: 2
+guid: 5a63d74d12558d14582fd6f7afc15b20
+timeCreated: 1460624586
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: 005
+    100002: Bone3
+    100004: box003
+    100006: box004
+    100008: box005
+    100010: box006
+    100012: Camera002
+    100014: Camera002.Target
+    100016: Circle001
+    100018: Circle001 1
+    100020: Circle001 2
+    100022: ferry005
+    100024: Iceberg009
+    100026: Iceberg011
+    100028: Iceberg012
+    100030: Iceberg013
+    100032: Iceberg014
+    100034: Iceberg016
+    100036: //RootNode
+    100038: Object006
+    100040: Object006 1
+    100042: Particle View 001
+    100044: Particle View 001 1
+    100046: Planet13
+    100048: tereno2
+    100050: Three040
+    100052: Three041
+    100054: Three042
+    100056: Three043
+    100058: Three044
+    100060: Three045
+    100062: Three046
+    100064: Three047
+    100066: Three048
+    100068: Three049
+    100070: Three050
+    100072: Three051
+    100074: Three052
+    100076: Three053
+    100078: Three054
+    100080: Three055
+    400000: 005
+    400002: Bone3
+    400004: box003
+    400006: box004
+    400008: box005
+    400010: box006
+    400012: Camera002
+    400014: Camera002.Target
+    400016: Circle001
+    400018: Circle001 1
+    400020: Circle001 2
+    400022: ferry005
+    400024: Iceberg009
+    400026: Iceberg011
+    400028: Iceberg012
+    400030: Iceberg013
+    400032: Iceberg014
+    400034: Iceberg016
+    400036: //RootNode
+    400038: Object006
+    400040: Object006 1
+    400042: Particle View 001
+    400044: Particle View 001 1
+    400046: Planet13
+    400048: tereno2
+    400050: Three040
+    400052: Three041
+    400054: Three042
+    400056: Three043
+    400058: Three044
+    400060: Three045
+    400062: Three046
+    400064: Three047
+    400066: Three048
+    400068: Three049
+    400070: Three050
+    400072: Three051
+    400074: Three052
+    400076: Three053
+    400078: Three054
+    400080: Three055
+    2300000: 005
+    2300002: box003
+    2300004: box004
+    2300006: box005
+    2300008: box006
+    2300010: Circle001
+    2300012: Circle001 1
+    2300014: ferry005
+    2300016: Iceberg009
+    2300018: Iceberg011
+    2300020: Iceberg012
+    2300022: Iceberg013
+    2300024: Iceberg014
+    2300026: Iceberg016
+    2300028: tereno2
+    2300030: Three040
+    2300032: Three041
+    2300034: Three042
+    2300036: Three043
+    2300038: Three044
+    2300040: Three045
+    2300042: Three046
+    2300044: Three047
+    2300046: Three048
+    2300048: Three049
+    2300050: Three050
+    2300052: Three051
+    2300054: Three052
+    2300056: Three053
+    2300058: Three054
+    2300060: Three055
+    3300000: 005
+    3300002: box003
+    3300004: box004
+    3300006: box005
+    3300008: box006
+    3300010: Circle001
+    3300012: Circle001 1
+    3300014: ferry005
+    3300016: Iceberg009
+    3300018: Iceberg011
+    3300020: Iceberg012
+    3300022: Iceberg013
+    3300024: Iceberg014
+    3300026: Iceberg016
+    3300028: tereno2
+    3300030: Three040
+    3300032: Three041
+    3300034: Three042
+    3300036: Three043
+    3300038: Three044
+    3300040: Three045
+    3300042: Three046
+    3300044: Three047
+    3300046: Three048
+    3300048: Three049
+    3300050: Three050
+    3300052: Three051
+    3300054: Three052
+    3300056: Three053
+    3300058: Three054
+    3300060: Three055
+    4300000: Circle001
+    4300002: Circle001
+    4300004: tereno2
+    4300006: Iceberg009
+    4300008: 005
+    4300010: Iceberg011
+    4300012: Iceberg012
+    4300014: Iceberg013
+    4300016: Iceberg014
+    4300018: Iceberg016
+    4300020: Three040
+    4300022: Three041
+    4300024: Three042
+    4300026: Three043
+    4300028: Three044
+    4300030: Three045
+    4300032: Three046
+    4300034: Three047
+    4300036: Three048
+    4300038: Three049
+    4300040: Three050
+    4300042: Three051
+    4300044: Three052
+    4300046: Three053
+    4300048: Three054
+    4300050: Three055
+    4300052: box003
+    4300054: box004
+    4300056: box005
+    4300058: ferry005
+    4300060: box006
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

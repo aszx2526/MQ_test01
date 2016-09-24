@@ -1,0 +1,314 @@
+fileFormatVersion: 2
+guid: 569789c8e01d5be43bd5e3889c355ab9
+timeCreated: 1460451189
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: 04
+    100002: Animal bones1
+    100004: Bone3
+    100006: Bone3 1
+    100008: Camera002
+    100010: Camera002.Target
+    100012: Circle001
+    100014: Circle001 1
+    100016: Iceberg006
+    100018: Iceberg008
+    100020: Iceberg01
+    100022: Iceberg02
+    100024: Iceberg03
+    100026: Iceberg05
+    100028: //RootNode
+    100030: Particle View 001
+    100032: Particle View 001 1
+    100034: Planet13
+    100036: Planet13 1
+    100038: Stone005
+    100040: Stone03
+    100042: tereno1
+    100044: Three
+    100046: Three001
+    100048: Three002
+    100050: Three004
+    100052: Three005
+    100054: Three006
+    100056: Three007
+    100058: Three008
+    100060: Three009
+    100062: Three010
+    100064: Three011
+    100066: Three012
+    100068: Three013
+    100070: Three014
+    100072: Three015
+    100074: Three017
+    100076: Three018
+    100078: Three019
+    100080: Three020
+    100082: Three021
+    100084: Three024
+    100086: Three027
+    100088: Three030
+    100090: Three034
+    100092: Three035
+    100094: Three036
+    100096: Three037
+    100098: Three038
+    100100: Three039
+    100102: Three040
+    100104: Wooden004
+    100106: Wooden3
+    400000: 04
+    400002: Animal bones1
+    400004: Bone3
+    400006: Bone3 1
+    400008: Camera002
+    400010: Camera002.Target
+    400012: Circle001
+    400014: Circle001 1
+    400016: Iceberg006
+    400018: Iceberg008
+    400020: Iceberg01
+    400022: Iceberg02
+    400024: Iceberg03
+    400026: Iceberg05
+    400028: //RootNode
+    400030: Particle View 001
+    400032: Particle View 001 1
+    400034: Planet13
+    400036: Planet13 1
+    400038: Stone005
+    400040: Stone03
+    400042: tereno1
+    400044: Three
+    400046: Three001
+    400048: Three002
+    400050: Three004
+    400052: Three005
+    400054: Three006
+    400056: Three007
+    400058: Three008
+    400060: Three009
+    400062: Three010
+    400064: Three011
+    400066: Three012
+    400068: Three013
+    400070: Three014
+    400072: Three015
+    400074: Three017
+    400076: Three018
+    400078: Three019
+    400080: Three020
+    400082: Three021
+    400084: Three024
+    400086: Three027
+    400088: Three030
+    400090: Three034
+    400092: Three035
+    400094: Three036
+    400096: Three037
+    400098: Three038
+    400100: Three039
+    400102: Three040
+    400104: Wooden004
+    400106: Wooden3
+    2300000: 04
+    2300002: Animal bones1
+    2300004: Circle001
+    2300006: Circle001 1
+    2300008: Iceberg006
+    2300010: Iceberg008
+    2300012: Iceberg01
+    2300014: Iceberg02
+    2300016: Iceberg03
+    2300018: Iceberg05
+    2300020: Stone005
+    2300022: Stone03
+    2300024: tereno1
+    2300026: Three
+    2300028: Three001
+    2300030: Three002
+    2300032: Three004
+    2300034: Three005
+    2300036: Three006
+    2300038: Three007
+    2300040: Three008
+    2300042: Three009
+    2300044: Three010
+    2300046: Three011
+    2300048: Three012
+    2300050: Three013
+    2300052: Three014
+    2300054: Three015
+    2300056: Three017
+    2300058: Three018
+    2300060: Three019
+    2300062: Three020
+    2300064: Three021
+    2300066: Three024
+    2300068: Three027
+    2300070: Three030
+    2300072: Three034
+    2300074: Three035
+    2300076: Three036
+    2300078: Three037
+    2300080: Three038
+    2300082: Three039
+    2300084: Three040
+    2300086: Wooden004
+    2300088: Wooden3
+    3300000: 04
+    3300002: Animal bones1
+    3300004: Circle001
+    3300006: Circle001 1
+    3300008: Iceberg006
+    3300010: Iceberg008
+    3300012: Iceberg01
+    3300014: Iceberg02
+    3300016: Iceberg03
+    3300018: Iceberg05
+    3300020: Stone005
+    3300022: Stone03
+    3300024: tereno1
+    3300026: Three
+    3300028: Three001
+    3300030: Three002
+    3300032: Three004
+    3300034: Three005
+    3300036: Three006
+    3300038: Three007
+    3300040: Three008
+    3300042: Three009
+    3300044: Three010
+    3300046: Three011
+    3300048: Three012
+    3300050: Three013
+    3300052: Three014
+    3300054: Three015
+    3300056: Three017
+    3300058: Three018
+    3300060: Three019
+    3300062: Three020
+    3300064: Three021
+    3300066: Three024
+    3300068: Three027
+    3300070: Three030
+    3300072: Three034
+    3300074: Three035
+    3300076: Three036
+    3300078: Three037
+    3300080: Three038
+    3300082: Three039
+    3300084: Three040
+    3300086: Wooden004
+    3300088: Wooden3
+    4300000: Circle001
+    4300002: tereno1
+    4300004: Circle001
+    4300006: Iceberg01
+    4300008: Iceberg02
+    4300010: Iceberg03
+    4300012: 04
+    4300014: Iceberg05
+    4300016: Iceberg006
+    4300018: Wooden3
+    4300020: Stone03
+    4300022: Three002
+    4300024: Three004
+    4300026: Three005
+    4300028: Three001
+    4300030: Three
+    4300032: Three006
+    4300034: Three007
+    4300036: Three008
+    4300038: Three009
+    4300040: Three010
+    4300042: Three011
+    4300044: Iceberg008
+    4300046: Three012
+    4300048: Three013
+    4300050: Three014
+    4300052: Three015
+    4300054: Three017
+    4300056: Three018
+    4300058: Three019
+    4300060: Three020
+    4300062: Three021
+    4300064: Three024
+    4300066: Stone005
+    4300068: Three027
+    4300070: Three030
+    4300072: Three034
+    4300074: Three035
+    4300076: Three036
+    4300078: Three037
+    4300080: Three038
+    4300082: Three039
+    4300084: Three040
+    4300086: Animal bones1
+    4300088: Wooden004
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

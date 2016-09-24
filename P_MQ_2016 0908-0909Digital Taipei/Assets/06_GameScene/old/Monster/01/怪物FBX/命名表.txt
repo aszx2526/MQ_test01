@@ -1,0 +1,13 @@
+attack 攻擊動作
+
+death 死亡動作
+
+idle 待機
+
+Injured 被攻擊
+
+mode 只有綁好骨架的基礎模型
+
+run 跑步動作
+
+walk 走路動作

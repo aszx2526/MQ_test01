@@ -1,0 +1,222 @@
+fileFormatVersion: 2
+guid: 50662669b99215647ba4e7f202e05a60
+timeCreated: 1460628131
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bone3
+    100002: Bone3 1
+    100004: Camera002
+    100006: Camera002.Target
+    100008: Circle001
+    100010: Circle001 1
+    100012: Circle001 2
+    100014: Circle001 3
+    100016: Iceberg009
+    100018: Iceberg011
+    100020: Iceberg014
+    100022: Iceberg016
+    100024: Iceberg017
+    100026: Iceberg018
+    100028: Icethree027
+    100030: Icethree028
+    100032: Icethree031
+    100034: Icethree043
+    100036: Icethree049
+    100038: Icethree052
+    100040: Icethree056
+    100042: Icethree058
+    100044: Icethree059
+    100046: Icethree065
+    100048: Icethree072
+    100050: Icethree073
+    100052: Icethree074
+    100054: Icethree075
+    100056: //RootNode
+    100058: Object006
+    100060: Object006 1
+    100062: Particle View 001
+    100064: Particle View 001 1
+    100066: Particle View 001 2
+    100068: Particle View 001 3
+    100070: Planet13
+    100072: Planet13 1
+    100074: tereno2
+    400000: Bone3
+    400002: Bone3 1
+    400004: Camera002
+    400006: Camera002.Target
+    400008: Circle001
+    400010: Circle001 1
+    400012: Circle001 2
+    400014: Circle001 3
+    400016: Iceberg009
+    400018: Iceberg011
+    400020: Iceberg014
+    400022: Iceberg016
+    400024: Iceberg017
+    400026: Iceberg018
+    400028: Icethree027
+    400030: Icethree028
+    400032: Icethree031
+    400034: Icethree043
+    400036: Icethree049
+    400038: Icethree052
+    400040: Icethree056
+    400042: Icethree058
+    400044: Icethree059
+    400046: Icethree065
+    400048: Icethree072
+    400050: Icethree073
+    400052: Icethree074
+    400054: Icethree075
+    400056: //RootNode
+    400058: Object006
+    400060: Object006 1
+    400062: Particle View 001
+    400064: Particle View 001 1
+    400066: Particle View 001 2
+    400068: Particle View 001 3
+    400070: Planet13
+    400072: Planet13 1
+    400074: tereno2
+    2300000: Circle001
+    2300002: Circle001 1
+    2300004: Circle001 2
+    2300006: Circle001 3
+    2300008: Iceberg009
+    2300010: Iceberg011
+    2300012: Iceberg014
+    2300014: Iceberg016
+    2300016: Iceberg017
+    2300018: Iceberg018
+    2300020: Icethree027
+    2300022: Icethree028
+    2300024: Icethree031
+    2300026: Icethree043
+    2300028: Icethree049
+    2300030: Icethree052
+    2300032: Icethree056
+    2300034: Icethree058
+    2300036: Icethree059
+    2300038: Icethree065
+    2300040: Icethree072
+    2300042: Icethree073
+    2300044: Icethree074
+    2300046: Icethree075
+    2300048: tereno2
+    3300000: Circle001
+    3300002: Circle001 1
+    3300004: Circle001 2
+    3300006: Circle001 3
+    3300008: Iceberg009
+    3300010: Iceberg011
+    3300012: Iceberg014
+    3300014: Iceberg016
+    3300016: Iceberg017
+    3300018: Iceberg018
+    3300020: Icethree027
+    3300022: Icethree028
+    3300024: Icethree031
+    3300026: Icethree043
+    3300028: Icethree049
+    3300030: Icethree052
+    3300032: Icethree056
+    3300034: Icethree058
+    3300036: Icethree059
+    3300038: Icethree065
+    3300040: Icethree072
+    3300042: Icethree073
+    3300044: Icethree074
+    3300046: Icethree075
+    3300048: tereno2
+    4300000: Circle001
+    4300002: Circle001
+    4300004: Circle001
+    4300006: Circle001
+    4300008: tereno2
+    4300010: Iceberg009
+    4300012: Iceberg011
+    4300014: Iceberg014
+    4300016: Iceberg016
+    4300018: Icethree027
+    4300020: Icethree028
+    4300022: Iceberg017
+    4300024: Iceberg018
+    4300026: Icethree031
+    4300028: Icethree043
+    4300030: Icethree049
+    4300032: Icethree052
+    4300034: Icethree056
+    4300036: Icethree058
+    4300038: Icethree059
+    4300040: Icethree065
+    4300042: Icethree072
+    4300044: Icethree073
+    4300046: Icethree074
+    4300048: Icethree075
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

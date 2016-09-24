@@ -1,0 +1,287 @@
+fileFormatVersion: 2
+guid: c99aeb3c07aa66b40ac86fb529031040
+timeCreated: 1460628131
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: box006
+    100002: box007
+    100004: box01
+    100006: Camera002
+    100008: Camera002.Target
+    100010: Circle001
+    100012: Circle001 1
+    100014: Circle001 2
+    100016: Circle001 3
+    100018: Iceberg009
+    100020: Iceberg011
+    100022: Iceberg014
+    100024: Iceberg016
+    100026: Iceberg017
+    100028: Iceberg018
+    100030: Icethree026
+    100032: Icethree027
+    100034: Icethree042
+    100036: Icethree043
+    100038: Icethree046
+    100040: Icethree047
+    100042: Icethree048
+    100044: Icethree049
+    100046: Icethree052
+    100048: Icethree059
+    100050: Icethree072
+    100052: Icethree073
+    100054: Icethree074
+    100056: Icethree075
+    100058: Icethree076
+    100060: Icethree077
+    100062: Icethree078
+    100064: Icethree079
+    100066: Icethree080
+    100068: Icethree081
+    100070: //RootNode
+    100072: Object006
+    100074: Object006 1
+    100076: Object006 2
+    100078: Object006 3
+    100080: Particle View 001
+    100082: Particle View 001 1
+    100084: Particle View 001 2
+    100086: Particle View 001 3
+    100088: Planet13
+    100090: Planet13 1
+    100092: Stone002
+    100094: Stone02
+    100096: Stone03
+    100098: Stone04
+    100100: tereno2
+    400000: box006
+    400002: box007
+    400004: box01
+    400006: Camera002
+    400008: Camera002.Target
+    400010: Circle001
+    400012: Circle001 1
+    400014: Circle001 2
+    400016: Circle001 3
+    400018: Iceberg009
+    400020: Iceberg011
+    400022: Iceberg014
+    400024: Iceberg016
+    400026: Iceberg017
+    400028: Iceberg018
+    400030: Icethree026
+    400032: Icethree027
+    400034: Icethree042
+    400036: Icethree043
+    400038: Icethree046
+    400040: Icethree047
+    400042: Icethree048
+    400044: Icethree049
+    400046: Icethree052
+    400048: Icethree059
+    400050: Icethree072
+    400052: Icethree073
+    400054: Icethree074
+    400056: Icethree075
+    400058: Icethree076
+    400060: Icethree077
+    400062: Icethree078
+    400064: Icethree079
+    400066: Icethree080
+    400068: Icethree081
+    400070: //RootNode
+    400072: Object006
+    400074: Object006 1
+    400076: Object006 2
+    400078: Object006 3
+    400080: Particle View 001
+    400082: Particle View 001 1
+    400084: Particle View 001 2
+    400086: Particle View 001 3
+    400088: Planet13
+    400090: Planet13 1
+    400092: Stone002
+    400094: Stone02
+    400096: Stone03
+    400098: Stone04
+    400100: tereno2
+    2300000: box006
+    2300002: box007
+    2300004: box01
+    2300006: Circle001
+    2300008: Circle001 1
+    2300010: Circle001 2
+    2300012: Circle001 3
+    2300014: Iceberg009
+    2300016: Iceberg011
+    2300018: Iceberg014
+    2300020: Iceberg016
+    2300022: Iceberg017
+    2300024: Iceberg018
+    2300026: Icethree026
+    2300028: Icethree027
+    2300030: Icethree042
+    2300032: Icethree043
+    2300034: Icethree046
+    2300036: Icethree047
+    2300038: Icethree048
+    2300040: Icethree049
+    2300042: Icethree052
+    2300044: Icethree059
+    2300046: Icethree072
+    2300048: Icethree073
+    2300050: Icethree074
+    2300052: Icethree075
+    2300054: Icethree076
+    2300056: Icethree077
+    2300058: Icethree078
+    2300060: Icethree079
+    2300062: Icethree080
+    2300064: Icethree081
+    2300066: Stone002
+    2300068: Stone02
+    2300070: Stone03
+    2300072: Stone04
+    2300074: tereno2
+    3300000: box006
+    3300002: box007
+    3300004: box01
+    3300006: Circle001
+    3300008: Circle001 1
+    3300010: Circle001 2
+    3300012: Circle001 3
+    3300014: Iceberg009
+    3300016: Iceberg011
+    3300018: Iceberg014
+    3300020: Iceberg016
+    3300022: Iceberg017
+    3300024: Iceberg018
+    3300026: Icethree026
+    3300028: Icethree027
+    3300030: Icethree042
+    3300032: Icethree043
+    3300034: Icethree046
+    3300036: Icethree047
+    3300038: Icethree048
+    3300040: Icethree049
+    3300042: Icethree052
+    3300044: Icethree059
+    3300046: Icethree072
+    3300048: Icethree073
+    3300050: Icethree074
+    3300052: Icethree075
+    3300054: Icethree076
+    3300056: Icethree077
+    3300058: Icethree078
+    3300060: Icethree079
+    3300062: Icethree080
+    3300064: Icethree081
+    3300066: Stone002
+    3300068: Stone02
+    3300070: Stone03
+    3300072: Stone04
+    3300074: tereno2
+    4300000: Circle001
+    4300002: Circle001
+    4300004: Circle001
+    4300006: Circle001
+    4300008: Iceberg009
+    4300010: Iceberg011
+    4300012: Iceberg014
+    4300014: Iceberg016
+    4300016: box01
+    4300018: Icethree026
+    4300020: Icethree027
+    4300022: Iceberg017
+    4300024: Iceberg018
+    4300026: Icethree042
+    4300028: Icethree043
+    4300030: Icethree046
+    4300032: Icethree047
+    4300034: Icethree048
+    4300036: Icethree049
+    4300038: Icethree052
+    4300040: Icethree059
+    4300042: Icethree072
+    4300044: Icethree073
+    4300046: Icethree074
+    4300048: Icethree075
+    4300050: Icethree076
+    4300052: Icethree077
+    4300054: tereno2
+    4300056: Stone04
+    4300058: Stone002
+    4300060: Stone02
+    4300062: Stone03
+    4300064: Icethree078
+    4300066: Icethree079
+    4300068: Icethree080
+    4300070: Icethree081
+    4300072: box006
+    4300074: box007
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: a1e29fbd8abe5bf46b398df70ede07d6
+timeCreated: 1460624055
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Animal bones1
+    100002: Bone3
+    100004: Camera002
+    100006: Camera002.Target
+    100008: Circle001
+    100010: Iceberg01
+    100012: Iceberg016
+    100014: Iceberg018
+    100016: Iceberg019
+    100018: Iceberg021
+    100020: Iceberg022
+    100022: Iceberg025
+    100024: Iceberg026
+    100026: Iceberg027
+    100028: //RootNode
+    100030: Object006
+    100032: Particle View 001
+    100034: Planet13
+    100036: tereno1
+    100038: Three100
+    100040: Three101
+    100042: Three102
+    100044: Three103
+    100046: Three104
+    100048: Three105
+    100050: Three106
+    100052: Three107
+    400000: Animal bones1
+    400002: Bone3
+    400004: Camera002
+    400006: Camera002.Target
+    400008: Circle001
+    400010: Iceberg01
+    400012: Iceberg016
+    400014: Iceberg018
+    400016: Iceberg019
+    400018: Iceberg021
+    400020: Iceberg022
+    400022: Iceberg025
+    400024: Iceberg026
+    400026: Iceberg027
+    400028: //RootNode
+    400030: Object006
+    400032: Particle View 001
+    400034: Planet13
+    400036: tereno1
+    400038: Three100
+    400040: Three101
+    400042: Three102
+    400044: Three103
+    400046: Three104
+    400048: Three105
+    400050: Three106
+    400052: Three107
+    2300000: Animal bones1
+    2300002: Circle001
+    2300004: Iceberg01
+    2300006: Iceberg016
+    2300008: Iceberg018
+    2300010: Iceberg019
+    2300012: Iceberg021
+    2300014: Iceberg022
+    2300016: Iceberg025
+    2300018: Iceberg026
+    2300020: Iceberg027
+    2300022: tereno1
+    2300024: Three100
+    2300026: Three101
+    2300028: Three102
+    2300030: Three103
+    2300032: Three104
+    2300034: Three105
+    2300036: Three106
+    2300038: Three107
+    3300000: Animal bones1
+    3300002: Circle001
+    3300004: Iceberg01
+    3300006: Iceberg016
+    3300008: Iceberg018
+    3300010: Iceberg019
+    3300012: Iceberg021
+    3300014: Iceberg022
+    3300016: Iceberg025
+    3300018: Iceberg026
+    3300020: Iceberg027
+    3300022: tereno1
+    3300024: Three100
+    3300026: Three101
+    3300028: Three102
+    3300030: Three103
+    3300032: Three104
+    3300034: Three105
+    3300036: Three106
+    3300038: Three107
+    4300000: tereno1
+    4300002: Circle001
+    4300004: Iceberg01
+    4300006: Iceberg016
+    4300008: Iceberg018
+    4300010: Iceberg019
+    4300012: Iceberg021
+    4300014: Iceberg022
+    4300016: Animal bones1
+    4300018: Iceberg025
+    4300020: Iceberg026
+    4300022: Iceberg027
+    4300024: Three100
+    4300026: Three101
+    4300028: Three102
+    4300030: Three103
+    4300032: Three104
+    4300034: Three105
+    4300036: Three106
+    4300038: Three107
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

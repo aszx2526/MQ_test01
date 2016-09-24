@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: 169c1d70b6b49ea4191674c88486444a
+timeCreated: 1460628130
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Animal bones1
+    100002: Camera002
+    100004: Camera002.Target
+    100006: Circle001
+    100008: Circle001 1
+    100010: Circle002
+    100012: Circle003
+    100014: Iceberg009
+    100016: Iceberg011
+    100018: Iceberg014
+    100020: Iceberg018
+    100022: Iceberg020
+    100024: Iceberg021
+    100026: Icethree104
+    100028: Icethree107
+    100030: Icethree108
+    100032: Icethree111
+    100034: Icethree112
+    100036: Icethree113
+    100038: Icethree114
+    100040: Icethree116
+    100042: Icethree118
+    100044: //RootNode
+    100046: Object006
+    100048: Object006 1
+    100050: Particle View 001
+    100052: Particle View 001 1
+    100054: Particle View 001 2
+    100056: Particle View 001 3
+    100058: tereno2
+    400000: Animal bones1
+    400002: Camera002
+    400004: Camera002.Target
+    400006: Circle001
+    400008: Circle001 1
+    400010: Circle002
+    400012: Circle003
+    400014: Iceberg009
+    400016: Iceberg011
+    400018: Iceberg014
+    400020: Iceberg018
+    400022: Iceberg020
+    400024: Iceberg021
+    400026: Icethree104
+    400028: Icethree107
+    400030: Icethree108
+    400032: Icethree111
+    400034: Icethree112
+    400036: Icethree113
+    400038: Icethree114
+    400040: Icethree116
+    400042: Icethree118
+    400044: //RootNode
+    400046: Object006
+    400048: Object006 1
+    400050: Particle View 001
+    400052: Particle View 001 1
+    400054: Particle View 001 2
+    400056: Particle View 001 3
+    400058: tereno2
+    2300000: Animal bones1
+    2300002: Circle001
+    2300004: Circle001 1
+    2300006: Circle002
+    2300008: Circle003
+    2300010: Iceberg009
+    2300012: Iceberg011
+    2300014: Iceberg014
+    2300016: Iceberg018
+    2300018: Iceberg020
+    2300020: Iceberg021
+    2300022: Icethree104
+    2300024: Icethree107
+    2300026: Icethree108
+    2300028: Icethree111
+    2300030: Icethree112
+    2300032: Icethree113
+    2300034: Icethree114
+    2300036: Icethree116
+    2300038: Icethree118
+    2300040: tereno2
+    3300000: Animal bones1
+    3300002: Circle001
+    3300004: Circle001 1
+    3300006: Circle002
+    3300008: Circle003
+    3300010: Iceberg009
+    3300012: Iceberg011
+    3300014: Iceberg014
+    3300016: Iceberg018
+    3300018: Iceberg020
+    3300020: Iceberg021
+    3300022: Icethree104
+    3300024: Icethree107
+    3300026: Icethree108
+    3300028: Icethree111
+    3300030: Icethree112
+    3300032: Icethree113
+    3300034: Icethree114
+    3300036: Icethree116
+    3300038: Icethree118
+    3300040: tereno2
+    4300000: Circle001
+    4300002: Circle001
+    4300004: Iceberg009
+    4300006: Iceberg011
+    4300008: Iceberg014
+    4300010: Iceberg018
+    4300012: Animal bones1
+    4300014: Iceberg020
+    4300016: Iceberg021
+    4300018: Circle002
+    4300020: Circle003
+    4300022: Icethree104
+    4300024: Icethree107
+    4300026: Icethree108
+    4300028: Icethree111
+    4300030: Icethree112
+    4300032: Icethree113
+    4300034: Icethree114
+    4300036: Icethree116
+    4300038: Icethree118
+    4300040: tereno2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
