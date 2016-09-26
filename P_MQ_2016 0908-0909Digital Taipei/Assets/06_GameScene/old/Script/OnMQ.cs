@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 public class OnMQ : MonoBehaviour {
-    public NavMeshAgent agent;
+    public UnityEngine.AI.NavMeshAgent agent;
     public GameObject goal;
     public GameObject whoIsChaseMe;
     public ParticleSystem[] myPTS; 
@@ -19,7 +19,7 @@ public class OnMQ : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         goal = GameObject.Find("Player");
         myMod = 3;
         //print("1=待機");

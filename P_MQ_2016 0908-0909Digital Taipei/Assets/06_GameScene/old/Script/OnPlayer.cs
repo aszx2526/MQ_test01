@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class OnPlayer : MonoBehaviour {
-    public NavMeshAgent agent;
+    public UnityEngine.AI.NavMeshAgent agent;
     public GameObject playersGoal;
     public GameObject whoIsChaseMe;
     public string mytitle;
@@ -16,7 +16,7 @@ public class OnPlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         myMod = 1;
     }
 	

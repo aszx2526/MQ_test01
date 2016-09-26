@@ -52,12 +52,12 @@ public class onHippo_AniController : MonoBehaviour {
     }
     public void ani_attack()
     {
-        myMod.GetComponent<NavMeshAgent>().speed = 0;
+        myMod.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = 0;
         myAniMod = 5;
     }
     public void ani_die()
     {
-        myMod.GetComponent<NavMeshAgent>().speed = 0;
+        myMod.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = 0;
         myAniMod = 6;
     }
     public void ani_idle()
@@ -66,7 +66,7 @@ public class onHippo_AniController : MonoBehaviour {
     }
     public void ani_injured()
     {
-        myMod.GetComponent<NavMeshAgent>().speed = 0;
+        myMod.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = 0;
         myAniMod = 4;
     }
     public void ani_move()
@@ -108,7 +108,7 @@ public class onHippo_AniController : MonoBehaviour {
                     meshTurnBack();
                     GetComponentInParent<OnMonster>().myMod = 0;
                     myAniTimer = 0;
-                    myMod.GetComponent<NavMeshAgent>().speed = mymymovespeed;
+                    myMod.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = mymymovespeed;
                 }
                 else {
                     meshTurnRed();
@@ -123,7 +123,7 @@ public class onHippo_AniController : MonoBehaviour {
                     GetComponentInParent<OnMonster>().myMod = 0;
                     GetComponentInParent<OnMonster>().isAttackFinish = true;
                     myAniTimer = 0;
-                    myMod.GetComponent<NavMeshAgent>().speed = mymymovespeed;
+                    myMod.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = mymymovespeed;
                 }
                 else {
                     meshTurnBack();

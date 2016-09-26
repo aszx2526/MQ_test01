@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 public class onMonsterVer3 : MonoBehaviour {
 
-    public NavMeshAgent agent;
+    public UnityEngine.AI.NavMeshAgent agent;
     public Collider[] attackTarget;
     [Header("頭上的字串")]
     public string mytitle;
@@ -103,7 +103,7 @@ public class onMonsterVer3 : MonoBehaviour {
         //myHPText_AfterHeadImage.text = "aaa";//myHP.ToString() + "/" + myFullHP.ToString();
         basicViewDistance = viewDistance + 1;
         // setTargetCube();
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         
         if (myPathfindingsetting.idleforever)
         {
