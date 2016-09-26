@@ -51,8 +51,8 @@ public class onMQ_AnimControll_Zombie : MonoBehaviour {
                 
                 */
                 int crithit = (int)Random.Range(myFather.GetComponent<onMQVer3>().myAttack * 2, myFather.GetComponent<onMQVer3>().myAttack * 2.8f);
-                onMonster3 = myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>();
-                onMonster3.Hitmob(crithit, 1);
+                //onMonster3 = myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>();
+                //onMonster3.Hitmob(crithit, 1);
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myHP -= (int)crithit;
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>().myHP -= (int)crithit;
             }
@@ -68,8 +68,8 @@ public class onMQ_AnimControll_Zombie : MonoBehaviour {
             if (a < myFather.GetComponent<onMQVer3>().myCritHit)
             {
                 int crithit = (int)Random.Range(myFather.GetComponent<onMQVer3>().myAttack * 2, myFather.GetComponent<onMQVer3>().myAttack * 2.8f);
-                onMonster3 = myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>();
-                onMonster3.Hitmob(crithit, 1);
+                //onMonster3 = myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>();
+                //onMonster3.Hitmob(crithit, 1);
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myHP -= (int)crithit;
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>().myHP -= (int)crithit;
             }
@@ -85,8 +85,8 @@ public class onMQ_AnimControll_Zombie : MonoBehaviour {
             if (a < myFather.GetComponent<onMQVer3>().myCritHit)
             {
                 int crithit = (int)Random.Range(myFather.GetComponent<onMQVer3>().myAttack * 2, myFather.GetComponent<onMQVer3>().myAttack * 2.8f);
-                onMonster3 = myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>();
-                onMonster3.Hitmob(crithit, 1);
+                //onMonster3 = myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>();
+                //onMonster3.Hitmob(crithit, 1);
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myHP -= (int)crithit;
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>().myHP -= (int)crithit;
             }
@@ -102,13 +102,14 @@ public class onMQ_AnimControll_Zombie : MonoBehaviour {
             if (a < myFather.GetComponent<onMQVer3>().myCritHit)
             {
                 int crithit = (int)Random.Range(myFather.GetComponent<onMQVer3>().myAttack * 2, myFather.GetComponent<onMQVer3>().myAttack * 2.8f);
-                onMonster3 = myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>();
-                onMonster3.Hitmob(crithit, 1);
+                //onMonster3 = myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>();
+                //onMonster3.Hitmob(crithit, 1);
                 GameObject.Find("hitpoint-4").GetComponent<OnLookAtPoint>().myHP -= crithit;
                 GameObject.Find("hitpoint-5").GetComponent<OnLookAtPoint>().myHP -= crithit;
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>().myHP -= crithit;
             }
             else {
+                onMonster3 = myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>();
                 onMonster3.Hitmob(myFather.GetComponent<onMQVer3>().myAttack, 0);
                 GameObject.Find("hitpoint-4").GetComponent<OnLookAtPoint>().myHP -= myFather.GetComponent<onMQVer3>().myAttack;
                 GameObject.Find("hitpoint-5").GetComponent<OnLookAtPoint>().myHP -= myFather.GetComponent<onMQVer3>().myAttack;
