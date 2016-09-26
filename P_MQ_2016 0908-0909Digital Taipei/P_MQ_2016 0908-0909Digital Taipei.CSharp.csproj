@@ -231,6 +231,7 @@
     <Compile Include="Assets\99_someThings\formovie\hehehaha.cs" />
     <Compile Include="Assets\99_someThings\lerp.cs" />
     <Compile Include="Assets\99_someThings\onPSForBombMQ.cs" />
+    <Compile Include="Assets\CameraTest\onCamera_dtg.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX2_Demo.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
