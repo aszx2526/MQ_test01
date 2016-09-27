@@ -13,18 +13,20 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.5.0b4</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
-    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Agogo\AppData\Local\Temp\vs411D.tmp\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_0;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;CROSS_PLATFORM_INPUT;MOBILE_INPUT</DefineConstants>
@@ -34,7 +36,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
-    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Agogo\AppData\Local\Temp\vs411D.tmp\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_0;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;CROSS_PLATFORM_INPUT;MOBILE_INPUT</DefineConstants>
@@ -223,10 +225,6 @@
     <Compile Include="Assets\07_forTest\scripts\textmove.cs" />
     <Compile Include="Assets\07_forTest\test02\OnCameraForPutMQ.cs" />
     <Compile Include="Assets\99_someThings\HSBCImageEffect.cs" />
-    <Compile Include="Assets\99_someThings\Plugins\Pixelplacement\iTween\Sample\MoveSample.cs" />
-    <Compile Include="Assets\99_someThings\Plugins\Pixelplacement\iTween\Sample\RotateSample.cs" />
-    <Compile Include="Assets\99_someThings\Plugins\Pixelplacement\iTween\Sample\SampleInfo.cs" />
-    <Compile Include="Assets\99_someThings\Plugins\Pixelplacement\iTween\iTween.cs" />
     <Compile Include="Assets\99_someThings\asdfasdf.cs" />
     <Compile Include="Assets\99_someThings\formovie\hehehaha.cs" />
     <Compile Include="Assets\99_someThings\lerp.cs" />
@@ -242,54 +240,8 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
-    <Compile Include="Assets\iTweenExamples\AccurateLob\Scripts\AccurateLob.cs" />
-    <Compile Include="Assets\iTweenExamples\AccurateLob\Scripts\Bomb.cs" />
-    <Compile Include="Assets\iTweenExamples\AnimatingGUITextures\Scripts\PresentationScreen.cs" />
-    <Compile Include="Assets\iTweenExamples\AnimatingGUITextures\Scripts\TitleScreen.cs" />
-    <Compile Include="Assets\iTweenExamples\AnimatingUnityGUI\Scripts\AnimatingUnityGUI.cs" />
-    <Compile Include="Assets\iTweenExamples\CallbacksExample\Scripts\CallbacksExample.cs" />
-    <Compile Include="Assets\iTweenExamples\CameraFadeExample\Scripts\AmbientMovement.cs" />
-    <Compile Include="Assets\iTweenExamples\CameraFadeExample\Scripts\CameraFadeExample.cs" />
-    <Compile Include="Assets\iTweenExamples\Flythrough\Scripts\FlythroughCameraController.cs" />
-    <Compile Include="Assets\iTweenExamples\Flythrough\Scripts\LookPoint.cs" />
-    <Compile Include="Assets\iTweenExamples\Flythrough\Scripts\LookTarget.cs" />
-    <Compile Include="Assets\iTweenExamples\Flythrough\Scripts\MovePoint.cs" />
-    <Compile Include="Assets\iTweenExamples\GridMovement\Scripts\GameBoardCSharp.cs" />
-    <Compile Include="Assets\iTweenExamples\GridMovement\Scripts\GamePieceCSharp.cs" />
-    <Compile Include="Assets\iTweenExamples\MemoryGame\Scripts\BoardControl.cs" />
-    <Compile Include="Assets\iTweenExamples\MemoryGame\Scripts\BoxControl.cs" />
-    <Compile Include="Assets\iTweenExamples\OrbitExample\Scripts\Path.cs" />
-    <Compile Include="Assets\iTweenExamples\OrbitExample\Scripts\Point.cs" />
-    <Compile Include="Assets\iTweenExamples\PathControlledCharacter\Scripts\Controller.cs" />
-    <Compile Include="Assets\iTweenExamples\PathControlledCharacter\Scripts\PathPoint.cs" />
-    <Compile Include="Assets\iTweenExamples\PathExample\Scripts\PathCameraController.cs" />
-    <Compile Include="Assets\iTweenExamples\PathExample\Scripts\PathExample.cs" />
-    <Compile Include="Assets\iTweenExamples\Platforms\Scripts\CameraController.cs" />
-    <Compile Include="Assets\iTweenExamples\Platforms\Scripts\CharController.cs" />
-    <Compile Include="Assets\iTweenExamples\Platforms\Scripts\DeathZone.cs" />
-    <Compile Include="Assets\iTweenExamples\Platforms\Scripts\InfiniteBackground.cs" />
-    <Compile Include="Assets\iTweenExamples\Platforms\Scripts\LightController.cs" />
-    <Compile Include="Assets\iTweenExamples\Platforms\Scripts\Platform.cs" />
-    <Compile Include="Assets\iTweenExamples\PunchAndStab\Scripts\Bolt.cs" />
-    <Compile Include="Assets\iTweenExamples\PunchAndStab\Scripts\Ticker.cs" />
-    <Compile Include="Assets\iTweenExamples\PutOnPathExample\Scripts\Gizmo.cs" />
-    <Compile Include="Assets\iTweenExamples\PutOnPathExample\Scripts\PutOnPathExample.cs" />
-    <Compile Include="Assets\iTweenExamples\RandomPathGeneration\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\iTweenExamples\RandomPathGeneration\Scripts\PathGenerator.cs" />
-    <Compile Include="Assets\iTweenExamples\RotatingUnityGUI\Scripts\RotatingUnityGUI.cs" />
-    <Compile Include="Assets\iTweenExamples\ScalingButton\Scripts\ScalingButton.cs" />
-    <Compile Include="Assets\iTweenExamples\SlidingMenu\Scripts\SlidingMenu.cs" />
-    <Compile Include="Assets\iTweenExamples\TurretExample\Scripts\Bound.cs" />
-    <Compile Include="Assets\iTweenExamples\TurretExample\Scripts\Crosshair.cs" />
-    <Compile Include="Assets\iTweenExamples\TurretExample\Scripts\Turret.cs" />
-    <Compile Include="Assets\iTweenExamples\UnevenTerrain\Scripts\Puppeteer.cs" />
-    <Compile Include="Assets\iTweenExamples\ValueToExample\Scripts\ValueToExample.cs" />
-    <Compile Include="Assets\iTweenExamples\WaypointUsage\Scripts\Waypoint.cs" />
-    <Compile Include="Assets\iTweenExamples\WaypointUsage\Scripts\WaypointExample.cs" />
-    <Compile Include="Assets\iTweenExamples\WorkingWithPhysics\Scripts\Bat.cs" />
-    <Compile Include="Assets\iTweenExamples\WorkingWithPhysics\Scripts\Brick.cs" />
-    <Compile Include="Assets\iTweenExamples\WorkingWithPhysics\Scripts\SimpleCameraFade.cs" />
     <Compile Include="Assets\onBTN_Battle.cs" />
+    <Compile Include="Assets\onMainCameraVer2.cs" />
     <Compile Include="Assets\onMonsterName.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -301,7 +253,6 @@
     <None Include="Assets\07_forTest\Shooter\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
     <None Include="Assets\07_forTest\Shooter\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\99_someThings\HSBC Effect.shader" />
-    <None Include="Assets\99_someThings\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
     <None Include="Assets\99_someThings\aaaaaaaaaaaaaa.shader" />
     <None Include="Assets\99_someThings\hehehaha.shader" />
     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />

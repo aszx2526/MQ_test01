@@ -5,71 +5,77 @@ using UnityEngine;
 public class onCamera_dtg : MonoBehaviour {
     public float myCameraRotationSpeed;
     public int myCameraMod;
+    public Camera myMainCamera;
     public GameObject myFather;
+    public GameObject[] theLookAtPointOnMonster;
+    public GameObject myLookAtPoint;
+    public bool isMoveTime;
+    public float myZoonSpeed;
+
+    public float myPosY;
     // Use this for initialization
     void Start () {
-		
-	}
+        myMainCamera = GameObject.Find("MainCamera").gameObject.GetComponent<Camera>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetMouseButtonDown(0)) {
-            if (myCameraMod > 3) { myCameraMod = 0; }
-            else {
-                Quaternion rotate = myFather.transform.rotation;
-                print("rotate to vector3 = " + Quaternion.ToEulerAngles(rotate));
-                
-                myCameraMod++;
-            }
-            //iTween.RotateTo(gameObject, new Vector3(0, 10, 0), 1);
-            //transform.Rotate(new Vector3(0, 1, 0));
-
-        }
-        if (Input.GetMouseButton(1)) {
-            transform.Rotate(new Vector3(0, -1, 0));
+            isMoveTime = true;
+             if (myCameraMod > 3) { myCameraMod = 0; }
+             else {
+                 myCameraMod++;
+             }
         }
         CameraRotationFN();
+        /*print(transform.position);
+        Vector3 aaa = transform.position;
+        aaa.y = myPosY;
+        transform.position = Vector3.Lerp(transform.position, aaa, Time.deltaTime * myCameraRotationSpeed);*/
     }
-
-    /*
-    大眼   ->rotation(0,0,0)      position(0,0.035,0)   camera Fild of View:30
-    左副眼 ->rotation(0,-115,0)   position(0,,0)   camera Fild of View: 15
-    左翅膀 ->rotation(0,-48,0)       position(0,,0)   camera Fild of View:
-    右副眼 ->rotation(0,98,0)       position(0,,0)   camera Fild of View:
-    右翅膀 ->rotation(0,60,0)       position(0,,0)   camera Fild of View:
-        
-        */
     public void CameraRotationFN() {
-        Quaternion rotate = myFather.transform.rotation;
-        
+
         switch (myCameraMod) {
             case 0:
-                //rotate = Quaternion.Euler(0, 0, 0);
-                //gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, rotate, Time.deltaTime * myCameraRotationSpeed);
-                Vector3 aa = Quaternion.ToEulerAngles(rotate);
-                iTween.RotateTo(gameObject, aa, 1);
+                myCameraRotateFN(0,30,3.8f);
                 break;
             case 1:
-                //rotate = Quaternion.Euler(0, -115, 0);
-                //rotate.y = Quaternion.
-                gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, rotate, Time.deltaTime * myCameraRotationSpeed);
-                //iTween.RotateTo(gameObject, new Vector3(0, -115, 0), 1);
+                myCameraRotateFN(-1.3f,15,4.5f);
                 break;
             case 2:
-                rotate = Quaternion.Euler(0, -48, 0);
-                gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, rotate, Time.deltaTime * myCameraRotationSpeed);
-                //iTween.RotateTo(gameObject, new Vector3(0, -48, 0), 1);
+                myCameraRotateFN(-0.5f,23,3);
                 break;
             case 3:
-                rotate = Quaternion.Euler(0, 98, 0);
-                gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, rotate, Time.deltaTime * myCameraRotationSpeed);
-                //iTween.RotateTo(gameObject, new Vector3(0, 98, 0), 1);
+                myCameraRotateFN(1f,15,5);
                 break;
             case 4:
-                rotate = Quaternion.Euler(0, 60, 0);
-                gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, rotate, Time.deltaTime * myCameraRotationSpeed);
-                //iTween.RotateTo(gameObject, new Vector3(0, 60, 0), 1);
+                myCameraRotateFN(0.5f,23,3);
                 break;
+        }
+        myCameraLookAtPointMoveFN();
+    }
+    public void myCameraRotateFN(float rotateValue,float myfieldOfView, float myPosYTrimming) {
+        //旋轉
+        Quaternion a = myFather.transform.rotation;
+        a.y = rotateValue;
+        transform.rotation = Quaternion.Lerp(transform.rotation, a, Time.deltaTime * myCameraRotationSpeed);
+
+        //縮放鏡頭
+        if (myMainCamera.fieldOfView > myfieldOfView) { myMainCamera.fieldOfView -= Time.deltaTime * myZoonSpeed; }
+        else if (myMainCamera.fieldOfView < myfieldOfView-1) { myMainCamera.fieldOfView += Time.deltaTime * myZoonSpeed; }
+        else { myMainCamera.fieldOfView = myfieldOfView; }
+
+        Vector3 myPos = myFather.transform.position;
+        myPos.y = myPosYTrimming;
+        transform.position = Vector3.Lerp(transform.position, myPos, Time.deltaTime * myCameraRotationSpeed);
+    }
+    public void myCameraLookAtPointMoveFN() {
+        if (Vector3.Distance(myLookAtPoint.transform.position, theLookAtPointOnMonster[myCameraMod].transform.position) < 0.1)
+        {
+            isMoveTime = false;
+        }
+        else {
+            if(isMoveTime)myLookAtPoint.transform.position = Vector3.Lerp(myLookAtPoint.transform.position, theLookAtPointOnMonster[myCameraMod].transform.position, Time.deltaTime * myCameraRotationSpeed);
         }
     }
 }

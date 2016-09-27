@@ -146,7 +146,6 @@
     <None Include="Assets\07_forTest\Shooter\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
     <None Include="Assets\07_forTest\Shooter\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\99_someThings\HSBC Effect.shader" />
-    <None Include="Assets\99_someThings\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
     <None Include="Assets\99_someThings\aaaaaaaaaaaaaa.shader" />
     <None Include="Assets\99_someThings\hehehaha.shader" />
     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
