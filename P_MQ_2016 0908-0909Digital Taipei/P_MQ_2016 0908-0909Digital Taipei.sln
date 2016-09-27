@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P_MQ_2016 0908-0909Digital Taipei.CSharp", "P_MQ_2016 0908-0909Digital Taipei.CSharp.csproj", "{6937177E-C98A-9323-F90D-4C2A603826D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P_MQ_2016 0908-0909Digital Taipei.CSharp.Editor", "P_MQ_2016 0908-0909Digital Taipei.CSharp.Editor.csproj", "{A0392679-EB5B-52AC-C923-0033EA02145F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6937177E-C98A-9323-F90D-4C2A603826D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6937177E-C98A-9323-F90D-4C2A603826D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6937177E-C98A-9323-F90D-4C2A603826D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6937177E-C98A-9323-F90D-4C2A603826D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0392679-EB5B-52AC-C923-0033EA02145F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0392679-EB5B-52AC-C923-0033EA02145F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0392679-EB5B-52AC-C923-0033EA02145F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0392679-EB5B-52AC-C923-0033EA02145F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -47,6 +47,8 @@ public class onMQVer3 : MonoBehaviour {
     float deadtimer;
 
     Vector3 myTargetPointRandom;
+
+    public GameObject myCameraVer2;
     // Use this for initialization
     void Start()
     {
@@ -54,7 +56,9 @@ public class onMQVer3 : MonoBehaviour {
         //DeadEffect.SetActive(false);
         //green.SetActive(false);
         transform.localScale = new Vector3(myScaleControl, myScaleControl, myScaleControl);
-        myTargetPoint = GameObject.Find("MainCamera").GetComponent<OnCameraLookAt>().HotPointList[GameObject.Find("MainCamera").GetComponent<OnCameraLookAt>().cameraMod];
+        //myTargetPoint = GameObject.Find("MainCamera").GetComponent<OnCameraLookAt>().HotPointList[GameObject.Find("MainCamera").GetComponent<OnCameraLookAt>().cameraMod];
+        myCameraVer2 = GameObject.Find("CameraVer2_DTG");
+        myTargetPoint = myCameraVer2.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[myCameraVer2.GetComponent<onCamera_dtg>().myCameraMod];
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         myTargetPointRandom = myTargetPoint.transform.position;
         /*myTargetPointRandom.x = Random.Range(myTargetPoint.transform.position.x - 0.05f, myTargetPoint.transform.position.x + 0.05f);

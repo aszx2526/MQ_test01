@@ -125,4 +125,6 @@ public class onCanvasForUIControll : MonoBehaviour {
         myAudioSource.enabled = false;
         myAudioSource.enabled = true;
     }
+    public void Testbtn1() { GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().SendMessage("changeViewControllFN"); }
+    public void Testbtn2() { GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().SendMessage("myCreatAMQ"); }
 }

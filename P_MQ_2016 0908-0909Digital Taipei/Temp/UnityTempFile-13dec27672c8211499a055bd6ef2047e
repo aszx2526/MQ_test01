@@ -1,0 +1,235 @@
+-debug
+-target:library
+-nowarn:0169
+-langversion:4
+-out:Temp/Assembly-CSharp.dll
+-r:"C:/Program Files/Unity 5.5.0b4/Editor/Data/PlaybackEngines/AndroidPlayer/Variations/mono/Managed/UnityEngine.dll"
+-r:"C:/Program Files/Unity 5.5.0b4/Editor/Data/UnityExtensions/Unity/GUISystem/Standalone/UnityEngine.UI.dll"
+-r:"C:/Program Files/Unity 5.5.0b4/Editor/Data/UnityExtensions/Unity/Networking/Standalone/UnityEngine.Networking.dll"
+-r:"C:/Program Files/Unity 5.5.0b4/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll"
+-define:UNITY_5_3_OR_NEWER
+-define:UNITY_5_4_OR_NEWER
+-define:UNITY_5_5_OR_NEWER
+-define:UNITY_5_5_0
+-define:UNITY_5_5
+-define:UNITY_5
+-define:ENABLE_AUDIO
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_GENERICS
+-define:ENABLE_MICROPHONE
+-define:ENABLE_MULTIPLE_DISPLAYS
+-define:ENABLE_PHYSICS
+-define:ENABLE_SPRITERENDERER_FLIPPING
+-define:ENABLE_SPRITES
+-define:ENABLE_TERRAIN
+-define:ENABLE_RAKNET
+-define:ENABLE_UNET
+-define:ENABLE_LZMA
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_WEBCAM
+-define:ENABLE_WWW
+-define:ENABLE_CLOUD_SERVICES_COLLAB
+-define:ENABLE_CLOUD_SERVICES_ADS
+-define:ENABLE_CLOUD_HUB
+-define:ENABLE_CLOUD_PROJECT_ID
+-define:ENABLE_CLOUD_SERVICES_UNET
+-define:ENABLE_CLOUD_SERVICES_BUILD
+-define:ENABLE_CLOUD_LICENSE
+-define:ENABLE_EDITOR_METRICS
+-define:ENABLE_EDITOR_METRICS_CACHING
+-define:INCLUDE_DYNAMIC_GI
+-define:INCLUDE_GI
+-define:PLATFORM_SUPPORTS_MONO
+-define:INCLUDE_PUBNUB
+-define:ENABLE_PLAYMODE_TESTS_RUNNER
+-define:ENABLE_SCRIPTING_NEW_CSHARP_COMPILER
+-define:UNITY_ANDROID
+-define:ENABLE_SUBSTANCE
+-define:UNITY_ANDROID_API
+-define:ENABLE_EGL
+-define:ENABLE_NETWORK
+-define:ENABLE_RUNTIME_GI
+-define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+-define:ENABLE_UNITYWEBREQUEST
+-define:ENABLE_CLOUD_SERVICES
+-define:ENABLE_CLOUD_SERVICES_ANALYTICS
+-define:ENABLE_CLOUD_SERVICES_PURCHASING
+-define:ENABLE_CLOUD_SERVICES_CRASH_REPORTING
+-define:PLATFORM_SUPPORTS_ADS_ID
+-define:UNITY_CAN_SHOW_SPLASH_SCREEN
+-define:ENABLE_VIDEO
+-define:ENABLE_VR
+-define:ENABLE_UNITYADS_RUNTIME
+-define:UNITY_UNITYADS_API
+-define:ENABLE_MONO
+-define:CROSS_PLATFORM_INPUT
+-define:MOBILE_INPUT
+Assets/01_first/scripts/onfirst_loading.cs
+Assets/02_mainscene/Script/MainScreenController.cs
+Assets/02_mainscene/Script/PinchToZoom.cs
+Assets/02_mainscene/Script/PlayerLevelManager.cs
+Assets/02_mainscene/Script/SourceManager.cs
+Assets/02_mainscene/Script/onBigMap_ice.cs
+Assets/02_mainscene/Script/onCamera_GameMainController.cs
+Assets/02_mainscene/Script/onGifObject.cs
+Assets/02_mainscene/Script/onMap.cs
+Assets/02_mainscene/Script/onUICompass.cs
+Assets/02_mainscene/Script/onUIForHWasScreen.cs
+Assets/02_mainscene/Script/onUI_compassstar.cs
+Assets/02_mainscene/Script/onUI_downright.cs
+"Assets/02_mainscene/Tower+Story/Scripts/onLikeButton.cs"
+Assets/03_breed/anscript/touchControll.cs
+Assets/03_breed/script/CanvasControll.cs
+Assets/03_breed/script/LibraryController.cs
+Assets/03_breed/script/SceneControll.cs
+Assets/03_breed/script/onBreed_ScrollView.cs
+Assets/03_breed/script/onImage_two.cs
+Assets/04_shop/onSceneController.cs
+Assets/05_TeamSetting/Scripts/DragHandeler.cs
+Assets/05_TeamSetting/Scripts/Slot.cs
+Assets/05_TeamSetting/Scripts/onArmy_ScrollView.cs
+Assets/05_TeamSetting/Scripts/onInTeam_forTeamPickUp.cs
+Assets/05_TeamSetting/Scripts/onSlot.cs
+Assets/05_TeamSetting/Scripts/onSlot_vtow.cs
+Assets/05_TeamSetting/Scripts/onTeamLibrarySlot.cs
+Assets/05_TeamSetting/Scripts/onTeam_left_forTeamControl.cs
+Assets/05_TeamSetting/Scripts/onTeam_top.cs
+Assets/05_TeamSetting/Scripts/onValueSettingSlider.cs
+Assets/06_GameScene/Ver3/FBX/MQ/Movie_AnimController/onMQ_Movie.cs
+Assets/06_GameScene/Ver3/FBX/MQ/Movie_AnimController/onbigeyeanim.cs
+Assets/06_GameScene/Ver3/FBX/MQ/Movie_AnimController/onicebearmovie.cs
+Assets/06_GameScene/Ver3/FBX/MQ/Movie_AnimController/onrabbitformovie.cs
+Assets/06_GameScene/Ver3/FBX/Monster/IceBear/onIceBearForAniControll.cs
+Assets/06_GameScene/Ver3/FBX/Monster/bigeye0808/killsomething.cs
+Assets/06_GameScene/Ver3/FBX/Monster/bigeye0808/onBigeyeForAniControll.cs
+Assets/06_GameScene/Ver3/FBX/Monster/bigeye0808/onBigeyeForAniControllVer2.cs
+Assets/06_GameScene/Ver3/Materials/LoadingUsing/onLoadingScene.cs
+Assets/06_GameScene/Ver3/Scripts/Blip.cs
+Assets/06_GameScene/Ver3/Scripts/MiniMap.cs
+Assets/06_GameScene/Ver3/Scripts/OnCameraForShootMQ.cs
+Assets/06_GameScene/Ver3/Scripts/OnCameraLookAt.cs
+Assets/06_GameScene/Ver3/Scripts/OnLookAtPoint.cs
+Assets/06_GameScene/Ver3/Scripts/OnMiniMap.cs
+Assets/06_GameScene/Ver3/Scripts/onCameraLookController_Bigeye.cs
+Assets/06_GameScene/Ver3/Scripts/onCanvasForUIControll.cs
+Assets/06_GameScene/Ver3/Scripts/onMQ/onMQVer3.cs
+Assets/06_GameScene/Ver3/Scripts/onMQ/onMQ_AnimControll_Basic.cs
+Assets/06_GameScene/Ver3/Scripts/onMQ/onMQ_AnimControll_Boom.cs
+Assets/06_GameScene/Ver3/Scripts/onMQ/onMQ_AnimControll_Ice.cs
+Assets/06_GameScene/Ver3/Scripts/onMQ/onMQ_AnimControll_Wizard.cs
+Assets/06_GameScene/Ver3/Scripts/onMQ/onMQ_AnimControll_Zombie.cs
+Assets/06_GameScene/Ver3/Scripts/onMonsterVer3.cs
+Assets/06_GameScene/Ver3/Scripts/onTriggerMQIn.cs
+Assets/06_GameScene/Ver3/Scripts/onUI_5Skill.cs
+Assets/06_GameScene/old/Script/OnCameraForDrag.cs
+Assets/06_GameScene/old/Script/OnCameraForMainControll.cs
+Assets/06_GameScene/old/Script/OnITNFOT.cs
+Assets/06_GameScene/old/Script/OnMQ.cs
+Assets/06_GameScene/old/Script/OnMonster.cs
+Assets/06_GameScene/old/Script/OnMonsterATTG.cs
+Assets/06_GameScene/old/Script/OnPlayer.cs
+Assets/06_GameScene/old/Script/OnTextForHP.cs
+Assets/06_GameScene/old/Script/OnTheDoor.cs
+Assets/06_GameScene/old/Script/OnThreeAsWall.cs
+"Assets/06_GameScene/old/Script/onModel for animation controller/OnIceBearForTest.cs"
+"Assets/06_GameScene/old/Script/onModel for animation controller/onBear_Anicontroller.cs"
+"Assets/06_GameScene/old/Script/onModel for animation controller/onBird_AniController.cs"
+"Assets/06_GameScene/old/Script/onModel for animation controller/onCactaceae_AniController.cs"
+"Assets/06_GameScene/old/Script/onModel for animation controller/onFunsue_AniController.cs"
+"Assets/06_GameScene/old/Script/onModel for animation controller/onHippo_AniController.cs"
+"Assets/06_GameScene/old/Script/onModel for animation controller/onIceBear_AniController.cs"
+"Assets/06_GameScene/old/Script/onModel for animation controller/onMudBoss_AniController.cs"
+"Assets/06_GameScene/old/Script/onModel for animation controller/onMud_AniController.cs"
+"Assets/06_GameScene/old/Script/onModel for animation controller/onPenguin_AniController.cs"
+"Assets/06_GameScene/old/Script/onModel for animation controller/onSnail_AniController.cs"
+"Assets/06_GameScene/old/Script/onModel for animation controller/onspider_AniController.cs"
+Assets/06_GameScene/old/UI_storymovie/StoryMovie/OnCanvas.cs
+Assets/06_GameScene/onHitUI.cs
+Assets/07_forTest/Shooter/1/OnBullet.cs
+Assets/07_forTest/Shooter/1/OnShooter.cs
+Assets/07_forTest/Shooter/1/OnShooterForEnemy.cs
+Assets/07_forTest/Shooter/1/OnShooterForPlayer.cs
+Assets/07_forTest/Shooter/1/OnTarget.cs
+Assets/07_forTest/Shooter/OnCamera.cs
+Assets/07_forTest/Shooter/OnCameraMove.cs
+Assets/07_forTest/Shooter/OnTargetCreater.cs
+"Assets/07_forTest/Shooter/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Characters/FirstPersonCharacter/Scripts/HeadBob.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Characters/FirstPersonCharacter/Scripts/MouseLook.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Characters/FirstPersonCharacter/Scripts/RigidbodyFirstPersonController.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Characters/RollerBall/Scripts/Ball.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Characters/RollerBall/Scripts/BallUserControl.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Characters/ThirdPersonCharacter/Scripts/AICharacterControl.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Characters/ThirdPersonCharacter/Scripts/ThirdPersonCharacter.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Characters/ThirdPersonCharacter/Scripts/ThirdPersonUserControl.cs"
+"Assets/07_forTest/Shooter/Standard Assets/CrossPlatformInput/Scripts/AxisTouchButton.cs"
+"Assets/07_forTest/Shooter/Standard Assets/CrossPlatformInput/Scripts/ButtonHandler.cs"
+"Assets/07_forTest/Shooter/Standard Assets/CrossPlatformInput/Scripts/CrossPlatformInputManager.cs"
+"Assets/07_forTest/Shooter/Standard Assets/CrossPlatformInput/Scripts/InputAxisScrollbar.cs"
+"Assets/07_forTest/Shooter/Standard Assets/CrossPlatformInput/Scripts/Joystick.cs"
+"Assets/07_forTest/Shooter/Standard Assets/CrossPlatformInput/Scripts/MobileControlRig.cs"
+"Assets/07_forTest/Shooter/Standard Assets/CrossPlatformInput/Scripts/PlatformSpecific/MobileInput.cs"
+"Assets/07_forTest/Shooter/Standard Assets/CrossPlatformInput/Scripts/PlatformSpecific/StandaloneInput.cs"
+"Assets/07_forTest/Shooter/Standard Assets/CrossPlatformInput/Scripts/TiltInput.cs"
+"Assets/07_forTest/Shooter/Standard Assets/CrossPlatformInput/Scripts/TouchPad.cs"
+"Assets/07_forTest/Shooter/Standard Assets/CrossPlatformInput/Scripts/VirtualInput.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/ActivateTrigger.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/AlphaButtonClickMask.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/AutoMobileShaderSwitch.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/AutoMoveAndRotate.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/CameraRefocus.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/CurveControlledBob.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/DragRigidbody.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/DynamicShadowSettings.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/EventSystemChecker.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/FOVKick.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/FPSCounter.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/FollowTarget.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/ForcedReset.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/LerpControlledBob.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/ObjectResetter.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/ParticleSystemDestroyer.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/PlatformSpecificContent.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/SimpleActivatorMenu.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/SimpleMouseRotator.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/SmoothFollow.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/TimedObjectActivator.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/TimedObjectDestructor.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/WaypointCircuit.cs"
+"Assets/07_forTest/Shooter/Standard Assets/Utility/WaypointProgressTracker.cs"
+Assets/07_forTest/V3/scripts/OnPointForHP.cs
+Assets/07_forTest/V3/scripts/OnTimer.cs
+Assets/07_forTest/scripts/onImage.cs
+Assets/07_forTest/scripts/onMainCamera.cs
+Assets/07_forTest/scripts/onSliderTestforUI.cs
+Assets/07_forTest/scripts/onThree.cs
+Assets/07_forTest/scripts/textmove.cs
+Assets/07_forTest/test02/OnCameraForPutMQ.cs
+Assets/99_someThings/HSBCImageEffect.cs
+Assets/99_someThings/asdfasdf.cs
+Assets/99_someThings/formovie/hehehaha.cs
+Assets/99_someThings/lerp.cs
+Assets/99_someThings/onPSForBombMQ.cs
+Assets/CameraTest/NewBehaviourScript.cs
+Assets/CameraTest/onCameraVer2_MobileControll.cs
+Assets/CameraTest/onCamera_dtg.cs
+"Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX2_Demo.cs"
+"Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RandomDir.cs"
+"Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RotateCamera.cs"
+"Assets/JMO Assets/Cartoon FX/Scripts/CFX2_AutoRotate.cs"
+"Assets/JMO Assets/Cartoon FX/Scripts/CFX_AutoDestructShuriken.cs"
+"Assets/JMO Assets/Cartoon FX/Scripts/CFX_AutodestructWhenNoChildren.cs"
+"Assets/JMO Assets/Cartoon FX/Scripts/CFX_InspectorHelp.cs"
+"Assets/JMO Assets/Cartoon FX/Scripts/CFX_LightIntensityFade.cs"
+"Assets/JMO Assets/Cartoon FX/Scripts/CFX_ShurikenThreadFix.cs"
+"Assets/JMO Assets/Cartoon FX/Spawn System/CFX_SpawnSystem.cs"
+Assets/onBTN_Battle.cs
+Assets/onMainCameraVer2.cs
+Assets/onMonsterName.cs
+-r:"C:\Program Files\Unity 5.5.0b4\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Runtime.Serialization.dll"
+-r:"C:\Program Files\Unity 5.5.0b4\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Xml.Linq.dll"
+-r:"C:\Program Files\Unity 5.5.0b4\Editor\Data\MonoBleedingEdge\lib\mono\unity\UnityScript.dll"
+-r:"C:\Program Files\Unity 5.5.0b4\Editor\Data\MonoBleedingEdge\lib\mono\unity\UnityScript.Lang.dll"
+-r:"C:\Program Files\Unity 5.5.0b4\Editor\Data\MonoBleedingEdge\lib\mono\unity\Boo.Lang.dll"
+-sdk:unity

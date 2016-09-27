@@ -23,18 +23,26 @@ public class onCamera_dtg : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown(0)) {
-            isMoveTime = true;
-             if (myCameraMod > 3) { myCameraMod = 0; }
-             else {
-                 myCameraMod++;
-             }
-        }
+        /*if (Input.GetMouseButtonDown(0)) {
+            changeViewControllFN();
+        }*/
         CameraRotationFN();
-        /*print(transform.position);
-        Vector3 aaa = transform.position;
-        aaa.y = myPosY;
-        transform.position = Vector3.Lerp(transform.position, aaa, Time.deltaTime * myCameraRotationSpeed);*/
+    }
+    public void ScrollViewLeftControllFN()
+    {
+        isMoveTime = true;
+        if (myCameraMod > 3) { myCameraMod = 0; }
+        else {
+            myCameraMod++;
+        }
+    }
+    public void ScrollViewRightControllFN()
+    {
+        isMoveTime = true;
+        if (myCameraMod < 1) { myCameraMod = 4; }
+        else {
+            myCameraMod--;
+        }
     }
     public float testy;
     public void CameraRotationFN() {

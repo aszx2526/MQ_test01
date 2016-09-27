@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 public class OnCameraForShootMQ : MonoBehaviour
 {
-    public GameObject myFirePoint;
+    public GameObject[] myFirePoint;
     public GameObject myTargetPoint;
     public GameObject[] myBullet;
     public int myTeamBTNClick;
@@ -47,7 +47,7 @@ public class OnCameraForShootMQ : MonoBehaviour
     public AudioSource myAudioSource;
     void Start()
     {
-        myAudioSource = gameObject.GetComponent<AudioSource>();
+        /*myAudioSource = gameObject.GetComponent<AudioSource>();
         winlose = GameObject.Find("winlose").GetComponent<Text>();
         winlose.gameObject.SetActive(false);
         youlose = GameObject.Find("youlose").GetComponent<Text>();
@@ -56,13 +56,13 @@ public class OnCameraForShootMQ : MonoBehaviour
         {
             myCDBlack[a].SetActive(false);
             mySkillBTN[a].SetActive(false);
-        }
+        }*/
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        /*
         if (isSuperStarTime)
         {
             if (isSuperStarTimer >= 5)
@@ -85,32 +85,44 @@ public class OnCameraForShootMQ : MonoBehaviour
                 youlose.gameObject.SetActive(true);
                 print("all MQ is over so you are lose!!!!!!!!!!");
             }
-        }
+        }*/
+
+       /* if (Input.GetKeyDown(KeyCode.Space)) {
+            myCreatAMQ();
+        }*/
+
         //PlayerFunction();
         //CheckIsWin();
+        /*
         myCheckIsWhichTeam();
         myTeamCDController();
         myAmountUpdate();//看看各隊伍剩下多少蚊子
-        mySkillCheck();//看看各隊伍有多少蚊子
+        mySkillCheck();//看看各隊伍有多少蚊子*/
     }
-//生蚊子的韓式
+    //生蚊子的韓式
+    public int a;
     public void myCreatAMQ()
     {
-        if (myABulletCount > 0)
+      /*  if (myABulletCount > 0)
         {
             myTimer += Time.deltaTime;
             if (myTimer >= 0.1)
             {
                 myTimer = 0;
-                Vector3 a = myFirePoint.transform.forward;
+                */
+                /*Vector3 a = myFirePoint.transform.forward;
                 a.y = Random.Range(myFirePoint.transform.position.y - 5, myFirePoint.transform.position.y + 5);
-                a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);
-                Instantiate(myBullet[myTeamBTNClick - 1], a, Quaternion.identity);//生蚊子
-                myHowManyMQOnScene++;//數蚊子
-                myABulletCount--;
-            }
-        }
-        else { print("沒MQ...."); }
+                a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);*/
+                a = Random.Range(0, 5);
+        //Instantiate(myBullet[myTeamBTNClick - 1], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
+        Instantiate(myBullet[0], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
+
+        //myHowManyMQOnScene++;//數蚊子
+        //myABulletCount--;
+        /*
+    }
+}
+else { print("沒MQ...."); }*/
     }
     public void myCreatBMQ()
     {
@@ -120,10 +132,11 @@ public class OnCameraForShootMQ : MonoBehaviour
             if (myTimer >= 0.1)
             {
                 myTimer = 0;
-                Vector3 a = myFirePoint.transform.forward;
+                /*Vector3 a = myFirePoint.transform.forward;
                 a.y = Random.Range(myFirePoint.transform.position.y - 5, myFirePoint.transform.position.y + 5);
-                a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);
-                Instantiate(myBullet[myTeamBTNClick - 1], a, Quaternion.identity);//生蚊子
+                a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);*/
+                int a = Random.Range(0, 6);
+                Instantiate(myBullet[myTeamBTNClick - 1], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
                 myHowManyMQOnScene++;//數蚊子
                 myBBulletCount--;
             }
@@ -138,10 +151,11 @@ public class OnCameraForShootMQ : MonoBehaviour
             if (myTimer >= 0.1)
             {
                 myTimer = 0;
-                Vector3 a = myFirePoint.transform.forward;
-                a.y = Random.Range(myFirePoint.transform.position.y - 5, myFirePoint.transform.position.y + 5);
-                a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);
-                Instantiate(myBullet[myTeamBTNClick - 1], a, Quaternion.identity);//生蚊子
+                /* Vector3 a = myFirePoint.transform.forward;
+                 a.y = Random.Range(myFirePoint.transform.position.y - 5, myFirePoint.transform.position.y + 5);
+                 a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);*/
+                int a = Random.Range(0, 6);
+                Instantiate(myBullet[myTeamBTNClick - 1], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
                 myHowManyMQOnScene++;//數蚊子
                 myCBulletCount--;
             }
@@ -156,10 +170,11 @@ public class OnCameraForShootMQ : MonoBehaviour
             if (myTimer >= 0.1)
             {
                 myTimer = 0;
-                Vector3 a = myFirePoint.transform.forward;
+                /*Vector3 a = myFirePoint.transform.forward;
                 a.y = Random.Range(myFirePoint.transform.position.y - 5, myFirePoint.transform.position.y + 5);
-                a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);
-                Instantiate(myBullet[myTeamBTNClick - 1], a, Quaternion.identity);//生蚊子
+                a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);*/
+                int a = Random.Range(0, 6);
+                Instantiate(myBullet[myTeamBTNClick - 1],myFirePoint[a].transform.position , Quaternion.identity);//生蚊子
                 myHowManyMQOnScene++;//數蚊子
                 myDBulletCount--;
             }
@@ -174,10 +189,11 @@ public class OnCameraForShootMQ : MonoBehaviour
             if (myTimer >= 0.1)
             {
                 myTimer = 0;
-                Vector3 a = myFirePoint.transform.forward;
+                /*Vector3 a = myFirePoint.transform.forward;
                 a.y = Random.Range(myFirePoint.transform.position.y - 5, myFirePoint.transform.position.y + 5);
-                a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);
-                Instantiate(myBullet[myTeamBTNClick - 1], a, Quaternion.identity);//生蚊子
+                a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);*/
+                int a = Random.Range(0, 6);
+                Instantiate(myBullet[myTeamBTNClick - 1], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
                 myHowManyMQOnScene++;//數蚊子
                 myEBulletCount--;
             }
