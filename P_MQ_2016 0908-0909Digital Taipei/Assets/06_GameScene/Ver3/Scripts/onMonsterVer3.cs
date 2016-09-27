@@ -134,8 +134,8 @@ public class onMonsterVer3 : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart)
-        {
+       /* if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart)
+        {*/
             myHPText_AfterHeadImage.GetComponent<Text>().text = myHP.ToString() + "/" + myFullHP.ToString();
             myMonsterModController();
             if (myHP <= 1)
@@ -156,7 +156,7 @@ public class onMonsterVer3 : MonoBehaviour {
             {
                 isAttackFinish = false;
             }
-        }
+       // }
     }
     public void myMonsterModController()
     {

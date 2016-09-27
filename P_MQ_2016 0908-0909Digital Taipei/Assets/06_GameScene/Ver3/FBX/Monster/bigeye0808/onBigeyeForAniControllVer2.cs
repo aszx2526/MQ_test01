@@ -68,21 +68,12 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     }
     void Update()
     {
-        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { 
+        //if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { 
             myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
             myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;
-            //mytextGroup.text = "第「" + myModControll + "」組的組合動畫";
-            //mytextAnimMod.text = "動畫編號「" + myAniMod + "」";
-
-
             myAniControll();
-            /* if (isNeedToPlayBigeyeBreakMovie) { myBigeyeModControll(); }
-             else {*/
             myBigeyeAttackMod();
-            // }
-
-            //myBigeyeModControll();
-        }
+        //}
 
     }
     public void myBigeyeSkill1_basic_BigeyeAttack()
