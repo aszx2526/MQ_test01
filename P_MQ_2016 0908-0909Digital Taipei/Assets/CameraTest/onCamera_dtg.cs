@@ -16,31 +16,38 @@ public class onCamera_dtg : MonoBehaviour {
     // Use this for initialization
     void Start () {
         myMainCamera = GameObject.Find("MainCamera").gameObject.GetComponent<Camera>();
-        transform.position = myMonsterList[myPickUpNum].transform.position;
-        theLookAtPointOnMonster = myMonsterList[myPickUpNum].GetComponent<onMonsterVer3>().MyHitpointList;
+       /* transform.position = myMonsterList[myPickUpNum-1].transform.position;
+        theLookAtPointOnMonster = myMonsterList[myPickUpNum-1].GetComponent<onMonsterVer3>().MyHitpointList;*/
     }
 	
 	// Update is called once per frame
 	void Update () {
-        CameraRotationFN();
+        if (myPickUpNum != 0) {
+            if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { }
+            else {
+                transform.position = myMonsterList[myPickUpNum - 1].transform.position;
+                theLookAtPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().MyHitpointList;
+            }
+        }
+        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { CameraRotationFN(); }
     }
     public void CameraRotationFN() {
         switch (myCameraMod) {
             case 0:
                 //3.8>6.3
-                myCameraFN(0,30, 6.3f);
+                myCameraFN(0,50, 2.8f);
                 break;
             case 1:
-                myCameraFN(-1.3f,15,7.5f);
+                myCameraFN(-1.3f,35,4.8f);
                 break;
             case 2:
-                myCameraFN(1f, 15, 7.5f);
+                myCameraFN(1f, 35, 4.8f);
                 break;
             case 3:
-                myCameraFN(0.5f, 23, 5.5f);
+                myCameraFN(0.5f, 43, 2.8f);
                 break;
             case 4:
-                myCameraFN(-0.5f, 23, 5.5f);
+                myCameraFN(-0.5f, 43, 2.8f);
                 break;
         }
         myCameraLookAtPointMoveFN();
@@ -48,7 +55,7 @@ public class onCamera_dtg : MonoBehaviour {
     //鏡頭相關的韓式，縮放阿，旋轉，移動座標等等
     public void myCameraFN(float rotateValue,float myfieldOfView, float myPosYTrimming) {
         //旋轉
-        Quaternion a = myMonsterList[myPickUpNum].transform.rotation;
+        Quaternion a = myMonsterList[myPickUpNum-1].transform.rotation;
         a.y = rotateValue;
         transform.rotation = Quaternion.Lerp(transform.rotation, a, Time.deltaTime * myCameraRotationSpeed);
 
@@ -57,8 +64,8 @@ public class onCamera_dtg : MonoBehaviour {
         else if (myMainCamera.fieldOfView < myfieldOfView-1) { myMainCamera.fieldOfView += Time.deltaTime * myZoonSpeed; }
         else { myMainCamera.fieldOfView = myfieldOfView; }
 
-        Vector3 myPos = myMonsterList[myPickUpNum].transform.position;
-        myPos.y = myPosYTrimming;
+        Vector3 myPos = myMonsterList[myPickUpNum-1].transform.position;
+        myPos.y = myPos.y+myPosYTrimming;
         transform.position = Vector3.Lerp(transform.position, myPos, Time.deltaTime * myCameraRotationSpeed);
     }
     //焦點移動韓式，如果焦點距離hitpoint 小於0.1就不要動啦，不然鏡頭一直晃不舒服
@@ -68,7 +75,7 @@ public class onCamera_dtg : MonoBehaviour {
             isMoveTime = false;
         }
         else {
-            if(isMoveTime)myLookAtPoint.transform.position = Vector3.Lerp(myLookAtPoint.transform.position, theLookAtPointOnMonster[myCameraMod].transform.position, Time.deltaTime * myCameraRotationSpeed);
+            if(isMoveTime)myLookAtPoint.transform.position = Vector3.Lerp(myLookAtPoint.transform.position, theLookAtPointOnMonster[myCameraMod].transform.position, Time.deltaTime * myCameraRotationSpeed*2.2f);
         }
     }
     //控制看下一個可攻擊點或者上一個可攻擊點
@@ -84,5 +91,17 @@ public class onCamera_dtg : MonoBehaviour {
         if (myCameraMod < 1) { myCameraMod = 4; }
         else { myCameraMod--; }
     }
+    public void BTN_onBigeye1()
+    {
+        //isNeedToFollow = true;
+        /*gameObject.GetComponent<OnCameraForShootMQ>().myABulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamAAmount;
+        gameObject.GetComponent<OnCameraForShootMQ>().myBBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamBAmount;
+        gameObject.GetComponent<OnCameraForShootMQ>().myCBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamCAmount;
+        gameObject.GetComponent<OnCameraForShootMQ>().myDBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamDAmount;
+        gameObject.GetComponent<OnCameraForShootMQ>().myEBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamEAmount;*/
+        myPickUpNum = 1;
+    }
+    public void BTN_onBigeye2() { myPickUpNum = 2; }
+    public void BTN_onBigeye3() { myPickUpNum = 3; }
 }
  

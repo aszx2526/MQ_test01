@@ -39,7 +39,7 @@ public class NewBehaviourScript : MonoBehaviour
             Vector2 pos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
             gDefineb.Direction mDirection = HandDirection(m_screenPos, pos);
-            Debug.Log("mDirection: " + mDirection.ToString());
+            //Debug.Log("mDirection: " + mDirection.ToString());
         }
     }
 

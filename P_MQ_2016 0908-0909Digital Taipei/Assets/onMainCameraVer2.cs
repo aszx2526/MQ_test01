@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class onMainCameraVer2 : MonoBehaviour {
     public GameObject myLookAtPoint;
-	// Use this for initialization
-	void Start () {
+    public bool isNeedToFollow;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -13,4 +14,6 @@ public class onMainCameraVer2 : MonoBehaviour {
 	void Update () {
         transform.LookAt(myLookAtPoint.transform.position);
 	}
+   
+
 }

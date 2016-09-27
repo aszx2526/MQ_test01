@@ -79,7 +79,7 @@ public class onCanvasForUIControll : MonoBehaviour {
         //大地圖戰鬥
         mySoundEffectFN();
         isGameStart = true;
-        GameObject.Find("MainCamera").GetComponent<OnCameraLookAt>().isNeedToFollow = true;
+        GameObject.Find("MainCamera").GetComponent<onMainCameraVer2>().isNeedToFollow = true;
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myABulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamAAmount;
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myBBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamBAmount;
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myCBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamCAmount;

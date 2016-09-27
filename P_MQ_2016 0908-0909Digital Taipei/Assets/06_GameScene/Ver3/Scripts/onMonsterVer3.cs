@@ -632,7 +632,7 @@ public class onMonsterVer3 : MonoBehaviour {
     {
         //print(gameObject.name + "forhiteffect");
         GameObject hiteffect = Instantiate(myHitEffect[isBigHit], Vector3.zero, Quaternion.identity) as GameObject;
-        //hiteffect.transform.parent = GameObject.Find("Canvas").transform;
+        hiteffect.transform.parent = GameObject.Find("Canvas").transform;
         Vector2 a = Vector2.zero; //= myHPText.GetComponent<RectTransform>().anchoredPosition;
 
         hiteffect.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(a.x - 50, a.x + 50), Random.Range(a.y - 10, a.y + 100));

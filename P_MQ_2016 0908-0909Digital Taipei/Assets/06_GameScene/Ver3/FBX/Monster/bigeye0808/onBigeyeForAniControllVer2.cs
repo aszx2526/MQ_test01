@@ -68,12 +68,12 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     }
     void Update()
     {
-        //if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { 
+        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { 
             myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
             myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;
             myAniControll();
             myBigeyeAttackMod();
-        //}
+        }
 
     }
     public void myBigeyeSkill1_basic_BigeyeAttack()
