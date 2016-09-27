@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class OnCameraForShootMQ : MonoBehaviour
 {
     public GameObject[] myFirePoint;
-    public GameObject myTargetPoint;
     public GameObject[] myBullet;
     public int myTeamBTNClick;
     float myTimer;
@@ -113,7 +112,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 /*Vector3 a = myFirePoint.transform.forward;
                 a.y = Random.Range(myFirePoint.transform.position.y - 5, myFirePoint.transform.position.y + 5);
                 a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);*/
-                a = Random.Range(0, 5);
+                a = Random.Range(0, 14);
         //Instantiate(myBullet[myTeamBTNClick - 1], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
         Instantiate(myBullet[0], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
 

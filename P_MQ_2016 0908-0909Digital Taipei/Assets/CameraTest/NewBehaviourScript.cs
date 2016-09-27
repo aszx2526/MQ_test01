@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-/*public class gDefine
-{**/
+public class gDefineb
+{
     public enum Direction
     {
         Up,
@@ -9,7 +9,7 @@ using System.Collections;
         Left,
         Right
     }
-//}
+}
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -38,7 +38,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             Vector2 pos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
-            gDefine.Direction mDirection = HandDirection(m_screenPos, pos);
+            gDefineb.Direction mDirection = HandDirection(m_screenPos, pos);
             Debug.Log("mDirection: " + mDirection.ToString());
         }
     }
@@ -75,7 +75,7 @@ public class NewBehaviourScript : MonoBehaviour
                 Debug.Log("Ended");
                 Vector2 pos = Input.touches[0].position;
 
-                gDefine.Direction mDirection = HandDirection(m_screenPos, pos);
+                gDefineb.Direction mDirection = HandDirection(m_screenPos, pos);
                 Debug.Log("mDirection: " + mDirection.ToString());
             }
             //攝影機縮放，如果1個手指以上觸碰螢幕
@@ -140,36 +140,41 @@ public class NewBehaviourScript : MonoBehaviour
             }//end for
         }//end else if 
     }//end void
-
-    gDefine.Direction HandDirection(Vector2 StartPos, Vector2 EndPos)
+    gDefineb.Direction mDirection;
+    gDefineb.Direction HandDirection(Vector2 StartPos, Vector2 EndPos)
     {
-        gDefine.Direction mDirection;
+        
 
         //手指水平移動
         if (Mathf.Abs(StartPos.x - EndPos.x) > Mathf.Abs(StartPos.y - EndPos.y))
         {
-            if (StartPos.x > EndPos.x)
+            if (Vector2.Distance(StartPos, EndPos) > 50 && StartPos.x > EndPos.x)
             {
                 //手指向左滑動
                 gameObject.GetComponent<onCamera_dtg>().SendMessage("ScrollViewLeftControllFN");
-                mDirection = gDefine.Direction.Left;
+                mDirection = gDefineb.Direction.Left;
             }
-            else {
+            else if(Vector2.Distance(StartPos, EndPos) > 50 && StartPos.x < EndPos.x)
+            {
                 //手指向右滑動
                 gameObject.GetComponent<onCamera_dtg>().SendMessage("ScrollViewRightControllFN");
-                mDirection = gDefine.Direction.Right;
+                mDirection = gDefineb.Direction.Right;
             }
         }
         else {
+
             if (m_screenPos.y > EndPos.y)
             {
                 //手指向下滑動
-                mDirection = gDefine.Direction.Down;
+                mDirection = gDefineb.Direction.Down;
             }
+            //else if (Vector2.Distance(m_screenPos, EndPos) > 1 && m_screenPos.y < EndPos.y)
             else {
                 //手指向上滑動
-                mDirection = gDefine.Direction.Up;
+                
+                mDirection = gDefineb.Direction.Up;
             }
+            
         }
         return mDirection;
     }

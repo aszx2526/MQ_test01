@@ -429,6 +429,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
         }
     }
     public void LastFram_WingBreak_resume() {
+        GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().isMoveTime = true;
         isWinggood = true;
         myWingResumeTimer = 0;
     }
@@ -437,11 +438,13 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
         myBigeyeResumeTimer = 0;
     }
     public void LastFram_Bigeyeresume_closeeyeflyback() {
+        GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().isMoveTime = true;
         isNeedToPlayBigeyeBreakMovie = false;
         isWinggood = true;
         myWingResumeTimer = 0;
     }
     public void LastFram_WingBreak_falldown() {
+        GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().isMoveTime = true;
         isWinggood = false;
         myWingResumeTimer = 0;
     }
@@ -450,6 +453,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
         myBigeyeResumeTimer = 0;
     }
     public void LastFram_Bigeyeresume2_falldown() {
+        GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().isMoveTime = true;
         isWinggood = false;
     }
     public void LastFram_othereyebreak_closeeye() {

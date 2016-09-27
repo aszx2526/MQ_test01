@@ -58,7 +58,7 @@ public class onMQ_AnimControll_Basic : MonoBehaviour {
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>().myHP -= (int)crithit;
             }
             else {
-                print("basic hitpoint-1 else ");
+                //print("basic hitpoint-1 else ");
                 onMonster3 = myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>();
                 onMonster3.Hitmob(myFather.GetComponent<onMQVer3>().myAttack, 0);
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myHP -= myFather.GetComponent<onMQVer3>().myAttack;
