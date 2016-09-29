@@ -75,7 +75,7 @@ public class onCamera_dtg : MonoBehaviour {
             isMoveTime = false;
         }
         else {
-            if(isMoveTime)myLookAtPoint.transform.position = Vector3.Lerp(myLookAtPoint.transform.position, theLookAtPointOnMonster[myCameraMod].transform.position, Time.deltaTime * myCameraRotationSpeed*2.2f);
+            if(isMoveTime)myLookAtPoint.transform.position = Vector3.Lerp(myLookAtPoint.transform.position, theLookAtPointOnMonster[myCameraMod].transform.position, Time.deltaTime * myCameraRotationSpeed*3.5f);
         }
     }
     //控制看下一個可攻擊點或者上一個可攻擊點
