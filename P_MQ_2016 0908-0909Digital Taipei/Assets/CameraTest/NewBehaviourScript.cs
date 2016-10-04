@@ -24,6 +24,8 @@ public class NewBehaviourScript : MonoBehaviour
         MouseInput();   // 滑鼠偵測
 #elif UNITY_ANDROID
 		MobileInput();  // 觸碰偵測
+#elif UNITY_IOS
+        MobileInput();  // 觸碰偵測
 #endif
     }
 

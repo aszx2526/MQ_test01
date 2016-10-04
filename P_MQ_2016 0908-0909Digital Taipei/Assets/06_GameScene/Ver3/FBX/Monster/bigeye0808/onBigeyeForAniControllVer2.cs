@@ -242,6 +242,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     }
     public void myBigeyeModControll()
     {
+        //myAniam.speed = 0.7f;
        /* if (isNeedToPlayBigeyeBreakMovie) { }
         else */
         if (isBigEyegood && isWinggood)
@@ -251,15 +252,18 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             {
                 myAniMod = 22;
                 myAudioController(3);
+                myAniam.speed = 0.7f;
                 //print("bigeye mod here");
             }
             else if (myBigeyeHP <= 0)
             {
                 myAniMod = 61;
                 myAudioController(1);
+                myAniam.speed = 0.7f;
             }
             else {
                 myAniMod = 13;
+                myAniam.speed = 0.7f;
             }
         }
         else if (isBigEyegood && !isWinggood)
@@ -269,15 +273,18 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
                 GameObject.Find("hitpoint-4").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
                 GameObject.Find("hitpoint-5").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
                 myAniMod = 25;
+                myAniam.speed = 0.7f;
             }
             else if (myBigeyeHP <= 0)
             {
                 myAniMod = 62;
+                myAniam.speed = 0.7f;
                 myAudioController(1);
             }
             else {
                 myWingResumeTimer += Time.deltaTime;
                 myAniMod = 23;
+                myAniam.speed = 0.7f;
             }
         }
         else if (!isBigEyegood && isWinggood)
@@ -288,15 +295,18 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
                 //myBigeyeResumeTimer = 0;
                 myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP = myBigeyeFullHP;
                 myAniMod = 16;
+                myAniam.speed = 0.7f;
             }
             else if (myWingHP <= 0)
             {
                 myAniMod = 08;
                 myAudioController(3);
+                myAniam.speed = 0.7f;
             }
             else {
                 myBigeyeResumeTimer += Time.deltaTime;
                 myAniMod = 00;
+                myAniam.speed = 0.7f;
             }
         }
         else if (!isBigEyegood && !isWinggood)
@@ -307,17 +317,20 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
                 GameObject.Find("hitpoint-4").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
                 GameObject.Find("hitpoint-5").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
                 myAniMod = 07;
+                myAniam.speed = 0.7f;
             }
             else if (myBigeyeResumeTimer > myBigeyeResumeTimerTarget)
             {
                 //myBigeyeResumeTimer = 0;
                 myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP = myBigeyeFullHP;
                 myAniMod = 10;
+                myAniam.speed = 0.7f;
             }
             else {
                 myWingResumeTimer += Time.deltaTime;
                 myBigeyeResumeTimer += Time.deltaTime;
                 myAniMod = 03;
+                myAniam.speed = 0.7f;
             }
         }
     }

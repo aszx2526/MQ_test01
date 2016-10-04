@@ -49,6 +49,7 @@ public class onMQVer3 : MonoBehaviour {
     Vector3 myTargetPointRandom;
 
     public GameObject myCameraVer2;
+    public GameObject[] myHitPointListOnMonster;
     // Use this for initialization
     void Start()
     {
@@ -65,6 +66,8 @@ public class onMQVer3 : MonoBehaviour {
         myTargetPointRandom.y = Random.Range(myTargetPoint.transform.position.y - 0.05f, myTargetPoint.transform.position.y + 0.05f);
         */
         //transform.rotation = GameObject.Find("MainCamera").transform.rotation;
+
+        myHitPointListOnMonster = myCameraVer2.GetComponent<onCamera_dtg>().theLookAtPointOnMonster;
     }
 
     // Update is called once per frame
@@ -169,6 +172,7 @@ public class onMQVer3 : MonoBehaviour {
             transform.parent = null;
         }
     }
+    //這部分要做修改，不然蚊子會飛到其他怪物身上進行攻擊
     public void myMoveToNextPoint() {
         //讓蚊子飛到下一個點
         myMoveSpeed = 1;
