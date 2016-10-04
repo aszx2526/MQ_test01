@@ -241,6 +241,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\onBTN_Battle.cs" />
+    <Compile Include="Assets\onBighitNum.cs" />
     <Compile Include="Assets\onMainCameraVer2.cs" />
     <Compile Include="Assets\onMonsterName.cs" />
   </ItemGroup>
