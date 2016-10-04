@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class onMQVer3 : MonoBehaviour {
@@ -50,6 +51,10 @@ public class onMQVer3 : MonoBehaviour {
 
     public GameObject myCameraVer2;
     public GameObject[] myHitPointListOnMonster;
+
+
+    public GameObject[] myHitEffect;
+
     // Use this for initialization
     void Start()
     {
@@ -226,6 +231,54 @@ public class onMQVer3 : MonoBehaviour {
             }
         }
     }
+
+    //public void forHitEffect(int isBigHit, string hurt, string RGB)
+    public void forHitEffect(int hurtValue,int isBigHit)
+    {
+        //print(gameObject.name + "forhiteffect");
+        GameObject hiteffect = Instantiate(myHitEffect[isBigHit], Vector3.zero, Quaternion.identity) as GameObject;
+        hiteffect.GetComponent<onHitUI>().myBigHitValue = hurtValue;
+        hiteffect.GetComponent<onHitUI>().isBigHit = isBigHit;
+        hiteffect.transform.parent = GameObject.Find("Canvas").transform;
+        Vector2 a = Vector2.zero; //= myHPText.GetComponent<RectTransform>().anchoredPosition;
+
+        hiteffect.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(a.x - 150, a.x + 150), Random.Range(a.y - 50, a.y + 100));
+        //hiteffect.GetComponentInChildren<Text>().text = hurt;
+       /* switch (RGB)
+        {
+            case "R":
+                Color c = hiteffect.GetComponentInChildren<Text>().color;
+                c.r = 255;
+                c.g = c.b = 0;
+                hiteffect.GetComponentInChildren<Text>().color = c;
+                break;
+            case "B":
+                Color cc = hiteffect.GetComponentInChildren<Text>().color;
+                cc.b = 255;
+                cc.r = cc.g = 0;
+                hiteffect.GetComponentInChildren<Text>().color = cc;
+                break;
+        }*/
+    }
+    public void Hitmob(int _minus, int isCriticalHit)
+    {
+        /* if (mymonsterMod != 2)
+         {//攻擊結束才扣血
+             mobHP -= _minus;*/
+        if (isCriticalHit == 0)
+        {
+            //forHitEffect(0, _minus.ToString(), "R");
+            forHitEffect(_minus,0);
+        }
+        else {
+            //forHitEffect(1, _minus.ToString(), "R");
+            forHitEffect(_minus, 1);
+        }
+        //ValueShowOut.Born(gameObject, _minus,1);
+        //setMobText();
+        //}
+    }
+
 }
 /* if (Input.GetKeyDown(",")){
      if (myMQAniMod < 0) { myMQAniMod = 4; }

@@ -10,7 +10,11 @@ public class onHitUI : MonoBehaviour {
     public GameObject[] myBigHitNumString2_Child;
     public Sprite[] myNumSprite;
 
+    //public float myScalecontrol;
+    public bool isTwoOrThree;
     public int myBigHitValue;
+    public int isBigHit;
+
 
     public int s;
     public float b;
@@ -18,23 +22,30 @@ public class onHitUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //s = gameObject.GetComponentInChildren<Text>().fontSize;
-        myBigHitValueCheckFN();
+        //if()
+        //myBigHitValue = Random.Range(0, 1000);
+        if (isBigHit == 0) { }
+        else{
+            myBigHitValueCheckFN();
+        }
+        
     }
 
     // Update is called once per frame
     void Update () {
 
-        Vector2 Posy =  gameObject.GetComponent<RectTransform>().anchoredPosition;
+        /*Vector2 Posy =  gameObject.GetComponent<RectTransform>().anchoredPosition;
         Posy.y += Time.deltaTime* Random.Range(riseSpeed,riseSpeed+5);
-        gameObject.GetComponent<RectTransform>().anchoredPosition = Posy;
+        gameObject.GetComponent<RectTransform>().anchoredPosition = Posy;*/
 
         Color c = gameObject.GetComponent<Image>().color;
         //Color c2 = gameObject.GetComponentInChildren<Text>().color;
+        
         float f = Random.Range(fadeSpeed, fadeSpeed + 2);
         c.a -= Time.deltaTime * f;
         //c2.a -= Time.deltaTime * f;
         gameObject.GetComponent<Image>().color = c;
-//        gameObject.GetComponentInChildren<Text>().color = c2;
+        //        gameObject.GetComponentInChildren<Text>().color = c2;
 
         //gameObject.GetComponentInChildren<Text>().fontSize=0;
         //b += Time.deltaTime*beBigSpeed;
@@ -42,12 +53,65 @@ public class onHitUI : MonoBehaviour {
         else {
             gameObject.GetComponentInChildren<Text>().fontSize = (int)b;
         }*/
-       /* if (c2.a <= 0) {
-            Destroy(gameObject);
-        }*/
+
+
+        if (isBigHit == 0)
+        {
+            if (c.a <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else {
+            if (isTwoOrThree)
+            {
+                Vector2 Posy = myBigHitNumString[1].GetComponent<RectTransform>().anchoredPosition;
+                Posy.y += Time.deltaTime * Random.Range(riseSpeed, riseSpeed + 25);
+                myBigHitNumString[1].GetComponent<RectTransform>().anchoredPosition = Posy;
+
+
+                Color c2 = myBigHitNumString2_Child[0].GetComponent<Image>().color;
+                c2.a -= Time.deltaTime * f;
+                for (int a = 0; a < 3; a++)
+                {
+                    myBigHitNumString2_Child[a].GetComponent<Image>().color = c2;
+                }
+                if (c2.a <= 0)
+                {
+                    Destroy(gameObject);
+                }
+                Vector3 myscale = myBigHitNumString[1].GetComponent<RectTransform>().localScale;
+                myscale.x += Time.deltaTime * f;
+                myscale.y += Time.deltaTime * f;
+                myBigHitNumString[1].GetComponent<RectTransform>().localScale = myscale;
+            }
+            else {
+                Vector2 Posy = myBigHitNumString[0].GetComponent<RectTransform>().anchoredPosition;
+                Posy.y += Time.deltaTime * Random.Range(riseSpeed, riseSpeed + 25);
+                myBigHitNumString[0].GetComponent<RectTransform>().anchoredPosition = Posy;
+
+
+                Color c2 = myBigHitNumString1_Child[0].GetComponent<Image>().color;
+                c2.a -= Time.deltaTime * f;
+                for (int a = 0; a < 2; a++)
+                {
+                    myBigHitNumString1_Child[a].GetComponent<Image>().color = c2;
+                }
+                if (c2.a <= 0)
+                {
+                    Destroy(gameObject);
+                }
+                Vector3 myscale = myBigHitNumString[0].GetComponent<RectTransform>().localScale;
+                myscale.x += Time.deltaTime * f;
+                myscale.y += Time.deltaTime * f;
+                myBigHitNumString[0].GetComponent<RectTransform>().localScale = myscale;
+            }
+        }
+        
     }
     public void myBigHitValueCheckFN() {
         if (myBigHitValue > 99) {//三位數
+            isTwoOrThree = true;
             myBigHitNumString[0].SetActive(false);//把另外一個位數的關掉
             //string numcheck = myBigHitValue.ToString();
             for (int a = 0; a < 10; a++) {
@@ -57,6 +121,7 @@ public class onHitUI : MonoBehaviour {
             }
         }
         else {//兩位數
+            isTwoOrThree = false;
             myBigHitNumString[1].SetActive(false);
             for (int a = 0; a < 10; a++)
             {
