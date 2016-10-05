@@ -15,12 +15,15 @@ public class onHitUI : MonoBehaviour {
     public int myBigHitValue;
     public int isBigHit;
 
+    bool myIsBigest;
+
 
     public int s;
     public float b;
-
-	// Use this for initialization
-	void Start () {
+    public float myEffectWaitTime;
+    float myEffectWaitTimer;
+    // Use this for initialization
+    void Start () {
         //s = gameObject.GetComponentInChildren<Text>().fontSize;
         //if()
         //myBigHitValue = Random.Range(0, 1000);
@@ -37,14 +40,15 @@ public class onHitUI : MonoBehaviour {
         /*Vector2 Posy =  gameObject.GetComponent<RectTransform>().anchoredPosition;
         Posy.y += Time.deltaTime* Random.Range(riseSpeed,riseSpeed+5);
         gameObject.GetComponent<RectTransform>().anchoredPosition = Posy;*/
-
+        /*
         Color c = gameObject.GetComponent<Image>().color;
-        //Color c2 = gameObject.GetComponentInChildren<Text>().color;
+        Color c2 = gameObject.GetComponentInChildren<Text>().color;
         
         float f = Random.Range(fadeSpeed, fadeSpeed + 2);
         c.a -= Time.deltaTime * f;
-        //c2.a -= Time.deltaTime * f;
+        c2.a -= Time.deltaTime * f;
         gameObject.GetComponent<Image>().color = c;
+        */
         //        gameObject.GetComponentInChildren<Text>().color = c2;
 
         //gameObject.GetComponentInChildren<Text>().fontSize=0;
@@ -53,6 +57,22 @@ public class onHitUI : MonoBehaviour {
         else {
             gameObject.GetComponentInChildren<Text>().fontSize = (int)b;
         }*/
+        somethingInUpdate();
+       /* if (myEffectWaitTimer >= myEffectWaitTime) {
+            
+        }
+        else {
+            myEffectWaitTimer += Time.deltaTime;
+        }*/
+
+    }
+    public void somethingInUpdate() {
+
+        Color c = gameObject.GetComponent<Image>().color;
+        float f = Random.Range(fadeSpeed, fadeSpeed + 2);
+        c.a -= Time.deltaTime * f;
+        gameObject.GetComponent<Image>().color = c;
+
 
 
         if (isBigHit == 0)
@@ -65,49 +85,96 @@ public class onHitUI : MonoBehaviour {
         else {
             if (isTwoOrThree)
             {
-                Vector2 Posy = myBigHitNumString[1].GetComponent<RectTransform>().anchoredPosition;
-                Posy.y += Time.deltaTime * Random.Range(riseSpeed, riseSpeed + 25);
-                myBigHitNumString[1].GetComponent<RectTransform>().anchoredPosition = Posy;
-
-
-                Color c2 = myBigHitNumString2_Child[0].GetComponent<Image>().color;
-                c2.a -= Time.deltaTime * f;
-                for (int a = 0; a < 3; a++)
-                {
-                    myBigHitNumString2_Child[a].GetComponent<Image>().color = c2;
-                }
-                if (c2.a <= 0)
-                {
-                    Destroy(gameObject);
-                }
                 Vector3 myscale = myBigHitNumString[1].GetComponent<RectTransform>().localScale;
-                myscale.x += Time.deltaTime * f;
-                myscale.y += Time.deltaTime * f;
-                myBigHitNumString[1].GetComponent<RectTransform>().localScale = myscale;
+
+                if (myIsBigest)
+                {
+                    if (myEffectWaitTimer > myEffectWaitTime) {
+                        Vector2 Posy = myBigHitNumString[1].GetComponent<RectTransform>().anchoredPosition;
+                        Posy.y += Time.deltaTime * Random.Range(riseSpeed, riseSpeed + 25);
+                        myBigHitNumString[1].GetComponent<RectTransform>().anchoredPosition = Posy;
+
+
+                        Color c2 = myBigHitNumString2_Child[0].GetComponent<Image>().color;
+                        c2.a -= Time.deltaTime * f;
+                        for (int a = 0; a < 3; a++)
+                        {
+                            myBigHitNumString2_Child[a].GetComponent<Image>().color = c2;
+                        }
+                        if (c2.a <= 0)
+                        {
+                            Destroy(gameObject);
+                        }
+
+                    }
+                    else {
+                        myEffectWaitTimer += Time.deltaTime;
+                    }
+
+                    
+                    myscale.x = 1.8f;
+                    myscale.y = 1.8f;
+                    myBigHitNumString[1].GetComponent<RectTransform>().localScale = myscale;
+                }
+                else {
+                    if (myscale.y >= 2)
+                    {
+                        myIsBigest = true;
+                    }
+                    else {
+                        myscale.x += Time.deltaTime * f * 20;
+                        myscale.y += Time.deltaTime * f * 20;
+                        myBigHitNumString[1].GetComponent<RectTransform>().localScale = myscale;
+
+                    }
+                }
+               
             }
             else {
-                Vector2 Posy = myBigHitNumString[0].GetComponent<RectTransform>().anchoredPosition;
-                Posy.y += Time.deltaTime * Random.Range(riseSpeed, riseSpeed + 25);
-                myBigHitNumString[0].GetComponent<RectTransform>().anchoredPosition = Posy;
-
-
-                Color c2 = myBigHitNumString1_Child[0].GetComponent<Image>().color;
-                c2.a -= Time.deltaTime * f;
-                for (int a = 0; a < 2; a++)
-                {
-                    myBigHitNumString1_Child[a].GetComponent<Image>().color = c2;
-                }
-                if (c2.a <= 0)
-                {
-                    Destroy(gameObject);
-                }
                 Vector3 myscale = myBigHitNumString[0].GetComponent<RectTransform>().localScale;
-                myscale.x += Time.deltaTime * f;
-                myscale.y += Time.deltaTime * f;
-                myBigHitNumString[0].GetComponent<RectTransform>().localScale = myscale;
+                if (myIsBigest)
+                {
+                    if (myEffectWaitTimer > myEffectWaitTime) {
+                        Vector2 Posy = myBigHitNumString[0].GetComponent<RectTransform>().anchoredPosition;
+                        Posy.y += Time.deltaTime * Random.Range(riseSpeed, riseSpeed + 25);
+                        myBigHitNumString[0].GetComponent<RectTransform>().anchoredPosition = Posy;
+
+
+                        Color c2 = myBigHitNumString1_Child[0].GetComponent<Image>().color;
+                        c2.a -= Time.deltaTime * f;
+                        for (int a = 0; a < 2; a++)
+                        {
+                            myBigHitNumString1_Child[a].GetComponent<Image>().color = c2;
+                        }
+                        if (c2.a <= 0)
+                        {
+                            Destroy(gameObject);
+                        }
+                    }
+                    else {
+                        myEffectWaitTimer += Time.deltaTime;
+                    }
+
+                    
+                    myscale.x = 1.8f;
+                    myscale.y = 1.8f;
+                    myBigHitNumString[0].GetComponent<RectTransform>().localScale = myscale;
+                }
+                else {
+                    if (myscale.y >= 2)
+                    {
+                        myIsBigest = true;
+                    }
+                    else {
+                        myscale.x += Time.deltaTime * f * 20;
+                        myscale.y += Time.deltaTime * f * 20;
+                        myBigHitNumString[0].GetComponent<RectTransform>().localScale = myscale;
+
+                    }
+                }
+               
             }
         }
-        
     }
     public void myBigHitValueCheckFN() {
         if (myBigHitValue > 99) {//三位數
@@ -115,9 +182,27 @@ public class onHitUI : MonoBehaviour {
             myBigHitNumString[0].SetActive(false);//把另外一個位數的關掉
             //string numcheck = myBigHitValue.ToString();
             for (int a = 0; a < 10; a++) {
-                if (myBigHitValue.ToString().Substring(0, 1) == a.ToString()) { myBigHitNumString2_Child[0].GetComponent<Image>().sprite = myNumSprite[a]; }
-                if (myBigHitValue.ToString().Substring(1, 1) == a.ToString()) { myBigHitNumString2_Child[1].GetComponent<Image>().sprite = myNumSprite[a]; }
-                if (myBigHitValue.ToString().Substring(2, 1) == a.ToString()) { myBigHitNumString2_Child[2].GetComponent<Image>().sprite = myNumSprite[a]; }
+                if (myBigHitValue.ToString().Substring(0, 1) == a.ToString()) { myBigHitNumString2_Child[0].GetComponent<Image>().sprite = myNumSprite[a];
+                    Vector2 aaa = myBigHitNumString2_Child[0].GetComponent<RectTransform>().localScale;
+                    float myrandomscal = Random.Range(1.0f, 2.0f);
+                    aaa.x = myrandomscal;
+                    aaa.y = myrandomscal;
+                    myBigHitNumString2_Child[0].GetComponent<RectTransform>().localScale = aaa;
+                }
+                if (myBigHitValue.ToString().Substring(1, 1) == a.ToString()) { myBigHitNumString2_Child[1].GetComponent<Image>().sprite = myNumSprite[a];
+                    Vector2 aaa = myBigHitNumString2_Child[1].GetComponent<RectTransform>().localScale;
+                    float myrandomscal = Random.Range(1.0f, 2.0f);
+                    aaa.x = myrandomscal;
+                    aaa.y = myrandomscal;
+                    myBigHitNumString2_Child[0].GetComponent<RectTransform>().localScale = aaa;
+                }
+                if (myBigHitValue.ToString().Substring(2, 1) == a.ToString()) { myBigHitNumString2_Child[2].GetComponent<Image>().sprite = myNumSprite[a];
+                    Vector2 aaa = myBigHitNumString2_Child[2].GetComponent<RectTransform>().localScale;
+                    float myrandomscal = Random.Range(1.0f, 2.0f);
+                    aaa.x = myrandomscal;
+                    aaa.y = myrandomscal;
+                    myBigHitNumString2_Child[0].GetComponent<RectTransform>().localScale = aaa;
+                }
             }
         }
         else {//兩位數
@@ -125,8 +210,20 @@ public class onHitUI : MonoBehaviour {
             myBigHitNumString[1].SetActive(false);
             for (int a = 0; a < 10; a++)
             {
-                if (myBigHitValue.ToString().Substring(0, 1) == a.ToString()) { myBigHitNumString1_Child[0].GetComponent<Image>().sprite = myNumSprite[a]; }
-                if (myBigHitValue.ToString().Substring(1, 1) == a.ToString()) { myBigHitNumString1_Child[1].GetComponent<Image>().sprite = myNumSprite[a]; }
+                if (myBigHitValue.ToString().Substring(0, 1) == a.ToString()) { myBigHitNumString1_Child[0].GetComponent<Image>().sprite = myNumSprite[a];
+                    Vector2 aaa = myBigHitNumString1_Child[0].GetComponent<RectTransform>().localScale;
+                    float myrandomscal = Random.Range(1.0f, 2.0f);
+                    aaa.x = myrandomscal;
+                    aaa.y = myrandomscal;
+                    myBigHitNumString2_Child[0].GetComponent<RectTransform>().localScale = aaa;
+                }
+                if (myBigHitValue.ToString().Substring(1, 1) == a.ToString()) { myBigHitNumString1_Child[1].GetComponent<Image>().sprite = myNumSprite[a];
+                    Vector2 aaa = myBigHitNumString1_Child[1].GetComponent<RectTransform>().localScale;
+                    float myrandomscal = Random.Range(1.0f, 2.0f);
+                    aaa.x = myrandomscal;
+                    aaa.y = myrandomscal;
+                    myBigHitNumString2_Child[0].GetComponent<RectTransform>().localScale = aaa;
+                }
                
             }
         }
