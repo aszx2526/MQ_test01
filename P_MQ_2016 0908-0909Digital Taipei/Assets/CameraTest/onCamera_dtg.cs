@@ -9,6 +9,7 @@ public class onCamera_dtg : MonoBehaviour {
     public GameObject[] myMonsterList;//怪物清單
     public int myPickUpNum;//我選到哪一隻怪物 for mini map
     public GameObject[] theLookAtPointOnMonster;//hitpoint on monster
+    public GameObject[] theHotPointOnMonster;
     public GameObject myLookAtPoint;//攝影機的焦點
     public bool isMoveTime;//是否為移動時間
     public float myZoonSpeed;//放大縮小的速度
@@ -27,6 +28,7 @@ public class onCamera_dtg : MonoBehaviour {
             else {
                 transform.position = myMonsterList[myPickUpNum - 1].transform.position;
                 theLookAtPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().MyHitpointList;
+                theHotPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().myHotPointList;
             }
         }
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { CameraRotationFN(); }
@@ -70,12 +72,13 @@ public class onCamera_dtg : MonoBehaviour {
     }
     //焦點移動韓式，如果焦點距離hitpoint 小於0.1就不要動啦，不然鏡頭一直晃不舒服
     public void myCameraLookAtPointMoveFN() {
-        if (Vector3.Distance(myLookAtPoint.transform.position, theLookAtPointOnMonster[myCameraMod].transform.position) < 0.1)
+        //if (Vector3.Distance(myLookAtPoint.transform.position, theHotPointOnMonster[myCameraMod].transform.position) < 0.1)
+        if (myLookAtPoint.transform.position == theHotPointOnMonster[myCameraMod].transform.position)
         {
             isMoveTime = false;
         }
         else {
-            if(isMoveTime)myLookAtPoint.transform.position = Vector3.Lerp(myLookAtPoint.transform.position, theLookAtPointOnMonster[myCameraMod].transform.position, Time.deltaTime * myCameraRotationSpeed*3.5f);
+            if(isMoveTime)myLookAtPoint.transform.position = Vector3.Lerp(myLookAtPoint.transform.position, theHotPointOnMonster[myCameraMod].transform.position, Time.deltaTime * myCameraRotationSpeed*3.5f);
         }
     }
     //控制看下一個可攻擊點或者上一個可攻擊點

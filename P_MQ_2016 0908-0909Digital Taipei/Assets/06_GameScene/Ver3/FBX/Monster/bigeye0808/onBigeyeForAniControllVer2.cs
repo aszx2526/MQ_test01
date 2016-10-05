@@ -305,7 +305,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             }
             else {
                 myBigeyeResumeTimer += Time.deltaTime;
-                myAniMod = 00;
+                myAniMod = 0;
                 myAniam.speed = 0.7f;
             }
         }
@@ -440,6 +440,19 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             default:
                 break;
         }
+    }
+    public void LastFram_idle_attack() {
+        for (int a = 0; a < 5; a++) {
+            myFatherObject.GetComponent<onMonsterVer3>().myHotPointList[a].gameObject.transform.position = myFatherObject.GetComponent<onMonsterVer3>().MyHitpointList[a].gameObject.transform.position;
+        }
+        GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().isMoveTime = true;
+    }
+    public void LastFram_winbreak() {
+        for (int a = 0; a < 5; a++)
+        {
+            myFatherObject.GetComponent<onMonsterVer3>().myHotPointList[a].gameObject.transform.position = myFatherObject.GetComponent<onMonsterVer3>().MyHitpointList[a].gameObject.transform.position;
+        }
+        GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().isMoveTime = true;
     }
     public void LastFram_WingBreak_resume() {
         GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().isMoveTime = true;

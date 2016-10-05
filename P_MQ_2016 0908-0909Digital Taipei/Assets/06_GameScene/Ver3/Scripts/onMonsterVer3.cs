@@ -94,6 +94,7 @@ public class onMonsterVer3 : MonoBehaviour {
     //---------------------
     //---------------------
     public GameObject[] MyHitpointList;
+    public GameObject[] myHotPointList;
     //---------------------
     // Use this for initialization
     void Start()

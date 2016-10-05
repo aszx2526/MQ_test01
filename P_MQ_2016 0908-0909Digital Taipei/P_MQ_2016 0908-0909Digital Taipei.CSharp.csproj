@@ -242,6 +242,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\onBTN_Battle.cs" />
     <Compile Include="Assets\onBighitNum.cs" />
+    <Compile Include="Assets\onHotPoint_bigeye.cs" />
     <Compile Include="Assets\onMainCameraVer2.cs" />
     <Compile Include="Assets\onMonsterName.cs" />
   </ItemGroup>
