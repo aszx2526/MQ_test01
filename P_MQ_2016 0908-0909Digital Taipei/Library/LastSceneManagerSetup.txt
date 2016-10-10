@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/99_someThings/icebeartest.unity
+- path: Assets/99_someThings/animationSetScene.unity
   isLoaded: 1
   isActive: 1

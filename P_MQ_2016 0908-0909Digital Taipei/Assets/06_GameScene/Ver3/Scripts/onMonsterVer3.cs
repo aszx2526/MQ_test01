@@ -86,8 +86,8 @@ public class onMonsterVer3 : MonoBehaviour {
     public bool isAttackFinish;
     //---------------------
     //---------------------
-    public GameObject[] myHitEffect;
-    public Text myHPText;
+    /*public GameObject[] myHitEffect;
+    public Text myHPText;*/
     //---------------------
     //---------------------
     public int myModelMod;
@@ -631,7 +631,7 @@ public class onMonsterVer3 : MonoBehaviour {
 
     public void forHitEffect(int isBigHit, string hurt, string RGB)
     {
-        //print(gameObject.name + "forhiteffect");
+     /*   //print(gameObject.name + "forhiteffect");
         GameObject hiteffect = Instantiate(myHitEffect[isBigHit], Vector3.zero, Quaternion.identity) as GameObject;
         hiteffect.transform.parent = GameObject.Find("Canvas").transform;
         Vector2 a = Vector2.zero; //= myHPText.GetComponent<RectTransform>().anchoredPosition;
@@ -652,7 +652,7 @@ public class onMonsterVer3 : MonoBehaviour {
                 cc.r = cc.g = 0;
                 hiteffect.GetComponentInChildren<Text>().color = cc;
                 break;
-        }
+        }*/
     }
     public void Hitmob(int _minus, int isCriticalHit)
     {

@@ -117,6 +117,7 @@
     <Compile Include="Assets\06_GameScene\Ver3\FBX\MQ\Movie_AnimController\onicebearmovie.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\FBX\MQ\Movie_AnimController\onrabbitformovie.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\FBX\Monster\IceBear\onIceBearForAniControll.cs" />
+    <Compile Include="Assets\06_GameScene\Ver3\FBX\Monster\Rabbit\onRabbitForAniControll.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\FBX\Monster\bigeye0808\killsomething.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\FBX\Monster\bigeye0808\onBigeyeForAniControll.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\FBX\Monster\bigeye0808\onBigeyeForAniControllVer2.cs" />
