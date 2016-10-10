@@ -344,124 +344,133 @@ public class onRabbitForAniControll : MonoBehaviour {
         switch (myAniMod)
         {
             case 0:
-                myAniam.Play("idle_attack");
-                break;
-            case 1:
                 myAniam.Play("idle_basic");
                 break;
+            case 1:
+                myAniam.Play("idle_attack");
+                break;
             case 2:
-                myAniam.Play("idle_mouthbreak");
+                myAniam.Play("idle_attack_MB");
                 break;
             case 3:
-                myAniam.Play("idle_LBMB");
+                myAniam.Play("idle_LB");
                 break;
             case 4:
-                myAniam.Play("idle_legbreak");
+                myAniam.Play("idle_LBMB");
                 break;
             case 5:
-                myAniam.Play("dead_LB");
-                break;
-            case 6:
-                myAniam.Play("dead_LBMB");
-                break;
-            case 7:
-                myAniam.Play("dead_mouthbreak");
-                break;
-            case 8:
                 myAniam.Play("dead_basic");
                 break;
+            case 6:
+                myAniam.Play("dead_MB");
+                break;
+            case 7:
+                myAniam.Play("dead_LBMBs");
+                break;
+            case 8:
+                myAniam.Play("dead_LBs");
+                break;
+                //--------------------------------
             case 9:
-                myAniam.Play("skill_bc_airdish");
-                break;
-            case 10:
-                myAniam.Play("skill_bc_airdish_MB");
-                break;
-            case 11:
-                myAniam.Play("skill_bc_twohandfight");
-                break;
-            case 12:
-                myAniam.Play("skill_bc_twohandfight_MB");
-                break;
-            case 13:
-                myAniam.Play("skill_sp_fight");
-                break;
-            case 14:
-                myAniam.Play("skill_sp_fight_MB");
-                break;
-            case 15:
-                myAniam.Play("skill_sp_lookgood");
-                break;
-            case 16:
-                myAniam.Play("skill_sp_lookgood_MB");
-                break;
-            case 17:
-                myAniam.Play("skill_sp_ready");
-                break;
-            case 18:
-                myAniam.Play("skill_sp_ready_MB");
-                break;
-            case 19:
-                myAniam.Play("skill_bc_twohandpunch_LB");
-                break;
-            case 20:
-                myAniam.Play("skill_bc_twohandpunch_LBMB");
-                break;
-            case 21:
-                myAniam.Play("skill_sp_uplegfight_LB");
-                break;
-            case 22:
-                myAniam.Play("skill_sp_uplegfight_LBMB");
-                break;
-            case 23:
                 myAniam.Play("run_ready");
                 break;
-            case 24:
+            case 10:
                 myAniam.Play("run_loop");
                 break;
-            case 25:
+            case 11:
                 myAniam.Play("run_end");
                 break;
-            case 26:
+            case 12:
                 myAniam.Play("turning");
                 break;
-            case 27:
+            case 13:
                 myAniam.Play("walk_ready");
                 break;
-            case 28:
+            case 14:
                 myAniam.Play("walk_loop");
                 break;
-            case 29:
+            case 15:
                 myAniam.Play("walk_end");
                 break;
+                //------------------
+            case 16:
+                myAniam.Play("sk_bc_twohandfight");
+                break;
+            case 17:
+                myAniam.Play("sk_bc_twohandfight_LB");
+                break;
+            case 18:
+                myAniam.Play("sk_bc_twohandfight_MB");
+                break;
+            case 19:
+                myAniam.Play("sk_bc_twohandfight_LBMB");
+                break;
+            case 20:
+                myAniam.Play("sk_bc_airdish");
+                break;
+            case 21:
+                myAniam.Play("sk_bc_airdish_MB");
+                break;
+            case 22:
+                myAniam.Play("sk_sp_uplegfight_LB");
+                break;
+            case 23:
+                myAniam.Play("sk_sp_uplegfight_LBMB");
+                break;
+            case 24:
+                myAniam.Play("sk_sp_superpunch_ready");
+                break;
+            case 25:
+                myAniam.Play("sk_sp_superpunch_fight");
+                break;
+            case 26:
+                myAniam.Play("sk_sp_superpunch_lookgood");
+                break;
+            case 27:
+                myAniam.Play("sk_sp_superpunch_ready_MB");
+                break;
+            case 28:
+                myAniam.Play("sk_sp_superpunch_fight_MB");
+                break;
+            case 29:
+                myAniam.Play("sk_sp_superpunch_lookgood_MB");
+                break;
+                //----------------------------------------------------
             case 30:
-                myAniam.Play("ear_break_LB");
+                myAniam.Play("breaking_mouth");
                 break;
             case 31:
-                myAniam.Play("ear_break_LBMB");
+                myAniam.Play("breaking_leg");
                 break;
             case 32:
-                myAniam.Play("LB_resume");
+                myAniam.Play("breaking_MBs_leg");
                 break;
             case 33:
-                myAniam.Play("LB_resume_MB");
+                myAniam.Play("breaking_LBs_mouth");
                 break;
             case 34:
-                myAniam.Play("leg_break");
+                myAniam.Play("breaking_ear");
                 break;
             case 35:
-                myAniam.Play("leg_break_mouthbreak");
+                myAniam.Play("breaking_MBs_ear");
                 break;
             case 36:
-                myAniam.Play("legbreak_mouth_break");
+                myAniam.Play("breaking_LBs_ear");
                 break;
             case 37:
-                myAniam.Play("legbreak_mouth_resume");
+                myAniam.Play("breaking_LBMBs_ear");
                 break;
             case 38:
-                myAniam.Play("mouth_break");
+                myAniam.Play("resume_LBs_mouth");
                 break;
             case 39:
-                myAniam.Play("mouth_resume");
+                myAniam.Play("resume_leg");
+                break;
+            case 40:
+                myAniam.Play("resume_MBs_leg");
+                break;
+            case 41:
+                myAniam.Play("resume_mouth");
                 break;
             default:
                 break;

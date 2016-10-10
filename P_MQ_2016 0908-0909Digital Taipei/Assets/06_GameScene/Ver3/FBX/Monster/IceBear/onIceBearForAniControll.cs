@@ -299,80 +299,96 @@ public class onIceBearForAniControll : MonoBehaviour {
         switch (myAniMod)
         {
             case 0:
-                myAniam.Play("basic_dead");
-                break;
-            case 1:
                 myAniam.Play("idle_attack");
                 break;
-            case 2:
+            case 1:
                 myAniam.Play("idle_basic");
                 break;
-            case 3:
-                myAniam.Play("idle_turning");
+            case 2:
+                myAniam.Play("dead_basic");
                 break;
-            case 4:
+            case 3:
                 myAniam.Play("run_ready");
                 break;
+            case 4:
+                myAniam.Play("run_loop");
+                break;
             case 5:
-                myAniam.Play("run_ing");
+                myAniam.Play("run_end");
                 break;
             case 6:
-                print("run stop");
-                myAniam.Play("run_stop");
+                myAniam.Play("turning");
                 break;
             case 7:
                 myAniam.Play("walk_ready");
                 break;
             case 8:
-                myAniam.Play("walk_ing");
+                myAniam.Play("walk_loop");
                 break;
             case 9:
-                myAniam.Play("walk_stop");
+                myAniam.Play("walk_end");
                 break;
+
+                //-----------------
             case 10:
-                myAniam.Play("skill1_fishHit");
+                myAniam.Play("sk_bc_jumphit");
                 break;
             case 11:
-                myAniam.Play("skill2_jumpHit");
+                myAniam.Play("sk_bc_twohandwavetoleft");
                 break;
             case 12:
-                myAniam.Play("skill3_readyeatfish");
+                myAniam.Play("sk_bc_twohandwavetoright");
                 break;
             case 13:
-                myAniam.Play("skill3_eatfishfinish");
+                myAniam.Play("sk_sp_eatfigh_ready");
                 break;
             case 14:
-                myAniam.Play("skill3_eatingfish");
+                myAniam.Play("sk_sp_eatfigh_eating");
                 break;
             case 15:
-                myAniam.Play("break_belly");
+                myAniam.Play("sk_sp_eatfigh_end");
                 break;
             case 16:
-                myAniam.Play("break_feet");
+                myAniam.Play("sk_sp_rollcut_dizzing");
                 break;
             case 17:
-                myAniam.Play("break_mouth");
+                myAniam.Play("sk_sp_rollcut_dizzing_resume");
                 break;
             case 18:
-                myAniam.Play("dead_feetbreakdead");
+                myAniam.Play("sk_sp_rollcut_ready");
                 break;
             case 19:
-                myAniam.Play("fishhithead");
+                myAniam.Play("sk_sp_rollcut_rolling");
                 break;
             case 20:
-                myAniam.Play("idle_feedandbellybreak");
+                myAniam.Play("breaking_head_fighthitheadtodizzing");
                 break;
             case 21:
-                myAniam.Play("idle_feedandmouthbreak");
+                myAniam.Play("breaking_head_fighthithead_land_dizzing");
                 break;
             case 22:
-                myAniam.Play("resume_feed");
+                myAniam.Play("breaking_head_fighthithead_dizzing_resume");
                 break;
             case 23:
-                myAniam.Play("SP");
+                myAniam.Play("breaking_belly");
                 break;
             case 24:
-                myAniam.Play("SP_2");
+                myAniam.Play("breaking_LBs_belly");
+                break;
+            case 25:
+                myAniam.Play("breaking_LBs_mouth");
+                break;
+            case 26:
+                myAniam.Play("breaking_leg");
+                break;
+            case 27:
+                myAniam.Play("breaking_mouth");
+                break;
+            case 28:
+                myAniam.Play("dead_LB");
+                break;
+            case 29:
+                myAniam.Play("resume_leg");
                 break;
             default:
                 break;
