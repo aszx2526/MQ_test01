@@ -37,7 +37,7 @@ public class onCamera_dtg : MonoBehaviour {
         switch (myCameraMod) {
             case 0:
                 //3.8>6.3
-                myCameraFN(0,60, 2.8f);
+                myCameraFN(0,60, 2.3f);
                 break;
             case 1:
                 myCameraFN(-1.3f,40,4.8f);

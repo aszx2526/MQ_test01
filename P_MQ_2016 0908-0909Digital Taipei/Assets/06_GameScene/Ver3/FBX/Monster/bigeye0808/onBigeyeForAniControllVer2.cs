@@ -59,6 +59,10 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
 
     public AudioClip[] mySoundEffectData;
     public AudioSource myAudioSource;
+
+    public bool isStruggleTime;
+    public float myStruggleTime;
+    public float myStruggleTimer;
     void Start()
     {
         isWinggood = true;
@@ -72,7 +76,38 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
             myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;
             myAniControll();
-            myBigeyeAttackMod();
+
+
+            if (isStruggleTime) {
+                if (myStruggleTimer >= 0.5) {
+                    myAniam.speed = 1;
+                    myStruggleTimer = 0;
+                    isStruggleTime = false;
+                }
+                else {
+                    if (isWinggood)
+                    {
+                        myAniam.speed = 1.5f;
+                        if (isBigEyegood) { myAniMod = 17; }
+                        else { myAniMod = 15; }
+                        myStruggleTimer += Time.deltaTime;
+                    }
+                    else {
+                        myStruggleTimer += Time.deltaTime;
+                    }
+                }
+            }
+            else {
+                if (myStruggleTimer >= 3)
+                {
+                    myStruggleTimer = 0;
+                    isStruggleTime = true;
+                }
+                else {
+                    myStruggleTimer += Time.deltaTime;
+                }
+                myBigeyeAttackMod();
+            }
         }
 
     }
@@ -384,13 +419,13 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
                 myAniam.Play("OpeneyeDie");
                 break;
             case 15:
-                myAniam.Play("OthereyeBreak_onairshake");
+                myAniam.Play("OthereyeBreak_onairshake");//空中閉眼掙扎
                 break;
             case 16:
                 myAniam.Play("OthereyeBreak_openeye");
                 break;
             case 17:
-                myAniam.Play("OthereyeBreak_openeyeshake");
+                myAniam.Play("OthereyeBreak_openeyeshake");//空中開演掙扎
                 break;
             case 18:
                 myAniam.Play("Runready");
