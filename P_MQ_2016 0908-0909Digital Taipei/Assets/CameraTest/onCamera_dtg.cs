@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class onCamera_dtg : MonoBehaviour {
     public float myCameraRotationSpeed;//攝影機旋轉速度
     public int myCameraMod;//攝影機的模式，簡單講就是攝影機現在看哪裡啦
@@ -14,6 +14,10 @@ public class onCamera_dtg : MonoBehaviour {
     public bool isMoveTime;//是否為移動時間
     public float myZoonSpeed;//放大縮小的速度
 
+    //------
+    public GameObject myLocker;
+     
+
     // Use this for initialization
     void Start () {
         myMainCamera = GameObject.Find("MainCamera").gameObject.GetComponent<Camera>();
@@ -24,7 +28,9 @@ public class onCamera_dtg : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (myPickUpNum != 0) {
-            if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { }
+            if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
+                myLocker.transform.position = Camera.main.WorldToScreenPoint(theLookAtPointOnMonster[myCameraMod].transform.position);
+            }
             else {
                 transform.position = myMonsterList[myPickUpNum - 1].transform.position;
                 theLookAtPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().MyHitpointList;
