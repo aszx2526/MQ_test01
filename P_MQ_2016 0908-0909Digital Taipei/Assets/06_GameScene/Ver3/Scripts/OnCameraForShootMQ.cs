@@ -44,6 +44,13 @@ public class OnCameraForShootMQ : MonoBehaviour
     public GameObject[] myskillUI;
     public AudioClip[] mySoundEffectData;
     public AudioSource myAudioSource;
+
+    //-----auto fire
+    public bool isAutoFire;
+    public float myAutoFireTime;
+    public float myAutoFireTimer;
+    public int myAutoFireRandom;
+    public GameObject myBasicMQ;
     void Start()
     {
         myAudioSource = gameObject.GetComponent<AudioSource>();
@@ -80,16 +87,21 @@ public class OnCameraForShootMQ : MonoBehaviour
         {
             if (myABulletCount == 0 && myBBulletCount == 0 && myCBulletCount == 0 && myDBulletCount == 0 && myEBulletCount == 0 && myHowManyMQOnScene == 0)
             {
-
                 youlose.gameObject.SetActive(true);
                 print("all MQ is over so you are lose!!!!!!!!!!");
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            myCreatAMQ();
+        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
+            if (myAutoFireTimer > myAutoFireTime) {
+                myAutoCreatMQ();
+                myAutoFireTimer = 0;
+            }
+            else {
+                myAutoFireTimer += Time.deltaTime;
+            }
         }
 
+        
         //PlayerFunction();
         //CheckIsWin();
         
@@ -100,6 +112,12 @@ public class OnCameraForShootMQ : MonoBehaviour
     }
     //生蚊子的韓式
     public int a;
+    public void myAutoCreatMQ()
+    {
+                a = Random.Range(0, 14);
+                Instantiate(myBasicMQ, myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
+                
+    }
     public void myCreatAMQ()
     {
         if (myABulletCount > 0)
@@ -113,7 +131,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 //Instantiate(myBullet[0], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
                 myHowManyMQOnScene++;//數蚊子
                 myABulletCount--;
-        
+
             }
         }
         else { print("沒MQ...."); }

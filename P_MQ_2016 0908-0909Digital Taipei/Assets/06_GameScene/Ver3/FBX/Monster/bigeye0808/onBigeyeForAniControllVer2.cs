@@ -572,6 +572,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
                     {
                         myMQ[a].GetComponent<onMQVer3>().isBeHit = true;
                         myMQ[a].GetComponent<onMQVer3>().isHitFlyAway = true;
+                        myMQ[a].GetComponent<onMQVer3>().myHitflyAwayTime = Random.Range(0.5f, 2.0f);
                         myMQ[a].GetComponent<onMQVer3>().myHP -= mySkill1Hurtpoint;
                     }
                 }
@@ -588,6 +589,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
                 {
                     myMQ[a].GetComponent<onMQVer3>().isBeHit = true;
                     myMQ[a].GetComponent<onMQVer3>().isHitFlyAway = true;
+                    myMQ[a].GetComponent<onMQVer3>().myHitflyAwayTime = Random.Range(0.5f, 2.0f);
                     myMQ[a].GetComponent<onMQVer3>().myHP -= mySkill1Hurtpoint;
                 }
             }

@@ -34,24 +34,58 @@ public class onCamera_dtg : MonoBehaviour {
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { CameraRotationFN(); }
     }
     public void CameraRotationFN() {
-        switch (myCameraMod) {
-            case 0:
-                //3.8>6.3
-                myCameraFN(0,60, 2.3f);
+        switch (myMonsterList[myPickUpNum - 1].tag) {
+            case "monster_bigeye":
+                if (myMonsterList[myPickUpNum - 1].gameObject.transform.GetChild(0).GetComponent<onBigeyeForAniControllVer2>().isWinggood == false) {
+                    print("oncamera_dtg wing break");
+                    switch (myCameraMod)
+                    {
+                        case 0:
+                            //3.8>6.3
+                            myCameraFN(0, 60, 2.3f);
+                            break;
+                        case 1:
+                            myCameraFN(-1.3f, 40, 4.8f);
+                            break;
+                        case 2:
+                            myCameraFN(1f, 30, 4.8f);
+                            break;
+                        case 3:
+                            myCameraFN(0.5f, 47, 2.8f);
+                            break;
+                        case 4:
+                            myCameraFN(-0.5f, 45, 2.8f);
+                            break;
+                    }
+                }
+                else {
+                    switch (myCameraMod)
+                    {
+                        case 0:
+                            //3.8>6.3
+                            myCameraFN(0, 60, 2.3f);
+                            break;
+                        case 1:
+                            myCameraFN(-1.3f, 40, 4.8f);
+                            break;
+                        case 2:
+                            myCameraFN(1f, 30, 4.8f);
+                            break;
+                        case 3:
+                            myCameraFN(0.5f, 47, 2.8f);
+                            break;
+                        case 4:
+                            myCameraFN(-0.5f, 45, 2.8f);
+                            break;
+                    }
+                }
+
                 break;
-            case 1:
-                myCameraFN(-1.3f,40,4.8f);
-                break;
-            case 2:
-                myCameraFN(1f, 30, 4.8f);
-                break;
-            case 3:
-                myCameraFN(0.5f, 47, 2.8f);
-                break;
-            case 4:
-                myCameraFN(-0.5f, 45, 2.8f);
+            default:
+                print("攝影機旋轉怪物清單為 null");
                 break;
         }
+        
         myCameraLookAtPointMoveFN();
     }
     //鏡頭相關的韓式，縮放阿，旋轉，移動座標等等
@@ -78,7 +112,15 @@ public class onCamera_dtg : MonoBehaviour {
             isMoveTime = false;
         }
         else {
-            if(isMoveTime)myLookAtPoint.transform.position = Vector3.Lerp(myLookAtPoint.transform.position, theHotPointOnMonster[myCameraMod].transform.position, Time.deltaTime * myCameraRotationSpeed*3.5f);
+            if (isMoveTime) {
+                myLookAtPoint.transform.position = Vector3.Lerp(myLookAtPoint.transform.position,
+                                                                theHotPointOnMonster[myCameraMod].transform.position,
+                                                                Time.deltaTime * myCameraRotationSpeed * 3.5f);
+                /*myLookAtPoint.transform.position = Vector3.Lerp(myLookAtPoint.transform.position,
+                                                                theLookAtPointOnMonster[myCameraMod].transform.position,
+                                                                Time.deltaTime * myCameraRotationSpeed * 3.5f);*/
+            }
+            
         }
     }
     //控制看下一個可攻擊點或者上一個可攻擊點

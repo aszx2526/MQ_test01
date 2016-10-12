@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class onMQVer3 : MonoBehaviour {
-    public int WhatKindOfMQAmI;//0基本,1炸彈,2冰,3殭屍,4未定
+    public int WhatKindOfMQAmI;//0基本,1炸彈,2冰,3殭屍,4未定 5嫩
     [Header("蚊子滿血血量")]
     public int myFullHP;//血量
     [Header("蚊子血量")]
@@ -41,8 +41,9 @@ public class onMQVer3 : MonoBehaviour {
 
     //---------------------------------------
     public int myMQAniMod;
+    public float myHitflyAwayTime;
     public float myHitflyAwayTimer;
-
+    
     public GameObject DeadEffect;
     public GameObject myChildMQ;
     float deadtimer;
@@ -83,9 +84,16 @@ public class onMQVer3 : MonoBehaviour {
         {
             if (deadtimer >= 1.5f)
             {
-                deadtimer = 0;
-                GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myHowManyMQOnScene--;
-                Destroy(gameObject);
+                if (WhatKindOfMQAmI == 5) {
+                    deadtimer = 0;
+                    Destroy(gameObject);
+                }
+                else {
+                    deadtimer = 0;
+                    GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myHowManyMQOnScene--;
+                    Destroy(gameObject);
+                }
+                
             }
             else {
                 myChildMQ.SetActive(false);
@@ -163,7 +171,7 @@ public class onMQVer3 : MonoBehaviour {
         //print("move to target");
     }
     public void myBeHitThenFlyAway() {
-        if (myHitflyAwayTimer >= 1)
+        if (myHitflyAwayTimer >= myHitflyAwayTime)
         {
             myHitflyAwayTimer = 0;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
