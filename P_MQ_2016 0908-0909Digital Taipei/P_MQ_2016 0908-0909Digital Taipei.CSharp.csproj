@@ -128,14 +128,21 @@
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\OnCameraLookAt.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\OnLookAtPoint.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\OnMiniMap.cs" />
+    <Compile Include="Assets\06_GameScene\Ver3\Scripts\onAmount_UI.cs" />
+    <Compile Include="Assets\06_GameScene\Ver3\Scripts\onBTN_Battle.cs" />
+    <Compile Include="Assets\06_GameScene\Ver3\Scripts\onBighitNum.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\onCameraLookController_Bigeye.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\onCanvasForUIControll.cs" />
+    <Compile Include="Assets\06_GameScene\Ver3\Scripts\onHotPoint_bigeye.cs" />
+    <Compile Include="Assets\06_GameScene\Ver3\Scripts\onLocker.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\onMQ\onMQVer3.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\onMQ\onMQ_AnimControll_Basic.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\onMQ\onMQ_AnimControll_Boom.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\onMQ\onMQ_AnimControll_Ice.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\onMQ\onMQ_AnimControll_Wizard.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\onMQ\onMQ_AnimControll_Zombie.cs" />
+    <Compile Include="Assets\06_GameScene\Ver3\Scripts\onMainCameraVer2.cs" />
+    <Compile Include="Assets\06_GameScene\Ver3\Scripts\onMonsterName.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\onMonsterVer3.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\onTriggerMQIn.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\onUI_5Skill.cs" />
@@ -241,13 +248,6 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
-    <Compile Include="Assets\onAmount_UI.cs" />
-    <Compile Include="Assets\onBTN_Battle.cs" />
-    <Compile Include="Assets\onBighitNum.cs" />
-    <Compile Include="Assets\onHotPoint_bigeye.cs" />
-    <Compile Include="Assets\onLocker.cs" />
-    <Compile Include="Assets\onMainCameraVer2.cs" />
-    <Compile Include="Assets\onMonsterName.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\06_GameScene\Ver3\UI\F_02\選單動畫說明.txt" />

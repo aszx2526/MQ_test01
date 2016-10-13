@@ -60,8 +60,8 @@ public class OnCameraForShootMQ : MonoBehaviour
         youlose.gameObject.SetActive(false);
         for (int a = 0; a < myCDBlack.Length; a++)
         {
-            myCDBlack[a].SetActive(false);
-            mySkillBTN[a].SetActive(false);
+            myCDBlack[a].GetComponent<Image>().fillAmount = 1;
+            //mySkillBTN[a].SetActive(false);
         }
     }
 
@@ -336,14 +336,14 @@ public class OnCameraForShootMQ : MonoBehaviour
     }
     public void myASkillCheck()
     {
-
         GameObject[] MQA = GameObject.FindGameObjectsWithTag("MQA");
         if (MQA.Length > 29)
         {
             isTeamSkillReady[0] = true;
-            mySkillBTN[0].SetActive(true);
+            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
+            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+            //mySkillBTN[0].SetActive(true);
         }
-        else { mySkillBTN[0].SetActive(false); }
     }
     public void myBSkillCheck()
     {
@@ -351,9 +351,9 @@ public class OnCameraForShootMQ : MonoBehaviour
         if (MQB != null && MQB.Length > 19)
         {
             isTeamSkillReady[1] = true;
-            mySkillBTN[1].SetActive(true);
+            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
+            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
         }
-        else {mySkillBTN[1].SetActive(false);}
     }
     public void myCSkillCheck()
     {
@@ -361,20 +361,19 @@ public class OnCameraForShootMQ : MonoBehaviour
         if (MQC != null && MQC.Length > 19)
         {
             isTeamSkillReady[2] = true;
-            mySkillBTN[2].SetActive(true);
+            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
+            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
         }
-        else { mySkillBTN[2].SetActive(false); }
     }
     public void myDSkillCheck()
     {
-
         GameObject[] MQD = GameObject.FindGameObjectsWithTag("MQD");
         if (MQD != null && MQD.Length > 19)
         {
             isTeamSkillReady[3] = true;
-            mySkillBTN[3].SetActive(true);
+            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
+            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
         }
-        else { mySkillBTN[3].SetActive(false); }
     }
     public void myESkillCheck()
     {
@@ -382,20 +381,21 @@ public class OnCameraForShootMQ : MonoBehaviour
         if (MQE != null && MQE.Length > 19)
         {
             isTeamSkillReady[4] = true;
-            mySkillBTN[4].SetActive(true);
+            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
+            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
         }
-        else { mySkillBTN[4].SetActive(false); }
     }
     public void myTeamASkill()
     {
-        myAudioSource.clip = mySoundEffectData[0];
+        /*myAudioSource.clip = mySoundEffectData[0];
         myAudioSource.enabled = false;
-        myAudioSource.enabled = true;
+        myAudioSource.enabled = true;*/
         print("team a be call");
         isTeamSkillCD[0] = true;
         isSuperStarTime = true;
         isTeamSkillReady[0] = false;
-        mySkillBTN[0].SetActive(false);
+        myCDBlack[0].GetComponent<Image>().fillAmount = 1;
+        //mySkillBTN[0].SetActive(false);
 
         GameObject[] MQ = GameObject.FindGameObjectsWithTag("MQ");
         GameObject UI =  Instantiate(myskillUI[0], transform.position, Quaternion.identity) as GameObject;
@@ -412,13 +412,14 @@ public class OnCameraForShootMQ : MonoBehaviour
     }
     public void myTeamBSkill()
     {
-        myAudioSource.clip = mySoundEffectData[1];
+       /* myAudioSource.clip = mySoundEffectData[1];
         myAudioSource.enabled = false;
-        myAudioSource.enabled = true;
+        myAudioSource.enabled = true;*/
 
         isTeamSkillCD[1] = true;
         isTeamSkillReady[1] = false;
-        mySkillBTN[1].SetActive(false);
+        myCDBlack[1].GetComponent<Image>().fillAmount = 1;
+        //   mySkillBTN[1].SetActive(false);
         GameObject[] MQ = GameObject.FindGameObjectsWithTag("MQ");
         GameObject UI = Instantiate(myskillUI[1], transform.position, Quaternion.identity) as GameObject;
         UI.transform.parent = GameObject.Find("Canvas").transform;
@@ -433,13 +434,14 @@ public class OnCameraForShootMQ : MonoBehaviour
     }
     public void myTeamCSkill()
     {
-        myAudioSource.clip = mySoundEffectData[2];
+        /*myAudioSource.clip = mySoundEffectData[2];
         myAudioSource.enabled = false;
-        myAudioSource.enabled = true;
+        myAudioSource.enabled = true;*/
 
         isTeamSkillCD[2] = true;
         isTeamSkillReady[2] = false;
-        mySkillBTN[2].SetActive(false);
+        myCDBlack[2].GetComponent<Image>().fillAmount = 1;
+        // mySkillBTN[2].SetActive(false);
         print("發動技能-5倍的傷害");
         GameObject[] MQ = GameObject.FindGameObjectsWithTag("MQ");
         GameObject UI = Instantiate(myskillUI[2], transform.position, Quaternion.identity) as GameObject;
@@ -450,13 +452,14 @@ public class OnCameraForShootMQ : MonoBehaviour
     }
     public void myTeamDSkill()
     {
-        myAudioSource.clip = mySoundEffectData[3];
+      /*  myAudioSource.clip = mySoundEffectData[3];
         myAudioSource.enabled = false;
-        myAudioSource.enabled = true;
+        myAudioSource.enabled = true;*/
 
         isTeamSkillCD[3] = true;
         isTeamSkillReady[3] = false;
-        mySkillBTN[3].SetActive(false);
+        myCDBlack[3].GetComponent<Image>().fillAmount = 1;
+        //mySkillBTN[3].SetActive(false);
         print("發動技能-公訴加倍");
         GameObject[] MQ = GameObject.FindGameObjectsWithTag("MQ");
         GameObject UI = Instantiate(myskillUI[3], transform.position, Quaternion.identity) as GameObject;
@@ -467,13 +470,14 @@ public class OnCameraForShootMQ : MonoBehaviour
     }
     public void myTeamESkill()
     {
-        myAudioSource.clip = mySoundEffectData[4];
+      /*  myAudioSource.clip = mySoundEffectData[4];
         myAudioSource.enabled = false;
-        myAudioSource.enabled = true;
+        myAudioSource.enabled = true;*/
 
         isTeamSkillCD[4] = true;
         isTeamSkillReady[4] = false;
-        mySkillBTN[4].SetActive(false);
+        myCDBlack[4].GetComponent<Image>().fillAmount = 1;
+        //mySkillBTN[4].SetActive(false);
         print("發動技能-爆告加倍");
         GameObject[] MQ = GameObject.FindGameObjectsWithTag("MQ");
         GameObject UI = Instantiate(myskillUI[4], transform.position, Quaternion.identity) as GameObject;
@@ -489,12 +493,15 @@ public class OnCameraForShootMQ : MonoBehaviour
         {
             if (isTeamSkillCDTimer[0] > isTeamSkillCdTime[0])//cd秒數
             {
-                myCDBlack[0].SetActive(false);
+                myCDBlack[0].GetComponent<Image>().fillAmount = 0;
                 isTeamSkillCDTimer[0] = 0;
                 isTeamSkillCD[0] = false;
+                mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
             }
             else {
-                myCDBlack[0].SetActive(true);//嘿嘿遮起來
+                myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                mySkillBTN[0].GetComponent<Image>().raycastTarget = false;
+                myCDBlack[0].GetComponent<Image>().fillAmount =(isTeamSkillCDTimer[0]/ isTeamSkillCdTime[0]);
                 isTeamSkillCDTimer[0] += Time.deltaTime;
             }
         }
@@ -502,12 +509,15 @@ public class OnCameraForShootMQ : MonoBehaviour
         {
             if (isTeamSkillCDTimer[1] > isTeamSkillCdTime[1])
             {
-                myCDBlack[1].SetActive(false);
+                //myCDBlack[1].SetActive(false);
+                myCDBlack[1].GetComponent<Image>().fillAmount = 0;
                 isTeamSkillCDTimer[1] = 0;
                 isTeamSkillCD[1] = false;
             }
             else {
-                myCDBlack[1].SetActive(true);
+                //myCDBlack[1].SetActive(true);
+                myCDBlack[1].GetComponent<Image>().raycastTarget = true;
+                myCDBlack[1].GetComponent<Image>().fillAmount = (isTeamSkillCDTimer[1] / isTeamSkillCdTime[1]);
                 isTeamSkillCDTimer[1] += Time.deltaTime;
             }
         }
@@ -515,12 +525,15 @@ public class OnCameraForShootMQ : MonoBehaviour
         {
             if (isTeamSkillCDTimer[2] > isTeamSkillCdTime[2])
             {
-                myCDBlack[2].SetActive(false);
+                //myCDBlack[2].SetActive(false);
+                myCDBlack[2].GetComponent<Image>().fillAmount = 0;
                 isTeamSkillCDTimer[2] = 0;
                 isTeamSkillCD[2] = false;
             }
             else {
-                myCDBlack[2].SetActive(true);
+                //myCDBlack[2].SetActive(true);
+                myCDBlack[2].GetComponent<Image>().raycastTarget = true;
+                myCDBlack[2].GetComponent<Image>().fillAmount = (isTeamSkillCDTimer[2] / isTeamSkillCdTime[2]);
                 isTeamSkillCDTimer[2] += Time.deltaTime;
             }
         }
@@ -528,12 +541,15 @@ public class OnCameraForShootMQ : MonoBehaviour
         {
             if (isTeamSkillCDTimer[3] > isTeamSkillCdTime[3])
             {
-                myCDBlack[3].SetActive(false);
+                //myCDBlack[3].SetActive(false);
+                myCDBlack[3].GetComponent<Image>().fillAmount = 0;
                 isTeamSkillCDTimer[3] = 0;
                 isTeamSkillCD[3] = false;
             }
             else {
-                myCDBlack[3].SetActive(true);
+                //myCDBlack[3].SetActive(true);
+                myCDBlack[3].GetComponent<Image>().raycastTarget = true;
+                myCDBlack[3].GetComponent<Image>().fillAmount = (isTeamSkillCDTimer[3] / isTeamSkillCdTime[3]);
                 isTeamSkillCDTimer[3] += Time.deltaTime;
             }
         }
@@ -541,12 +557,15 @@ public class OnCameraForShootMQ : MonoBehaviour
         {
             if (isTeamSkillCDTimer[4] > isTeamSkillCdTime[4])
             {
-                myCDBlack[4].SetActive(false);
+                //myCDBlack[4].SetActive(false);
+                myCDBlack[4].GetComponent<Image>().fillAmount = 0;
                 isTeamSkillCDTimer[4] = 0;
                 isTeamSkillCD[4] = false;
             }
             else {
-                myCDBlack[4].SetActive(true);
+                //myCDBlack[4].SetActive(true);
+                myCDBlack[4].GetComponent<Image>().raycastTarget = true;
+                myCDBlack[4].GetComponent<Image>().fillAmount = (isTeamSkillCDTimer[4] / isTeamSkillCdTime[4]);
                 isTeamSkillCDTimer[4] += Time.deltaTime;
             }
         }
@@ -561,7 +580,6 @@ public class OnCameraForShootMQ : MonoBehaviour
       
         for (int a = 0; a < 10; a++)
         {
-
             if (myABulletCount.ToString().Substring(0, 1) == a.ToString()) { Text_myTeamAAmount.GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = Text_myTeamAAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
             if (myABulletCount.ToString().Substring(1, 1) == a.ToString()) { Text_myTeamAAmount.GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = Text_myTeamAAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
             if (myABulletCount.ToString().Substring(2, 1) == a.ToString()) { Text_myTeamAAmount.GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = Text_myTeamAAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
@@ -577,25 +595,6 @@ public class OnCameraForShootMQ : MonoBehaviour
             if (myEBulletCount.ToString().Substring(0, 1) == a.ToString()) { Text_myTeamEAmount.GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = Text_myTeamEAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
             if (myEBulletCount.ToString().Substring(1, 1) == a.ToString()) { Text_myTeamEAmount.GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = Text_myTeamEAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
             if (myEBulletCount.ToString().Substring(2, 1) == a.ToString()) { Text_myTeamEAmount.GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = Text_myTeamEAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            /* if (myABulletCount.ToString().Substring(1, 1) == a.ToString())
-             {
-                 myBigHitNumString2_Child[1].GetComponent<Image>().sprite = myNumSprite[a];
-                 Vector2 aaa = myBigHitNumString2_Child[1].GetComponent<RectTransform>().localScale;
-                 float myrandomscal = Random.Range(1.0f, 2.0f);
-                 aaa.x = myrandomscal;
-                 aaa.y = myrandomscal;
-                 myBigHitNumString2_Child[0].GetComponent<RectTransform>().localScale = aaa;
-             }
-             if (myABulletCount.ToString().Substring(2, 1) == a.ToString())
-             {
-                 myBigHitNumString2_Child[2].GetComponent<Image>().sprite = myNumSprite[a];
-                 Vector2 aaa = myBigHitNumString2_Child[2].GetComponent<RectTransform>().localScale;
-                 float myrandomscal = Random.Range(1.0f, 2.0f);
-                 aaa.x = myrandomscal;
-                 aaa.y = myrandomscal;
-                 myBigHitNumString2_Child[0].GetComponent<RectTransform>().localScale = aaa;
-             }*/
         }
-
     }
 }
