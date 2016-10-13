@@ -86,15 +86,12 @@ public class onHitUI : MonoBehaviour {
             if (isTwoOrThree)
             {
                 Vector3 myscale = myBigHitNumString[1].GetComponent<RectTransform>().localScale;
-
                 if (myIsBigest)
                 {
                     if (myEffectWaitTimer > myEffectWaitTime) {
                         Vector2 Posy = myBigHitNumString[1].GetComponent<RectTransform>().anchoredPosition;
                         Posy.y += Time.deltaTime * Random.Range(riseSpeed, riseSpeed + 25);
                         myBigHitNumString[1].GetComponent<RectTransform>().anchoredPosition = Posy;
-
-
                         Color c2 = myBigHitNumString2_Child[0].GetComponent<Image>().color;
                         c2.a -= Time.deltaTime * f;
                         for (int a = 0; a < 3; a++)
@@ -105,13 +102,10 @@ public class onHitUI : MonoBehaviour {
                         {
                             Destroy(gameObject);
                         }
-
                     }
                     else {
                         myEffectWaitTimer += Time.deltaTime;
                     }
-
-                    
                     myscale.x = 1.8f;
                     myscale.y = 1.8f;
                     myBigHitNumString[1].GetComponent<RectTransform>().localScale = myscale;
@@ -125,7 +119,6 @@ public class onHitUI : MonoBehaviour {
                         myscale.x += Time.deltaTime * f * 20;
                         myscale.y += Time.deltaTime * f * 20;
                         myBigHitNumString[1].GetComponent<RectTransform>().localScale = myscale;
-
                     }
                 }
                
@@ -138,8 +131,6 @@ public class onHitUI : MonoBehaviour {
                         Vector2 Posy = myBigHitNumString[0].GetComponent<RectTransform>().anchoredPosition;
                         Posy.y += Time.deltaTime * Random.Range(riseSpeed, riseSpeed + 25);
                         myBigHitNumString[0].GetComponent<RectTransform>().anchoredPosition = Posy;
-
-
                         Color c2 = myBigHitNumString1_Child[0].GetComponent<Image>().color;
                         c2.a -= Time.deltaTime * f;
                         for (int a = 0; a < 2; a++)
@@ -154,8 +145,6 @@ public class onHitUI : MonoBehaviour {
                     else {
                         myEffectWaitTimer += Time.deltaTime;
                     }
-
-                    
                     myscale.x = 1.8f;
                     myscale.y = 1.8f;
                     myBigHitNumString[0].GetComponent<RectTransform>().localScale = myscale;

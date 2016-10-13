@@ -17,11 +17,11 @@ public class OnCameraForShootMQ : MonoBehaviour
     public int myCBulletCount;
     public int myDBulletCount;
     public int myEBulletCount;
-    public Text Text_myTeamAAmount;
-    public Text Text_myTeamBAmount;
-    public Text Text_myTeamCAmount;
-    public Text Text_myTeamDAmount;
-    public Text Text_myTeamEAmount;
+    public GameObject Text_myTeamAAmount;
+    public GameObject Text_myTeamBAmount;
+    public GameObject Text_myTeamCAmount;
+    public GameObject Text_myTeamDAmount;
+    public GameObject Text_myTeamEAmount;
     //---------------
     public bool[] myWhichTeam;
     public float myBTNHoldTimer;
@@ -553,10 +553,49 @@ public class OnCameraForShootMQ : MonoBehaviour
     }
     public void myAmountUpdate()
     {
-        Text_myTeamAAmount.text = myABulletCount.ToString();//TeamAAmount.ToString();
-        Text_myTeamBAmount.text = myBBulletCount.ToString();
-        Text_myTeamCAmount.text = myCBulletCount.ToString();
-        Text_myTeamDAmount.text = myDBulletCount.ToString();
-        Text_myTeamEAmount.text = myEBulletCount.ToString();
+        /* Text_myTeamAAmount.text = myABulletCount.ToString();//TeamAAmount.ToString();
+         Text_myTeamBAmount.text = myBBulletCount.ToString();
+         Text_myTeamCAmount.text = myCBulletCount.ToString();
+         Text_myTeamDAmount.text = myDBulletCount.ToString();
+         Text_myTeamEAmount.text = myEBulletCount.ToString();*/
+      
+        for (int a = 0; a < 10; a++)
+        {
+
+            if (myABulletCount.ToString().Substring(0, 1) == a.ToString()) { Text_myTeamAAmount.GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = Text_myTeamAAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myABulletCount.ToString().Substring(1, 1) == a.ToString()) { Text_myTeamAAmount.GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = Text_myTeamAAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myABulletCount.ToString().Substring(2, 1) == a.ToString()) { Text_myTeamAAmount.GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = Text_myTeamAAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myBBulletCount.ToString().Substring(0, 1) == a.ToString()) { Text_myTeamBAmount.GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = Text_myTeamBAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myBBulletCount.ToString().Substring(1, 1) == a.ToString()) { Text_myTeamBAmount.GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = Text_myTeamBAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myBBulletCount.ToString().Substring(2, 1) == a.ToString()) { Text_myTeamBAmount.GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = Text_myTeamBAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myCBulletCount.ToString().Substring(0, 1) == a.ToString()) { Text_myTeamCAmount.GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = Text_myTeamCAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myCBulletCount.ToString().Substring(1, 1) == a.ToString()) { Text_myTeamCAmount.GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = Text_myTeamCAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myCBulletCount.ToString().Substring(2, 1) == a.ToString()) { Text_myTeamCAmount.GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = Text_myTeamCAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myDBulletCount.ToString().Substring(0, 1) == a.ToString()) { Text_myTeamDAmount.GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = Text_myTeamDAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myDBulletCount.ToString().Substring(1, 1) == a.ToString()) { Text_myTeamDAmount.GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = Text_myTeamDAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myDBulletCount.ToString().Substring(2, 1) == a.ToString()) { Text_myTeamDAmount.GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = Text_myTeamDAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myEBulletCount.ToString().Substring(0, 1) == a.ToString()) { Text_myTeamEAmount.GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = Text_myTeamEAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myEBulletCount.ToString().Substring(1, 1) == a.ToString()) { Text_myTeamEAmount.GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = Text_myTeamEAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myEBulletCount.ToString().Substring(2, 1) == a.ToString()) { Text_myTeamEAmount.GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = Text_myTeamEAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            /* if (myABulletCount.ToString().Substring(1, 1) == a.ToString())
+             {
+                 myBigHitNumString2_Child[1].GetComponent<Image>().sprite = myNumSprite[a];
+                 Vector2 aaa = myBigHitNumString2_Child[1].GetComponent<RectTransform>().localScale;
+                 float myrandomscal = Random.Range(1.0f, 2.0f);
+                 aaa.x = myrandomscal;
+                 aaa.y = myrandomscal;
+                 myBigHitNumString2_Child[0].GetComponent<RectTransform>().localScale = aaa;
+             }
+             if (myABulletCount.ToString().Substring(2, 1) == a.ToString())
+             {
+                 myBigHitNumString2_Child[2].GetComponent<Image>().sprite = myNumSprite[a];
+                 Vector2 aaa = myBigHitNumString2_Child[2].GetComponent<RectTransform>().localScale;
+                 float myrandomscal = Random.Range(1.0f, 2.0f);
+                 aaa.x = myrandomscal;
+                 aaa.y = myrandomscal;
+                 myBigHitNumString2_Child[0].GetComponent<RectTransform>().localScale = aaa;
+             }*/
+        }
+
     }
 }
