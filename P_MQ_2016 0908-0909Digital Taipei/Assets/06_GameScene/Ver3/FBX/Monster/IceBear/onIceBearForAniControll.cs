@@ -7,19 +7,24 @@ public class onIceBearForAniControll : MonoBehaviour {
     public Text mytextGroup;
     public Text mytextAnimMod;
     public GameObject myFatherObject;//父物件
-    [Header("大眼血量")]
+    [Header("耳朵血量")]
     public float myBigeyeHP;
-    [Header("大眼復原時間")]
+    [Header("耳朵復原時間")]
     public float myBigeyeResumeTimer;
-    [Header("翅膀血量")]
+    [Header("嘴巴血量")]
     public float myWingHP;
-    [Header("翅膀復原時間")]
+    [Header("嘴巴復原時間")]
     public float myWingResumeTimer;
     [Header("複眼血量")]
     public float myOtherEyeHP;
     [Header("複眼復原時間")]
     public float myOtherEyeResumeTimer;
-
+    /*
+    myEar
+    myMouth
+    myBelly
+    myFeet
+        */
 
     public bool isBigEyegood;
     public bool isWinggood;

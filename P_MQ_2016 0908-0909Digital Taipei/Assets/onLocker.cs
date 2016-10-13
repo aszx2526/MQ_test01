@@ -8,6 +8,7 @@ public class onLocker : MonoBehaviour {
     public float myRotateSpeed;
     public float myFadeinoutTimer;
     bool isBorS;
+    bool isCross;
 	// Use this for initialization
 	void Start () {
 		
@@ -15,14 +16,18 @@ public class onLocker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       // if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
-            Vector3 myrota = mylocker[0].gameObject.transform.eulerAngles;
-            myrota.z += Time.deltaTime * -myRotateSpeed;
-            mylocker[0].gameObject.transform.eulerAngles = myrota;
+        // if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
+        Vector3 myrota = mylocker[0].gameObject.transform.eulerAngles;
+        myrota.z -= Time.deltaTime * myRotateSpeed;
+        mylocker[0].gameObject.transform.eulerAngles = myrota;
+
+        Vector3 myrotab = mylocker[2].gameObject.transform.eulerAngles;
+        myrotab.z += Time.deltaTime * myRotateSpeed;
+        mylocker[2].gameObject.transform.eulerAngles = myrotab;
 
 
-        myLokcerBSFN();
-
+        //myLokcerBSFN();
+        myCrossBSFN();
 
         //  }
     }
@@ -45,6 +50,29 @@ public class onLocker : MonoBehaviour {
                 a.x -= Time.deltaTime * 0.5f;
                 a.y -= Time.deltaTime * 0.5f;
                 mylocker[0].gameObject.GetComponent<RectTransform>().localScale = a;
+            }
+        }
+    }
+    public void myCrossBSFN()
+    {
+        if (isCross)
+        {
+            if (mylocker[2].gameObject.GetComponent<RectTransform>().localScale.x > 2.5) { isCross = false; }
+            else {
+                Vector3 a = mylocker[2].gameObject.GetComponent<RectTransform>().localScale;
+                a.x += Time.deltaTime * 5.5f;
+                a.y += Time.deltaTime * 5.5f;
+                mylocker[2].gameObject.GetComponent<RectTransform>().localScale = a;
+            }
+
+        }
+        else {
+            if (mylocker[2].gameObject.GetComponent<RectTransform>().localScale.x < 1.7) { isCross = true; }
+            else {
+                Vector3 a = mylocker[2].gameObject.GetComponent<RectTransform>().localScale;
+                a.x -= Time.deltaTime * 5.5f;
+                a.y -= Time.deltaTime * 5.5f;
+                mylocker[2].gameObject.GetComponent<RectTransform>().localScale = a;
             }
         }
     }
