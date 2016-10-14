@@ -80,11 +80,11 @@ public class onCanvasForUIControll : MonoBehaviour {
         mySoundEffectFN();
         isGameStart = true;
         GameObject.Find("MainCamera").GetComponent<onMainCameraVer2>().isNeedToFollow = true;
-        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myABulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamAAmount;
-        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myBBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamBAmount;
-        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myCBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamCAmount;
-        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myDBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamDAmount;
-        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myEBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamEAmount;
+        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[0] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamAAmount;
+        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[1] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamBAmount;
+        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[2] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamCAmount;
+        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[3] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamDAmount;
+        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[4] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamEAmount;
         myMainUI.SetActive(false);
         
     }

@@ -25,9 +25,7 @@ public class onGifObject : MonoBehaviour {
             else {
                 if (isloop==false) { mygifmod = 0; }
                 else {
-
                 }
-                
             }
         }
         myChangeSprite();
