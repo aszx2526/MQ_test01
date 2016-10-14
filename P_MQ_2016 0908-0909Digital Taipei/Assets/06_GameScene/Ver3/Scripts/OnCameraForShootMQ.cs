@@ -12,22 +12,18 @@ public class OnCameraForShootMQ : MonoBehaviour
     public Text winlose;
     public Text youlose;
     //-----------------
-    public int myABulletCount;
-    public int myBBulletCount;
-    public int myCBulletCount;
-    public int myDBulletCount;
-    public int myEBulletCount;
-    public GameObject Text_myTeamAAmount;
-    public GameObject Text_myTeamBAmount;
-    public GameObject Text_myTeamCAmount;
-    public GameObject Text_myTeamDAmount;
-    public GameObject Text_myTeamEAmount;
+    public int[] myTeamMQCount;
+    public GameObject[] myTeamAmount_Image;
     //---------------
     public bool[] myWhichTeam;
     public float myBTNHoldTimer;
     public bool[] isTeamSkillCD;
     public float[] isTeamSkillCDTimer;
     public float[] isTeamSkillCdTime;
+
+    public bool[] isSkillBTNJuiceTime;
+    public int[] mySkillBTNJuiceMod;
+
     public GameObject[] myCDBlack;
     /* public int myTeamABTNMod;
      public int myTeamBBTNMod;
@@ -41,6 +37,8 @@ public class OnCameraForShootMQ : MonoBehaviour
 
     public bool[] isTeamSkillReady;
     public GameObject[] mySkillBTN;
+    public Sprite[] mySkillBTN_Sprite;
+    public Sprite[] myTeamBTN_hide;
     public GameObject[] myskillUI;
     public AudioClip[] mySoundEffectData;
     public AudioSource myAudioSource;
@@ -61,7 +59,11 @@ public class OnCameraForShootMQ : MonoBehaviour
         for (int a = 0; a < myCDBlack.Length; a++)
         {
             myCDBlack[a].GetComponent<Image>().fillAmount = 1;
-            //mySkillBTN[a].SetActive(false);
+            mySkillBTN[a].GetComponent<Button>().enabled = false;
+
+            Color col = mySkillBTN[a].transform.GetChild(1).GetComponent<Image>().color;
+            col.a = 0;
+            mySkillBTN[a].transform.GetChild(1).GetComponent<Image>().color = col;
         }
     }
 
@@ -80,12 +82,10 @@ public class OnCameraForShootMQ : MonoBehaviour
                 isSuperStarTimer += Time.deltaTime;
             }
         }
-
-
         MQCount.text = "場上蚊子數量：" + myHowManyMQOnScene.ToString();
         if (gameObject.GetComponent<onMainCameraVer2>().isNeedToFollow)
         {
-            if (myABulletCount == 0 && myBBulletCount == 0 && myCBulletCount == 0 && myDBulletCount == 0 && myEBulletCount == 0 && myHowManyMQOnScene == 0)
+            if (myTeamMQCount[0] == 0 && myTeamMQCount[1] == 0 && myTeamMQCount[2] == 0 && myTeamMQCount[3] == 0 && myTeamMQCount[4] == 0 && myHowManyMQOnScene == 0)
             {
                 youlose.gameObject.SetActive(true);
                 print("all MQ is over so you are lose!!!!!!!!!!");
@@ -100,118 +100,117 @@ public class OnCameraForShootMQ : MonoBehaviour
                 myAutoFireTimer += Time.deltaTime;
             }
         }
-
-        
         //PlayerFunction();
         //CheckIsWin();
-        
-        myCheckIsWhichTeam();
-        myTeamCDController();
-        myAmountUpdate();//看看各隊伍剩下多少蚊子
-        mySkillCheck();//看看各隊伍有多少蚊子
+        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
+            myCheckIsWhichTeam();
+            myTeamCDController();
+            myAmountUpdate();//看看各隊伍剩下多少蚊子
+            mySkillCheck();//看看各隊伍有多少蚊子
+            myWhenNotPressBTN_forfadeout_FN();
+            myJuJuFN();
+        }
+    }
+    public void myJuJuFN() {
+        for (int juju = 0; juju < isSkillBTNJuiceTime.Length; juju++)
+        {
+            if (isSkillBTNJuiceTime[juju])
+            {
+                switch (mySkillBTNJuiceMod[juju])
+                {
+                    case 0:
+                        Vector3 Sca1 = mySkillBTN[juju].GetComponent<RectTransform>().localScale;
+                        if (Sca1.x > 1.5)
+                        {
+                            mySkillBTNJuiceMod[juju] = 1;
+                        }
+                        else {
+                            Sca1.x += Time.deltaTime * 5;
+                            Sca1.y = Sca1.x;
+                            mySkillBTN[juju].GetComponent<RectTransform>().localScale = Sca1;
+                        }
+
+                        Color a = mySkillBTN[juju].transform.GetChild(1).GetComponent<Image>().color;
+                        a.a += Time.deltaTime * 20;
+                        mySkillBTN[juju].transform.GetChild(1).GetComponent<Image>().color = a;
+                        break;
+                    case 1:
+                        Vector3 Sca2 = mySkillBTN[juju].GetComponent<RectTransform>().localScale;
+                        if (Sca2.x < 1.35)
+                        {
+                            mySkillBTNJuiceMod[juju] = 2;
+                        }
+                        else {
+                            Sca2.x -= Time.deltaTime * 5;
+                            Sca2.y = Sca2.x;
+                            mySkillBTN[juju].GetComponent<RectTransform>().localScale = Sca2;
+                        }
+                        Color aa = mySkillBTN[juju].transform.GetChild(1).GetComponent<Image>().color;
+                        aa.a -= Time.deltaTime * 20;
+                        mySkillBTN[juju].transform.GetChild(1).GetComponent<Image>().color = aa;
+                        break;
+                    case 2:
+                        isSkillBTNJuiceTime[juju] = false;
+                        mySkillBTNJuiceMod[juju] = 0;
+                        Vector3 Sca3 = mySkillBTN[juju].GetComponent<RectTransform>().localScale;
+                        Sca3.x = 1.35f;
+                        Sca3.y = Sca3.x;
+                        mySkillBTN[juju].GetComponent<RectTransform>().localScale = Sca3;
+
+                        Color aaa = mySkillBTN[juju].transform.GetChild(1).GetComponent<Image>().color;
+                        aaa.a = 0;
+                        mySkillBTN[juju].transform.GetChild(1).GetComponent<Image>().color = aaa;
+                        break;
+                }
+            }
+        }
+    }
+    public void myWhenNotPressBTN_forfadeout_FN() {
+        if (myWhichTeam[0] == false) {myWhenNotPressBTN_forfadeout_if_FN(0); }
+        if (myWhichTeam[1] == false) {myWhenNotPressBTN_forfadeout_if_FN(1); }
+        if (myWhichTeam[2] == false) {myWhenNotPressBTN_forfadeout_if_FN(2); }
+        if (myWhichTeam[3] == false) {myWhenNotPressBTN_forfadeout_if_FN(3); }
+        if (myWhichTeam[4] == false) {myWhenNotPressBTN_forfadeout_if_FN(4); }
+    }
+    public void myWhenNotPressBTN_forfadeout_if_FN(int btn_num) {
+        if (mySkillBTN[btn_num].transform.parent.transform.GetChild(3).GetComponent<Image>().color.a < 0) { }
+        else {
+            Color a = mySkillBTN[btn_num].transform.parent.transform.GetChild(3).GetComponent<Image>().color;
+            a.a -= Time.deltaTime * 5;
+            mySkillBTN[btn_num].transform.parent.transform.GetChild(3).GetComponent<Image>().color = a;
+        }
     }
     //生蚊子的韓式
     public int a;
     public void myAutoCreatMQ()
     {
-                a = Random.Range(0, 14);
-                Instantiate(myBasicMQ, myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
-                
+        a = Random.Range(0, 14);
+        Instantiate(myBasicMQ, myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
     }
-    public void myCreatAMQ()
-    {
-        if (myABulletCount > 0)
+    public void myCreatMQFN(int myTeam_Num) {
+        if (myTeamMQCount[myTeam_Num] > 0)
         {
             myTimer += Time.deltaTime;
             if (myTimer >= 0.1)
             {
+                /*Vector3 a = myFirePoint.transform.forward;
+                a.y = Random.Range(myFirePoint.transform.position.y - 5, myFirePoint.transform.position.y + 5);
+                a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);*/
                 myTimer = 0;
                 a = Random.Range(0, 14);
                 Instantiate(myBullet[myTeamBTNClick - 1], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
                 //Instantiate(myBullet[0], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
                 myHowManyMQOnScene++;//數蚊子
-                myABulletCount--;
-
+                myTeamMQCount[myTeam_Num]--;
             }
         }
         else { print("沒MQ...."); }
     }
-    public void myCreatBMQ()
-    {
-        if (myBBulletCount > 0)
-        {
-            myTimer += Time.deltaTime;
-            if (myTimer >= 0.1)
-            {
-                myTimer = 0;
-                /*Vector3 a = myFirePoint.transform.forward;
-                a.y = Random.Range(myFirePoint.transform.position.y - 5, myFirePoint.transform.position.y + 5);
-                a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);*/
-                int a = Random.Range(0, 6);
-                Instantiate(myBullet[myTeamBTNClick - 1], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
-                myHowManyMQOnScene++;//數蚊子
-                myBBulletCount--;
-            }
-        }
-        else { print("沒MQ...."); }
-    }
-    public void myCreatCMQ()
-    {
-        if (myCBulletCount > 0)
-        {
-            myTimer += Time.deltaTime;
-            if (myTimer >= 0.1)
-            {
-                myTimer = 0;
-                /* Vector3 a = myFirePoint.transform.forward;
-                 a.y = Random.Range(myFirePoint.transform.position.y - 5, myFirePoint.transform.position.y + 5);
-                 a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);*/
-                int a = Random.Range(0, 6);
-                Instantiate(myBullet[myTeamBTNClick - 1], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
-                myHowManyMQOnScene++;//數蚊子
-                myCBulletCount--;
-            }
-        }
-        else { print("沒MQ...."); }
-    }
-    public void myCreatDMQ()
-    {
-        if (myDBulletCount > 0)
-        {
-            myTimer += Time.deltaTime;
-            if (myTimer >= 0.1)
-            {
-                myTimer = 0;
-                /*Vector3 a = myFirePoint.transform.forward;
-                a.y = Random.Range(myFirePoint.transform.position.y - 5, myFirePoint.transform.position.y + 5);
-                a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);*/
-                int a = Random.Range(0, 6);
-                Instantiate(myBullet[myTeamBTNClick - 1],myFirePoint[a].transform.position , Quaternion.identity);//生蚊子
-                myHowManyMQOnScene++;//數蚊子
-                myDBulletCount--;
-            }
-        }
-        else { print("沒MQ...."); }
-    }
-    public void myCreatEMQ()
-    {
-        if (myEBulletCount > 0)
-        {
-            myTimer += Time.deltaTime;
-            if (myTimer >= 0.1)
-            {
-                myTimer = 0;
-                /*Vector3 a = myFirePoint.transform.forward;
-                a.y = Random.Range(myFirePoint.transform.position.y - 5, myFirePoint.transform.position.y + 5);
-                a.x = Random.Range(myFirePoint.transform.position.x - 5, myFirePoint.transform.position.x + 5);*/
-                int a = Random.Range(0, 6);
-                Instantiate(myBullet[myTeamBTNClick - 1], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
-                myHowManyMQOnScene++;//數蚊子
-                myEBulletCount--;
-            }
-        }
-        else { print("沒MQ...."); }
-    }
+    public void myCreatAMQ(){myCreatMQFN(0);}
+    public void myCreatBMQ(){myCreatMQFN(1);}
+    public void myCreatCMQ(){myCreatMQFN(2);}
+    public void myCreatDMQ(){myCreatMQFN(3);}
+    public void myCreatEMQ(){myCreatMQFN(4);}
     //檢查輸贏
     public void CheckIsWin()
     {
@@ -225,104 +224,92 @@ public class OnCameraForShootMQ : MonoBehaviour
         winlose.gameObject.SetActive(true);
         //winlose.text = "You win"+ "/n"+ "Thanks for Playing";
     }
-    public void BTN_TeamADown() { myWhichTeam[0] = true; myTeamBTNClick = 1; }
-    public void BTN_TeamBDown() { myWhichTeam[1] = true; myTeamBTNClick = 2; }
-    public void BTN_TeamCDown() { myWhichTeam[2] = true; myTeamBTNClick = 3; }
-    public void BTN_TeamDDown() { myWhichTeam[3] = true; myTeamBTNClick = 4; }
-    public void BTN_TeamEDown() { myWhichTeam[4] = true; myTeamBTNClick = 5; }
-    public void BTN_TeamAUp()
+    public void BTN_TeamADown() {myForBTNDown(0);}
+    public void BTN_TeamBDown() {myForBTNDown(1);}
+    public void BTN_TeamCDown() {myForBTNDown(2);}
+    public void BTN_TeamDDown() {myForBTNDown(3);}
+    public void BTN_TeamEDown() {myForBTNDown(4);}
+    public void myForBTNDown(int btn_num)
     {
-        if (isTeamSkillCD[0]) { }
-        else {
-            myWhichTeam[0] = false;
-            /* if (myBTNHoldTimer < 0.2)
-             {
-                 myTeamASkill();
-                 myBTNHoldTimer = 0;
-             }
-             else { myBTNHoldTimer = 0; }*/
-        }
+        myWhichTeam[btn_num] = true;
+        myTeamBTNClick = btn_num + 1;
+        mySkillBTN[btn_num].transform.parent.transform.GetChild(1).GetComponent<Image>().sprite = mySkillBTN_Sprite[1];
+        mySkillBTN[btn_num].transform.parent.transform.GetChild(3).GetComponent<Image>().sprite = myTeamBTN_hide[1];
+        Color a = mySkillBTN[btn_num].transform.parent.transform.GetChild(3).GetComponent<Image>().color;
+        a.a = 0;
+        mySkillBTN[btn_num].transform.parent.transform.GetChild(3).GetComponent<Image>().color = a;
     }
-    public void BTN_TeamBUp()
+  
+    /*
+    public void BTN_TeamAUp(){
+      myWhichTeam[0] = false;
+        mySkillBTN[0].transform.parent.transform.GetChild(1).GetComponent<Image>().sprite = mySkillBTN_Sprite[0];
+
+          if (isTeamSkillCD[0]) { }
+           else {
+
+                if (myBTNHoldTimer < 0.2)
+                {
+                    myTeamASkill();
+                    myBTNHoldTimer = 0;
+                }
+                else { myBTNHoldTimer = 0; }
+           }
+    }
+        */
+    public void BTN_TeamAUp(){myForBTNUp(0);}
+    public void BTN_TeamBUp(){myForBTNUp(1);}
+    public void BTN_TeamCUp(){myForBTNUp(2);}
+    public void BTN_TeamDUp(){myForBTNUp(3);}
+    public void BTN_TeamEUp(){myForBTNUp(4);}
+    public void myForBTNUp(int btn_num)
     {
-        if (isTeamSkillCD[1]) { }
-        else {
-            myWhichTeam[1] = false;
-            /* if (myBTNHoldTimer < 0.2)
-             {
-                 myTeamBSkill();
-                 myBTNHoldTimer = 0;
-             }
-             else { myBTNHoldTimer = 0; }*/
-        }
+        myWhichTeam[btn_num] = false;
+        mySkillBTN[btn_num].transform.parent.transform.GetChild(1).GetComponent<Image>().sprite = mySkillBTN_Sprite[0];
+        mySkillBTN[btn_num].transform.parent.transform.GetChild(3).GetComponent<Image>().sprite = myTeamBTN_hide[0];
+        Color a = mySkillBTN[btn_num].transform.parent.transform.GetChild(3).GetComponent<Image>().color;
+        a.a = 1;
+        mySkillBTN[btn_num].transform.parent.transform.GetChild(3).GetComponent<Image>().color = a;
     }
-    public void BTN_TeamCUp()
-    {
-        if (isTeamSkillCD[2]) { }
-        else {
-            myWhichTeam[2] = false;
-            /*   if (myBTNHoldTimer < 0.2)
-               {
-                   myTeamCSkill();
-                   myBTNHoldTimer = 0;
-               }
-               else { myBTNHoldTimer = 0; }*/
-        }
-    }
-    public void BTN_TeamDUp()
-    {
-        if (isTeamSkillCD[3]) { }
-        else {
-            myWhichTeam[3] = false;
-            /* if (myBTNHoldTimer < 0.2)
-             {
-                 myTeamDSkill();
-                 myBTNHoldTimer = 0;
-             }
-             else { myBTNHoldTimer = 0; }*/
-        }
-    }
-    public void BTN_TeamEUp()
-    {
-        if (isTeamSkillCD[4]) { }
-        else {
-            myWhichTeam[4] = false;
-            /* if (myBTNHoldTimer < 0.2)
-             {
-                 myTeamESkill();
-                 myBTNHoldTimer = 0;
-             }
-             else { myBTNHoldTimer = 0; }*/
-        }
-    }
+
 
     public void myCheckIsWhichTeam()
     {
         if (myWhichTeam[0])
         {
             myBTNHoldTimer += Time.deltaTime;
+            myFireBTNPress_fadinFN(0);
             if (myBTNHoldTimer > 0.3) { myCreatAMQ(); }
         }
         if (myWhichTeam[1])
         {
             myBTNHoldTimer += Time.deltaTime;
+            myFireBTNPress_fadinFN(1);
             if (myBTNHoldTimer > 0.3) { myCreatBMQ(); }
         }
         if (myWhichTeam[2])
         {
             myBTNHoldTimer += Time.deltaTime;
+            myFireBTNPress_fadinFN(2);
             if (myBTNHoldTimer > 0.3) { myCreatCMQ(); }
         }
         if (myWhichTeam[3])
         {
             myBTNHoldTimer += Time.deltaTime;
+            myFireBTNPress_fadinFN(3);
             if (myBTNHoldTimer > 0.3) { myCreatDMQ(); }
         }
         if (myWhichTeam[4])
         {
             myBTNHoldTimer += Time.deltaTime;
+            myFireBTNPress_fadinFN(4);
             if (myBTNHoldTimer > 0.3) { myCreatEMQ(); }
         }
+    }
+    public void myFireBTNPress_fadinFN(int btn_num) {
+        Color a = mySkillBTN[btn_num].transform.parent.transform.GetChild(3).GetComponent<Image>().color;
+        a.a += Time.deltaTime * 5f;
+        mySkillBTN[btn_num].transform.parent.transform.GetChild(3).GetComponent<Image>().color = a;
     }
     //放技能
     //public GameObject[] MQ;
@@ -334,56 +321,67 @@ public class OnCameraForShootMQ : MonoBehaviour
         if (!isTeamSkillCD[3]) myDSkillCheck();
         if (!isTeamSkillCD[4]) myESkillCheck();
     }
+
+
     public void myASkillCheck()
     {
         GameObject[] MQA = GameObject.FindGameObjectsWithTag("MQA");
         if (MQA.Length > 29)
         {
-            isTeamSkillReady[0] = true;
-            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+            mySkillCheck_nothide_FN(0);
             //mySkillBTN[0].SetActive(true);
         }
+        else { mySkillCheck_hide_FN(0); }
     }
     public void myBSkillCheck()
     {
         GameObject[] MQB = GameObject.FindGameObjectsWithTag("MQB");
         if (MQB != null && MQB.Length > 19)
         {
-            isTeamSkillReady[1] = true;
-            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
+            mySkillCheck_nothide_FN(1);
         }
+        else { mySkillCheck_hide_FN(1); }
     }
     public void myCSkillCheck()
     {
         GameObject[] MQC = GameObject.FindGameObjectsWithTag("MQC");
         if (MQC != null && MQC.Length > 19)
         {
-            isTeamSkillReady[2] = true;
-            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
+            mySkillCheck_nothide_FN(2);
         }
+        else { mySkillCheck_hide_FN(2); }
     }
     public void myDSkillCheck()
     {
         GameObject[] MQD = GameObject.FindGameObjectsWithTag("MQD");
         if (MQD != null && MQD.Length > 19)
         {
-            isTeamSkillReady[3] = true;
-            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
+            mySkillCheck_nothide_FN(3);
         }
+        else { mySkillCheck_hide_FN(3); }
     }
     public void myESkillCheck()
     {
         GameObject[] MQE = GameObject.FindGameObjectsWithTag("MQE");
         if (MQE != null && MQE.Length > 19)
         {
-            isTeamSkillReady[4] = true;
-            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
+            mySkillCheck_nothide_FN(4);
         }
+        else { mySkillCheck_hide_FN(4); }
+    }
+    public void mySkillCheck_nothide_FN(int btn_skillnum)
+    {
+        isTeamSkillReady[btn_skillnum] = true;
+        myCDBlack[btn_skillnum].GetComponent<Image>().fillAmount = 0;
+        myCDBlack[btn_skillnum].GetComponent<Image>().raycastTarget = false;
+        mySkillBTN[btn_skillnum].GetComponent<Button>().enabled = true;
+    }
+    public void mySkillCheck_hide_FN(int btn_skillnum)
+    {
+        isTeamSkillReady[btn_skillnum] = false;
+        myCDBlack[btn_skillnum].GetComponent<Image>().fillAmount = 1;
+        myCDBlack[btn_skillnum].GetComponent<Image>().raycastTarget = true;
+        mySkillBTN[btn_skillnum].GetComponent<Button>().enabled = false;
     }
     public void myTeamASkill()
     {
@@ -395,7 +393,7 @@ public class OnCameraForShootMQ : MonoBehaviour
         isSuperStarTime = true;
         isTeamSkillReady[0] = false;
         myCDBlack[0].GetComponent<Image>().fillAmount = 1;
-        //mySkillBTN[0].SetActive(false);
+        mySkillBTN[0].GetComponent<Button>().enabled = false;
 
         GameObject[] MQ = GameObject.FindGameObjectsWithTag("MQ");
         GameObject UI =  Instantiate(myskillUI[0], transform.position, Quaternion.identity) as GameObject;
@@ -419,7 +417,7 @@ public class OnCameraForShootMQ : MonoBehaviour
         isTeamSkillCD[1] = true;
         isTeamSkillReady[1] = false;
         myCDBlack[1].GetComponent<Image>().fillAmount = 1;
-        //   mySkillBTN[1].SetActive(false);
+        mySkillBTN[1].GetComponent<Button>().enabled = false;
         GameObject[] MQ = GameObject.FindGameObjectsWithTag("MQ");
         GameObject UI = Instantiate(myskillUI[1], transform.position, Quaternion.identity) as GameObject;
         UI.transform.parent = GameObject.Find("Canvas").transform;
@@ -441,7 +439,7 @@ public class OnCameraForShootMQ : MonoBehaviour
         isTeamSkillCD[2] = true;
         isTeamSkillReady[2] = false;
         myCDBlack[2].GetComponent<Image>().fillAmount = 1;
-        // mySkillBTN[2].SetActive(false);
+        mySkillBTN[2].GetComponent<Button>().enabled = false;
         print("發動技能-5倍的傷害");
         GameObject[] MQ = GameObject.FindGameObjectsWithTag("MQ");
         GameObject UI = Instantiate(myskillUI[2], transform.position, Quaternion.identity) as GameObject;
@@ -459,7 +457,7 @@ public class OnCameraForShootMQ : MonoBehaviour
         isTeamSkillCD[3] = true;
         isTeamSkillReady[3] = false;
         myCDBlack[3].GetComponent<Image>().fillAmount = 1;
-        //mySkillBTN[3].SetActive(false);
+        mySkillBTN[3].GetComponent<Button>().enabled = false;
         print("發動技能-公訴加倍");
         GameObject[] MQ = GameObject.FindGameObjectsWithTag("MQ");
         GameObject UI = Instantiate(myskillUI[3], transform.position, Quaternion.identity) as GameObject;
@@ -477,7 +475,7 @@ public class OnCameraForShootMQ : MonoBehaviour
         isTeamSkillCD[4] = true;
         isTeamSkillReady[4] = false;
         myCDBlack[4].GetComponent<Image>().fillAmount = 1;
-        //mySkillBTN[4].SetActive(false);
+        mySkillBTN[4].GetComponent<Button>().enabled = false;
         print("發動技能-爆告加倍");
         GameObject[] MQ = GameObject.FindGameObjectsWithTag("MQ");
         GameObject UI = Instantiate(myskillUI[4], transform.position, Quaternion.identity) as GameObject;
@@ -489,112 +487,134 @@ public class OnCameraForShootMQ : MonoBehaviour
     //技能CD
     public void myTeamCDController()
     {
-        if (isTeamSkillCD[0])
+        if (isTeamSkillCD[0]){myTeamCD_inIF_FN(0);}
+        if (isTeamSkillCD[1]){myTeamCD_inIF_FN(1);}
+        if (isTeamSkillCD[2]){myTeamCD_inIF_FN(2);}
+        if (isTeamSkillCD[3]){myTeamCD_inIF_FN(3);}
+        if (isTeamSkillCD[4]){myTeamCD_inIF_FN(4);}
+    }
+    public void myTeamCD_inIF_FN(int myteanskill_num)
+    {
+        if (isTeamSkillCDTimer[myteanskill_num] > isTeamSkillCdTime[myteanskill_num])//cd秒數
         {
-            if (isTeamSkillCDTimer[0] > isTeamSkillCdTime[0])//cd秒數
-            {
-                myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                isTeamSkillCDTimer[0] = 0;
-                isTeamSkillCD[0] = false;
-                mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-            }
-            else {
-                myCDBlack[0].GetComponent<Image>().raycastTarget = true;
-                mySkillBTN[0].GetComponent<Image>().raycastTarget = false;
-                myCDBlack[0].GetComponent<Image>().fillAmount =(isTeamSkillCDTimer[0]/ isTeamSkillCdTime[0]);
-                isTeamSkillCDTimer[0] += Time.deltaTime;
-            }
+            myCDBlack[myteanskill_num].GetComponent<Image>().fillAmount = 0;
+            isTeamSkillCDTimer[myteanskill_num] = 0;
+            isTeamSkillCD[myteanskill_num] = false;
+            mySkillBTN[myteanskill_num].GetComponent<Image>().raycastTarget = true;
+            isSkillBTNJuiceTime[myteanskill_num] = true;
+
+
+            Color aaa = mySkillBTN[myteanskill_num].transform.GetChild(1).GetComponent<Image>().color;
+            aaa.a = 0;
+            mySkillBTN[myteanskill_num].transform.GetChild(1).GetComponent<Image>().color = aaa;
         }
-        if (isTeamSkillCD[1])
-        {
-            if (isTeamSkillCDTimer[1] > isTeamSkillCdTime[1])
-            {
-                //myCDBlack[1].SetActive(false);
-                myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                isTeamSkillCDTimer[1] = 0;
-                isTeamSkillCD[1] = false;
-            }
-            else {
-                //myCDBlack[1].SetActive(true);
-                myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                myCDBlack[1].GetComponent<Image>().fillAmount = (isTeamSkillCDTimer[1] / isTeamSkillCdTime[1]);
-                isTeamSkillCDTimer[1] += Time.deltaTime;
-            }
-        }
-        if (isTeamSkillCD[2])
-        {
-            if (isTeamSkillCDTimer[2] > isTeamSkillCdTime[2])
-            {
-                //myCDBlack[2].SetActive(false);
-                myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                isTeamSkillCDTimer[2] = 0;
-                isTeamSkillCD[2] = false;
-            }
-            else {
-                //myCDBlack[2].SetActive(true);
-                myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                myCDBlack[2].GetComponent<Image>().fillAmount = (isTeamSkillCDTimer[2] / isTeamSkillCdTime[2]);
-                isTeamSkillCDTimer[2] += Time.deltaTime;
-            }
-        }
-        if (isTeamSkillCD[3])
-        {
-            if (isTeamSkillCDTimer[3] > isTeamSkillCdTime[3])
-            {
-                //myCDBlack[3].SetActive(false);
-                myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                isTeamSkillCDTimer[3] = 0;
-                isTeamSkillCD[3] = false;
-            }
-            else {
-                //myCDBlack[3].SetActive(true);
-                myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                myCDBlack[3].GetComponent<Image>().fillAmount = (isTeamSkillCDTimer[3] / isTeamSkillCdTime[3]);
-                isTeamSkillCDTimer[3] += Time.deltaTime;
-            }
-        }
-        if (isTeamSkillCD[4])
-        {
-            if (isTeamSkillCDTimer[4] > isTeamSkillCdTime[4])
-            {
-                //myCDBlack[4].SetActive(false);
-                myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                isTeamSkillCDTimer[4] = 0;
-                isTeamSkillCD[4] = false;
-            }
-            else {
-                //myCDBlack[4].SetActive(true);
-                myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                myCDBlack[4].GetComponent<Image>().fillAmount = (isTeamSkillCDTimer[4] / isTeamSkillCdTime[4]);
-                isTeamSkillCDTimer[4] += Time.deltaTime;
-            }
+        else {
+            myCDBlack[myteanskill_num].GetComponent<Image>().raycastTarget = true;
+            mySkillBTN[myteanskill_num].GetComponent<Image>().raycastTarget = false;
+            myCDBlack[myteanskill_num].GetComponent<Image>().fillAmount = 1 - (isTeamSkillCDTimer[myteanskill_num] / isTeamSkillCdTime[myteanskill_num]);
+            isTeamSkillCDTimer[myteanskill_num] += Time.deltaTime;
         }
     }
+    //蚊子數量更新
     public void myAmountUpdate()
     {
         /* Text_myTeamAAmount.text = myABulletCount.ToString();//TeamAAmount.ToString();
-         Text_myTeamBAmount.text = myBBulletCount.ToString();
-         Text_myTeamCAmount.text = myCBulletCount.ToString();
-         Text_myTeamDAmount.text = myDBulletCount.ToString();
-         Text_myTeamEAmount.text = myEBulletCount.ToString();*/
-      
+         myTeamAmount_Image[1].text = myBBulletCount.ToString();
+         myTeamAmount_Image[2].text = myCBulletCount.ToString();
+         myTeamAmount_Image[3].text = myDBulletCount.ToString();
+         myTeamAmount_Image[4].text = myEBulletCount.ToString();*/
+
         for (int a = 0; a < 10; a++)
         {
-            if (myABulletCount.ToString().Substring(0, 1) == a.ToString()) { Text_myTeamAAmount.GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = Text_myTeamAAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myABulletCount.ToString().Substring(1, 1) == a.ToString()) { Text_myTeamAAmount.GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = Text_myTeamAAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myABulletCount.ToString().Substring(2, 1) == a.ToString()) { Text_myTeamAAmount.GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = Text_myTeamAAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myBBulletCount.ToString().Substring(0, 1) == a.ToString()) { Text_myTeamBAmount.GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = Text_myTeamBAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myBBulletCount.ToString().Substring(1, 1) == a.ToString()) { Text_myTeamBAmount.GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = Text_myTeamBAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myBBulletCount.ToString().Substring(2, 1) == a.ToString()) { Text_myTeamBAmount.GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = Text_myTeamBAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myCBulletCount.ToString().Substring(0, 1) == a.ToString()) { Text_myTeamCAmount.GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = Text_myTeamCAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myCBulletCount.ToString().Substring(1, 1) == a.ToString()) { Text_myTeamCAmount.GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = Text_myTeamCAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myCBulletCount.ToString().Substring(2, 1) == a.ToString()) { Text_myTeamCAmount.GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = Text_myTeamCAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myDBulletCount.ToString().Substring(0, 1) == a.ToString()) { Text_myTeamDAmount.GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = Text_myTeamDAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myDBulletCount.ToString().Substring(1, 1) == a.ToString()) { Text_myTeamDAmount.GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = Text_myTeamDAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myDBulletCount.ToString().Substring(2, 1) == a.ToString()) { Text_myTeamDAmount.GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = Text_myTeamDAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myEBulletCount.ToString().Substring(0, 1) == a.ToString()) { Text_myTeamEAmount.GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = Text_myTeamEAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myEBulletCount.ToString().Substring(1, 1) == a.ToString()) { Text_myTeamEAmount.GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = Text_myTeamEAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
-            if (myEBulletCount.ToString().Substring(2, 1) == a.ToString()) { Text_myTeamEAmount.GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = Text_myTeamEAmount.GetComponent<onAmount_UI>().myNumSprite[a]; }
+            if (myTeamMQCount[0].ToString().Length == 3) {
+                if (myTeamMQCount[0].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[0].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[0].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[0].ToString().Substring(1, 1) == a.ToString()) { myTeamAmount_Image[0].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[0].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[0].ToString().Substring(2, 1) == a.ToString()) { myTeamAmount_Image[0].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[0].GetComponent<onAmount_UI>().myNumSprite[a]; }
+            }
+            else if (myTeamMQCount[0].ToString().Length == 2) {
+                if (myTeamMQCount[0].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[0].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[0].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[0].ToString().Substring(1, 1) == a.ToString()) { myTeamAmount_Image[0].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[0].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                myTeamAmount_Image[0].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+            }
+            else if (myTeamMQCount[0].ToString().Length == 1) {
+                if (myTeamMQCount[0].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[0].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[0].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                myTeamAmount_Image[0].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+                myTeamAmount_Image[0].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+            }
+            //---------------
+            if (myTeamMQCount[1].ToString().Length == 3) {
+                if (myTeamMQCount[1].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[1].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[1].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[1].ToString().Substring(1, 1) == a.ToString()) { myTeamAmount_Image[1].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[1].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[1].ToString().Substring(2, 1) == a.ToString()) { myTeamAmount_Image[1].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[1].GetComponent<onAmount_UI>().myNumSprite[a]; }
+            }
+            else if (myTeamMQCount[1].ToString().Length == 2) {
+                if (myTeamMQCount[1].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[1].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[1].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[1].ToString().Substring(1, 1) == a.ToString()) { myTeamAmount_Image[1].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[1].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                myTeamAmount_Image[1].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+            }
+            else if (myTeamMQCount[1].ToString().Length == 1) {
+                if (myTeamMQCount[1].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[1].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[1].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                myTeamAmount_Image[1].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+                myTeamAmount_Image[1].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+            }
+            //---------------
+            if (myTeamMQCount[2].ToString().Length == 3)
+            {
+                if (myTeamMQCount[2].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[2].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[2].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[2].ToString().Substring(1, 1) == a.ToString()) { myTeamAmount_Image[2].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[2].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[2].ToString().Substring(2, 1) == a.ToString()) { myTeamAmount_Image[2].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[2].GetComponent<onAmount_UI>().myNumSprite[a]; }
+            }
+            else if (myTeamMQCount[2].ToString().Length == 2)
+            {
+                if (myTeamMQCount[2].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[2].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[2].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[2].ToString().Substring(1, 1) == a.ToString()) { myTeamAmount_Image[2].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[2].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                myTeamAmount_Image[2].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+            }
+            else if (myTeamMQCount[2].ToString().Length == 1)
+            {
+                if (myTeamMQCount[2].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[2].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[2].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                myTeamAmount_Image[2].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+                myTeamAmount_Image[2].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+            }
+            //---------------
+            if (myTeamMQCount[3].ToString().Length == 3)
+            {
+                if (myTeamMQCount[3].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[3].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[3].ToString().Substring(1, 1) == a.ToString()) { myTeamAmount_Image[3].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[3].ToString().Substring(2, 1) == a.ToString()) { myTeamAmount_Image[3].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[a]; }
+            }
+            else if (myTeamMQCount[3].ToString().Length == 2)
+            {
+                if (myTeamMQCount[3].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[3].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[3].ToString().Substring(1, 1) == a.ToString()) { myTeamAmount_Image[3].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                myTeamAmount_Image[3].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+            }
+            else if (myTeamMQCount[3].ToString().Length == 1)
+            {
+                if (myTeamMQCount[3].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[3].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                myTeamAmount_Image[3].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+                myTeamAmount_Image[3].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+            }
+            //---------------
+            if (myTeamMQCount[4].ToString().Length == 3)
+            {
+                if (myTeamMQCount[4].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[4].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[4].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[4].ToString().Substring(1, 1) == a.ToString()) { myTeamAmount_Image[4].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[4].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[4].ToString().Substring(2, 1) == a.ToString()) { myTeamAmount_Image[4].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[4].GetComponent<onAmount_UI>().myNumSprite[a]; }
+            }
+            else if (myTeamMQCount[4].ToString().Length == 2)
+            {
+                if (myTeamMQCount[4].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[4].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[4].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                if (myTeamMQCount[4].ToString().Substring(1, 1) == a.ToString()) { myTeamAmount_Image[4].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[4].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                myTeamAmount_Image[4].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+            }
+            else if (myTeamMQCount[4].ToString().Length == 1)
+            {
+                if (myTeamMQCount[4].ToString().Substring(0, 1) == a.ToString()) { myTeamAmount_Image[4].GetComponent<onAmount_UI>().myAmountString[2].GetComponent<Image>().sprite = myTeamAmount_Image[4].GetComponent<onAmount_UI>().myNumSprite[a]; }
+                myTeamAmount_Image[4].GetComponent<onAmount_UI>().myAmountString[0].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+                myTeamAmount_Image[4].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
+            }
+
         }
     }
 }
