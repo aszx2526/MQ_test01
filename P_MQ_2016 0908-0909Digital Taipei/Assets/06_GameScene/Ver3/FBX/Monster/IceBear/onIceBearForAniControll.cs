@@ -69,7 +69,6 @@ public class onIceBearForAniControll : MonoBehaviour {
        /* isWinggood = true;
         isBigEyegood = true;*/
         myAniam = gameObject.GetComponent<Animator>();
-        //print("hehehaha");
     }
     void Update()
     {
