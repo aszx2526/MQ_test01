@@ -42,8 +42,7 @@ public class onCamera_dtg : MonoBehaviour {
     public void CameraRotationFN() {
         switch (myMonsterList[myPickUpNum - 1].tag) {
             case "monster_bigeye":
-                if (myMonsterList[myPickUpNum - 1].gameObject.transform.GetChild(0).GetComponent<onBigeyeForAniControllVer2>().isWinggood == false) {
-                    print("oncamera_dtg wing break");
+                if (myMonsterList[myPickUpNum - 1].gameObject.transform.GetChild(0).GetComponent<onBigeyeForAniControllVer2>().isWinggood) {
                     switch (myCameraMod)
                     {
                         case 0:
@@ -65,6 +64,7 @@ public class onCamera_dtg : MonoBehaviour {
                     }
                 }
                 else {
+                    print("oncamera_dtg wing break");
                     switch (myCameraMod)
                     {
                         case 0:

@@ -20,35 +20,35 @@ public class onLocker : MonoBehaviour {
         Vector3 myrota = mylocker[0].gameObject.transform.eulerAngles;
         myrota.z -= Time.deltaTime * myRotateSpeed;
         mylocker[0].gameObject.transform.eulerAngles = myrota;
-
+/*
         Vector3 myrotab = mylocker[2].gameObject.transform.eulerAngles;
         myrotab.z += Time.deltaTime * myRotateSpeed;
         mylocker[2].gameObject.transform.eulerAngles = myrotab;
+        */
 
-
-        //myLokcerBSFN();
-        myCrossBSFN();
+        myLokcerBSFN();
+        //myCrossBSFN();
 
         //  }
     }
     public void myLokcerBSFN() {
         if (isBorS)
         {
-            if (mylocker[0].gameObject.GetComponent<RectTransform>().localScale.x > 1.3) { isBorS = false; }
+            if (mylocker[0].gameObject.GetComponent<RectTransform>().localScale.x > 2.9) { isBorS = false; }
             else {
                 Vector3 a = mylocker[0].gameObject.GetComponent<RectTransform>().localScale;
-                a.x += Time.deltaTime * 0.5f;
-                a.y += Time.deltaTime * 0.5f;
+                a.x += Time.deltaTime * 4f;
+                a.y += Time.deltaTime * 4f;
                 mylocker[0].gameObject.GetComponent<RectTransform>().localScale = a;
             }
 
         }
         else {
-            if (mylocker[0].gameObject.GetComponent<RectTransform>().localScale.x < 1) { isBorS = true; }
+            if (mylocker[0].gameObject.GetComponent<RectTransform>().localScale.x < 1.2) { isBorS = true; }
             else {
                 Vector3 a = mylocker[0].gameObject.GetComponent<RectTransform>().localScale;
-                a.x -= Time.deltaTime * 0.5f;
-                a.y -= Time.deltaTime * 0.5f;
+                a.x -= Time.deltaTime * 4f;
+                a.y -= Time.deltaTime * 4f;
                 mylocker[0].gameObject.GetComponent<RectTransform>().localScale = a;
             }
         }
