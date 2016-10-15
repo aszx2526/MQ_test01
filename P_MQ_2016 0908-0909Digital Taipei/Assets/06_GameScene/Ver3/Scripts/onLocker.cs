@@ -9,14 +9,20 @@ public class onLocker : MonoBehaviour {
     public float myFadeinoutTimer;
     bool isBorS;
     bool isCross;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+
+    /*
+    //這行會讓2D物件變成billboard
+     myLocker.transform.position = Camera.main.WorldToScreenPoint(theLookAtPointOnMonster[myCameraMod].transform.position);
+    */
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
         // if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
+        //以下三行會旋轉
         Vector3 myrota = mylocker[0].gameObject.transform.eulerAngles;
         myrota.z -= Time.deltaTime * myRotateSpeed;
         mylocker[0].gameObject.transform.eulerAngles = myrota;
@@ -31,6 +37,7 @@ public class onLocker : MonoBehaviour {
 
         //  }
     }
+    //下面這個會讓圖片放大縮小
     public void myLokcerBSFN() {
         if (isBorS)
         {

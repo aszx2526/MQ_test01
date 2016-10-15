@@ -29,6 +29,7 @@ public class onCamera_dtg : MonoBehaviour {
 	void Update () {
         if (myPickUpNum != 0) {
             if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
+                //這行會讓2D物件變成billboard
                 myLocker.transform.position = Camera.main.WorldToScreenPoint(theLookAtPointOnMonster[myCameraMod].transform.position);
             }
             else {

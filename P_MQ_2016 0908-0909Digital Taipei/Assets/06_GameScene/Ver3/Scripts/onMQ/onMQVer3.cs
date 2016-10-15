@@ -55,6 +55,7 @@ public class onMQVer3 : MonoBehaviour {
 
 
     public GameObject[] myHitEffect;
+    public GameObject myHitEffectPoint;
 
     // Use this for initialization
     void Start()
@@ -239,9 +240,28 @@ public class onMQVer3 : MonoBehaviour {
             }
         }
     }
+    public void forHitEffect_Ver2(int if0IsPush1IsCritis,int myHurtValue) {
+        switch (if0IsPush1IsCritis) {
+            case 0:
+                GameObject pusheffect = Instantiate(myHitEffect[0], myHitEffectPoint.transform.position, myHitEffectPoint.transform.rotation) as GameObject;
+                
+                break;
+            case 1:
+                GameObject critiseffect = Instantiate(myHitEffect[1], myHitEffectPoint.transform.position, myHitEffectPoint.transform.rotation) as GameObject;
+                critiseffect.transform.GetChild(1).GetComponent<onHitUI>().myBigHitValue = myHurtValue;
+                critiseffect.transform.GetChild(1).GetComponent<onHitUI>().isBigHit = if0IsPush1IsCritis;
+                /* critiseffect.transform.GetChild(1).transform.parent = GameObject.Find("Canvas").transform;
+                 critiseffect.transform.GetChild(1).transform.position = Camera.main.WorldToScreenPoint(critiseffect.transform.position);
+                 critiseffect.transform.GetChild(1).GetComponent<onHitUI>().myBigHitValue = myHurtValue;*/
+                break;
+            default:
+                break;
+        }
+    }
+}
 
-    //public void forHitEffect(int isBigHit, string hurt, string RGB)
-    public void forHitEffect(int hurtValue,int isBigHit)
+/*public void forHitEffect(int hurtValue,int isBigHit)
+//public void forHitEffect(int isBigHit, string hurt, string RGB)
     {
         //print(gameObject.name + "forhiteffect");
         GameObject hiteffect = Instantiate(myHitEffect[isBigHit], Vector3.zero, Quaternion.identity) as GameObject;
@@ -252,7 +272,7 @@ public class onMQVer3 : MonoBehaviour {
 
         hiteffect.GetComponent<RectTransform>().anchoredPosition = new Vector2(Random.Range(a.x - 150, a.x + 150), Random.Range(a.y - 50, a.y + 100));
         //hiteffect.GetComponentInChildren<Text>().text = hurt;
-       /* switch (RGB)
+        switch (RGB)
         {
             case "R":
                 Color c = hiteffect.GetComponentInChildren<Text>().color;
@@ -266,28 +286,27 @@ public class onMQVer3 : MonoBehaviour {
                 cc.r = cc.g = 0;
                 hiteffect.GetComponentInChildren<Text>().color = cc;
                 break;
-        }*/
-    }
-    public void Hitmob(int _minus, int isCriticalHit)
-    {
-        /* if (mymonsterMod != 2)
-         {//攻擊結束才扣血
-             mobHP -= _minus;*/
-        if (isCriticalHit == 0)
-        {
-            //forHitEffect(0, _minus.ToString(), "R");
-            forHitEffect(_minus,0);
         }
-        else {
-            //forHitEffect(1, _minus.ToString(), "R");
-            forHitEffect(_minus, 1);
-        }
-        //ValueShowOut.Born(gameObject, _minus,1);
-        //setMobText();
-        //}
-    }
+    }*/
+/*public void Hitmob(int _minus, int isCriticalHit)
+{
+  //if (mymonsterMod != 2)
+  //{//攻擊結束才扣血
+    //  mobHP -= _minus;
+ if (isCriticalHit == 0)
+ {
+     //forHitEffect(0, _minus.ToString(), "R");
+     forHitEffect(_minus,0);
+ }
+ else {
+     //forHitEffect(1, _minus.ToString(), "R");
+     forHitEffect(_minus, 1);
+ }
+ //ValueShowOut.Born(gameObject, _minus,1);
+ //setMobText();
+ //}
+}*/
 
-}
 /* if (Input.GetKeyDown(",")){
      if (myMQAniMod < 0) { myMQAniMod = 4; }
      else { myMQAniMod--; }

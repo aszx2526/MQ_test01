@@ -9,6 +9,8 @@ public class onHitUI : MonoBehaviour {
     public GameObject[] myBigHitNumString1_Child;
     public GameObject[] myBigHitNumString2_Child;
     public Sprite[] myNumSprite;
+    //---------
+    public GameObject myFather;
 
     //public float myScalecontrol;
     public bool isTwoOrThree;
@@ -22,8 +24,27 @@ public class onHitUI : MonoBehaviour {
     public float b;
     public float myEffectWaitTime;
     float myEffectWaitTimer;
+
+    float myEffectkillTimer = 0;//普攻0.5秒自殺
+    public bool isChangeScal;
+    public float myScaleValue;
     // Use this for initialization
     void Start () {
+        myFather = transform.parent.gameObject;
+        transform.parent = GameObject.Find("Canvas").transform;
+        transform.position = Camera.main.WorldToScreenPoint(myFather.transform.position);
+
+        Vector3 rotate = GetComponent<RectTransform>().eulerAngles;
+        rotate = Vector3.zero;
+        GetComponent<RectTransform>().eulerAngles = rotate;
+
+
+        if (isChangeScal) {
+            Vector3 myscal = transform.localScale;
+            myscal.x = myScaleValue;
+            myscal.y = myscal.x;
+            transform.localScale = myscal;
+        }
         //s = gameObject.GetComponentInChildren<Text>().fontSize;
         //if()
         //myBigHitValue = Random.Range(0, 1000);
@@ -73,12 +94,14 @@ public class onHitUI : MonoBehaviour {
         c.a -= Time.deltaTime * f;
         gameObject.GetComponent<Image>().color = c;
 
+        myEffectkillTimer += Time.deltaTime;
 
 
         if (isBigHit == 0)
         {
-            if (c.a <= 0)
+            if (myEffectkillTimer > 0.5f)
             {
+                Destroy(myFather);
                 Destroy(gameObject);
             }
         }
@@ -100,6 +123,7 @@ public class onHitUI : MonoBehaviour {
                         }
                         if (c2.a <= 0)
                         {
+                            Destroy(myFather);
                             Destroy(gameObject);
                         }
                     }
@@ -139,6 +163,7 @@ public class onHitUI : MonoBehaviour {
                         }
                         if (c2.a <= 0)
                         {
+                            Destroy(myFather);
                             Destroy(gameObject);
                         }
                     }

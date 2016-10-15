@@ -120,7 +120,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 {
                     case 0:
                         Vector3 Sca1 = mySkillBTN[juju].GetComponent<RectTransform>().localScale;
-                        if (Sca1.x > 1.5)
+                        if (Sca1.x > 1)
                         {
                             mySkillBTNJuiceMod[juju] = 1;
                         }
@@ -136,7 +136,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                         break;
                     case 1:
                         Vector3 Sca2 = mySkillBTN[juju].GetComponent<RectTransform>().localScale;
-                        if (Sca2.x < 1.35)
+                        if (Sca2.x < 0.848)
                         {
                             mySkillBTNJuiceMod[juju] = 2;
                         }
@@ -153,7 +153,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                         isSkillBTNJuiceTime[juju] = false;
                         mySkillBTNJuiceMod[juju] = 0;
                         Vector3 Sca3 = mySkillBTN[juju].GetComponent<RectTransform>().localScale;
-                        Sca3.x = 1.35f;
+                        Sca3.x = 0.848f;
                         Sca3.y = Sca3.x;
                         mySkillBTN[juju].GetComponent<RectTransform>().localScale = Sca3;
 
