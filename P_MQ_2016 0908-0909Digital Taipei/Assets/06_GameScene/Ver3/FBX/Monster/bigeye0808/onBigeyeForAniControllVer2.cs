@@ -82,34 +82,28 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { 
             myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
             myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;
+            
+            //myIsFidgetyTimeFN();
+            myBigeyeAttackMod();
             myAniControll();
-
-            myIsFidgetyTimeFN();
-
 
         }
     }
     public void myIsFidgetyTimeFN() {
-        if (isStruggleTime)
-        {
-            if (isWinggood)
-            {
-                //myAniam.speed = 1.5f;
-                if (isBigEyegood) { myAniMod = 30; }
-                else { myAniMod = 15; }
-            }   
+        if (isStruggleTime){
+            //myAniam.speed = 1.5f;
+            if (isBigEyegood) { myAniMod = 30; }
+            else { myAniMod = 15; }
         }
         else if (isBeHitTime) {
-            if (isWinggood)
-            {
-                //myAniam.speed = 1.5f;
-                if (isBigEyegood) { myAniMod = 31; }
-                else { myAniMod = 15; }
-            }
+           
+            //myAniam.speed = 1.5f;
+            if (isBigEyegood) { myAniMod = 31; }
+            else { myAniMod = 15; }
+            
         }
         else {
-            if (myStruggleTimer >= myStruggleTime)
-            {
+            if (myStruggleTimer >= myStruggleTime){
                 myStruggleTime = Random.Range(15, 20);
                 myStruggleTimer = 0;
                 isStruggleTime = true;
@@ -126,16 +120,18 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             else {
                 myBeHitTimer += Time.deltaTime;
             }
-            myBigeyeAttackMod();
+            myAniMod = 13;
         }
     }
+    //技能1眼撞
     public void myBigeyeSkill1_basic_BigeyeAttack()
-    {//技能1眼撞
+    {
         if (isBigEyegood) { myAniMod = 26;}
         else { myAniMod = 28;}
     }
+    //技能2迴旋
     public void myBigeyeSkill2_basic_BigeyeRotate()
-    {//技能2迴旋
+    {
         if (is27CD)
         {
             if (mySkill2Timer > mySkill2CDTimer)
@@ -148,12 +144,14 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
         if (isBigEyegood) { myAniMod = 27;}
         else { myAniMod = 29;}
     }
+    //技能3空中大眼魔法
     public void myBigeyeSkill3_Special_BigeyeMagic_Air()
-    {//技能3空中大眼魔法
+    {
         myAniMod = 21;
     }
+    //技能4地上大眼魔法
     public void myBigeyeSkill3_Special_BigeyeMagic_Ground()
-    {//技能4地上大眼魔法
+    {
         myAniMod = 24;
     }
     public void myBigeyeAttackMod()
@@ -295,15 +293,6 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     }
     public void myBigeyeModControll()
     {
-        print(" myBigeyeModControll() be call");
-        
-        if (isBigEyegood) { print("isBigEyegood = True"); }
-        else { print("isBigEyegood = FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"); }
-        print("isWinggood = " + isWinggood);
-
-        //myAniam.speed = 0.7f;
-        /* if (isNeedToPlayBigeyeBreakMovie) { }
-         else */
         if (isBigEyegood && isWinggood)
         {//眼好翅好-------------------------------------------------------------------1
             //print("if (isBigEyegood && isWinggood)");
@@ -321,7 +310,8 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
                 myAniam.speed = 0.7f;
             }
             else {
-                myAniMod = 13;
+                //myAniMod = 13;
+                myIsFidgetyTimeFN();
                 myAniam.speed = 0.7f;
             }
         }
@@ -348,7 +338,6 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
         }
         else if (!isBigEyegood && isWinggood)
         {//眼壞翅好-------------------------------------------------------------------3
-            print(" else if (!isBigEyegood && isWinggood)");
             if (myBigeyeResumeTimer > myBigeyeResumeTimerTarget)
             {
                 //myBigeyeResumeTimer = 0;
@@ -363,7 +352,6 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
                 myAniam.speed = 0.7f;
             }
             else {
-                print("myBigeyeResumeTimer +++++");
                 myBigeyeResumeTimer += Time.deltaTime;
                 myAniMod = 0;
                 myAniam.speed = 0.7f;
@@ -392,9 +380,6 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
                 myAniMod = 03;
                 myAniam.speed = 0.7f;
             }
-        }
-        else {
-            print("do nothing ");
         }
     }
     public void myAniControll()
