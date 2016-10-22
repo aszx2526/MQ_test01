@@ -14,7 +14,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     public GameObject myBigeyeHitpoint;
     [Header("大眼復原時間")]
     public float myBigeyeResumeTimerTarget;
-    float myBigeyeResumeTimer;
+    public float myBigeyeResumeTimer;
     [Header("翅膀滿血血量")]
     public float myWingFullHP;
     [Header("翅膀血量")]
@@ -63,12 +63,19 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     public bool isStruggleTime;
     public float myStruggleTime;
     public float myStruggleTimer;
+
+    public bool isBeHitTime;
+    public float myBeHitTime;
+    public float myBeHitTimer;
+
     void Start()
     {
         isWinggood = true;
         isBigEyegood = true;
         myAniam = gameObject.GetComponent<Animator>();
         myAudioSource = gameObject.GetComponent<AudioSource>();
+        myStruggleTime = Random.Range(15, 20);
+        myBeHitTime = Random.Range(3, 5);
     }
     void Update()
     {
@@ -77,39 +84,50 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;
             myAniControll();
 
+            myIsFidgetyTimeFN();
 
-            if (isStruggleTime) {
-                if (myStruggleTimer >= 0.5) {
-                    myAniam.speed = 1;
-                    myStruggleTimer = 0;
-                    isStruggleTime = false;
-                }
-                else {
-                    if (isWinggood)
-                    {
-                        myAniam.speed = 1.5f;
-                        if (isBigEyegood) { myAniMod = 17; }
-                        else { myAniMod = 15; }
-                        myStruggleTimer += Time.deltaTime;
-                    }
-                    else {
-                        myStruggleTimer += Time.deltaTime;
-                    }
-                }
-            }
-            else {
-                if (myStruggleTimer >= 3)
-                {
-                    myStruggleTimer = 0;
-                    isStruggleTime = true;
-                }
-                else {
-                    myStruggleTimer += Time.deltaTime;
-                }
-                myBigeyeAttackMod();
+
+        }
+    }
+    public void myIsFidgetyTimeFN() {
+        if (isStruggleTime)
+        {
+            if (isWinggood)
+            {
+                //myAniam.speed = 1.5f;
+                if (isBigEyegood) { myAniMod = 30; }
+                else { myAniMod = 15; }
+            }   
+        }
+        else if (isBeHitTime) {
+            if (isWinggood)
+            {
+                //myAniam.speed = 1.5f;
+                if (isBigEyegood) { myAniMod = 31; }
+                else { myAniMod = 15; }
             }
         }
+        else {
+            if (myStruggleTimer >= myStruggleTime)
+            {
+                myStruggleTime = Random.Range(15, 20);
+                myStruggleTimer = 0;
+                isStruggleTime = true;
+            }
+            else {
+                myStruggleTimer += Time.deltaTime;
+            }
 
+            if (myBeHitTimer >= myBeHitTime) {
+                myBeHitTime = Random.Range(3, 5);
+                myBeHitTimer = 0;
+                isBeHitTime = true;
+            }
+            else {
+                myBeHitTimer += Time.deltaTime;
+            }
+            myBigeyeAttackMod();
+        }
     }
     public void myBigeyeSkill1_basic_BigeyeAttack()
     {//技能1眼撞
@@ -277,9 +295,15 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     }
     public void myBigeyeModControll()
     {
+        print(" myBigeyeModControll() be call");
+        
+        if (isBigEyegood) { print("isBigEyegood = True"); }
+        else { print("isBigEyegood = FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"); }
+        print("isWinggood = " + isWinggood);
+
         //myAniam.speed = 0.7f;
-       /* if (isNeedToPlayBigeyeBreakMovie) { }
-        else */
+        /* if (isNeedToPlayBigeyeBreakMovie) { }
+         else */
         if (isBigEyegood && isWinggood)
         {//眼好翅好-------------------------------------------------------------------1
             //print("if (isBigEyegood && isWinggood)");
@@ -324,7 +348,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
         }
         else if (!isBigEyegood && isWinggood)
         {//眼壞翅好-------------------------------------------------------------------3
-
+            print(" else if (!isBigEyegood && isWinggood)");
             if (myBigeyeResumeTimer > myBigeyeResumeTimerTarget)
             {
                 //myBigeyeResumeTimer = 0;
@@ -339,6 +363,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
                 myAniam.speed = 0.7f;
             }
             else {
+                print("myBigeyeResumeTimer +++++");
                 myBigeyeResumeTimer += Time.deltaTime;
                 myAniMod = 0;
                 myAniam.speed = 0.7f;
@@ -367,6 +392,9 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
                 myAniMod = 03;
                 myAniam.speed = 0.7f;
             }
+        }
+        else {
+            print("do nothing ");
         }
     }
     public void myAniControll()
@@ -463,6 +491,12 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             case 29:
                 myAniam.Play("Attack2_closeeye");
                 break;
+            case 30:
+                myAniam.Play("fidgety");
+                break;
+            case 31:
+                myAniam.Play("behit");
+                break;
             case 61:
                 myAniam.Play("OthereyeBreak_closeeye");
                 break;
@@ -555,6 +589,9 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     }
     public void attack2middlewaite_1() { myAniam.speed = 0.5f; }
     public void attack2middlewaite_2() { myAniam.speed = 1.15f; }
+
+    public void LastFram_30() { isStruggleTime = false; }
+    public void LastFram_31() { isBeHitTime = false; }
 
     public void myFindAllMQAndAttack_Skill1() {
         if (GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().isSuperStarTime) { }

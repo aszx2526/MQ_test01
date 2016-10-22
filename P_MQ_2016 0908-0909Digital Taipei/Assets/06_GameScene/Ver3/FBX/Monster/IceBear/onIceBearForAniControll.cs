@@ -7,18 +7,26 @@ public class onIceBearForAniControll : MonoBehaviour {
     public Text mytextGroup;
     public Text mytextAnimMod;
     public GameObject myFatherObject;//父物件
+    [Header("耳朵滿血血量")]
+    public float myEarFullHP;
     [Header("耳朵血量")]
-    public float myBigeyeHP;
+    public float myEarHP;
     [Header("耳朵復原時間")]
-    public float myBigeyeResumeTimer;
+    public float myEarResumeTimer;
+
+    [Header("嘴巴滿血血量")]
+    public float myMouthFullHP;
     [Header("嘴巴血量")]
-    public float myWingHP;
+    public float myMouthHP;
     [Header("嘴巴復原時間")]
-    public float myWingResumeTimer;
+    public float myMouthResumeTimer;
+
+    [Header("腳滿血血量")]
+    public float myFeetFullHP;
     [Header("腳血量")]
-    public float myOtherEyeHP;
+    public float myFeetHP;
     [Header("腳復原時間")]
-    public float myOtherEyeResumeTimer;
+    public float myFeetResumeTimer;
   
     public bool isEargood;
     public bool isMouthgood;
@@ -95,81 +103,155 @@ public class onIceBearForAniControll : MonoBehaviour {
 
     }
     public void myBearModControll()
-    {
-      /*  if (isBigEyegood && isWinggood)
-        {//眼好翅好-------------------------------------------------------------------1
-            if (myWingHP <= 0)
-            {
-                myAniMod = 22;
-            }
-            else if (myBigeyeHP <= 0)
-            {
-                myAniMod = 61;
-            }
-            else {
-                if (isUnderAttack)
+    {//腿好翅好-------------------------------------------------------------------1
+        if (isFeetgood && isMouthgood) {
+            if (isEargood) {
+                if (myFeetHP <= 0)//如果腿的血沒有了，播放腿殘動畫
                 {
-
+                    myAniMod = 22;
                 }
-                else { }
-                myAniMod = 13;
+                else if (myMouthHP <= 0)//如果嘴巴的血沒有了，播放嘴殘動畫
+                {
+                    myAniMod = 61;
+                }
+                else {//播放好腳好嘴的待機動作
+                    if (isUnderAttack)
+                    {
+
+                    }
+                    else { }
+                    myAniMod = 13;
+                }
+            }
+            else {//播放耳朵壞掉動畫
+
             }
         }
-        else if (isBigEyegood && !isWinggood)
-        {//眼好翅壞-------------------------------------------------------------------2
-            if (myWingResumeTimer > 10)
+        else if (isFeetgood && !isMouthgood) {
+            if (myMouthResumeTimer > 10)
             {
-                //myWingResumeTimer = 0;
-                myWingHP = 100;
+                //myMouthResumeTimer = 0;
+                //myMouthHP = myMouthFullHP;
                 myAniMod = 25;
             }
-            else if (myBigeyeHP <= 0)
+            else if (myFeetHP <= 0)//如果腳的血沒了，播放腳殘動畫
             {
                 myAniMod = 62;
             }
             else {
-                myWingResumeTimer += Time.deltaTime;
+                myMouthResumeTimer += Time.deltaTime;
+                myAniMod = 23;
+            }
+
+        }
+        else if (!isFeetgood && isMouthgood) {
+            if (myFeetResumeTimer > 10)
+            {
+                //myFeetResumeTimer = 0;
+                myFeetHP = myFeetFullHP;
+                myAniMod = 25;
+            }
+            else if (myMouthHP <= 0)//如果嘴的血沒了，播放嘴殘動畫
+            {
+                myAniMod = 62;
+            }
+            else {
+                myFeetResumeTimer += Time.deltaTime;
                 myAniMod = 23;
             }
         }
-        else if (!isBigEyegood && isWinggood)
-        {//眼壞翅好-------------------------------------------------------------------3
-
-            if (myBigeyeResumeTimer > 10)
+        else if (!isFeetgood && !isMouthgood) {
+            if (myFeetResumeTimer > 10)
             {
-                //myBigeyeResumeTimer = 0;
-                myBigeyeHP = 100;
-                myAniMod = 16;
+                //myFeetResumeTimer = 0;
+                myFeetHP = myFeetFullHP;
+                myAniMod = 25;
             }
-            else if (myWingHP <= 0)
+            else if (myMouthResumeTimer > 10)//如果嘴的血沒了，播放嘴殘動畫
             {
-                myAniMod = 08;
+                myMouthHP = myMouthFullHP;
+                myAniMod = 62;
             }
             else {
-                myBigeyeResumeTimer += Time.deltaTime;
-                myAniMod = 00;
+                myFeetResumeTimer += Time.deltaTime;
+                myMouthResumeTimer += Time.deltaTime;
+                myAniMod = 23;
             }
         }
-        else if (!isBigEyegood && !isWinggood)
-        {//眼壞翅壞-------------------------------------------------------------------4
-            if (myWingResumeTimer > 10)
-            {
-                //myWingResumeTimer = 0;
-                myWingHP = 100;
-                myAniMod = 07;
-            }
-            else if (myBigeyeResumeTimer > 10)
-            {
-                //myBigeyeResumeTimer = 0;
-                myBigeyeHP = 100;
-                myAniMod = 10;
-            }
-            else {
-                myWingResumeTimer += Time.deltaTime;
-                myBigeyeResumeTimer += Time.deltaTime;
-                myAniMod = 03;
-            }
-        }*/
+        /*  if (isBigEyegood && isWinggood)
+          {//眼好翅好-------------------------------------------------------------------1
+              if (myWingHP <= 0)
+              {
+                  myAniMod = 22;
+              }
+              else if (myBigeyeHP <= 0)
+              {
+                  myAniMod = 61;
+              }
+              else {
+                  if (isUnderAttack)
+                  {
+
+                  }
+                  else { }
+                  myAniMod = 13;
+              }
+          }
+          else if (isBigEyegood && !isWinggood)
+          {//眼好翅壞-------------------------------------------------------------------2
+              if (myWingResumeTimer > 10)
+              {
+                  //myWingResumeTimer = 0;
+                  myWingHP = 100;
+                  myAniMod = 25;
+              }
+              else if (myBigeyeHP <= 0)
+              {
+                  myAniMod = 62;
+              }
+              else {
+                  myWingResumeTimer += Time.deltaTime;
+                  myAniMod = 23;
+              }
+          }
+          else if (!isBigEyegood && isWinggood)
+          {//眼壞翅好-------------------------------------------------------------------3
+
+              if (myBigeyeResumeTimer > 10)
+              {
+                  //myBigeyeResumeTimer = 0;
+                  myBigeyeHP = 100;
+                  myAniMod = 16;
+              }
+              else if (myWingHP <= 0)
+              {
+                  myAniMod = 08;
+              }
+              else {
+                  myBigeyeResumeTimer += Time.deltaTime;
+                  myAniMod = 00;
+              }
+          }
+          else if (!isBigEyegood && !isWinggood)
+          {//眼壞翅壞-------------------------------------------------------------------4
+              if (myWingResumeTimer > 10)
+              {
+                  //myWingResumeTimer = 0;
+                  myWingHP = 100;
+                  myAniMod = 07;
+              }
+              else if (myBigeyeResumeTimer > 10)
+              {
+                  //myBigeyeResumeTimer = 0;
+                  myBigeyeHP = 100;
+                  myAniMod = 10;
+              }
+              else {
+                  myWingResumeTimer += Time.deltaTime;
+                  myBigeyeResumeTimer += Time.deltaTime;
+                  myAniMod = 03;
+              }
+          }*/
     }
     public void myAniControll()
     {
@@ -234,6 +316,7 @@ public class onIceBearForAniControll : MonoBehaviour {
             case 18:
                 myAniam.Play("sk_sp_rollcut_rolling");
                 break;
+                //---------------------------------
             case 19:
                 myAniam.Play("breaking_head_fighthitheadtodizzing");
                 break;

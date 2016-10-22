@@ -56,6 +56,9 @@ public class onMQVer3 : MonoBehaviour {
 
     public GameObject[] myHitEffect;
     public GameObject myHitEffectPoint;
+    //---------------------------------
+    public GameObject[] myBodyList;
+    public Material myMaterialForDie;
 
     // Use this for initialization
     void Start()
@@ -97,8 +100,11 @@ public class onMQVer3 : MonoBehaviour {
                 
             }
             else {
-                myChildMQ.SetActive(false);
-                DeadEffect.SetActive(true);
+                /*for (int a = 0; a < myBodyList.Length - 2; a++) {
+                    myBodyList[a].GetComponent<SkinnedMeshRenderer>().material = 
+                }*/
+                //myChildMQ.SetActive(false);
+                //DeadEffect.SetActive(true);
                 deadtimer += Time.deltaTime;
             }
         }
@@ -244,7 +250,6 @@ public class onMQVer3 : MonoBehaviour {
         switch (if0IsPush1IsCritis) {
             case 0:
                 GameObject pusheffect = Instantiate(myHitEffect[0], myHitEffectPoint.transform.position, myHitEffectPoint.transform.rotation) as GameObject;
-                
                 break;
             case 1:
                 GameObject critiseffect = Instantiate(myHitEffect[1], myHitEffectPoint.transform.position, myHitEffectPoint.transform.rotation) as GameObject;

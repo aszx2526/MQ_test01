@@ -6,7 +6,9 @@ public class onMQ_AnimControll_Basic : MonoBehaviour {
     public Animator myAniam;
     public GameObject myFather;
     // Use this for initialization
-    void Start(){myAniam = gameObject.GetComponent<Animator>();}
+    void Start(){
+        myAniam = gameObject.GetComponent<Animator>();
+    }
 
     onMQVer3 onMQ3;
     // Update is called once per frame

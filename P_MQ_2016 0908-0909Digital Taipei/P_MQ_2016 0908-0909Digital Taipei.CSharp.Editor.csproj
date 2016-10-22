@@ -126,6 +126,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="P_MQ_2016 0908-0909Digital Taipei.CSharp.Plugins.csproj">
+      <Project>{9A583BF9-024E-1B52-5F5B-7B6BDDF4AEA6}</Project>
+      <Name>P_MQ_2016 0908-0909Digital Taipei.CSharp.Plugins</Name>
+    </ProjectReference>
     <ProjectReference Include="P_MQ_2016 0908-0909Digital Taipei.CSharp.csproj">
       <Project>{6937177E-C98A-9323-F90D-4C2A603826D9}</Project>
       <Name>P_MQ_2016 0908-0909Digital Taipei.CSharp</Name>
@@ -138,6 +142,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Editor\CFX_SpawnSystemEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\06_GameScene\Ver3\FBX\MQ\MQ_01Basic\FBX\Materials\trytofindapha.shader" />
     <None Include="Assets\06_GameScene\Ver3\UI\F_02\選單動畫說明.txt" />
     <None Include="Assets\06_GameScene\old\Monster\01\怪物FBX\命名表.txt" />
     <None Include="Assets\06_GameScene\old\Shader\OutlineShader.shader" />
@@ -155,6 +160,7 @@
     <None Include="Assets\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAdd_Alpha8.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Add.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Tint.shader" />
+    <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
     <None Include="Assets\fonts\Arphic\arlishugbmd_test\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
