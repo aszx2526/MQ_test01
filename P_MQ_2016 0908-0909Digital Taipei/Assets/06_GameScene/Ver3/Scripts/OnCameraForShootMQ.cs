@@ -59,6 +59,10 @@ public class OnCameraForShootMQ : MonoBehaviour
 
     //-----auto fire
     public bool isAutoFire;
+    public int myAutoFireBulletFullAmount;
+    public int myAutoFireBulletAmount;
+    public Text myautobulletcount_text;
+    public Image myautobulletbar_image;
     public float myAutoFireTime;
     public float myAutoFireTimer;
     public int myAutoFireRandom;
@@ -106,6 +110,9 @@ public class OnCameraForShootMQ : MonoBehaviour
             }
         }
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
+            myautobulletcount_text.text = myAutoFireBulletAmount.ToString();
+            myautobulletbar_image.fillAmount = (float)myAutoFireBulletAmount / (float)myAutoFireBulletFullAmount;
+
             if (myAutoFireTimer > myAutoFireTime) {
                 myAutoCreatMQ();
                 myAutoFireTimer = 0;
@@ -262,8 +269,15 @@ public class OnCameraForShootMQ : MonoBehaviour
     public int a;
     public void myAutoCreatMQ()
     {
-        a = Random.Range(0, 14);
-        Instantiate(myBasicMQ, myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
+        if (myAutoFireBulletAmount == 0) {
+            print("Game Over");
+        }
+        else {
+            myAutoFireBulletAmount--;
+            a = Random.Range(0, 14);
+            Instantiate(myBasicMQ, myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
+        }
+        
     }
     public void aaaaa(int juju) {
         
@@ -427,49 +441,32 @@ public class OnCameraForShootMQ : MonoBehaviour
     public void myASkillCheck()
     {
         GameObject[] MQA = GameObject.FindGameObjectsWithTag("MQA");
-        if (MQA.Length > 29)
-        {
-         
-
-            mySkillCheck_nothide_FN(0);
-            //mySkillBTN[0].SetActive(true);
+        if (MQA.Length > 29)        {            mySkillCheck_nothide_FN(0);            //mySkillBTN[0].SetActive(true);
         }
         else { mySkillCheck_hide_FN(0); }
     }
     public void myBSkillCheck()
     {
         GameObject[] MQB = GameObject.FindGameObjectsWithTag("MQB");
-        if (MQB != null && MQB.Length > 19)
-        {
-            mySkillCheck_nothide_FN(1);
-        }
+        if (MQB != null && MQB.Length > 19)        {            mySkillCheck_nothide_FN(1);        }
         else { mySkillCheck_hide_FN(1); }
     }
     public void myCSkillCheck()
     {
         GameObject[] MQC = GameObject.FindGameObjectsWithTag("MQC");
-        if (MQC != null && MQC.Length > 19)
-        {
-            mySkillCheck_nothide_FN(2);
-        }
+        if (MQC != null && MQC.Length > 19)        {            mySkillCheck_nothide_FN(2);        }
         else { mySkillCheck_hide_FN(2); }
     }
     public void myDSkillCheck()
     {
         GameObject[] MQD = GameObject.FindGameObjectsWithTag("MQD");
-        if (MQD != null && MQD.Length > 19)
-        {
-            mySkillCheck_nothide_FN(3);
-        }
+        if (MQD != null && MQD.Length > 19)        {            mySkillCheck_nothide_FN(3);        }
         else { mySkillCheck_hide_FN(3); }
     }
     public void myESkillCheck()
     {
         GameObject[] MQE = GameObject.FindGameObjectsWithTag("MQE");
-        if (MQE != null && MQE.Length > 19)
-        {
-            mySkillCheck_nothide_FN(4);
-        }
+        if (MQE != null && MQE.Length > 19)        {            mySkillCheck_nothide_FN(4);        }
         else { mySkillCheck_hide_FN(4); }
     }
     public void mySkillCheck_nothide_FN(int btn_skillnum)
