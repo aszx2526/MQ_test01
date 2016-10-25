@@ -67,6 +67,11 @@ public class OnCameraForShootMQ : MonoBehaviour
     public float myAutoFireTimer;
     public int myAutoFireRandom;
     public GameObject myBasicMQ;
+    public GameObject[] myTeamAMQList;
+    public GameObject[] myTeamBMQList;
+    public GameObject[] myTeamCMQList;
+    public GameObject[] myTeamDMQList;
+    public GameObject[] myTeamEMQList;
     void Start()
     {
         myAudioSource = gameObject.GetComponent<AudioSource>();
@@ -110,7 +115,7 @@ public class OnCameraForShootMQ : MonoBehaviour
             }
         }
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
-            myautobulletcount_text.text = myAutoFireBulletAmount.ToString();
+           /* myautobulletcount_text.text = myAutoFireBulletAmount.ToString();
             myautobulletbar_image.fillAmount = (float)myAutoFireBulletAmount / (float)myAutoFireBulletFullAmount;
 
             if (myAutoFireTimer > myAutoFireTime) {
@@ -119,7 +124,7 @@ public class OnCameraForShootMQ : MonoBehaviour
             }
             else {
                 myAutoFireTimer += Time.deltaTime;
-            }
+            }*/
         }
         //PlayerFunction();
         //CheckIsWin();
