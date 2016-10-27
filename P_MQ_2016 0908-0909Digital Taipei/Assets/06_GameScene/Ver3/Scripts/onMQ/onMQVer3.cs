@@ -60,6 +60,9 @@ public class onMQVer3 : MonoBehaviour {
     public GameObject[] myBodyList;
     public Material myMaterialForDie;
 
+    //-----------------
+    public int myMQMod;//0=不動了 1=戰鬥中
+
     // Use this for initialization
     void Start()
     {
@@ -69,7 +72,8 @@ public class onMQVer3 : MonoBehaviour {
         transform.localScale = new Vector3(myScaleControl, myScaleControl, myScaleControl);
         //myTargetPoint = GameObject.Find("MainCamera").GetComponent<OnCameraLookAt>().HotPointList[GameObject.Find("MainCamera").GetComponent<OnCameraLookAt>().cameraMod];
         myCameraVer2 = GameObject.Find("CameraVer2_DTG");
-        myTargetPoint = myCameraVer2.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[myCameraVer2.GetComponent<onCamera_dtg>().myCameraMod];
+        //↓myTargetPoint的設定修改至 OnCameraForShootMQ.cs myCreatMQFN();裡面執行 
+        //myTargetPoint = myCameraVer2.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[myCameraVer2.GetComponent<onCamera_dtg>().myCameraMod];
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         myTargetPointRandom = myTargetPoint.transform.position;
         /*myTargetPointRandom.x = Random.Range(myTargetPoint.transform.position.x - 0.05f, myTargetPoint.transform.position.x + 0.05f);
@@ -83,7 +87,6 @@ public class onMQVer3 : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
         if (myHP < 1)//被打三下就得死
         {
             if (deadtimer >= 1.5f)
@@ -95,9 +98,10 @@ public class onMQVer3 : MonoBehaviour {
                 else {
                     deadtimer = 0;
                     GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myHowManyMQOnScene--;
-                    Destroy(gameObject);
+                    gameObject.transform.parent = null;
+                    gameObject.SetActive(false);
+                    //Destroy(gameObject);
                 }
-                
             }
             else {
                 /*for (int a = 0; a < myBodyList.Length - 2; a++) {
@@ -117,7 +121,6 @@ public class onMQVer3 : MonoBehaviour {
                 isNeedToMoveToNextPoint = true;
             }
         }
-        
         myMQModController();
         //mydisAtoBis = Vector3.Distance(gameObject.transform.position, myTargetPoint.transform.position);
 

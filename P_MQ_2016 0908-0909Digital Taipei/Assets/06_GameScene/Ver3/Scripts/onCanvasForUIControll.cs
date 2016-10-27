@@ -85,6 +85,7 @@ public class onCanvasForUIControll : MonoBehaviour {
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[2] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamCAmount;
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[3] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamDAmount;
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[4] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamEAmount;
+        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().SendMessage("myGameAwakeTestFN");
         myMainUI.SetActive(false);
         
     }
