@@ -256,6 +256,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\onHitEffect_formovePos.cs" />
     <Compile Include="Assets\onPlanefortest.cs" />
+    <Compile Include="Assets\onRabbit_test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\06_GameScene\Ver3\FBX\MQ\MQ_01Basic\FBX\Materials\trytofindapha.shader" />
