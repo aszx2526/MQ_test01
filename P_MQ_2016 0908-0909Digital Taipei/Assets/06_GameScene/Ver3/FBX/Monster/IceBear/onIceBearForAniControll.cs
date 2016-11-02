@@ -13,7 +13,6 @@ public class onIceBearForAniControll : MonoBehaviour {
     public float myEarHP;
     [Header("耳朵復原時間")]
     public float myEarResumeTime;
-
     public float myEarResumeTimer;
 
     [Header("嘴巴滿血血量")]
@@ -21,6 +20,7 @@ public class onIceBearForAniControll : MonoBehaviour {
     [Header("嘴巴血量")]
     public float myMouthHP;
     [Header("嘴巴復原時間")]
+    public float myMouthResumeTime;
     public float myMouthResumeTimer;
 
     [Header("腳滿血血量")]
@@ -28,14 +28,16 @@ public class onIceBearForAniControll : MonoBehaviour {
     [Header("腳血量")]
     public float myFeetHP;
     [Header("腳復原時間")]
+    public float myFeetResumeTime;
     public float myFeetResumeTimer;
-  
+
     public bool isEargood;
     public bool isMouthgood;
     public bool isBellygood;
     public bool isFeetgood;
 
-
+    public int myIdleRandom;
+    
     public bool isCDTtime_wave;
     public bool isCDTtime_jumphit;
     public bool isCDTtime_eatfish;
@@ -115,75 +117,72 @@ public class onIceBearForAniControll : MonoBehaviour {
     public void myBearModControll()
     {//腿好嘴好-------------------------------------------------------------------1
         if (isFeetgood && isMouthgood) {
-            if (isEargood) {
-                if (myFeetHP <= 0)//如果腿的血沒有了，播放腿殘動畫
-                {
-                    myAniMod = 22;
-                }
-                else if (myMouthHP <= 0)//如果嘴巴的血沒有了，播放嘴殘動畫
-                {
-                    myAniMod = 61;
-                }
-                else {//播放好腳好嘴的待機動作
-                    if (isUnderAttack)
-                    {
-
-                    }
-                    else { }
-                    myAniMod = 0;
-                }
+            if (myFeetHP <= 0)//如果腿的血沒有了，播放腿殘動畫
+            {
+                myAniMod = 25;
             }
-            else {//播放耳朵壞掉動畫
+            else if (myMouthHP <= 0)//如果嘴巴的血沒有了，播放嘴殘動畫
+            {
+                isMouthgood = false;
+                //myAniMod = 61;
+            }
+            else if (myEarHP <= 0)//播放耳朵壞掉動畫
+            {
                 if (myAniMod == 20) { }
                 else if (myAniMod == 21) { }
                 else { myAniMod = 19; }
-                
+            }
+            else {//播放好腳好嘴的待機動作
+                if (isUnderAttack)
+                {
+
+                }
+                else { }
+                myAniMod = 0;
             }
         }
         else if (isFeetgood && !isMouthgood) {
-            if (myMouthResumeTimer > 10)
+            if (myMouthResumeTimer > myMouthResumeTime)
             {
-                //myMouthResumeTimer = 0;
-                //myMouthHP = myMouthFullHP;
-                myAniMod = 25;
+                myMouthResumeTimer = 0;
+                myMouthHP = myMouthFullHP;
+                isMouthgood = true;
             }
             else if (myFeetHP <= 0)//如果腳的血沒了，播放腳殘動畫
             {
-                myAniMod = 62;
+                myAniMod = 25;
             }
             else {
                 myMouthResumeTimer += Time.deltaTime;
-                myAniMod = 23;
+                myAniMod = 0;
             }
 
         }
         else if (!isFeetgood && isMouthgood) {
-            if (myFeetResumeTimer > 10)
+            if (myFeetResumeTimer > myFeetResumeTime)
             {
-                //myFeetResumeTimer = 0;
-                myFeetHP = myFeetFullHP;
-                myAniMod = 25;
+                myAniMod = 28;
             }
             else if (myMouthHP <= 0)//如果嘴的血沒了，播放嘴殘動畫
             {
-                myAniMod = 62;
+                isMouthgood = false;
+                //myAniMod = 62;
             }
             else {
                 myFeetResumeTimer += Time.deltaTime;
-                myAniMod = 23;
+                myAniMod = 29;
             }
         }
         else if (!isFeetgood && !isMouthgood) {
-            if (myFeetResumeTimer > 10)
+            if (myFeetResumeTimer > myFeetResumeTime)
             {
-                //myFeetResumeTimer = 0;
-                myFeetHP = myFeetFullHP;
-                myAniMod = 25;
+                myAniMod = 28;
             }
-            else if (myMouthResumeTimer > 10)//如果嘴的血沒了，播放嘴殘動畫
+            else if (myMouthResumeTimer > myMouthResumeTime)//如果嘴的血沒了，播放嘴殘動畫
             {
+                myMouthResumeTimer = 0;
                 myMouthHP = myMouthFullHP;
-                myAniMod = 62;
+                isMouthgood = true;
             }
             else {
                 myFeetResumeTimer += Time.deltaTime;
@@ -197,7 +196,26 @@ public class onIceBearForAniControll : MonoBehaviour {
         switch (myAniMod)
         {
             case 0:
-                myAniam.Play("idle_attack");
+                if (!isMouthgood&&isBellygood) {
+                    if (myIdleRandom > 50) { myAniam.Play("idle_attack"); }
+                    else { myAniam.Play("breaking_mouth"); }
+                }
+                else if (!isMouthgood&&!isBellygood) {
+                    if (myIdleRandom > 33) { myAniam.Play("idle_attack"); }
+                    else if (myIdleRandom > 66) { myAniam.Play("breaking_belly"); }
+                    else { myAniam.Play("breaking_mouth"); }
+                }
+                else if (isMouthgood&&!isBellygood) {
+                    if (myIdleRandom > 50) { myAniam.Play("idle_attack"); }
+                    else { myAniam.Play("breaking_belly"); }
+                }
+                else {
+                    myAniam.Play("idle_attack");
+                }
+                /*
+                 
+                
+                */
                 break;
             case 1:
                 myAniam.Play("idle_basic");
@@ -294,7 +312,26 @@ public class onIceBearForAniControll : MonoBehaviour {
                 myAniam.Play("resume_leg");
                 break;
             case 29:
-                myAniam.Play("idle_LBs");//暫時代替腳壞掉的idle
+                if (!isMouthgood && isBellygood)
+                {
+                    if (myIdleRandom > 50) { myAniam.Play("idle_LBs"); }
+                    else { myAniam.Play("breaking_LBs_mouth"); }
+                }
+                else if (!isMouthgood && !isBellygood)
+                {
+                    if (myIdleRandom > 33) { myAniam.Play("idle_LBs"); }
+                    else if (myIdleRandom > 66) { myAniam.Play("breaking_LBs_belly"); }
+                    else { myAniam.Play("breaking_LBs_mouth"); }
+                }
+                else if (isMouthgood && !isBellygood)
+                {
+                    if (myIdleRandom > 50) { myAniam.Play("idle_LBs"); }
+                    else { myAniam.Play("breaking_LBs_belly"); }
+                }
+                else {
+                    myAniam.Play("idle_LBs");
+                }
+
                 break;
             default:
                 break;
@@ -305,6 +342,12 @@ public class onIceBearForAniControll : MonoBehaviour {
         isEargood = true;
         myEarHP = myEarFullHP;
         myAniMod = 0;
+    }
+    public void LastFram_LGIdle_FN() { myIdleRandom = Random.RandomRange(0, 101); }
+    public void LastFram_25_FN() { isFeetgood = false; }
+    public void LastFram_28_FN() { isFeetgood = true;
+        myFeetResumeTimer = 0;
+        myFeetHP = myFeetFullHP;
     }
 
     public void myFindAllMQAndAttack()
