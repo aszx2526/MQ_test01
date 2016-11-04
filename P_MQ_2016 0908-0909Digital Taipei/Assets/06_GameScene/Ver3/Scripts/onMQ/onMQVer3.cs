@@ -23,6 +23,7 @@ public class onMQVer3 : MonoBehaviour {
     public bool isBeHit;
     public bool isHitFlyAway;
     public bool isNeedToMoveToNextPoint;//要咬下個地方嗎？
+    public bool isLockNextTarget;//鎖定要打哪裡了嗎？
     public float myScaleControl;//蚊子多大隻
     public float myAttackTimer;
     //--------------------------------------
@@ -195,34 +196,37 @@ public class onMQVer3 : MonoBehaviour {
             transform.parent = null;
         }
     }
-    //這部分要做修改，不然蚊子會飛到其他怪物身上進行攻擊
     public void myMoveToNextPoint() {
         //讓蚊子飛到下一個點
         myMoveSpeed = 1;
-        if (myTargetPoint.name == "hitpoint-1") {
-            //print("if (myTargetPoint.name == hitpoint - 1) {");
-            if (GameObject.Find("hitpoint-4").GetComponent<OnLookAtPoint>().myHP >= 0|| GameObject.Find("hitpoint-5").GetComponent<OnLookAtPoint>().myHP >= 0) {
-                int a = Random.Range(0, 2);
-                if (a == 0) { myTargetPoint = GameObject.Find("hitpoint-4"); }
-                else { myTargetPoint = GameObject.Find("hitpoint-5"); }
-                //print(GameObject.Find("hitpoint-4").GetComponent<OnLookAtPoint>().myName);
+        if (!isLockNextTarget) {
+            if (myTargetPoint.name == "hitpoint-1")
+            {
+                if (GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[3].GetComponent<OnLookAtPoint>().myHP >= 0 ||
+                    GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[4].GetComponent<OnLookAtPoint>().myHP >= 0)
+                {
+                    int a = Random.Range(0, 2);
+                    if (a == 0) { myTargetPoint = GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[3]; isLockNextTarget = true; }
+                    else { myTargetPoint = GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[4]; isLockNextTarget = true; }
+                }
+                else {
+                    int a = Random.Range(0, 2);
+                    if (a == 0) { myTargetPoint = GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[1]; isLockNextTarget = true; }
+                    else { myTargetPoint = GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[2]; isLockNextTarget = true; }
+                }
             }
-            else {
-                //print("elee");
-                //print(GameObject.Find("hitpoint-4").GetComponent<OnLookAtPoint>().myName);
-                int a = Random.Range(0, 2);
-                if (a == 0) { myTargetPoint = GameObject.Find("hitpoint-2"); }
-                else { myTargetPoint = GameObject.Find("hitpoint-3"); }
+            else if (myTargetPoint.name == "hitpoint-4" || myTargetPoint.name == "hitpoint-5")
+            {
+                if (GameObject.Find("hitpoint-1").GetComponent<OnLookAtPoint>().myHP <= 0)
+                {
+                    int a = Random.Range(0, 2);
+                    if (a == 0) { myTargetPoint = GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[1]; isLockNextTarget = true; }
+                    else { myTargetPoint = GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[2]; isLockNextTarget = true; }
+                }
+                else { myTargetPoint = GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[0]; isLockNextTarget = true; }
             }
         }
-        else if (myTargetPoint.name == "hitpoint-4" || myTargetPoint.name == "hitpoint-5") {
-            if (GameObject.Find("hitpoint-1").GetComponent<OnLookAtPoint>().myHP <= 0) {
-                int a = Random.Range(0, 2);
-                if (a == 0) { myTargetPoint = GameObject.Find("hitpoint-2"); }
-                else { myTargetPoint = GameObject.Find("hitpoint-3"); }
-            }
-            else {myTargetPoint = GameObject.Find("hitpoint-1"); }
-        }
+       // if (transform.parent.gameObject.name != myTargetPoint.name&& transform.parent != null) { transform.parent = null; }
         myFlyToTarget();
     }
     public void myMQSkill() {

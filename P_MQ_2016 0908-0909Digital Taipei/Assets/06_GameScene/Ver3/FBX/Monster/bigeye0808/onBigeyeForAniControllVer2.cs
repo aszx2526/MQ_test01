@@ -79,7 +79,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     }
     void Update()
     {
-        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { 
+        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart&&myFatherObject.GetComponent<onMonsterVer3>().isMeToFight) { 
             myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
             myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;
             

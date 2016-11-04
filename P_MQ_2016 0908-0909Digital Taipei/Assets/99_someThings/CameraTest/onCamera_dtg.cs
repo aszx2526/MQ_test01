@@ -65,7 +65,7 @@ public class onCamera_dtg : MonoBehaviour {
                     }
                 }
                 else {
-                    print("oncamera_dtg wing break");
+                    //print("oncamera_dtg wing break");
                     switch (myCameraMod)
                     {
                         case 0:

@@ -352,7 +352,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                     case 0:
                         if (myTeamMQCount[myTeam_Num] > 0)
                         {
-                            print("myTeamMQCount[0] = " + myTeamMQCount[myTeam_Num]);
+                            //print("myTeamMQCount[0] = " + myTeamMQCount[myTeam_Num]);
                             myMQSpawnPoint.transform.GetChild(0).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.SetActive(true);
                             myMQSpawnPoint.transform.GetChild(0).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                             mySpawnPointRandom = Random.Range(0, 14);

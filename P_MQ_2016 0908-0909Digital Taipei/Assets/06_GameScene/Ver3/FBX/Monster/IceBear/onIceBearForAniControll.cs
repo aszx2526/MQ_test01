@@ -37,12 +37,12 @@ public class onIceBearForAniControll : MonoBehaviour {
     public bool isFeetgood;
 
     public int myIdleRandom;
-    
+
     public bool isCDTtime_wave;
     public bool isCDTtime_jumphit;
     public bool isCDTtime_eatfish;
     public bool isCDTtime_gyrohit;
-    
+
     public bool isUnderAttack;
 
 
@@ -54,27 +54,153 @@ public class onIceBearForAniControll : MonoBehaviour {
     float myskillCDTimer_jumphit;
     [Header("啃魚CD時間")]
     public float myskillCDTime_eatfish;
-    float myskillCDTimer_eatfish;
+    public float myskillCDTimer_eatfish;
+    public float myEatFishLoopTime;
+    public float myEatFishLoopTimer;
     [Header("迴旋斬CD時間")]
     public float myskillCDTime_gyrohit;
     float myskillCDTimer_grohit;
+    public float myGrohitLoopTime;
+    public float myGrohitLoopTimer;
 
-   
-    public void myBearSkill_BC_FishWave() { }
-    public void myBearSkill_BC_JumpHit() { }
-    public void myBearSkill_SP_EatFish() { }
-    public void myBearSkill_SP_GyroHit() { }
+
+    public bool isQTETime;
+    public int myQTECount;
+    public int myQTETargetValue;
+
+    public void myBearSkill_BC_FishWave() { myAniMod = 11; }
+    public void myBearSkill_BC_JumpHit() { myAniMod = 10; }
+    public void myBearSkill_SP_EatFish() {
+        if (myAniMod == 13) { }
+        else if (myAniMod == 14) { }
+        else {
+            myAniMod = 12;
+            
+        }
+    }
+    public void myBearSkill_SP_GyroHit() {
+        if (myAniMod == 16) { }
+        else if (myAniMod == 17) { }
+        else if (myAniMod == 20) { }
+        else { myAniMod = 15; }
+
+
+    }
 
 
     public void myBearAttackMod()
     {
-      /*  if (myFatherObject.GetComponent<onMonsterVer3>().myHP / 1000 < 0.2 && isBigEyegood)//20%以下時
+        if (((float)myFatherObject.GetComponent<onMonsterVer3>().myHP / (float)myFatherObject.GetComponent<onMonsterVer3>().myFullHP) < 0.2 && isFeetgood)//20%以下時
         {
-        
+            if (isCDTtime_gyrohit)
+            {
+                if (myskillCDTimer_grohit > myskillCDTimer_grohit)
+                {
+                    myskillCDTimer_grohit = 0;
+                    isCDTtime_gyrohit = false;
+                }
+                else {
+                    myskillCDTimer_grohit += Time.deltaTime;
+                    if (isCDTtime_eatfish)
+                    {
+                        if (myskillCDTimer_eatfish > myskillCDTime_eatfish)
+                        {
+                            myskillCDTimer_eatfish = 0;
+                            isCDTtime_eatfish = false;
+                        }
+                        else {
+                            myskillCDTimer_eatfish += Time.deltaTime;
+                            if (isCDTtime_jumphit)
+                            {
+                                if (myskillCDTimer_jumphit > myskillCDTime_jumphit)
+                                {
+                                    myskillCDTimer_jumphit = 0;
+                                    isCDTtime_jumphit = false;
+                                }
+                                else {
+                                    myskillCDTimer_jumphit += Time.deltaTime;
+                                    myBearModControll();
+                                }
+                                if (isCDTtime_wave)
+                                {
+                                    if (myskillCDTimer_wave > myskillCDTime_wave)
+                                    {
+                                        isCDTtime_wave = false;
+                                        myskillCDTimer_wave = 0;
+                                    }
+                                    else {
+                                        myskillCDTimer_wave += Time.deltaTime;
+                                        myBearModControll();
+                                    }
+                                }
+                                else { myBearSkill_BC_FishWave(); }
+                            }
+                            else { myBearSkill_BC_JumpHit(); }
+                        }
+                    }
+                    else {
+                        myBearSkill_SP_EatFish();
+                    }
+                }
+            }
+            else {
+                myBearSkill_SP_GyroHit();
+            }
         }
-        else {//20%以上時
-          
-        }*/
+        else if (((float)myFatherObject.GetComponent<onMonsterVer3>().myHP / (float)myFatherObject.GetComponent<onMonsterVer3>().myFullHP) < 0.4 && isMouthgood)//40%以下時
+        {
+            myBearAttackHPMore20();
+        }
+        else {//40%以上時
+            myBearAttackHPMore40();
+        }
+    }
+    public void myBearAttackHPMore20()
+    {
+        print("be call");
+        if (isCDTtime_eatfish)
+        {
+            if (myskillCDTimer_eatfish > myskillCDTime_eatfish)
+            {
+                myskillCDTimer_eatfish = 0;
+                isCDTtime_eatfish = false;
+            }
+            else {
+                myskillCDTimer_eatfish += Time.deltaTime;
+                myBearAttackHPMore40();
+            }
+        }
+        else {
+            myBearSkill_SP_EatFish();
+        }
+    }
+    public void myBearAttackHPMore40() {
+        if (isCDTtime_jumphit)
+        {
+            if (myskillCDTimer_jumphit > myskillCDTime_jumphit)
+            {
+                myskillCDTimer_jumphit = 0;
+                isCDTtime_jumphit = false;
+            }
+            else {
+                myskillCDTimer_jumphit += Time.deltaTime;
+                myBearModControll();
+            }
+            if (isCDTtime_wave)
+            {
+                if (myskillCDTimer_wave > myskillCDTime_wave)
+                {
+                    isCDTtime_wave = false;
+                    myskillCDTimer_wave = 0;
+                }
+                else {
+                    myskillCDTimer_wave += Time.deltaTime;
+                    myBearModControll();
+                }
+            }
+            else {myBearSkill_BC_FishWave();}
+        }
+        else {myBearSkill_BC_JumpHit();}
     }
     void Start()
     {
@@ -93,24 +219,29 @@ public class onIceBearForAniControll : MonoBehaviour {
     }
     void Update()
     {
+        //print("HP = "+myFatherObject.GetComponent<onMonsterVer3>().myHP / myFatherObject.GetComponent<onMonsterVer3>().myFullHP);
         //mytextGroup.text = "第「" + myModControll + "」組的組合動畫";
         //mytextAnimMod.text = "動畫編號「" + myAniMod + "」";
-        if (Input.GetKeyDown("."))
+        /* if (Input.GetKeyDown("."))
+         {
+             // myAniMod = 999;
+             myAniMod++;
+             if (myAniMod > 24) { myAniMod = 0; }
+         }
+         if (Input.GetKeyDown(","))
+         {
+             //myAniMod = 999;
+             myAniMod--;
+             if (myAniMod < 0) { myAniMod = 24; }
+         }*/
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            // myAniMod = 999;
-            myAniMod++;
-            if (myAniMod > 24) { myAniMod = 0; }
-        }
-        if (Input.GetKeyDown(","))
-        {
-            //myAniMod = 999;
-            myAniMod--;
-            if (myAniMod < 0) { myAniMod = 24; }
+            myQTETouchCountFN();
         }
 
         myAniControll();
-        //myBigeyeAttackMod();
-        myBearModControll();
+        myBearAttackMod();
+        //myBearModControll();
 
 
     }
@@ -253,25 +384,41 @@ public class onIceBearForAniControll : MonoBehaviour {
                 myAniam.Play("sk_bc_twohandwavefish");
                 break;
             case 12:
+                //myAniam.speed = 0.1f;
                 myAniam.Play("sk_sp_eatfigh_ready");
                 break;
             case 13:
-                myAniam.Play("sk_sp_eatfigh_eating");
+                if (myEatFishLoopTimer > myEatFishLoopTime) {
+                    myEatFishLoopTimer = 0;
+                    myAniMod = 14;
+                }
+                else {
+                    myAniam.Play("sk_sp_eatfigh_eating");
+                    myEatFishLoopTimer += Time.deltaTime;
+                }               
                 break;
             case 14:
                 myAniam.Play("sk_sp_eatfigh_end");
                 break;
             case 15:
-                myAniam.Play("sk_sp_rollcut_dizzing");
-                break;
-            case 16:
-                myAniam.Play("sk_sp_rollcut_dizzing_resume");
-                break;
-            case 17:
                 myAniam.Play("sk_sp_rollcut_ready");
                 break;
+            case 16:
+                if (myGrohitLoopTimer > myGrohitLoopTime) {
+                    myGrohitLoopTimer = 0;
+                    myAniMod = 17;
+                }
+                else {
+                    myGrohitLoopTimer += Time.deltaTime;
+                    myAniam.Play("sk_sp_rollcut_rolling");
+                }
+                
+                break;
+            case 17:
+                myAniam.Play("sk_sp_rollcut_dizzing");
+                break;
             case 18:
-                myAniam.Play("sk_sp_rollcut_rolling");
+                myAniam.Play("sk_sp_rollcut_dizzing_resume");
                 break;
                 //---------------------------------
             case 19:
@@ -285,6 +432,7 @@ public class onIceBearForAniControll : MonoBehaviour {
                 else {
                     myAniam.Play("breaking_head_fighthithead_land_dizzing");
                     myEarResumeTimer += Time.deltaTime;
+                    //myBearAttackHPMore20();
                 }
                 break;
             case 21:
@@ -337,8 +485,32 @@ public class onIceBearForAniControll : MonoBehaviour {
                 break;
         }
     }
+    public void LastFram_10_FN() { isCDTtime_jumphit = true; }
+    public void LastFram_11_FN() { isCDTtime_wave = true; }
+    public void FirstFram_12_FN() {
+        myAniam.speed = 0.3f;
+        isQTETime = true;
+    }
+    public void LastFram_12_FN() {
+        isQTETime = false;
+        if (myQTECount > myQTETargetValue) {
+            isCDTtime_eatfish = true;
+            myAniam.speed = 1;
+            myQTECount = 0;
+        }
+        else {
+            myAniam.speed = 1;
+            myAniMod = 13;
+        }
+        
+    }
+    public void LastFram_14_FN() { isCDTtime_eatfish = true; }
+    public void LastFram_15_FN() { myAniMod = 16; }
+    public void LastFram_17_FN() { myAniMod = 20; }
+    //public void LastFram_18_FN() { isCDTtime_gyrohit = true; }
     public void LastFram_19_FN() { myAniMod = 20; }
     public void LastFram_21_FN() {
+        isCDTtime_gyrohit = true;
         isEargood = true;
         myEarHP = myEarFullHP;
         myAniMod = 0;
@@ -356,6 +528,11 @@ public class onIceBearForAniControll : MonoBehaviour {
         for (int a = 0; a < myMQ.Length; a++)
         {
             myMQ[a].GetComponent<onMQVer3>().myHP--;
+        }
+    }
+    public void myQTETouchCountFN() {
+        if (isQTETime) {
+            myQTECount++;
         }
     }
 }

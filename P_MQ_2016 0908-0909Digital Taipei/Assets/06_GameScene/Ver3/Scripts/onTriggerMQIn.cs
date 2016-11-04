@@ -19,21 +19,44 @@ public class onTriggerMQIn : MonoBehaviour {
                 if (myFather.name == "hitpoint-2" || myFather.name == "hitpoint-3") {
                     other.GetComponent<onMQVer3>().myMoveSpeed = 0;
                     other.GetComponent<onMQVer3>().isAttackTime = true;
+                    other.GetComponent<onMQVer3>().isLockNextTarget = false;
                     other.GetComponent<onMQVer3>().isNeedToMoveToNextPoint = false;
                     other.transform.parent = myFather.transform;
                 }
-                else { }
+                else {
+                    other.GetComponent<onMQVer3>().isAttackTime = false;
+                    other.GetComponent<onMQVer3>().isNeedToMoveToNextPoint = true;
+                    other.transform.parent = null;
+                }
             }
             else {
                 if (myFather.name == other.GetComponent<onMQVer3>().myTargetPoint.name)
                 {
                     other.GetComponent<onMQVer3>().myMoveSpeed = 0;
                     other.GetComponent<onMQVer3>().isAttackTime = true;
+                    other.GetComponent<onMQVer3>().isLockNextTarget = false;
                     other.GetComponent<onMQVer3>().isNeedToMoveToNextPoint = false;
                     other.transform.parent = myFather.transform;
                 }
+                else {
+                    other.GetComponent<onMQVer3>().isAttackTime = false;
+                    other.GetComponent<onMQVer3>().isNeedToMoveToNextPoint = true;
+                    other.transform.parent = null;
+                }
             }
             
+        }
+    }
+    void onTriggerStay(Collider other) {
+        if (other.tag == "MQ")
+        {
+            if (other.GetComponent<onMQVer3>().myTargetPoint.name != myFather.name) {
+                other.GetComponent<onMQVer3>().myMoveSpeed = 1;
+                other.GetComponent<onMQVer3>().isAttackTime = false;
+                other.GetComponent<onMQVer3>().isLockNextTarget = false;
+                other.GetComponent<onMQVer3>().isNeedToMoveToNextPoint = true;
+                other.transform.parent = null;
+            }
         }
     }
 }

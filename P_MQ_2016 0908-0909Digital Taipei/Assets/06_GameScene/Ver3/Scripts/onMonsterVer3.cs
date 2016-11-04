@@ -2,7 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 public class onMonsterVer3 : MonoBehaviour {
-
+    public int myIDForMonster;
+    public bool isMeToFight;
     public UnityEngine.AI.NavMeshAgent agent;
     public Collider[] attackTarget;
     [Header("頭上的字串")]
@@ -96,6 +97,8 @@ public class onMonsterVer3 : MonoBehaviour {
     public GameObject[] MyHitpointList;
     public GameObject[] myHotPointList;
     //---------------------
+    
+    //---------------------
     // Use this for initialization
     void Start()
     {
@@ -135,9 +138,12 @@ public class onMonsterVer3 : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-       /* if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart)
-        {*/
-            myHPText_AfterHeadImage.GetComponent<Text>().text = myHP.ToString() + "/" + myFullHP.ToString();
+        if (myIDForMonster == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum) { isMeToFight = true; }
+        else { isMeToFight = false; }
+        //myIDForMonster
+        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart&&isMeToFight)
+        {
+            //myHPText_AfterHeadImage.GetComponent<Text>().text = myHP.ToString() + "/" + myFullHP.ToString();
             myMonsterModController();
             if (myHP <= 1)
             {
@@ -157,7 +163,7 @@ public class onMonsterVer3 : MonoBehaviour {
             {
                 isAttackFinish = false;
             }
-       // }
+        }
     }
     public void myMonsterModController()
     {

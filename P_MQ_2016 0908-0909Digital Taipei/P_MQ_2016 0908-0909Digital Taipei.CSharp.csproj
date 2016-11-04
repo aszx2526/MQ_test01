@@ -236,14 +236,14 @@
     <Compile Include="Assets\07_forTest\scripts\onThree.cs" />
     <Compile Include="Assets\07_forTest\scripts\textmove.cs" />
     <Compile Include="Assets\07_forTest\test02\OnCameraForPutMQ.cs" />
+    <Compile Include="Assets\99_someThings\CameraTest\NewBehaviourScript.cs" />
+    <Compile Include="Assets\99_someThings\CameraTest\onCameraVer2_MobileControll.cs" />
+    <Compile Include="Assets\99_someThings\CameraTest\onCamera_dtg.cs" />
     <Compile Include="Assets\99_someThings\HSBCImageEffect.cs" />
     <Compile Include="Assets\99_someThings\asdfasdf.cs" />
     <Compile Include="Assets\99_someThings\formovie\hehehaha.cs" />
     <Compile Include="Assets\99_someThings\lerp.cs" />
     <Compile Include="Assets\99_someThings\onPSForBombMQ.cs" />
-    <Compile Include="Assets\CameraTest\NewBehaviourScript.cs" />
-    <Compile Include="Assets\CameraTest\onCameraVer2_MobileControll.cs" />
-    <Compile Include="Assets\CameraTest\onCamera_dtg.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX2_Demo.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
@@ -257,6 +257,8 @@
     <Compile Include="Assets\onHitEffect_formovePos.cs" />
     <Compile Include="Assets\onPlanefortest.cs" />
     <Compile Include="Assets\onRabbit_test.cs" />
+    <Compile Include="Assets\onUI_HPText.cs" />
+    <Compile Include="Assets\onUI_MonsterHpBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\06_GameScene\Ver3\FBX\MQ\MQ_01Basic\FBX\Materials\trytofindapha.shader" />
