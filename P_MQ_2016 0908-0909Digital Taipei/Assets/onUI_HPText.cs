@@ -19,7 +19,7 @@ public class onUI_HPText : MonoBehaviour
     {
         if (myCameraVer2_DTG.GetComponent<onCamera_dtg>().myPickUpNum != 0)
         {
-            myHP_Text.text = myCameraVer2_DTG.GetComponent<onCamera_dtg>().myMonsterList[myCameraVer2_DTG.GetComponent<onCamera_dtg>().myPickUpNum - 1].GetComponent<onMonsterVer3>().myHP.ToString();
+            myHP_Text.text = myCameraVer2_DTG.GetComponent<onCamera_dtg>().myMonsterList[myCameraVer2_DTG.GetComponent<onCamera_dtg>().myPickUpNum - 1].GetComponent<onMonsterVer3>().myHP.ToString()+"/"+ myCameraVer2_DTG.GetComponent<onCamera_dtg>().myMonsterList[myCameraVer2_DTG.GetComponent<onCamera_dtg>().myPickUpNum - 1].GetComponent<onMonsterVer3>().myFullHP.ToString();
             //myHPBar_image.fillAmount = (float)myCameraVer2_DTG.GetComponent<onCamera_dtg>().myMonsterList[myCameraVer2_DTG.GetComponent<onCamera_dtg>().myPickUpNum - 1].GetComponent<onMonsterVer3>().myHP / (float)myCameraVer2_DTG.GetComponent<onCamera_dtg>().myMonsterList[myCameraVer2_DTG.GetComponent<onCamera_dtg>().myPickUpNum - 1].GetComponent<onMonsterVer3>().myFullHP;
         }
     }

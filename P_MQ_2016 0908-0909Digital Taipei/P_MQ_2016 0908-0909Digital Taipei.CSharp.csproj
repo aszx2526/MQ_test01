@@ -255,6 +255,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\onHitEffect_formovePos.cs" />
+    <Compile Include="Assets\onMoraleBarControl.cs" />
     <Compile Include="Assets\onPlanefortest.cs" />
     <Compile Include="Assets\onRabbit_test.cs" />
     <Compile Include="Assets\onUI_HPText.cs" />
@@ -262,7 +263,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\06_GameScene\Ver3\FBX\MQ\MQ_01Basic\FBX\Materials\trytofindapha.shader" />
-    <None Include="Assets\06_GameScene\Ver3\UI\F_02\選單動畫說明.txt" />
+    <None Include="Assets\06_GameScene\Ver3\UI\SceneUI\F_02\選單動畫說明.txt" />
     <None Include="Assets\06_GameScene\old\Monster\01\怪物FBX\命名表.txt" />
     <None Include="Assets\06_GameScene\old\Shader\OutlineShader.shader" />
     <None Include="Assets\07_forTest\Shooter\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

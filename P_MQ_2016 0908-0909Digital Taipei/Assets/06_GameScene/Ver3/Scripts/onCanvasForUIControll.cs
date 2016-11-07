@@ -12,6 +12,16 @@ public class onCanvasForUIControll : MonoBehaviour {
     public AudioClip[] mySoundEffectData;
     public AudioSource myAudioSource;
     public bool isGameStart;
+
+    [Header("怪物起始士氣值：")]
+    public int myMonsterBasicMorale;
+    [Header("原生蚊種類：")]
+    public int myLocalMQ_Mob;//123 等阿龐給我對應表
+    [Header("原生蚊數量：")]
+    public int myLocalMQ_Amount;
+    [Header("原生蚊1秒產出量")]
+    public int myLocalMQ_CreateSpeed;
+
     // Use this for initialization
     void Start () {
         isGameStart = false;

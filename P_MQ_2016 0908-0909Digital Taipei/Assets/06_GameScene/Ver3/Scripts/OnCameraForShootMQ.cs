@@ -342,7 +342,7 @@ public class OnCameraForShootMQ : MonoBehaviour
         if (myTeamMQCount[myTeam_Num] > 0)
         {
             myTimer += Time.deltaTime;
-            if (myTimer >= 0.3)
+            if (myTimer >= 0.225)
             {
                 /*Vector3 a = myFirePoint.transform.forward;
                 a.y = Random.Range(myFirePoint.transform.position.y - 5, myFirePoint.transform.position.y + 5);
