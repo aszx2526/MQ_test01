@@ -21,6 +21,7 @@ public class onCanvasForUIControll : MonoBehaviour {
     public int myLocalMQ_Amount;
     [Header("原生蚊1秒產出量")]
     public int myLocalMQ_CreateSpeed;
+    public int myLocalMQ_AmountFull;
 
     // Use this for initialization
     void Start () {
@@ -96,6 +97,7 @@ public class onCanvasForUIControll : MonoBehaviour {
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[3] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamDAmount;
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[4] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamEAmount;
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().SendMessage("myGameAwakeTestFN");
+        myLocalMQ_AmountFull = myLocalMQ_Amount;
         myMainUI.SetActive(false);
         
     }

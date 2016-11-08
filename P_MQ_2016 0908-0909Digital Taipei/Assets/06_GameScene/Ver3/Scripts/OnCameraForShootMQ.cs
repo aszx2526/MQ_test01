@@ -66,7 +66,7 @@ public class OnCameraForShootMQ : MonoBehaviour
     public float myAutoFireTime;
     public float myAutoFireTimer;
     public int myAutoFireRandom;
-    public GameObject myBasicMQ;
+    public GameObject[] myLocalMQList;
     public GameObject myMQSpawnPoint;
     void Start()
     {
@@ -111,16 +111,20 @@ public class OnCameraForShootMQ : MonoBehaviour
             }
         }
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
-           /* myautobulletcount_text.text = myAutoFireBulletAmount.ToString();
+            myautobulletcount_text.text = myAutoFireBulletAmount.ToString();
             myautobulletbar_image.fillAmount = (float)myAutoFireBulletAmount / (float)myAutoFireBulletFullAmount;
 
-            if (myAutoFireTimer > myAutoFireTime) {
-                myAutoCreatMQ();
-                myAutoFireTimer = 0;
+            if (myAutoFireTimer > 1/ (float)GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_CreateSpeed) {
+                if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount <= 0) { }
+                else {
+                    GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount--;
+                    myAutoCreatMQ();
+                    myAutoFireTimer = 0;
+                }
             }
             else {
                 myAutoFireTimer += Time.deltaTime;
-            }*/
+            }
         }
         //PlayerFunction();
         //CheckIsWin();
@@ -314,7 +318,7 @@ public class OnCameraForShootMQ : MonoBehaviour
         else {
             myAutoFireBulletAmount--;
             mySpawnPointRandom = Random.Range(0, 14);
-            Instantiate(myBasicMQ, myFirePoint[mySpawnPointRandom].transform.position, Quaternion.identity);//生蚊子
+            Instantiate(myLocalMQList[GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Mob-1], myFirePoint[mySpawnPointRandom].transform.position, Quaternion.identity);//生蚊子
         }
         
     }

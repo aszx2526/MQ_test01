@@ -74,7 +74,7 @@ public class onMQVer3 : MonoBehaviour {
         //myTargetPoint = GameObject.Find("MainCamera").GetComponent<OnCameraLookAt>().HotPointList[GameObject.Find("MainCamera").GetComponent<OnCameraLookAt>().cameraMod];
         myCameraVer2 = GameObject.Find("CameraVer2_DTG");
         //↓myTargetPoint的設定修改至 OnCameraForShootMQ.cs myCreatMQFN();裡面執行 
-        //myTargetPoint = myCameraVer2.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[myCameraVer2.GetComponent<onCamera_dtg>().myCameraMod];
+        myTargetPoint = myCameraVer2.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[myCameraVer2.GetComponent<onCamera_dtg>().myCameraMod];
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         myTargetPointRandom = myTargetPoint.transform.position;
         /*myTargetPointRandom.x = Random.Range(myTargetPoint.transform.position.x - 0.05f, myTargetPoint.transform.position.x + 0.05f);
