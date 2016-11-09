@@ -254,7 +254,10 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
+    <Compile Include="Assets\onCloudForHidden.cs" />
     <Compile Include="Assets\onHitEffect_formovePos.cs" />
+    <Compile Include="Assets\onLockForHidden.cs" />
+    <Compile Include="Assets\onMap_ForAllLevelControl.cs" />
     <Compile Include="Assets\onMoraleBarControl.cs" />
     <Compile Include="Assets\onPlanefortest.cs" />
     <Compile Include="Assets\onRabbit_test.cs" />

@@ -15,11 +15,8 @@ public class PlayerLevelManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
         Debug.Log("PlayerLV： "+playerLevel);
         Debug.Log("升級所需經驗： "+levelUpNeedExp);
-        Debug.Log("總經驗： "+sumOfExp);
-        
     }
 	
 	// Update is called once per frame

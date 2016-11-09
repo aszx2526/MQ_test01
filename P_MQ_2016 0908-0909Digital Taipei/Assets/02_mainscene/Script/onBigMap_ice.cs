@@ -3,7 +3,11 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class onBigMap_ice : MonoBehaviour {
-     public int inwhichlevelmod;
+    public int inwhichlevelmod;
+    public int[] myLevelStarCount;
+    public GameObject[] myLevelLock;
+    public int myAllStarInIceCount;
+    public bool[] isBossBeKill;
     // Use this for initialization
     void Start () {
          //gameObject.SetActive(false);
@@ -11,8 +15,14 @@ public class onBigMap_ice : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        //if (myLevelStarCount[0] > 0) { myLevelLock[0].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
+        if (isBossBeKill[0]) { myLevelLock[0].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
+        if (isBossBeKill[1]) { myLevelLock[1].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
+        if (isBossBeKill[2]) { myLevelLock[2].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
+        if (isBossBeKill[3]) { myLevelLock[3].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
+
+        myAllStarInIceCount = myLevelStarCount[0] + myLevelStarCount[1] + myLevelStarCount[2] + myLevelStarCount[3];
+    }
     public void level1() {
         /*
         if (PlayerPrefs.GetInt("TeamASetting") == 0 || PlayerPrefs.GetInt("TeamBSetting") == 0) //|| PlayerPrefs.GetInt("TeamCSetting") == 0 || PlayerPrefs.GetInt("TeamDSetting") == 0 || PlayerPrefs.GetInt("TeamESetting") == 0)

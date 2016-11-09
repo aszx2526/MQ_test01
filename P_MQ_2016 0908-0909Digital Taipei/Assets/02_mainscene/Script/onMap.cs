@@ -13,6 +13,7 @@ public class onMap : MonoBehaviour {
     public Text MainDCost;
     public Text MainECost;
 
+
     // Use this for initialization
     void Start () {
       /*  MainACost = GameObject.Find("MATXT").GetComponent<Text>();
@@ -34,8 +35,12 @@ public class onMap : MonoBehaviour {
     void Update () {
 	
 	}
+    public void btn_01_iceisland() {
+        mywhitelight.SetActive(true);
+        mybigmap[2].SetActive(true);
+    }
     public void btn_island1() {
-        SceneManager.LoadScene(3);
+    //    SceneManager.LoadScene(3);
        /* mywhitelight.SetActive(true);
         mybigmap[1].SetActive(true);*/
     }
