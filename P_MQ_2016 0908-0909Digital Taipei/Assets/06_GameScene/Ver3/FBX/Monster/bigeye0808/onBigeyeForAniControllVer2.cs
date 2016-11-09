@@ -67,7 +67,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     public bool isBeHitTime;
     public float myBeHitTime;
     public float myBeHitTimer;
-
+    public bool isMonsterDead;
     void Start()
     {
         isWinggood = true;
@@ -80,16 +80,23 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     void Update()
     {
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart&&myFatherObject.GetComponent<onMonsterVer3>().isMeToFight) {
-            if (myFatherObject.GetComponent<onMonsterVer3>().myHP <= 0) {
+            if (isMonsterDead) {
                 myAniMod = 4;
             }
             else {
-                myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
-                myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;
-                //myIsFidgetyTimeFN();
-                myBigeyeAttackMod();
-            }
-            myAniControll();
+                if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)
+                {
+                    //myAniMod = 4;
+                    isMonsterDead = true;
+                }
+                else {
+                    myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
+                    myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;
+                    //myIsFidgetyTimeFN();
+                    myBigeyeAttackMod();
+                }
+                myAniControll();
+            }   
         }
     }
     public void myIsFidgetyTimeFN() {
@@ -159,7 +166,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     }
     public void myBigeyeAttackMod()
     {
-        if (((float)myFatherObject.GetComponent<onMonsterVer3>().myHP / (float)myFatherObject.GetComponent<onMonsterVer3>().myFullHP) < 0.2 && isBigEyegood)//20%以下時
+        if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.2 && isBigEyegood)//20%以下時
         {
             if (is21CD)
             {

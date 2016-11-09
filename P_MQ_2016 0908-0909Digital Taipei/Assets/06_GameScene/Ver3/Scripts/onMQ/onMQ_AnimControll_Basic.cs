@@ -55,12 +55,14 @@ public class onMQ_AnimControll_Basic : MonoBehaviour {
                 onMQ3.forHitEffect_Ver2(1, crithit);
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myHP -= (int)crithit;
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>().myHP -= (int)crithit;
+                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)crithit * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
             }
             else {
                 onMQ3 = myFather.GetComponent<onMQVer3>();
                 onMQ3.forHitEffect_Ver2(0, 0);
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myHP -= myFather.GetComponent<onMQVer3>().myAttack;
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>().myHP -= myFather.GetComponent<onMQVer3>().myAttack;
+                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myFather.GetComponent<onMQVer3>().myAttack * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
             }
         }
         if (myFather.GetComponent<onMQVer3>().myTargetPoint.name == "hitpoint-2")
@@ -72,12 +74,14 @@ public class onMQ_AnimControll_Basic : MonoBehaviour {
                 onMQ3.forHitEffect_Ver2(1, crithit);
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myHP -= (int)crithit;
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>().myHP -= (int)crithit;
+                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)crithit * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
             }
             else {
                 onMQ3 = myFather.GetComponent<onMQVer3>();
                 onMQ3.forHitEffect_Ver2(0, 0);
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myHP -= myFather.GetComponent<onMQVer3>().myAttack;
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>().myHP -= myFather.GetComponent<onMQVer3>().myAttack/ myFather.GetComponent<onMQVer3>().myAttack;
+                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myFather.GetComponent<onMQVer3>().myAttack * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
             }
         }
         if (myFather.GetComponent<onMQVer3>().myTargetPoint.name == "hitpoint-3")
@@ -89,12 +93,14 @@ public class onMQ_AnimControll_Basic : MonoBehaviour {
                 onMQ3.forHitEffect_Ver2(1, crithit);
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myHP -= (int)crithit;
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>().myHP -= (int)crithit;
+                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)crithit * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
             }
             else {
                 onMQ3 = myFather.GetComponent<onMQVer3>();
                 onMQ3.forHitEffect_Ver2(0, 0);
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myHP -= myFather.GetComponent<onMQVer3>().myAttack;
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>().myHP -= myFather.GetComponent<onMQVer3>().myAttack/ myFather.GetComponent<onMQVer3>().myAttack;
+                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myFather.GetComponent<onMQVer3>().myAttack * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
             }
         }
         if (myFather.GetComponent<onMQVer3>().myTargetPoint.name == "hitpoint-4" || myFather.GetComponent<onMQVer3>().myTargetPoint.name == "hitpoint-5")
@@ -106,12 +112,14 @@ public class onMQ_AnimControll_Basic : MonoBehaviour {
                 onMQ3.forHitEffect_Ver2(1, crithit);
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myHP -= crithit;
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>().myHP -= crithit;
+                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)crithit * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
             }
             else {
                 onMQ3 = myFather.GetComponent<onMQVer3>();
                 onMQ3.forHitEffect_Ver2(0, 0);
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myHP -= myFather.GetComponent<onMQVer3>().myAttack;
                 myFather.GetComponent<onMQVer3>().myTargetPoint.GetComponent<OnLookAtPoint>().myFatherObject.GetComponent<onMonsterVer3>().myHP -= myFather.GetComponent<onMQVer3>().myAttack;
+                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myFather.GetComponent<onMQVer3>().myAttack * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
             }
         }
     }

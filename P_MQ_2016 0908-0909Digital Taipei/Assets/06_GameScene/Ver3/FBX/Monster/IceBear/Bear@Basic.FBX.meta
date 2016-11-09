@@ -56,6 +56,11 @@ ModelImporter:
     100096: Ice_Bear
     100098: Ice_Bear_1
     100100: Object001
+    100102: hitpoint1
+    100104: hitpoint2
+    100106: hitpoint3
+    100108: hitpoint4
+    100110: hitpoint5
     400000: //RootNode
     400002: Bip001
     400004: Bip001 Footsteps
@@ -107,6 +112,11 @@ ModelImporter:
     400096: Ice_Bear
     400098: Ice_Bear_1
     400100: Object001
+    400102: hitpoint1
+    400104: hitpoint2
+    400106: hitpoint3
+    400108: hitpoint4
+    400110: hitpoint5
     4300000: Ice_Bear
     4300002: Ice_Bear_1
     4300004: Object001

@@ -5,7 +5,9 @@ public class Blip : MonoBehaviour {
     [Header("設定怪物編號：")]
     public int myMonsterID;
     [Header("設定怪物起始士氣值：")]
-    public int myMonsterBasicMorale;
+    public float myMonsterBasicMorale;
+    [Header("設定怪物回氣值：")]
+    public float myMonsterMoraleRestoreValue;
     [Header("設定原生蚊種類：")]
     public int myLocalMQ_Mob;//123 等阿龐給我對應表
     [Header("設定原生蚊數量：")]
@@ -24,6 +26,7 @@ public class Blip : MonoBehaviour {
         if (myMonsterID == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum) {
             onCanvasForUIControll myCFUIC = GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>();
             myCFUIC.myMonsterBasicMorale = myMonsterBasicMorale;
+            myCFUIC.myMonsterMoraleRestoreValue = myMonsterMoraleRestoreValue;
             myCFUIC.myLocalMQ_Mob = myLocalMQ_Mob;
             myCFUIC.myLocalMQ_Amount = myLocalMQ_Amount;
             myCFUIC.myLocalMQ_CreateSpeed = myLocalMQ_CreateSpeed;
