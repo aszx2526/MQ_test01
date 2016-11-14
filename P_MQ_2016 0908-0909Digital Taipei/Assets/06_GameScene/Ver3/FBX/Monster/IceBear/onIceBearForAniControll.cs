@@ -67,7 +67,7 @@ public class onIceBearForAniControll : MonoBehaviour {
     public bool isQTETime;
     public int myQTECount;
     public int myQTETargetValue;
-
+    public float fadoutinSpeed;
     public void myBearSkill_BC_FishWave() { myAniMod = 11; }
     public void myBearSkill_BC_JumpHit() { myAniMod = 10; }
     public void myBearSkill_SP_EatFish() {
@@ -238,7 +238,11 @@ public class onIceBearForAniControll : MonoBehaviour {
         {
             myQTETouchCountFN();
         }
-
+        if (isQTETime) { if (GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView > 30) { GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView -= Time.deltaTime * fadoutinSpeed; } }
+        else {
+            if (GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView < 60) { GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView += Time.deltaTime * fadoutinSpeed; }
+        }
+        
         myAniControll();
         myBearAttackMod();
         //myBearModControll();
@@ -488,7 +492,7 @@ public class onIceBearForAniControll : MonoBehaviour {
     public void LastFram_10_FN() { isCDTtime_jumphit = true; }
     public void LastFram_11_FN() { isCDTtime_wave = true; }
     public void FirstFram_12_FN() {
-        myAniam.speed = 0.3f;
+        myAniam.speed = 0.1f;
         isQTETime = true;
     }
     public void LastFram_12_FN() {

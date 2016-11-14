@@ -114,7 +114,7 @@ public class OnCameraForShootMQ : MonoBehaviour
             myautobulletcount_text.text = myAutoFireBulletAmount.ToString();
             myautobulletbar_image.fillAmount = (float)myAutoFireBulletAmount / (float)myAutoFireBulletFullAmount;
 
-            if (myAutoFireTimer > 1/ (float)GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_CreateSpeed) {
+            if (myAutoFireTimer > 1/ GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_CreateSpeed) {
                 if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount <= 0) { }
                 else {
                     GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount--;

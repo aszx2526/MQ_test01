@@ -7,18 +7,24 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     public Text mytextGroup;
     public Text mytextAnimMod;
     public GameObject myFatherObject;//父物件
-    [Header("大眼滿血血量")]
-    public float myBigeyeFullHP;
-    [Header("大眼血量")]
-    public float myBigeyeHP;
+    [Header("死亡積分")]
+    public int myBigeyeDeadScore;
+    [Header("大眼積分")]
+    public int myBigeyeBreakScore;
+    [Header("翅膀積分")]
+    public int myWingBreakScore;
+    [Header("大眼耐久度(滿)")]
+    public float myBigeyeGetHurtValue_Full;
+    [Header("大眼耐久度")]
+    public float myBigeyeGetHurtValue;
     public GameObject myBigeyeHitpoint;
     [Header("大眼復原時間")]
     public float myBigeyeResumeTimerTarget;
     public float myBigeyeResumeTimer;
-    [Header("翅膀滿血血量")]
-    public float myWingFullHP;
-    [Header("翅膀血量")]
-    public float myWingHP;
+    [Header("翅膀耐久度(滿)")]
+    public float myWingGetHurtValue_Full;
+    [Header("翅膀耐久度")]
+    public float myWingGetHurtValue;
     public GameObject myWingHitpoint;
     [Header("翅膀復原時間")]
     public float myWingResumeTimerTarget;
@@ -90,8 +96,8 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
                     isMonsterDead = true;
                 }
                 else {
-                    myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
-                    myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;
+                    /*myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
+                    myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;*/
                     //myIsFidgetyTimeFN();
                     myBigeyeAttackMod();
                 }
@@ -306,14 +312,14 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
         if (isBigEyegood && isWinggood)
         {//眼好翅好-------------------------------------------------------------------1
             //print("if (isBigEyegood && isWinggood)");
-            if (myWingHP <= 0)
+            if (myWingGetHurtValue>=myWingGetHurtValue_Full)
             {
                 myAniMod = 22;
                 myAudioController(3);
                 myAniam.speed = 0.7f;
                 //print("bigeye mod here");
             }
-            else if (myBigeyeHP <= 0)
+            else if (myBigeyeGetHurtValue >= myBigeyeGetHurtValue_Full)
             {
                 myAniMod = 61;
                 myAudioController(1);
@@ -329,12 +335,11 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
         {//眼好翅壞-------------------------------------------------------------------2
             if (myWingResumeTimer > myWingResumeTimerTarget)
             {
-                GameObject.Find("hitpoint-4").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
-                GameObject.Find("hitpoint-5").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
+                myWingGetHurtValue = 0;
                 myAniMod = 25;
                 myAniam.speed = 0.7f;
             }
-            else if (myBigeyeHP <= 0)
+            else if (myBigeyeGetHurtValue >= myBigeyeGetHurtValue_Full)
             {
                 myAniMod = 62;
                 myAniam.speed = 0.7f;
@@ -351,11 +356,12 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             if (myBigeyeResumeTimer > myBigeyeResumeTimerTarget)
             {
                 //myBigeyeResumeTimer = 0;
-                myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP = myBigeyeFullHP;
+                //myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP = myBigeyeFullHP;
+                myBigeyeGetHurtValue = 0;
                 myAniMod = 16;
                 myAniam.speed = 0.7f;
             }
-            else if (myWingHP <= 0)
+            else if (myWingGetHurtValue >= myWingGetHurtValue_Full)
             {
                 myAniMod = 08;
                 myAudioController(3);
@@ -372,15 +378,15 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             if (myWingResumeTimer > myWingResumeTimerTarget)
             {
                 //myWingResumeTimer = 0;
-                GameObject.Find("hitpoint-4").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
-                GameObject.Find("hitpoint-5").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
+                myWingGetHurtValue = 0;
                 myAniMod = 07;
                 myAniam.speed = 0.7f;
             }
             else if (myBigeyeResumeTimer > myBigeyeResumeTimerTarget)
             {
                 //myBigeyeResumeTimer = 0;
-                myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP = myBigeyeFullHP;
+                //myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP = myBigeyeFullHP;
+                myBigeyeGetHurtValue = 0;
                 myAniMod = 10;
                 myAniam.speed = 0.7f;
             }

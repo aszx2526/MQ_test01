@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 public class onMonsterVer3 : MonoBehaviour {
+    public bool isMeDead;
     public int myIDForMonster;
     public bool isMeToFight;
     public UnityEngine.AI.NavMeshAgent agent;
@@ -102,7 +103,7 @@ public class onMonsterVer3 : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        myHP = myFullHP;
+     //   myHP = myFullHP;
 
         //myHPText_AfterHeadImage.text = "aaa";//myHP.ToString() + "/" + myFullHP.ToString();
         basicViewDistance = viewDistance + 1;
@@ -138,14 +139,17 @@ public class onMonsterVer3 : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (myIDForMonster == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum) { isMeToFight = true; }
+      /*  if (myIDForMonster == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum) { isMeToFight = true; }
         else { isMeToFight = false; }
         //myIDForMonster
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart&&isMeToFight)
-        {
+        {*/
             //myHPText_AfterHeadImage.GetComponent<Text>().text = myHP.ToString() + "/" + myFullHP.ToString();
             myMonsterModController();
-            if (myHP <= 1)
+
+        //輸贏判定區
+        /*
+            if (myHP <= 1)//這裡應該修改成士氣判定
             {
 
                 GameObject[] MQ_All = GameObject.FindGameObjectsWithTag("MQ");
@@ -157,13 +161,14 @@ public class onMonsterVer3 : MonoBehaviour {
                 GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().SendMessage("CheckIsWin");
                 //GameObject.Find("KillBigeyeText").GetComponent<Text>().text = "Kill Bigeye(1/1)";
                 Destroy(gameObject);
-            }
+            }*/
+
             //forUpdateViewDistance();
             if (isAttackFinish)
             {
                 isAttackFinish = false;
             }
-        }
+      //  }
     }
     public void myMonsterModController()
     {

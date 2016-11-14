@@ -12,21 +12,26 @@ public class onCanvasForUIControll : MonoBehaviour {
     public AudioClip[] mySoundEffectData;
     public AudioSource myAudioSource;
     public bool isGameStart;
+    public bool isTimeToShowTheClearUI;
 
     [Header("怪物起始士氣值：")]
     public float myMonsterBasicMorale;
     [Header("設定怪物回氣值：")]
     public float myMonsterMoraleRestoreValue;
+    [Header("蚊子傷害變數：")]
+    public float myMonsterMoraleBloodValue;
     [Header("原生蚊種類：")]
     public int myLocalMQ_Mob;//123 等阿龐給我對應表
     [Header("原生蚊數量：")]
     public int myLocalMQ_Amount;
     [Header("原生蚊1秒產出量")]
-    public int myLocalMQ_CreateSpeed;
+    public float myLocalMQ_CreateSpeed;
     public int myLocalMQ_AmountFull;
     [Header("怪物士氣值：")]
     public float myMonsterMorale;
-    public float myMonsterMoraleBloodValue;
+    //public float myMonsterMoraleBloodValue;
+    public GameObject[] myMonsterMoraleCounter;
+    public float myMonsterMoralCounterTimer;
     // Use this for initialization
     void Start () {
         isGameStart = false;
@@ -41,8 +46,17 @@ public class onCanvasForUIControll : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-	}
+        if (myMonsterMoralCounterTimer >= 1) {
+            myMonsterMoralCounterTimer = 0;
+            for (int a = 0; a < myMonsterMoraleCounter.Length; a++) {
+                myMonsterMoraleCounter[a].GetComponent<Blip>().myMonsterBasicMorale += myMonsterMoraleCounter[a].GetComponent<Blip>().myMonsterMoraleRestoreValue*0.1f;
+            }
+        }
+        else {
+            myMonsterMoralCounterTimer += Time.deltaTime;
+        }
+
+    }
     public void BTN_Left1() {
 
         mySoundEffectFN();
@@ -103,7 +117,7 @@ public class onCanvasForUIControll : MonoBehaviour {
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().SendMessage("myGameAwakeTestFN");
         myLocalMQ_AmountFull = myLocalMQ_Amount;
         myMonsterMorale = myMonsterBasicMorale;
-        myMonsterMoraleBloodValue = myMonsterBasicMorale / (float)GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myMonsterList[GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum - 1].GetComponent<onMonsterVer3>().myFullHP;
+        //myMonsterMoraleBloodValue = myMonsterBasicMorale / (float)GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myMonsterList[GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum - 1].GetComponent<onMonsterVer3>().myFullHP;
         myMainUI.SetActive(false);
         
     }

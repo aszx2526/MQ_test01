@@ -10,8 +10,8 @@ public class OnLookAtPoint : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        if (myName == "maineye") { myHP = myLittleFather.GetComponent<onBigeyeForAniControllVer2>().myBigeyeFullHP; }
-        if (myName == "leftwing") { myHP = myLittleFather.GetComponent<onBigeyeForAniControllVer2>().myWingFullHP; }
+     /*   if (myName == "maineye") { myHP = myLittleFather.GetComponent<onBigeyeForAniControllVer2>().myBigeyeFullHP; }
+        if (myName == "leftwing") { myHP = myLittleFather.GetComponent<onBigeyeForAniControllVer2>().myWingFullHP; }*/
         //if (myName == "") { myHP = myFatherObject.GetComponent<onBigeyeForAniControllVer2>().myBigeyeFullHP; }
     }
 	

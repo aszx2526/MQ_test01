@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class Blip : MonoBehaviour {
     [Header("設定怪物編號：")]
     public int myMonsterID;
@@ -8,25 +8,51 @@ public class Blip : MonoBehaviour {
     public float myMonsterBasicMorale;
     [Header("設定怪物回氣值：")]
     public float myMonsterMoraleRestoreValue;
+    [Header("蚊子傷害變數：")]
+    public float myMonsterMoraleBloodValue;
     [Header("設定原生蚊種類：")]
     public int myLocalMQ_Mob;//123 等阿龐給我對應表
     [Header("設定原生蚊數量：")]
     public int myLocalMQ_Amount;
     [Header("設定原生蚊1秒產出量")]
-    public int myLocalMQ_CreateSpeed;
-    public Transform miniTarget;// Main Camera
+    public float myLocalMQ_CreateSpeed;
+    public Transform miniTarget;// 小地圖的目標物件，搞定比例尺
     public Transform Target;//場景上的怪物物件
-    MiniMap map;
-    public RectTransform myRectTransform;
+    public string[] MQTalkString;
+    public Text myMQTalkText;
+    public Image[] UI_myIconOnMiniMap;//0怪 1 MQ
+    public Sprite[] UI_whenSomeOneDead;
+    //MiniMap map;
+    /*[Header("免設定，自動抓")]
+    public RectTransform myRectTransform;*/
     public float zoonlevel;// = 10f;
     
     void Star() {
+        //UI_myIconOnMiniMap[0] = GetComponent<RectTransform>().GetChild(0).gameObject;
+     //   myMQTalkText = gameObject.GetComponent<RectTransform>().GetChild(1).GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(0).GetComponent<Text>();
+     // myRectTransform = transform.GetChild(0).GetComponent<RectTransform>();
     }
     void Update() {
+        if (Target.GetComponent<onMonsterVer3>().isMeDead) {
+            //怪物死掉，換小地圖上怪物icon的圖
+            UI_myIconOnMiniMap[0].sprite = UI_whenSomeOneDead[0];
+
+        }
+        if (myMonsterBasicMorale >= 100) {
+            //怪物士氣100=蚊子死光光，換小地圖蚊子icon的圖
+            UI_myIconOnMiniMap[1].sprite = UI_whenSomeOneDead[1];
+        }
+        else {
+            if (myMonsterBasicMorale > 60 && myMonsterBasicMorale < 70) { myMQTalkText.text = MQTalkString[0]; }
+            if (myMonsterBasicMorale > 70 && myMonsterBasicMorale < 80) { myMQTalkText.text = MQTalkString[1]; }
+            if (myMonsterBasicMorale > 80 && myMonsterBasicMorale < 90) { myMQTalkText.text = MQTalkString[2]; }
+            if (myMonsterBasicMorale > 90 && myMonsterBasicMorale < 100) { myMQTalkText.text = MQTalkString[3]; }
+        }
         if (myMonsterID == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum) {
             onCanvasForUIControll myCFUIC = GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>();
             myCFUIC.myMonsterBasicMorale = myMonsterBasicMorale;
             myCFUIC.myMonsterMoraleRestoreValue = myMonsterMoraleRestoreValue;
+            myCFUIC.myMonsterMoraleBloodValue = myMonsterMoraleBloodValue;
             myCFUIC.myLocalMQ_Mob = myLocalMQ_Mob;
             myCFUIC.myLocalMQ_Amount = myLocalMQ_Amount;
             myCFUIC.myLocalMQ_CreateSpeed = myLocalMQ_CreateSpeed;
@@ -35,8 +61,10 @@ public class Blip : MonoBehaviour {
             Vector3 offset = Target.position - miniTarget.position;
             Vector2 newPosition = new Vector2(offset.x, offset.z);
             newPosition *= zoonlevel;
-            myRectTransform.anchoredPosition = newPosition;
+            //myRectTransform.anchoredPosition = newPosition;
+            //transform.GetChild(0).GetComponent<RectTransform>().anchoredPosition = newPosition;
+            GetComponent<RectTransform>().anchoredPosition = newPosition;
         }
-        
+
     }
 }
