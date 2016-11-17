@@ -132,7 +132,6 @@
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\MiniMap.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\OnCameraForShootMQ.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\OnCameraLookAt.cs" />
-    <Compile Include="Assets\06_GameScene\Ver3\Scripts\OnLookAtPoint.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\OnMiniMap.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\onAmount_UI.cs" />
     <Compile Include="Assets\06_GameScene\Ver3\Scripts\onBTN_Battle.cs" />
@@ -228,8 +227,6 @@
     <Compile Include="Assets\07_forTest\Shooter\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\07_forTest\Shooter\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\07_forTest\Shooter\Standard Assets\Utility\WaypointProgressTracker.cs" />
-    <Compile Include="Assets\07_forTest\V3\scripts\OnPointForHP.cs" />
-    <Compile Include="Assets\07_forTest\V3\scripts\OnTimer.cs" />
     <Compile Include="Assets\07_forTest\scripts\onImage.cs" />
     <Compile Include="Assets\07_forTest\scripts\onMainCamera.cs" />
     <Compile Include="Assets\07_forTest\scripts\onSliderTestforUI.cs" />
@@ -241,7 +238,6 @@
     <Compile Include="Assets\99_someThings\CameraTest\onCamera_dtg.cs" />
     <Compile Include="Assets\99_someThings\HSBCImageEffect.cs" />
     <Compile Include="Assets\99_someThings\asdfasdf.cs" />
-    <Compile Include="Assets\99_someThings\formovie\hehehaha.cs" />
     <Compile Include="Assets\99_someThings\lerp.cs" />
     <Compile Include="Assets\99_someThings\onPSForBombMQ.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX2_Demo.cs" />
@@ -256,14 +252,13 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\onCloudForHidden.cs" />
     <Compile Include="Assets\onHitEffect_formovePos.cs" />
+    <Compile Include="Assets\onHitPoint_UpdateHureValue.cs" />
     <Compile Include="Assets\onLockForHidden.cs" />
     <Compile Include="Assets\onMap_ForAllLevelControl.cs" />
     <Compile Include="Assets\onMoraleBarControl.cs" />
     <Compile Include="Assets\onPlanefortest.cs" />
     <Compile Include="Assets\onRabbit_test.cs" />
-    <Compile Include="Assets\onUI_HPText.cs" />
     <Compile Include="Assets\onUI_LevelClear.cs" />
-    <Compile Include="Assets\onUI_MonsterHpBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\06_GameScene\Ver3\FBX\MQ\MQ_01Basic\FBX\Materials\trytofindapha.shader" />

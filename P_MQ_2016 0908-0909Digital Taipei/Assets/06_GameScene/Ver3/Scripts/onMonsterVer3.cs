@@ -9,10 +9,10 @@ public class onMonsterVer3 : MonoBehaviour {
     public Collider[] attackTarget;
     [Header("頭上的字串")]
     public string mytitle;
-    [Header("怪物滿血量")]
+  /*  [Header("怪物滿血量")]
     public int myFullHP;
     [Header("怪物總血量")]
-    public int myHP;
+    public int myHP;*/
     public GameObject myHPText_AfterHeadImage;
     //[Header("攻擊力")]
     int myAttack;
@@ -139,17 +139,17 @@ public class onMonsterVer3 : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-      /*  if (myIDForMonster == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum) { isMeToFight = true; }
+        if (myIDForMonster == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum) { isMeToFight = true; }
         else { isMeToFight = false; }
         //myIDForMonster
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart&&isMeToFight)
-        {*/
+        {
             //myHPText_AfterHeadImage.GetComponent<Text>().text = myHP.ToString() + "/" + myFullHP.ToString();
             myMonsterModController();
 
         //輸贏判定區
-        /*
-            if (myHP <= 1)//這裡應該修改成士氣判定
+        
+            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0 )//這裡應該修改成士氣判定
             {
 
                 GameObject[] MQ_All = GameObject.FindGameObjectsWithTag("MQ");
@@ -160,15 +160,15 @@ public class onMonsterVer3 : MonoBehaviour {
                 //GameObject.Find("Canvas").SendMessage("BTN_forSetting");
                 GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().SendMessage("CheckIsWin");
                 //GameObject.Find("KillBigeyeText").GetComponent<Text>().text = "Kill Bigeye(1/1)";
-                Destroy(gameObject);
-            }*/
+                //Destroy(gameObject);
+            }
 
             //forUpdateViewDistance();
             if (isAttackFinish)
             {
                 isAttackFinish = false;
             }
-      //  }
+        }
     }
     public void myMonsterModController()
     {

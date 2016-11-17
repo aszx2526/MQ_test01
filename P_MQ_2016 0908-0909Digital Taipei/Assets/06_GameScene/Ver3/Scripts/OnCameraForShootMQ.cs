@@ -9,8 +9,6 @@ public class OnCameraForShootMQ : MonoBehaviour
     float myTimer;
     public Text MQCount;
     public int myHowManyMQOnScene;
-    public Text winlose;
-    public Text youlose;
     //-----------------
     public int[] myTeamMQCount;
     public GameObject[] myTeamAmount_Image;
@@ -71,10 +69,6 @@ public class OnCameraForShootMQ : MonoBehaviour
     void Start()
     {
         myAudioSource = gameObject.GetComponent<AudioSource>();
-        winlose = GameObject.Find("winlose").GetComponent<Text>();
-        winlose.gameObject.SetActive(false);
-        youlose = GameObject.Find("youlose").GetComponent<Text>();
-        youlose.gameObject.SetActive(false);
         for (int a = 0; a < myCDBlack.Length; a++)
         {
             myCDBlack[a].GetComponent<Image>().fillAmount = 1;
@@ -104,9 +98,8 @@ public class OnCameraForShootMQ : MonoBehaviour
         MQCount.text = "場上蚊子數量：" + myHowManyMQOnScene.ToString();
         if (gameObject.GetComponent<onMainCameraVer2>().isNeedToFollow)
         {
-            if (myTeamMQCount[0] == 0 && myTeamMQCount[1] == 0 && myTeamMQCount[2] == 0 && myTeamMQCount[3] == 0 && myTeamMQCount[4] == 0 && myHowManyMQOnScene == 0)
+            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 1)
             {
-                youlose.gameObject.SetActive(true);
                 print("all MQ is over so you are lose!!!!!!!!!!");
             }
         }
@@ -147,8 +140,6 @@ public class OnCameraForShootMQ : MonoBehaviour
             myBTNShake_FN(2);
             myBTNShake_FN(3);
             myBTNShake_FN(4);
-
-
         }
     }
     public void myGameAwakeTestFN() {
@@ -452,7 +443,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                //print("win");
                
            }*/
-        winlose.gameObject.SetActive(true);
+       // winlose.gameObject.SetActive(true);
         //winlose.text = "You win"+ "/n"+ "Thanks for Playing";
     }
     public void BTN_TeamADown() {myForBTNDown(0);}

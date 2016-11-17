@@ -9,10 +9,13 @@ public class onCanvasForUIControll : MonoBehaviour {
     public GameObject myAddMQ;
     public GameObject myChangeArmy;
     public GameObject mySupplyStation;
+    public GameObject myLevelClear;
     public AudioClip[] mySoundEffectData;
     public AudioSource myAudioSource;
     public bool isGameStart;
-    public bool isTimeToShowTheClearUI;
+    public bool[] isLevelClear;
+    public bool isPlayerLose;
+    public int myAllLocalMQCount;
 
     [Header("怪物起始士氣值：")]
     public float myMonsterBasicMorale;
@@ -42,10 +45,26 @@ public class onCanvasForUIControll : MonoBehaviour {
         myAddMQ.SetActive(false);
         myChangeArmy.SetActive(false);
         mySupplyStation.SetActive(false);
+        myLevelClear.SetActive(false);
+        myAllLocalMQCount = myMonsterMoraleCounter[0].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[1].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[2].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[3].GetComponent<Blip>().myLocalMQ_Amount;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        //關卡通關成功失敗判定
+        if (isLevelClear[3]) {
+            myLevelClear.SetActive(true);
+        }
+        else if (isPlayerLose) {
+            myLevelClear.SetActive(true);
+        }
+        else if (myAllLocalMQCount<=0) {
+            myLevelClear.SetActive(true);
+        }
+
+
+
+
         if (myMonsterMoralCounterTimer >= 1) {
             myMonsterMoralCounterTimer = 0;
             for (int a = 0; a < myMonsterMoraleCounter.Length; a++) {

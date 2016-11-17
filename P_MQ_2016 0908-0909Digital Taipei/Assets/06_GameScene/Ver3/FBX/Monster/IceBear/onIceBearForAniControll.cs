@@ -90,7 +90,7 @@ public class onIceBearForAniControll : MonoBehaviour {
 
     public void myBearAttackMod()
     {
-        if (((float)myFatherObject.GetComponent<onMonsterVer3>().myHP / (float)myFatherObject.GetComponent<onMonsterVer3>().myFullHP) < 0.2 && isFeetgood)//20%以下時
+        if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.2 && isFeetgood)//20%以下時
         {
             if (isCDTtime_gyrohit)
             {
@@ -147,7 +147,7 @@ public class onIceBearForAniControll : MonoBehaviour {
                 myBearSkill_SP_GyroHit();
             }
         }
-        else if (((float)myFatherObject.GetComponent<onMonsterVer3>().myHP / (float)myFatherObject.GetComponent<onMonsterVer3>().myFullHP) < 0.4 && isMouthgood)//40%以下時
+        else if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.4 && isMouthgood)//40%以下時
         {
             myBearAttackHPMore20();
         }

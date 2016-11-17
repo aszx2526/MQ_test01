@@ -21,8 +21,8 @@ public class onCamera_dtg : MonoBehaviour {
     // Use this for initialization
     void Start () {
         myMainCamera = GameObject.Find("MainCamera").gameObject.GetComponent<Camera>();
-       /* transform.position = myMonsterList[myPickUpNum-1].transform.position;
-        theLookAtPointOnMonster = myMonsterList[myPickUpNum-1].GetComponent<onMonsterVer3>().MyHitpointList;*/
+        transform.position = myMonsterList[myPickUpNum-1].transform.position;
+        theLookAtPointOnMonster = myMonsterList[myPickUpNum-1].GetComponent<onMonsterVer3>().MyHitpointList;
     }
 	
 	// Update is called once per frame
@@ -86,7 +86,6 @@ public class onCamera_dtg : MonoBehaviour {
                             break;
                     }
                 }
-
                 break;
             default:
                 print("攝影機旋轉怪物清單為 null");
@@ -96,20 +95,51 @@ public class onCamera_dtg : MonoBehaviour {
         myCameraLookAtPointMoveFN();
     }
     //鏡頭相關的韓式，縮放阿，旋轉，移動座標等等
+    public float myA = 0;
     public void myCameraFN(float rotateValue,float myfieldOfView, float myPosYTrimming) {
-        //旋轉
-        Quaternion a = myMonsterList[myPickUpNum-1].transform.rotation;
-        a.y = rotateValue;
-        transform.rotation = Quaternion.Lerp(transform.rotation, a, Time.deltaTime * myCameraRotationSpeed);
+        
+        //怪物死亡旋轉
+        if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)
+        {
+            Quaternion a = myMonsterList[myPickUpNum - 1].transform.rotation;
+            
+            myA += Time.deltaTime;
+            if (myA < 3)
+            {
+                myA += Time.deltaTime;
+                a.y = rotateValue + 2;
+                transform.rotation = Quaternion.Lerp(transform.rotation, a, Time.deltaTime * myCameraRotationSpeed * 0.1f);
+            }
+            else if (myA > 3 && myA < 6)
+            {
+                myA += Time.deltaTime;
+                a.y = rotateValue - 2;
+                transform.rotation = Quaternion.Lerp(transform.rotation, a, Time.deltaTime * myCameraRotationSpeed * 0.1f);
+            }
+            else if (myA > 6) { myA = 0; }
+            
+        }
+        else {
+            //旋轉
+            Quaternion a = myMonsterList[myPickUpNum - 1].transform.rotation;
+            a.y = rotateValue;
+            transform.rotation = Quaternion.Lerp(transform.rotation, a, Time.deltaTime * myCameraRotationSpeed);
 
-        //縮放鏡頭
-        if (myMainCamera.fieldOfView > myfieldOfView) { myMainCamera.fieldOfView -= Time.deltaTime * myZoonSpeed; }
-        else if (myMainCamera.fieldOfView < myfieldOfView-1) { myMainCamera.fieldOfView += Time.deltaTime * myZoonSpeed; }
-        else { myMainCamera.fieldOfView = myfieldOfView; }
+            //縮放鏡頭
+            if (myMainCamera.fieldOfView > myfieldOfView) { myMainCamera.fieldOfView -= Time.deltaTime * myZoonSpeed; }
+            else if (myMainCamera.fieldOfView < myfieldOfView - 1) { myMainCamera.fieldOfView += Time.deltaTime * myZoonSpeed; }
+            else { myMainCamera.fieldOfView = myfieldOfView; }
 
-        Vector3 myPos = myMonsterList[myPickUpNum-1].transform.position;
-        myPos.y = myPos.y+myPosYTrimming;
-        transform.position = Vector3.Lerp(transform.position, myPos, Time.deltaTime * myCameraRotationSpeed);
+            Vector3 myPos = myMonsterList[myPickUpNum - 1].transform.position;
+            myPos.y = myPos.y + myPosYTrimming;
+            transform.position = Vector3.Lerp(transform.position, myPos, Time.deltaTime * myCameraRotationSpeed);
+
+        }
+
+
+
+
+     
     }
     //焦點移動韓式，如果焦點距離hitpoint 小於0.1就不要動啦，不然鏡頭一直晃不舒服
     public void myCameraLookAtPointMoveFN() {

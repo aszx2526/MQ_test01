@@ -114,7 +114,7 @@ public class onMQVer3 : MonoBehaviour {
             }
         }
         else if (isHitFlyAway) { myBeHitThenFlyAway(); }
-        else if (myTargetPoint.GetComponent<OnLookAtPoint>().myHP <= 0)
+        else if (myTargetPoint.GetComponent<onHitPoint_UpdateHureValue>().isPartBreak)
         {
             if (myTargetPoint.name == "hitpoint-2" || myTargetPoint.name == "hitpoint-3") { }
             else {
@@ -202,8 +202,8 @@ public class onMQVer3 : MonoBehaviour {
         if (!isLockNextTarget) {
             if (myTargetPoint.name == "hitpoint-1")
             {
-                if (GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[3].GetComponent<OnLookAtPoint>().myHP >= 0 ||
-                    GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[4].GetComponent<OnLookAtPoint>().myHP >= 0)
+                if (GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[3].GetComponent<onHitPoint_UpdateHureValue>().isPartBreak ||
+                    GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[4].GetComponent<onHitPoint_UpdateHureValue>().isPartBreak)
                 {
                     int a = Random.Range(0, 2);
                     if (a == 0) { myTargetPoint = GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[3]; isLockNextTarget = true; }
@@ -217,7 +217,7 @@ public class onMQVer3 : MonoBehaviour {
             }
             else if (myTargetPoint.name == "hitpoint-4" || myTargetPoint.name == "hitpoint-5")
             {
-                if (GameObject.Find("hitpoint-1").GetComponent<OnLookAtPoint>().myHP <= 0)
+                if (GameObject.Find("hitpoint-1").GetComponent<onHitPoint_UpdateHureValue>().isPartBreak)
                 {
                     int a = Random.Range(0, 2);
                     if (a == 0) { myTargetPoint = GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[1]; isLockNextTarget = true; }

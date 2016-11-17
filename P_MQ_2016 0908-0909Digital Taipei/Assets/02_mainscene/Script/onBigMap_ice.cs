@@ -34,7 +34,7 @@ public class onBigMap_ice : MonoBehaviour {
             GameObject.Find("Map").GetComponent<onMap>().beforeIntoGameScene.SetActive(true);
             GameObject.Find("Map").GetComponent<onMap>().forgetSpend();
         }*/
-        SceneManager.LoadScene("Ver3_Prototype_");
+        SceneManager.LoadScene("GameScene");
         //Application.LoadLevel("Ver3_Prototype_");
     }
 

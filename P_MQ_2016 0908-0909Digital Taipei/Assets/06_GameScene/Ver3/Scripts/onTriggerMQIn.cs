@@ -15,7 +15,7 @@ public class onTriggerMQIn : MonoBehaviour {
 	}
     void OnTriggerEnter(Collider other) {
         if (other.tag == "MQ") {
-            if (myFather.GetComponent<OnLookAtPoint>().myHP <= 0) {
+            if (myFather.GetComponent<onHitPoint_UpdateHureValue>().isPartBreak) {
                 if (myFather.name == "hitpoint-2" || myFather.name == "hitpoint-3") {
                     other.GetComponent<onMQVer3>().myMoveSpeed = 0;
                     other.GetComponent<onMQVer3>().isAttackTime = true;

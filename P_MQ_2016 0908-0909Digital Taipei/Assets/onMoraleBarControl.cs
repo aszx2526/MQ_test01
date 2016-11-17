@@ -18,15 +18,36 @@ public class onMoraleBarControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
-            myMoraleAddTimer+=Time.deltaTime;
-            if (myMoraleAddTimer >= 1) {
-                myMoraleAddTimer = 0;
-                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale += GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleRestoreValue;
+            if (myUI_MoraleBar_Monster.fillAmount == 0) {
+                //怪物死調惹
+
             }
-            myUI_MoraleBar_Monster.fillAmount = GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale / 100;
-            myUI_MoraleBar_MQ.fillAmount = 1 - myUI_MoraleBar_Monster.fillAmount;
-            myUI_LocalMQ_Amount.fillAmount = (float)GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount / (float)GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_AmountFull;
-            
+            else if (myUI_MoraleBar_Monster.fillAmount == 1) {
+                //怪物銀惹
+
+            }
+            else {
+                if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount == 0) {
+                    myMoraleAddTimer += Time.deltaTime;
+                    if (myMoraleAddTimer >= 0.1f)
+                    {
+                        myMoraleAddTimer = 0;
+                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale += GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleRestoreValue;
+                    }
+                }
+                else {
+                    myMoraleAddTimer += Time.deltaTime;
+                    if (myMoraleAddTimer >= 1)
+                    {
+                        myMoraleAddTimer = 0;
+                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale += GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleRestoreValue;
+                    }
+                }
+                myUI_MoraleBar_Monster.fillAmount = GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale / 100;
+                myUI_MoraleBar_MQ.fillAmount = 1 - myUI_MoraleBar_Monster.fillAmount;
+                myUI_LocalMQ_Amount.fillAmount = (float)GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount / (float)GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_AmountFull;
+
+            }
         }
     }
 }

@@ -56,7 +56,7 @@ public class onBigeyeForAniControll : MonoBehaviour {
         }
     }
     public void myBigeyeAttackMod() {
-        if (myFatherObject.GetComponent<onMonsterVer3>().myHP / 1000 < 0.2 && isBigEyegood){
+        if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.2 && isBigEyegood){
             myBigeyeSkill3_Special_BigeyeMagic();
         }
         else {

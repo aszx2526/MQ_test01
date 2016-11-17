@@ -71,8 +71,8 @@ public class onRabbitForAniControll : MonoBehaviour {
     {
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart)
         {
-            myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
-            myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;
+            //myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
+            //myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;
             myAniControll();
             myBigeyeAttackMod();
         }
@@ -107,7 +107,7 @@ public class onRabbitForAniControll : MonoBehaviour {
     }
     public void myBigeyeAttackMod()
     {
-        if (((float)myFatherObject.GetComponent<onMonsterVer3>().myHP / (float)myFatherObject.GetComponent<onMonsterVer3>().myFullHP) < 0.2 && isBigEyegood)//20%以下時
+        if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.2 && isBigEyegood)//20%以下時
         {
             if (is21CD)
             {
@@ -275,8 +275,8 @@ public class onRabbitForAniControll : MonoBehaviour {
         {//眼好翅壞-------------------------------------------------------------------2
             if (myWingResumeTimer > myWingResumeTimerTarget)
             {
-                GameObject.Find("hitpoint-4").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
-                GameObject.Find("hitpoint-5").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
+                //GameObject.Find("hitpoint-4").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
+                //GameObject.Find("hitpoint-5").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
                 myAniMod = 25;
                 myAniam.speed = 0.7f;
             }
@@ -298,7 +298,7 @@ public class onRabbitForAniControll : MonoBehaviour {
             if (myBigeyeResumeTimer > myBigeyeResumeTimerTarget)
             {
                 //myBigeyeResumeTimer = 0;
-                myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP = myBigeyeFullHP;
+               // myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP = myBigeyeFullHP;
                 myAniMod = 16;
                 myAniam.speed = 0.7f;
             }
@@ -319,15 +319,15 @@ public class onRabbitForAniControll : MonoBehaviour {
             if (myWingResumeTimer > myWingResumeTimerTarget)
             {
                 //myWingResumeTimer = 0;
-                GameObject.Find("hitpoint-4").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
-                GameObject.Find("hitpoint-5").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
+              //  GameObject.Find("hitpoint-4").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
+               // GameObject.Find("hitpoint-5").GetComponent<OnLookAtPoint>().myHP = myWingFullHP;
                 myAniMod = 07;
                 myAniam.speed = 0.7f;
             }
             else if (myBigeyeResumeTimer > myBigeyeResumeTimerTarget)
             {
                 //myBigeyeResumeTimer = 0;
-                myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP = myBigeyeFullHP;
+             //   myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP = myBigeyeFullHP;
                 myAniMod = 10;
                 myAniam.speed = 0.7f;
             }
