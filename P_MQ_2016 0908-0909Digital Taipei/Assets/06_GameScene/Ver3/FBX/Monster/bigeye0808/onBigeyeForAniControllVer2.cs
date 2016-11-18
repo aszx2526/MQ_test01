@@ -17,6 +17,8 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     public float myBigeyeGetHurtValue_Full;
     [Header("大眼耐久度")]
     public float myBigeyeGetHurtValue;
+    [Header("大眼是否被破壞過")]
+    public bool isBigeyeHaveBeBreak;
     public GameObject myBigeyeHitpoint;
     [Header("大眼復原時間")]
     public float myBigeyeResumeTimerTarget;
@@ -25,6 +27,9 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     public float myWingGetHurtValue_Full;
     [Header("翅膀耐久度")]
     public float myWingGetHurtValue;
+    [Header("翅膀是否被破壞過")]
+    public bool isWingHaveBeBreak;
+
     public GameObject myWingHitpoint;
     [Header("翅膀復原時間")]
     public float myWingResumeTimerTarget;
@@ -73,7 +78,6 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     public bool isBeHitTime;
     public float myBeHitTime;
     public float myBeHitTimer;
-    public bool isMonsterDead;
     void Start()
     {
         isWinggood = true;
@@ -86,23 +90,15 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     void Update()
     {
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart&&myFatherObject.GetComponent<onMonsterVer3>().isMeToFight) {
-            if (isMonsterDead) {
-                myAniMod = 4;
-            }
+            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)//怪物死翹翹
+            { myAniMod = 4;}
             else {
-                if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)
-                {
-                    //myAniMod = 4;
-                    isMonsterDead = true;
-                }
-                else {
-                    /*myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
-                    myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;*/
-                    //myIsFidgetyTimeFN();
-                    myBigeyeAttackMod();
-                }
-                myAniControll();
-            }   
+                /*myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
+                myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;*/
+                myIsFidgetyTimeFN();
+                myBigeyeAttackMod();
+            }
+            myAniControll();
         }
     }
     public void myIsFidgetyTimeFN() {
@@ -314,6 +310,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             //print("if (isBigEyegood && isWinggood)");
             if (myWingGetHurtValue>=myWingGetHurtValue_Full)
             {
+                isWingHaveBeBreak = true;
                 myAniMod = 22;
                 myAudioController(3);
                 myAniam.speed = 0.7f;
@@ -321,6 +318,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             }
             else if (myBigeyeGetHurtValue >= myBigeyeGetHurtValue_Full)
             {
+                isBigeyeHaveBeBreak = true;
                 myAniMod = 61;
                 myAudioController(1);
                 myAniam.speed = 0.7f;
@@ -341,6 +339,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             }
             else if (myBigeyeGetHurtValue >= myBigeyeGetHurtValue_Full)
             {
+                isBigeyeHaveBeBreak = true;
                 myAniMod = 62;
                 myAniam.speed = 0.7f;
                 myAudioController(1);
@@ -363,6 +362,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             }
             else if (myWingGetHurtValue >= myWingGetHurtValue_Full)
             {
+                isWingHaveBeBreak = true;
                 myAniMod = 08;
                 myAudioController(3);
                 myAniam.speed = 0.7f;
@@ -593,7 +593,23 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
 
     public void LastFram_30() { isStruggleTime = false; }
     public void LastFram_31() { isBeHitTime = false; }
+    public void bigeyebreak_closeeyedie() {
+        myFatherObject.GetComponent<onMonsterVer3>().isMeDead = true;
+        if (myFatherObject.GetComponent<onMonsterVer3>().isBoss) {
+            if (isBigeyeHaveBeBreak) { GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myScoreCount_All += myBigeyeBreakScore; }
+            if (isWingHaveBeBreak) { GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myScoreCount_All += myWingBreakScore; }
+            GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myScoreCount_All += myBigeyeDeadScore;
 
+            GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLevelClear.SetActive(true);
+        }
+        else {
+            if (isBigeyeHaveBeBreak) { GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myScoreCount += myBigeyeBreakScore; }
+            if (isWingHaveBeBreak) { GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myScoreCount += myWingBreakScore; }
+            GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myScoreCount += myBigeyeDeadScore;
+            GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myEventClear.SetActive(true);
+        }
+        
+    }
     public void myFindAllMQAndAttack_Skill1() {
         if (GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().isSuperStarTime) { }
         else {

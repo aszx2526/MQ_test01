@@ -18,7 +18,7 @@ public class Blip : MonoBehaviour {
     public float myLocalMQ_CreateSpeed;
     public Transform miniTarget;// 小地圖的目標物件，搞定比例尺
     public Transform Target;//場景上的怪物物件
-    public string[] MQTalkString;
+    public string[] MQTalkString;//MQ哀哀叫的字串
     public Text myMQTalkText;
     public Image[] UI_myIconOnMiniMap;//0怪 1 MQ
     public Sprite[] UI_whenSomeOneDead;
@@ -36,18 +36,20 @@ public class Blip : MonoBehaviour {
         if (Target.GetComponent<onMonsterVer3>().isMeDead) {
             //怪物死掉，換小地圖上怪物icon的圖
             UI_myIconOnMiniMap[0].sprite = UI_whenSomeOneDead[0];
-
+            myMQTalkText.text = MQTalkString[5];//MQ say good
         }
         if (myMonsterBasicMorale >= 100) {
             //怪物士氣100=蚊子死光光，換小地圖蚊子icon的圖
             UI_myIconOnMiniMap[1].sprite = UI_whenSomeOneDead[1];
+            myMQTalkText.text = MQTalkString[4];//MQ say GG
         }
         else {
-            if (myMonsterBasicMorale > 60 && myMonsterBasicMorale < 70) { myMQTalkText.text = MQTalkString[0]; }
-            if (myMonsterBasicMorale > 70 && myMonsterBasicMorale < 80) { myMQTalkText.text = MQTalkString[1]; }
-            if (myMonsterBasicMorale > 80 && myMonsterBasicMorale < 90) { myMQTalkText.text = MQTalkString[2]; }
-            if (myMonsterBasicMorale > 90 && myMonsterBasicMorale < 100) { myMQTalkText.text = MQTalkString[3]; }
+            if (myMonsterBasicMorale > 60 && myMonsterBasicMorale < 70) { myMQTalkText.text = MQTalkString[0]; }//40
+            if (myMonsterBasicMorale > 70 && myMonsterBasicMorale < 80) { myMQTalkText.text = MQTalkString[1]; }//30
+            if (myMonsterBasicMorale > 80 && myMonsterBasicMorale < 90) { myMQTalkText.text = MQTalkString[2]; }//20
+            if (myMonsterBasicMorale > 90 && myMonsterBasicMorale < 100) { myMQTalkText.text = MQTalkString[3]; }//10
         }
+        //同步數值用，把在小地圖icon上的數值同步到Canvas 去做總控制
         if (myMonsterID == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum) {
             onCanvasForUIControll myCFUIC = GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>();
             myCFUIC.myMonsterBasicMorale = myMonsterBasicMorale;

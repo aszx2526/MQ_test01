@@ -59,8 +59,6 @@ public class OnCameraForShootMQ : MonoBehaviour
     public bool isAutoFire;
     public int myAutoFireBulletFullAmount;
     public int myAutoFireBulletAmount;
-    public Text myautobulletcount_text;
-    public Image myautobulletbar_image;
     public float myAutoFireTime;
     public float myAutoFireTimer;
     public int myAutoFireRandom;
@@ -104,19 +102,20 @@ public class OnCameraForShootMQ : MonoBehaviour
             }
         }
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
-            myautobulletcount_text.text = myAutoFireBulletAmount.ToString();
-            myautobulletbar_image.fillAmount = (float)myAutoFireBulletAmount / (float)myAutoFireBulletFullAmount;
-
-            if (myAutoFireTimer > 1/ GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_CreateSpeed) {
-                if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount <= 0) { }
-                else {
-                    GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount--;
-                    myAutoCreatMQ();
-                    myAutoFireTimer = 0;
-                }
-            }
+            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 1 || GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0) { }
             else {
-                myAutoFireTimer += Time.deltaTime;
+                if (myAutoFireTimer > 1 / GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_CreateSpeed)
+                {
+                    if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount <= 0) { }
+                    else {
+                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount--;
+                        myAutoCreatMQ();
+                        myAutoFireTimer = 0;
+                    }
+                }
+                else {
+                    myAutoFireTimer += Time.deltaTime;
+                }
             }
         }
         //PlayerFunction();

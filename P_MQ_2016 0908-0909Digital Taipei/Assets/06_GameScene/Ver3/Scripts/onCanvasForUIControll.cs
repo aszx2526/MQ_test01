@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class onCanvasForUIControll : MonoBehaviour {
     public GameObject myMainUI;
     public GameObject myMiniMap;
@@ -10,12 +11,20 @@ public class onCanvasForUIControll : MonoBehaviour {
     public GameObject myChangeArmy;
     public GameObject mySupplyStation;
     public GameObject myLevelClear;
+    public GameObject myEventClear;
+    public GameObject myAttackPartLocker;
     public AudioClip[] mySoundEffectData;
     public AudioSource myAudioSource;
     public bool isGameStart;
-    public bool[] isLevelClear;
     public bool isPlayerLose;
     public int myAllLocalMQCount;
+    [Header("全星積分")]
+    public int myScoreGetAllStar;
+    public int myScoreCount_All;//得分總計
+    //public  myScoreCount_All;//得分總計
+    public int myScoreCount;//得分小記
+    public int myCoinCount;//金幣
+    public int myStarGet;//取得星星數
 
     [Header("怪物起始士氣值：")]
     public float myMonsterBasicMorale;
@@ -37,6 +46,7 @@ public class onCanvasForUIControll : MonoBehaviour {
     public float myMonsterMoralCounterTimer;
     // Use this for initialization
     void Start () {
+        myScoreGetAllStar = myLevelClear.GetComponent<onUI_LevelClear>().myScoreGetAllStar;
         isGameStart = false;
         myAudioSource = gameObject.GetComponent<AudioSource>();
         myMiniMap.SetActive(true);
@@ -46,16 +56,14 @@ public class onCanvasForUIControll : MonoBehaviour {
         myChangeArmy.SetActive(false);
         mySupplyStation.SetActive(false);
         myLevelClear.SetActive(false);
+        myEventClear.SetActive(false);
         myAllLocalMQCount = myMonsterMoraleCounter[0].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[1].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[2].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[3].GetComponent<Blip>().myLocalMQ_Amount;
     }
 	
 	// Update is called once per frame
 	void Update () {
         //關卡通關成功失敗判定
-        if (isLevelClear[3]) {
-            myLevelClear.SetActive(true);
-        }
-        else if (isPlayerLose) {
+        if (isPlayerLose) {
             myLevelClear.SetActive(true);
         }
         else if (myAllLocalMQCount<=0) {
@@ -64,14 +72,19 @@ public class onCanvasForUIControll : MonoBehaviour {
 
 
 
-
+        //小地圖士氣增加
         if (myMonsterMoralCounterTimer >= 1) {
             myMonsterMoralCounterTimer = 0;
             for (int a = 0; a < myMonsterMoraleCounter.Length; a++) {
-                myMonsterMoraleCounter[a].GetComponent<Blip>().myMonsterBasicMorale += myMonsterMoraleCounter[a].GetComponent<Blip>().myMonsterMoraleRestoreValue*0.1f;
+                if (myMonsterMoraleCounter[a].GetComponent<Blip>().myMonsterBasicMorale > 100 || myMonsterMoraleCounter[a].GetComponent<Blip>().myMonsterBasicMorale < 0) { }//如果分勝負就不要做加減
+                else if (myMonsterMoraleCounter[a].GetComponent<Blip>().Target.GetComponent<onMonsterVer3>().isMeToFight) { }//如果怪物被選到了也不做增減
+                else {//小地圖士氣增加1/10
+                    myMonsterMoraleCounter[a].GetComponent<Blip>().myMonsterBasicMorale += myMonsterMoraleCounter[a].GetComponent<Blip>().myMonsterMoraleRestoreValue * 0.1f;
+                }
+                
             }
         }
-        else {
+        else {//士氣增加計時器
             myMonsterMoralCounterTimer += Time.deltaTime;
         }
 
@@ -119,13 +132,18 @@ public class onCanvasForUIControll : MonoBehaviour {
     }
     public void BTN_Left5() {
         //回大地圖
-        mySoundEffectFN();
-        SceneManager.LoadScene(4);
-        
+        /*mySoundEffectFN();
+        SceneManager.LoadScene(4);*/
+        myLevelClear.SetActive(true);
+
     }
     public void BTN_Left6() {
         //大地圖戰鬥
         mySoundEffectFN();
+        myLocalMQ_AmountFull = myLocalMQ_Amount;
+        myMonsterMorale = myMonsterBasicMorale;
+        myAttackPartLocker.SetActive(true);
+        GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().isMoveTime = true;
         isGameStart = true;
         GameObject.Find("MainCamera").GetComponent<onMainCameraVer2>().isNeedToFollow = true;
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[0] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamAAmount;
@@ -134,8 +152,7 @@ public class onCanvasForUIControll : MonoBehaviour {
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[3] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamDAmount;
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[4] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamEAmount;
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().SendMessage("myGameAwakeTestFN");
-        myLocalMQ_AmountFull = myLocalMQ_Amount;
-        myMonsterMorale = myMonsterBasicMorale;
+       
         //myMonsterMoraleBloodValue = myMonsterBasicMorale / (float)GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myMonsterList[GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum - 1].GetComponent<onMonsterVer3>().myFullHP;
         myMainUI.SetActive(false);
         
@@ -165,10 +182,6 @@ public class onCanvasForUIControll : MonoBehaviour {
         isGameStart = false;
         mySoundEffectFN();
         myMainUI.SetActive(true);
-        if (GameObject.Find("winlose")) { GameObject.Find("winlose").gameObject.SetActive(false); }
-        if (GameObject.Find("youlose")) { GameObject.Find("youlose").gameObject.SetActive(false); }
-
-
     }
 
     public void mySoundEffectFN() {
@@ -177,6 +190,7 @@ public class onCanvasForUIControll : MonoBehaviour {
         myAudioSource.enabled = false;
         myAudioSource.enabled = true;
     }
+    /*
     public void Testbtn1() { }// GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().SendMessage("changeViewControllFN"); }
-    public void Testbtn2() { GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().SendMessage("myCreatAMQ"); }
+    public void Testbtn2() { GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().SendMessage("myCreatAMQ"); }*/
 }

@@ -237,7 +237,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: bigeyebreak_closeeyedie
+        data: 
+        objectReferenceParameter: {fileID: 144880, guid: 300365c7add5a7a48a58caf6597bcc8f,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

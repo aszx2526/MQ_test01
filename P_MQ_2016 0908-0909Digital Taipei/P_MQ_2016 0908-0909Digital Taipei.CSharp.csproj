@@ -256,8 +256,10 @@
     <Compile Include="Assets\onLockForHidden.cs" />
     <Compile Include="Assets\onMap_ForAllLevelControl.cs" />
     <Compile Include="Assets\onMoraleBarControl.cs" />
+    <Compile Include="Assets\onMyScore_Text.cs" />
     <Compile Include="Assets\onPlanefortest.cs" />
     <Compile Include="Assets\onRabbit_test.cs" />
+    <Compile Include="Assets\onUI_EventClear.cs" />
     <Compile Include="Assets\onUI_LevelClear.cs" />
   </ItemGroup>
   <ItemGroup>

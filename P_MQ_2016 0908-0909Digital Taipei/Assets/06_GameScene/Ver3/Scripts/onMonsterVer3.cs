@@ -3,19 +3,13 @@ using System.Collections;
 using UnityEngine.UI;
 public class onMonsterVer3 : MonoBehaviour {
     public bool isMeDead;
+    public bool isBoss;
     public int myIDForMonster;
     public bool isMeToFight;
     public UnityEngine.AI.NavMeshAgent agent;
     public Collider[] attackTarget;
-    [Header("頭上的字串")]
-    public string mytitle;
-  /*  [Header("怪物滿血量")]
-    public int myFullHP;
-    [Header("怪物總血量")]
-    public int myHP;*/
-    public GameObject myHPText_AfterHeadImage;
     //[Header("攻擊力")]
-    int myAttack;
+    //int myAttack;
     [Header("移動速度")]
     public float mymovespeed;
     //[Header("幾秒攻擊一次")]
@@ -151,7 +145,7 @@ public class onMonsterVer3 : MonoBehaviour {
         
             if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0 )//這裡應該修改成士氣判定
             {
-
+                //GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myAttackPartLocker.SetActive(false);
                 GameObject[] MQ_All = GameObject.FindGameObjectsWithTag("MQ");
                 for (int a = 0; a < MQ_All.Length; a++)
                 {
