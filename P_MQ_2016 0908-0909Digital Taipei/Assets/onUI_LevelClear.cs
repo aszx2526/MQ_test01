@@ -55,20 +55,21 @@ public class onUI_LevelClear : MonoBehaviour {
     public void BTN_BackToBigMap() {
         if (myCountScore >= 1)//3星
         {
-
+            PlayerPrefs.SetInt("level_" + GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLevelID.ToString() + "_starcount",3);
         }
         else if (myCountScore <= 1 && myCountScore >= 0.6)//2星
         {
-
+            PlayerPrefs.SetInt("level_" + GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLevelID.ToString() + "_starcount", 2);
         }
         else if (myCountScore <= 0.6 && myCountScore >= 0.25)//1星
         {
-
+            PlayerPrefs.SetInt("level_" + GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLevelID.ToString() + "_starcount", 1);
         }
         else if (myCountScore <= 0.25)//0星
         {
 
         }
+        PlayerPrefs.SetInt("level_" + GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLevelID.ToString() + "_Bossbekill", 1);
         Application.LoadLevel("MainScene");
     }
 }

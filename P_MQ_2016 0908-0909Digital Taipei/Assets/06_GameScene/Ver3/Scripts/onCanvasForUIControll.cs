@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class onCanvasForUIControll : MonoBehaviour {
+    [Header("Level編號")]
+    public int myLevelID;
     public GameObject myMainUI;
     public GameObject myMiniMap;
     public GameObject myMission;

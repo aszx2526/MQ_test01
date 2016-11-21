@@ -3,23 +3,33 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class onBigMap_ice : MonoBehaviour {
+
     public int inwhichlevelmod;
     public int[] myLevelStarCount;
     public GameObject[] myLevelLock;
     public int myAllStarInIceCount;
-    public bool[] isBossBeKill;
+    public int[] isBossBeKill;
+    public Text[] mystar_text;
     // Use this for initialization
     void Start () {
-         //gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        for (int a = 0; a < isBossBeKill.Length; a++) {
+            isBossBeKill[a] = PlayerPrefs.GetInt("level_" + (a+1).ToString() + "_Bossbekill");
+        }
+        for (int a = 0; a < myLevelStarCount.Length; a++) {
+            myLevelStarCount[a] = PlayerPrefs.GetInt("level_" + (a + 1).ToString() + "_starcount");
+            mystar_text[a].text = myLevelStarCount[a].ToString() + "顆星";
+        }
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
         //if (myLevelStarCount[0] > 0) { myLevelLock[0].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
-        if (isBossBeKill[0]) { myLevelLock[0].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
-        if (isBossBeKill[1]) { myLevelLock[1].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
-        if (isBossBeKill[2]) { myLevelLock[2].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
-        if (isBossBeKill[3]) { myLevelLock[3].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
+        if (isBossBeKill[0] == 1) { myLevelLock[0].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
+        if (isBossBeKill[1] == 1) { myLevelLock[1].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
+        if (isBossBeKill[2] == 1) { myLevelLock[2].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
+        if (isBossBeKill[3] == 1) { myLevelLock[3].GetComponent<onLockForHidden>().isTimeToDisappear = true; }
 
         myAllStarInIceCount = myLevelStarCount[0] + myLevelStarCount[1] + myLevelStarCount[2] + myLevelStarCount[3];
     }

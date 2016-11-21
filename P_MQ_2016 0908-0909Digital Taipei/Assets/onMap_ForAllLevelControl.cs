@@ -15,13 +15,21 @@ public class onMap_ForAllLevelControl : MonoBehaviour {
     public int myLandMod;
     public bool[] isLevelClear;
     public GameObject[] myCloud;
+    public int[] myLevelGetStarCount;
     // Use this for initialization
     void Start () {
-
+        myLevelStarCountFN();
+        print("start");
     }
-	
+    void Awake() {
+        myLevelStarCountFN();
+        print("awake");
+    }
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            PlayerPrefs.DeleteAll();
+        }
         myLandModControl();
         if (Input.GetKeyUp("a")) { myLandMod++; }
         if (myAllStarCount >= LevelOpenStarCount_Wetland) { myLandMod = 3; }
@@ -53,5 +61,11 @@ public class onMap_ForAllLevelControl : MonoBehaviour {
                 print("hehehaha");
                 break;
         }
+    }
+    public void myLevelStarCountFN() {
+        for (int a = 0; a < myLevelGetStarCount.Length; a++) {
+            myLevelGetStarCount[a] = PlayerPrefs.GetInt("level_"+(a+1).ToString()+"_starcount");
+        }
+        
     }
 }
