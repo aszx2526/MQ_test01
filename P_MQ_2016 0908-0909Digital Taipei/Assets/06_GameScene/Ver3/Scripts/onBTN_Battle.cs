@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class onBTN_Battle : MonoBehaviour {
     public GameObject myTargetPos;
     public GameObject myBasicPos;
     public GameObject myCameraVer2_DTG;
+    public Image myBtnIcon_image;
+    public Sprite[] myBattleBtnImageList;//0=眼怪 1=熊
+
     // Use this for initialization
     void Start () {
 	

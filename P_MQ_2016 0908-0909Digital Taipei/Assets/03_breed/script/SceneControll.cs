@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 public class SceneControll : MonoBehaviour {
 
+
     bool changeScene = false;
     private string levelToLoad;
     

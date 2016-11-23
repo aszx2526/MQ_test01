@@ -253,6 +253,7 @@
     <Compile Include="Assets\onCloudForHidden.cs" />
     <Compile Include="Assets\onHitEffect_formovePos.cs" />
     <Compile Include="Assets\onHitPoint_UpdateHureValue.cs" />
+    <Compile Include="Assets\onHotPoint_Icebear.cs" />
     <Compile Include="Assets\onLockForHidden.cs" />
     <Compile Include="Assets\onMap_ForAllLevelControl.cs" />
     <Compile Include="Assets\onMoraleBarControl.cs" />

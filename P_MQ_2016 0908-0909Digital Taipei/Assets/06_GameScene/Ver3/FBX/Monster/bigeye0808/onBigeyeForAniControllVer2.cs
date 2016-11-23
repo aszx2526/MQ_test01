@@ -4,8 +4,6 @@ using UnityEngine.UI;
 public class onBigeyeForAniControllVer2 : MonoBehaviour {
     public int myAniMod;
     public Animator myAniam;
-    public Text mytextGroup;
-    public Text mytextAnimMod;
     public GameObject myFatherObject;//父物件
     [Header("死亡積分")]
     public int myBigeyeDeadScore;
@@ -13,29 +11,27 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     public int myBigeyeBreakScore;
     [Header("翅膀積分")]
     public int myWingBreakScore;
+
     [Header("大眼耐久度(滿)")]
     public float myBigeyeGetHurtValue_Full;
     [Header("大眼耐久度")]
     public float myBigeyeGetHurtValue;
     [Header("大眼是否被破壞過")]
     public bool isBigeyeHaveBeBreak;
-    public GameObject myBigeyeHitpoint;
     [Header("大眼復原時間")]
     public float myBigeyeResumeTimerTarget;
     public float myBigeyeResumeTimer;
+
     [Header("翅膀耐久度(滿)")]
     public float myWingGetHurtValue_Full;
     [Header("翅膀耐久度")]
     public float myWingGetHurtValue;
     [Header("翅膀是否被破壞過")]
     public bool isWingHaveBeBreak;
-
-    public GameObject myWingHitpoint;
     [Header("翅膀復原時間")]
     public float myWingResumeTimerTarget;
     float myWingResumeTimer;
-    //[Header("複眼血量")]
-    float myOtherEyeHP;
+
 
 
     public bool isBigEyegood;

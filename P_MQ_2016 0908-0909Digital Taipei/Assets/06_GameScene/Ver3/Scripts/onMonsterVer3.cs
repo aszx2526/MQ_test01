@@ -139,11 +139,11 @@ public class onMonsterVer3 : MonoBehaviour {
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart&&isMeToFight)
         {
             //myHPText_AfterHeadImage.GetComponent<Text>().text = myHP.ToString() + "/" + myFullHP.ToString();
-            myMonsterModController();
+            //myMonsterModController();
 
         //輸贏判定區
         
-            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0 )//這裡應該修改成士氣判定
+            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0 )//怪物的士氣為0就做些什麼
             {
                 //GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myAttackPartLocker.SetActive(false);
                 GameObject[] MQ_All = GameObject.FindGameObjectsWithTag("MQ");

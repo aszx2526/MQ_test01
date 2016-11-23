@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class Blip : MonoBehaviour {
     [Header("設定怪物編號：")]
     public int myMonsterID;
+    [Header("設定怪物品種：")]
+    public int myKindOfMonsterID;//0=眼怪 1=熊
     [Header("設定怪物起始士氣值：")]
     public float myMonsterBasicMorale;
     [Header("設定怪物回氣值：")]
@@ -48,6 +50,10 @@ public class Blip : MonoBehaviour {
             if (myMonsterBasicMorale > 70 && myMonsterBasicMorale < 80) { myMQTalkText.text = MQTalkString[1]; }//30
             if (myMonsterBasicMorale > 80 && myMonsterBasicMorale < 90) { myMQTalkText.text = MQTalkString[2]; }//20
             if (myMonsterBasicMorale > 90 && myMonsterBasicMorale < 100) { myMQTalkText.text = MQTalkString[3]; }//10
+        }
+
+        if (Target.GetComponent<onMonsterVer3>().isMeToFight) {
+            GameObject.Find("btn_battle").GetComponent<onBTN_Battle>().myBtnIcon_image.sprite = GameObject.Find("btn_battle").GetComponent<onBTN_Battle>().myBattleBtnImageList[myKindOfMonsterID];
         }
         //同步數值用，把在小地圖icon上的數值同步到Canvas 去做總控制
         if (myMonsterID == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum) {

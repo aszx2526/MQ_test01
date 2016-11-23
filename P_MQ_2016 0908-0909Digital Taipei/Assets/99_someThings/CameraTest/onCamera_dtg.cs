@@ -85,6 +85,52 @@ public class onCamera_dtg : MonoBehaviour {
                     }
                 }
                 break;
+            case "monster_icebear":
+                if (myMonsterList[myPickUpNum - 1].gameObject.transform.GetChild(0).GetComponent<onIceBearForAniControll>().isLeggood)
+                {
+                    switch (myCameraMod)
+                    {
+                        case 0:
+                            //3.8>6.3
+                            myCameraFN(0, 60, 2.3f);
+                            break;
+                        case 1:
+                            myCameraFN(-1.3f, 40, 4.8f);
+                            break;
+                        case 2:
+                            myCameraFN(1f, 30, 4.8f);
+                            break;
+                        case 3:
+                            myCameraFN(0.5f, 47, 2.8f);
+                            break;
+                        case 4:
+                            myCameraFN(-0.5f, 45, 2.8f);
+                            break;
+                    }
+                }
+                else {
+                    //print("oncamera_dtg wing break");
+                    switch (myCameraMod)
+                    {
+                        case 0:
+                            //3.8>6.3
+                            myCameraFN(0, 60, 2.3f);
+                            break;
+                        case 1:
+                            myCameraFN(-1.3f, 40, 4.8f);
+                            break;
+                        case 2:
+                            myCameraFN(1f, 30, 4.8f);
+                            break;
+                        case 3:
+                            myCameraFN(0.5f, 47, 2.8f);
+                            break;
+                        case 4:
+                            myCameraFN(-0.5f, 45, 2.8f);
+                            break;
+                    }
+                }
+                break;
             default:
                 print("攝影機旋轉怪物清單為 null");
                 break;

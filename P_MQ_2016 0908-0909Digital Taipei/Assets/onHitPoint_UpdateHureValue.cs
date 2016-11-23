@@ -39,6 +39,35 @@ public class onHitPoint_UpdateHureValue : MonoBehaviour {
                         break;
                 }
                 break;
+            case "Bear":
+                switch (gameObject.name)
+                {
+                    case "hitpoint-1":
+                        myHurtValueCount = myFather.GetComponent<onIceBearForAniControll>().myHeadGetHurtValue;
+                        if (myFather.GetComponent<onIceBearForAniControll>().myHeadGetHurtValue > myFather.GetComponent<onIceBearForAniControll>().myHeadGetHurtValue_Full) { isPartBreak = true; }
+                        else { isPartBreak = false; }
+                        break;
+                    case "hitpoint-2":
+                        myHurtValueCount = myFather.GetComponent<onIceBearForAniControll>().myMouthGetHurtValue;
+                        if (myFather.GetComponent<onIceBearForAniControll>().myMouthGetHurtValue > myFather.GetComponent<onIceBearForAniControll>().myMouthGetHurtValue_Full) { isPartBreak = true; }
+                        else { isPartBreak = false; }
+                        break;
+                    case "hitpoint-3":
+                        break;
+                    case "hitpoint-4":
+                        myHurtValueCount = myFather.GetComponent<onIceBearForAniControll>().myLegGetHurtValue;
+                        if (myFather.GetComponent<onIceBearForAniControll>().myLegGetHurtValue > myFather.GetComponent<onIceBearForAniControll>().myLegGetHurtValue_Full) { isPartBreak = true; }
+                        else { isPartBreak = false; }
+                        break;
+                    case "hitpoint-5":
+                        myHurtValueCount = myFather.GetComponent<onIceBearForAniControll>().myLegGetHurtValue;
+                        if (myFather.GetComponent<onIceBearForAniControll>().myLegGetHurtValue > myFather.GetComponent<onIceBearForAniControll>().myLegGetHurtValue_Full) { isPartBreak = true; }
+                        else { isPartBreak = false; }
+                        break;
+                    default:
+                        break;
+                }
+                break;
             default:
                 break;
         }
