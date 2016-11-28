@@ -328,6 +328,7 @@ public class OnCameraForShootMQ : MonoBehaviour
             }
         }
     }
+    //玩家按著按鈕後～生蚊子出來的地方
     public void myCreatMQFN(int myTeam_Num) {
         if (myTeamMQCount[myTeam_Num] > 0)
         {

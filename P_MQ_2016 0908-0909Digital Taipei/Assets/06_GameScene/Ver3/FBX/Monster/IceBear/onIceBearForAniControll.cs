@@ -93,7 +93,8 @@ public class onIceBearForAniControll : MonoBehaviour
     public int myQTECount;
     public int myQTETargetValue;
     public float fadoutinSpeed;
-   
+    //-------------
+    public GameObject myHotPoint;
     void Start()
     {
 
@@ -137,11 +138,18 @@ public class onIceBearForAniControll : MonoBehaviour
     //bear skill function-吃魚
     public void myBearSkill_SP_EatFish()
     {
-        if (myAniMod == 13) { }
-        else if (myAniMod == 14) { }
-        else {
-            myAniMod = 12;
+        if (isLeggood) {
+            if (myAniMod == 13) { }
+            else if (myAniMod == 14) { }
+            else { myAniMod = 12; }
         }
+        else {
+            if (myAniMod == 31) { }
+            else if (myAniMod == 32) { }
+            else { myAniMod = 30; }
+
+        }
+        
     }
     //bear skill function-迴旋斬
     public void myBearSkill_SP_GyroHit()
@@ -197,7 +205,13 @@ public class onIceBearForAniControll : MonoBehaviour
                                         myBearModControll();
                                     }
                                 }
-                                else { myBearSkill_BC_FishWave(); }
+                                else {
+                                    if (isLeggood) {
+                                        myBearSkill_BC_FishWave();
+                                    }
+                                    else { myBearModControll(); }
+                                    
+                                }
                             }
                             else { myBearSkill_BC_JumpHit(); }
                         }
@@ -262,9 +276,24 @@ public class onIceBearForAniControll : MonoBehaviour
                     myBearModControll();
                 }
             }
-            else { myBearSkill_BC_FishWave(); }
+            else {
+                if (isLeggood) {
+                    myBearSkill_BC_FishWave();
+                }
+                else {
+                    myBearModControll();
+                }
+            }
         }
-        else { myBearSkill_BC_JumpHit(); }
+        else {
+            if (isLeggood) {
+                myBearSkill_BC_JumpHit();
+            }
+            else {
+                myBearModControll();
+            }
+            
+        }
     }
 
    
@@ -565,6 +594,7 @@ public class onIceBearForAniControll : MonoBehaviour
     {
         myAniam.speed = 0.1f;
         isQTETime = true;
+        GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().isMoveTime = true;
     }
     public void LastFram_12_FN()
     {

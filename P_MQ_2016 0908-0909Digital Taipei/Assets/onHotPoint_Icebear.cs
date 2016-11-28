@@ -8,6 +8,10 @@ public class onHotPoint_Icebear : MonoBehaviour {
     [Header("布置微調用")]
     public Vector3 myForSetting;
     public bool isSavePos;
+    [Header("QTE用焦點清單")]
+    public GameObject[] myQTETimeLookAtTarget;//0 = isleggood , 1 = !isleggood
+
+
     // Use this for initialization
     void Start()
     {
