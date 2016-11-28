@@ -123,18 +123,39 @@ public class onIceBearForAniControll : MonoBehaviour
             if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)//怪物死翹翹
             { myAniMod = 2; }
             else {
-                //    myBearAttackMod();
-                myBearModControll();
+                myBearAttackMod();
+                //myBearModControll();
             }
             
             myAniControll();
         }
     }
+    //bear skill function-揮魚
+    public void myBearSkill_BC_FishWave() { myAniMod = 11; }
+    //bear skill function-跳打
+    public void myBearSkill_BC_JumpHit() { myAniMod = 10; }
+    //bear skill function-吃魚
+    public void myBearSkill_SP_EatFish()
+    {
+        if (myAniMod == 13) { }
+        else if (myAniMod == 14) { }
+        else {
+            myAniMod = 12;
+        }
+    }
+    //bear skill function-迴旋斬
+    public void myBearSkill_SP_GyroHit()
+    {
+        if (myAniMod == 16) { }
+        else if (myAniMod == 17) { }
+        else if (myAniMod == 20) { }
+        else { myAniMod = 15; }
+    }
     //Monster AI Tree - 熊
     public void myBearAttackMod()
     {
-        if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.2 && isLeggood)//20%以下時
-        {
+        if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.2 && isLeggood)
+        {//20%以下時-------------------------------
             if (isCDTtime_gyrohit)
             {
                 if (myskillCDTimer_grohit > myskillCDTimer_grohit)
@@ -188,12 +209,18 @@ public class onIceBearForAniControll : MonoBehaviour
             }
             else {myBearSkill_SP_GyroHit();}
         }
-        else if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.4 && isMouthgood){myBearAttackHPMore20(); }//40%以下時
-        else {myBearAttackHPMore40();}//40%以上時
+        else if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.4 && isMouthgood)
+        {//40%以下時-------------------
+            myBearAttackHPMore20();
+        }
+        else
+        {//40%以上時--------------------
+            myBearAttackHPMore40();
+        }
     }
     public void myBearAttackHPMore20()
     {
-        print("be call");
+        //print("be call");
         if (isCDTtime_eatfish)
         {
             if (myskillCDTimer_eatfish > myskillCDTime_eatfish)
@@ -240,28 +267,7 @@ public class onIceBearForAniControll : MonoBehaviour
         else { myBearSkill_BC_JumpHit(); }
     }
 
-    //bear skill function-揮魚
-    public void myBearSkill_BC_FishWave() { myAniMod = 11; }
-    //bear skill function-跳打
-    public void myBearSkill_BC_JumpHit() { myAniMod = 10; }
-    //bear skill function-吃魚
-    public void myBearSkill_SP_EatFish()
-    {
-        if (myAniMod == 13) { }
-        else if (myAniMod == 14) { }
-        else {
-            myAniMod = 12;
-        }
-    }
-    //bear skill function-迴旋斬
-    public void myBearSkill_SP_GyroHit()
-    {
-        if (myAniMod == 16) { }
-        else if (myAniMod == 17) { }
-        else if (myAniMod == 20) { }
-        else { myAniMod = 15; }
-    }
-
+   
     //QTE function
     public void myQTETouchCountFN()
     {

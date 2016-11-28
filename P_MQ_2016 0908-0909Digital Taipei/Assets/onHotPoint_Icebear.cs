@@ -36,25 +36,20 @@ public class onHotPoint_Icebear : MonoBehaviour {
                     switch (a)
                     {
                         case 0:
-                            //myHitPoint[a].transform.position = myHitpointBasicPos[a]+new Vector3(-0.34f, -0.76f, -2.28f);
+                            //myHitPoint[a].transform.position = myHitpointBasicPos[a] + myForSetting;//微調用，將攝影機焦點移動到怪物部位破壞後的位置
                             sudden = myHitpointBasicPos[a]+ new Vector3(-0.34f, -0.76f, -2.28f);
                             break;
                         case 1:
-                            //sudden.y = myHitpointBasicPos[a].y - 2.1f;
-                            //myHitPoint[a].transform.position = myHitpointBasicPos[a] + myForSetting;
                             sudden = myHitpointBasicPos[a] + new Vector3(-0.33f, -0.5f, -1.97f);
 
                             break;
                         case 2:
-                            //sudden.y = myHitpointBasicPos[a].y - 2.1f;
                             sudden = myHitpointBasicPos[a] + new Vector3(-0.3f, 0.36f, -1.25f);
                             break;
                         case 3:
-                            //sudden.y = myHitpointBasicPos[a].y - 2.1f;
                             sudden = myHitpointBasicPos[a] + new Vector3(-0.3f, 0.39f, -0.21f);
                             break;
                         case 4:
-                            //sudden.y = myHitpointBasicPos[a].y - 2.1f;
                             sudden = myHitpointBasicPos[a] + new Vector3(-0.3f, 0.39f, -0.21f);
                             break;
                         default:

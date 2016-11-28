@@ -136,7 +136,8 @@ public class OnCameraForShootMQ : MonoBehaviour
             myBTNShake_FN(4);
         }
     }
-    public void myGameAwakeTestFN() {
+    //onCanvasForUIControll will call this function
+    /*public void myGameAwakeTestFN() {
         for (int teama = 0; teama < myTeamMQCount[0]; teama++)
         {
             GameObject myMQ = Instantiate(myBullet[0], myMQSpawnPoint.transform.position, myMQSpawnPoint.transform.rotation) as GameObject;
@@ -173,7 +174,7 @@ public class OnCameraForShootMQ : MonoBehaviour
             myMQ.gameObject.SetActive(false);
         }
     }
-
+    */
     public void myBTNShake_FN(int aa) {
         Vector3 aab = mySkillBTN[aa].transform.parent.transform.GetChild(1).gameObject.transform.position;
         Vector3 bbb = mySkillBTN[aa].transform.parent.transform.GetChild(1).gameObject.transform.eulerAngles;
@@ -341,25 +342,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                     case 0:
                         if (myTeamMQCount[myTeam_Num] > 0)
                         {
-                            //print("myTeamMQCount[0] = " + myTeamMQCount[myTeam_Num]);
-                            myMQSpawnPoint.transform.GetChild(0).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.SetActive(true);
-                            myMQSpawnPoint.transform.GetChild(0).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                             mySpawnPointRandom = Random.Range(0, 14);
-                            myMQSpawnPoint.transform.GetChild(0).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.transform.position = myFirePoint[mySpawnPointRandom].transform.position;
-                            myMQSpawnPoint.transform.GetChild(0).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.transform.parent = null;
+                            GameObject myTeamAMQ = Instantiate(myBullet[myTeam_Num], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
+                            myTeamAMQ.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                             myTeamMQCount[myTeam_Num]--;
-                        }
-                        else { print("team A MQ is Gown"); }
-                        break;
-                    case 1:
-                        if (myTeamMQCount[myTeam_Num] > 0)
-                        {
+
+                            /*
                             print("myTeamMQCount[1] = " + myTeamMQCount[myTeam_Num]);
                             myMQSpawnPoint.transform.GetChild(1).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.SetActive(true);
                             myMQSpawnPoint.transform.GetChild(1).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                             mySpawnPointRandom = Random.Range(0, 14);
                             myMQSpawnPoint.transform.GetChild(1).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.transform.position = myFirePoint[mySpawnPointRandom].transform.position;
                             myMQSpawnPoint.transform.GetChild(1).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.transform.parent = null;
+                            myTeamMQCount[myTeam_Num]--;*/
+                        }
+                        else { print("team A MQ is Gown"); }
+                        break;
+                    case 1:
+                        if (myTeamMQCount[myTeam_Num] > 0)
+                        {
+                            mySpawnPointRandom = Random.Range(0, 14);
+                            GameObject myTeamAMQ = Instantiate(myBullet[myTeam_Num], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
+                            myTeamAMQ.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                             myTeamMQCount[myTeam_Num]--;
                         }
                         else { print("team B MQ is Gown"); }
@@ -367,12 +371,9 @@ public class OnCameraForShootMQ : MonoBehaviour
                     case 2:
                         if (myTeamMQCount[myTeam_Num] > 0)
                         {
-                            print("myTeamMQCount[2] = " + myTeamMQCount[myTeam_Num]);
-                            myMQSpawnPoint.transform.GetChild(2).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.SetActive(true);
-                            myMQSpawnPoint.transform.GetChild(2).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                             mySpawnPointRandom = Random.Range(0, 14);
-                            myMQSpawnPoint.transform.GetChild(2).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.transform.position = myFirePoint[mySpawnPointRandom].transform.position;
-                            myMQSpawnPoint.transform.GetChild(2).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.transform.parent = null;
+                            GameObject myTeamAMQ = Instantiate(myBullet[myTeam_Num], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
+                            myTeamAMQ.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                             myTeamMQCount[myTeam_Num]--;
                         }
                         else { print("team C MQ is Gown"); }
@@ -380,12 +381,9 @@ public class OnCameraForShootMQ : MonoBehaviour
                     case 3:
                         if (myTeamMQCount[myTeam_Num] > 0)
                         {
-                            print("myTeamMQCount[3] = " + myTeamMQCount[myTeam_Num]);
-                            myMQSpawnPoint.transform.GetChild(3).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.SetActive(true);
-                            myMQSpawnPoint.transform.GetChild(3).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                             mySpawnPointRandom = Random.Range(0, 14);
-                            myMQSpawnPoint.transform.GetChild(3).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.transform.position = myFirePoint[mySpawnPointRandom].transform.position;
-                            myMQSpawnPoint.transform.GetChild(3).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.transform.parent = null;
+                            GameObject myTeamAMQ = Instantiate(myBullet[myTeam_Num], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
+                            myTeamAMQ.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                             myTeamMQCount[myTeam_Num]--;
                         }
                         else { print("team D MQ is Gown"); }
@@ -393,25 +391,18 @@ public class OnCameraForShootMQ : MonoBehaviour
                     case 4:
                         if (myTeamMQCount[myTeam_Num] > 0)
                         {
-                            print("myTeamMQCount[4] = " + myTeamMQCount[myTeam_Num]);
-                            myMQSpawnPoint.transform.GetChild(4).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.SetActive(true);
-                            myMQSpawnPoint.transform.GetChild(4).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                             mySpawnPointRandom = Random.Range(0, 14);
-                            myMQSpawnPoint.transform.GetChild(4).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.transform.position = myFirePoint[mySpawnPointRandom].transform.position;
-                            myMQSpawnPoint.transform.GetChild(4).GetChild(myTeamMQCount[myTeam_Num] - 1).gameObject.transform.parent = null;
+                            GameObject myTeamAMQ = Instantiate(myBullet[myTeam_Num], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
+                            myTeamAMQ.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                             myTeamMQCount[myTeam_Num]--;
                         }
                         else { print("team E MQ is Gown"); }
                         break;
-
                 }
-
-
                 myTimer = 0;
                 mySpawnPointRandom = Random.Range(0, 14);
                 /*Instantiate(myBullet[myTeamBTNClick - 1], myFirePoint[mySpawnPointRandom].transform.position, Quaternion.identity);//生蚊子
                 //Instantiate(myBullet[0], myFirePoint[a].transform.position, Quaternion.identity);//生蚊子
-                
                 myTeamMQCount[myTeam_Num]--;*/
                 myHowManyMQOnScene++;//數蚊子
             }

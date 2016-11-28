@@ -203,10 +203,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
                                 mySkill1Timer += Time.deltaTime;
                             }
                         }
-                        else {
-                            myBigeyeSkill1_basic_BigeyeAttack();
-
-                        }
+                        else {myBigeyeSkill1_basic_BigeyeAttack();}
                     }
                     else {
                         myBigeyeSkill2_basic_BigeyeRotate();
@@ -214,24 +211,6 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
 
                     }
                 }
-               /* else {
-                    if (is26CD)
-                    {
-                        if (mySkill1Timer > mySkill1CDTimer)
-                        {
-                            mySkill1Timer = 0;
-                            is26CD = false;
-                        }
-                        else {
-                            myBigeyeModControll();
-                            mySkill1Timer += Time.deltaTime;
-                        }
-                    }
-                    else {
-                        myBigeyeSkill1_basic_BigeyeAttack();
-                    }
-                }*/
-                //--
             }
             else {//放大招
                 if (isWinggood) { myBigeyeSkill3_Special_BigeyeMagic_Air();
