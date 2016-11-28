@@ -13,10 +13,15 @@ public class onCamera_dtg : MonoBehaviour {
     public GameObject myLookAtPoint;//攝影機的焦點
     public bool isMoveTime;//是否為移動時間
     public float myZoonSpeed;//放大縮小的速度
-
+  //  public Quaternion myqua;
     //------
     public GameObject myLocker;
-     
+    [Header("臨時調用參數_")]
+    public float a_rota;
+    [Header("臨時調用參數_")]
+    public float b_zooninout;
+    [Header("臨時調用參數_")]
+    public float c_yupdown;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +30,7 @@ public class onCamera_dtg : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+     //   myqua = transform.rotation;
         if (myPickUpNum != 0) {
             if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
                 //這行會讓2D物件變成billboard
@@ -86,60 +92,65 @@ public class onCamera_dtg : MonoBehaviour {
                 }
                 break;
             case "monster_icebear":
-                if (myMonsterList[myPickUpNum - 1].gameObject.transform.GetChild(0).GetComponent<onIceBearForAniControll>().isLeggood)
-                {
-                    switch (myCameraMod)
-                    {
-                        case 0:
-                            //3.8>6.3
-                            myCameraFN(0, 60, 2.3f);
+                myCameraLookAtPointMoveFN();//暫時用，讓鏡頭會看著攻擊點
+                  if (myMonsterList[myPickUpNum - 1].gameObject.transform.GetChild(0).GetComponent<onIceBearForAniControll>().isLeggood)
+                  {
+                      switch (myCameraMod)
+                      {
+                          case 0:
+                            //myCameraFN(a_rota, b_zooninout, c_yupdown);
+                            myCameraFN(-0.4f, 70f, 3f);
                             break;
-                        case 1:
-                            myCameraFN(-1.3f, 40, 4.8f);
+                          case 1:
+                            myCameraFN(0.4f, 70, 2f);
                             break;
-                        case 2:
-                            myCameraFN(1f, 30, 4.8f);
+                          case 2:
+                            myCameraFN(-0.2f, 60, 0.25f);
                             break;
-                        case 3:
-                            myCameraFN(0.5f, 47, 2.8f);
+                          case 3:
+                            myCameraFN(-0.2f, 60, -0.1f);
                             break;
-                        case 4:
-                            myCameraFN(-0.5f, 45, 2.8f);
+                          case 4:
+                            myCameraFN(0.2f, 60, -0.1f);
                             break;
-                    }
-                }
-                else {
-                    //print("oncamera_dtg wing break");
-                    switch (myCameraMod)
-                    {
-                        case 0:
-                            //3.8>6.3
-                            myCameraFN(0, 60, 2.3f);
+                        default:
+                            print("會跑到這裡表示 myCameraMod 異常");
                             break;
-                        case 1:
-                            myCameraFN(-1.3f, 40, 4.8f);
+                      }
+                  }
+                  else {
+                      switch (myCameraMod)
+                      {
+                          case 0:
+                            myCameraFN(a_rota, 60, c_yupdown);
+                            //myCameraFN(0, 60, 2.3f);
                             break;
-                        case 2:
-                            myCameraFN(1f, 30, 4.8f);
+                          case 1:
+                            myCameraFN(a_rota, 60, c_yupdown);
+                            //myCameraFN(-1.3f, 40, 4.8f);
                             break;
-                        case 3:
-                            myCameraFN(0.5f, 47, 2.8f);
+                          case 2:
+                            myCameraFN(a_rota, 60, c_yupdown);
+                            //myCameraFN(1f, 30, 4.8f);
                             break;
-                        case 4:
-                            myCameraFN(-0.5f, 45, 2.8f);
+                          case 3:
+                            myCameraFN(a_rota, 60, c_yupdown);
+                            //myCameraFN(0.5f, 47, 2.8f);
                             break;
-                    }
-                }
+                          case 4:
+                            myCameraFN(a_rota, 60, c_yupdown);
+                            //myCameraFN(-0.5f, 45, 2.8f);
+                            break;
+                      }
+                  }
                 break;
             default:
                 print("攝影機旋轉怪物清單為 null");
                 break;
         }
-        
-
     }
     //鏡頭相關的韓式，縮放阿，旋轉，移動座標等等
-    public float myA = 0;
+    public float myA = 0;//死亡旋轉用的計時器
     public void myCameraFN(float rotateValue,float myfieldOfView, float myPosYTrimming) {
         
         //怪物死亡旋轉
@@ -178,13 +189,9 @@ public class onCamera_dtg : MonoBehaviour {
             transform.position = Vector3.Lerp(transform.position, myPos, Time.deltaTime * myCameraRotationSpeed);
 
             myCameraLookAtPointMoveFN();
-        }
-
-
-
-
-     
+        }     
     }
+
     //焦點移動韓式，如果焦點距離hitpoint 小於0.1就不要動啦，不然鏡頭一直晃不舒服
     public void myCameraLookAtPointMoveFN() {
         //if (Vector3.Distance(myLookAtPoint.transform.position, theHotPointOnMonster[myCameraMod].transform.position) < 0.1)
@@ -196,12 +203,8 @@ public class onCamera_dtg : MonoBehaviour {
             if (isMoveTime) {
                 myLookAtPoint.transform.position = Vector3.Lerp(myLookAtPoint.transform.position,
                                                                 theHotPointOnMonster[myCameraMod].transform.position,
-                                                                Time.deltaTime * myCameraRotationSpeed * 3.5f);
-                /*myLookAtPoint.transform.position = Vector3.Lerp(myLookAtPoint.transform.position,
-                                                                theLookAtPointOnMonster[myCameraMod].transform.position,
-                                                                Time.deltaTime * myCameraRotationSpeed * 3.5f);*/
+                                                                Time.deltaTime * myCameraRotationSpeed * 1.5f);
             }
-            
         }
     }
     //控制看下一個可攻擊點或者上一個可攻擊點
@@ -219,20 +222,12 @@ public class onCamera_dtg : MonoBehaviour {
     }
     public void BTN_onBigeye1()
     {
-        //isNeedToFollow = true;
-        /*gameObject.GetComponent<OnCameraForShootMQ>().myABulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamAAmount;
-        gameObject.GetComponent<OnCameraForShootMQ>().myBBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamBAmount;
-        gameObject.GetComponent<OnCameraForShootMQ>().myCBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamCAmount;
-        gameObject.GetComponent<OnCameraForShootMQ>().myDBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamDAmount;
-        gameObject.GetComponent<OnCameraForShootMQ>().myEBulletCount = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamEAmount;*/
         if (myMonsterList[0].GetComponent<onMonsterVer3>().isMeDead) { myPickUpNum = 0; }
-        else { myPickUpNum = 1; }
-        
+        else { myPickUpNum = 1; }   
     }
     public void BTN_onBigeye2() {
         if (myMonsterList[1].GetComponent<onMonsterVer3>().isMeDead) { myPickUpNum = 0; }
         else { myPickUpNum = 2; }
-        
     }
     public void BTN_onBigeye3()
     {

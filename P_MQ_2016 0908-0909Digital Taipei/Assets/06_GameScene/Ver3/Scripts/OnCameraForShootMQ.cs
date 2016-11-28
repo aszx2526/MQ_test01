@@ -89,33 +89,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                 isSuperStarTimer = 0;
                 isSuperStarTime = false;
             }
-            else {
-                isSuperStarTimer += Time.deltaTime;
-            }
+            else {isSuperStarTimer += Time.deltaTime;}
         }
         MQCount.text = "場上蚊子數量：" + myHowManyMQOnScene.ToString();
         if (gameObject.GetComponent<onMainCameraVer2>().isNeedToFollow)
         {
-            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 1)
-            {
-                print("all MQ is over so you are lose!!!!!!!!!!");
-            }
+            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 1){print("all MQ is over so you are lose!!!!!!!!!!");}
         }
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
             if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 1 || GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0) { }
             else {
-                if (myAutoFireTimer > 1 / GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_CreateSpeed)
-                {
-                    if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount <= 0) { }
-                    else {
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount--;
-                        myAutoCreatMQ();
-                        myAutoFireTimer = 0;
+                if (isAutoFire) {
+                    if (myAutoFireTimer > 1 / GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_CreateSpeed)
+                    {
+                        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount <= 0) { }
+                        else {
+                            GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_Amount--;
+                            myAutoCreatMQ();
+                            myAutoFireTimer = 0;
+                        }
                     }
-                }
-                else {
-                    myAutoFireTimer += Time.deltaTime;
-                }
+                    else {myAutoFireTimer += Time.deltaTime;}
+                }   
             }
         }
         //PlayerFunction();

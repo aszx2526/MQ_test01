@@ -12,7 +12,7 @@ public class onIceBearForAniControll : MonoBehaviour
     public int myLegBreakScore;
     [Header("頭爆積分")]
     public int myHeadBreakScore;
-
+    [Header("========================")]
     [Header("腦袋耐久度(滿)")]
     public float myHeadGetHurtValue_Full;
     [Header("腦袋耐久度")]
@@ -54,7 +54,7 @@ public class onIceBearForAniControll : MonoBehaviour
     public float myLegResumeTimerTarget;
     public float myLegResumeTimer;
 
-
+    [Header("========================")]
     public bool isHeadgood;
     public bool isMouthgood;
     public bool isBellygood;
@@ -70,7 +70,7 @@ public class onIceBearForAniControll : MonoBehaviour
 
     public bool isUnderAttack;
 
-
+    [Header("========================")]
     [Header("揮擊CD時間")]
     public float myskillCDTime_wave;
     float myskillCDTimer_wave;
@@ -88,33 +88,49 @@ public class onIceBearForAniControll : MonoBehaviour
     public float myGrohitLoopTime;
     public float myGrohitLoopTimer;
 
-
+    [Header("========================")]
     public bool isQTETime;
     public int myQTECount;
     public int myQTETargetValue;
     public float fadoutinSpeed;
-    public void myBearSkill_BC_FishWave() { myAniMod = 11; }
-    public void myBearSkill_BC_JumpHit() { myAniMod = 10; }
-    public void myBearSkill_SP_EatFish()
+   
+    void Start()
     {
-        if (myAniMod == 13) { }
-        else if (myAniMod == 14) { }
-        else {
-            myAniMod = 12;
 
+        isHeadgood = true;
+        isMouthgood = true;
+        isBellygood = true;
+        isLeggood = true;
+
+        myAniam = gameObject.GetComponent<Animator>();
+        //print("hehehaha");
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)){myQTETouchCountFN();}
+       /* if (isQTETime) {
+            if (GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView > 30) {
+                GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView -= Time.deltaTime * fadoutinSpeed;
+            }
+        }
+        else {
+            if (GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView < 60) {
+                GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView += Time.deltaTime * fadoutinSpeed;
+            }
+        }*/
+        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart && myFatherObject.GetComponent<onMonsterVer3>().isMeToFight)
+        {
+            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)//怪物死翹翹
+            { myAniMod = 2; }
+            else {
+                //    myBearAttackMod();
+                myBearModControll();
+            }
+            
+            myAniControll();
         }
     }
-    public void myBearSkill_SP_GyroHit()
-    {
-        if (myAniMod == 16) { }
-        else if (myAniMod == 17) { }
-        else if (myAniMod == 20) { }
-        else { myAniMod = 15; }
-
-
-    }
-
-
+    //Monster AI Tree - 熊
     public void myBearAttackMod()
     {
         if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.2 && isLeggood)//20%以下時
@@ -170,17 +186,10 @@ public class onIceBearForAniControll : MonoBehaviour
                     }
                 }
             }
-            else {
-                myBearSkill_SP_GyroHit();
-            }
+            else {myBearSkill_SP_GyroHit();}
         }
-        else if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.4 && isMouthgood)//40%以下時
-        {
-            myBearAttackHPMore20();
-        }
-        else {//40%以上時
-            myBearAttackHPMore40();
-        }
+        else if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.4 && isMouthgood){myBearAttackHPMore20(); }//40%以下時
+        else {myBearAttackHPMore40();}//40%以上時
     }
     public void myBearAttackHPMore20()
     {
@@ -230,34 +239,36 @@ public class onIceBearForAniControll : MonoBehaviour
         }
         else { myBearSkill_BC_JumpHit(); }
     }
-    void Start()
-    {
 
-        isHeadgood = true;
-        isMouthgood = true;
-        isLeggood = true;
-
-        myAniam = gameObject.GetComponent<Animator>();
-        //print("hehehaha");
-    }
-    void Update()
+    //bear skill function-揮魚
+    public void myBearSkill_BC_FishWave() { myAniMod = 11; }
+    //bear skill function-跳打
+    public void myBearSkill_BC_JumpHit() { myAniMod = 10; }
+    //bear skill function-吃魚
+    public void myBearSkill_SP_EatFish()
     {
-        if (Input.GetKeyDown(KeyCode.Space)){myQTETouchCountFN();}
-        if (isQTETime) { if (GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView > 30) { GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView -= Time.deltaTime * fadoutinSpeed; } }
+        if (myAniMod == 13) { }
+        else if (myAniMod == 14) { }
         else {
-            if (GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView < 60) { GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView += Time.deltaTime * fadoutinSpeed; }
+            myAniMod = 12;
         }
-        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart && myFatherObject.GetComponent<onMonsterVer3>().isMeToFight)
-        {
-            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)//怪物死翹翹
-            { myAniMod = 2; }
-            else {myBearAttackMod();}
-            myAniControll();
-        }
-
-
-
     }
+    //bear skill function-迴旋斬
+    public void myBearSkill_SP_GyroHit()
+    {
+        if (myAniMod == 16) { }
+        else if (myAniMod == 17) { }
+        else if (myAniMod == 20) { }
+        else { myAniMod = 15; }
+    }
+
+    //QTE function
+    public void myQTETouchCountFN()
+    {
+        if (isQTETime) { myQTECount++; }
+    }
+
+    //怪物模式控制(待機用+復原CD計時)
     public void myBearModControll()
     {//腿好嘴好-------------------------------------------------------------------1
         if (isLeggood && isMouthgood)
@@ -339,34 +350,29 @@ public class onIceBearForAniControll : MonoBehaviour
             }
         }
     }
+    //怪物動畫控制器
     public void myAniControll()
     {
         switch (myAniMod)
         {
-            case 0:
-                if (!isMouthgood && isBellygood)
+            case 0://idle
+                if (!isMouthgood && isBellygood)//嘴壞肚好
                 {
                     if (myIdleRandom > 50) { myAniam.Play("idle_attack"); }
                     else { myAniam.Play("breaking_mouth"); }
                 }
-                else if (!isMouthgood && !isBellygood)
+                else if (!isMouthgood && !isBellygood)//嘴壞肚壞
                 {
                     if (myIdleRandom > 33) { myAniam.Play("idle_attack"); }
                     else if (myIdleRandom > 66) { myAniam.Play("breaking_belly"); }
                     else { myAniam.Play("breaking_mouth"); }
                 }
-                else if (isMouthgood && !isBellygood)
+                else if (isMouthgood && !isBellygood)//嘴好肚壞
                 {
                     if (myIdleRandom > 50) { myAniam.Play("idle_attack"); }
                     else { myAniam.Play("breaking_belly"); }
                 }
-                else {
-                    myAniam.Play("idle_attack");
-                }
-                /*
-                 
-                
-                */
+                else {myAniam.Play("idle_attack");}
                 break;
             case 1:
                 myAniam.Play("idle_basic");
@@ -374,6 +380,7 @@ public class onIceBearForAniControll : MonoBehaviour
             case 2:
                 myAniam.Play("dead_basic");
                 break;
+                //移動相關，走路跑步
             case 3:
                 myAniam.Play("run_ready");
                 break;
@@ -396,15 +403,16 @@ public class onIceBearForAniControll : MonoBehaviour
                 myAniam.Play("walk_end");
                 break;
 
-            //-----------------
+            //-----------------以下為技能相關動作
             case 10:
                 myAniam.Play("sk_bc_jumphit");
                 break;
             case 11:
                 myAniam.Play("sk_bc_twohandwavefish");
                 break;
+
+            //吃魚相關動作-------------------站著吃--------------------------
             case 12:
-                //myAniam.speed = 0.1f;
                 myAniam.Play("sk_sp_eatfigh_ready");
                 break;
             case 13:
@@ -421,6 +429,32 @@ public class onIceBearForAniControll : MonoBehaviour
             case 14:
                 myAniam.Play("sk_sp_eatfigh_end");
                 break;
+            case 34:
+                myAniam.Play("sk_sp_eatfish_QTEfail");
+                break;
+            //吃魚相關動作-------------------坐著吃--------------------------
+            case 30:
+                //myAniam.speed = 0.1f;
+                myAniam.Play("sk_sp_eatfish_LBs_ready");
+                break;
+            case 31:
+                if (myEatFishLoopTimer > myEatFishLoopTime)
+                {
+                    myEatFishLoopTimer = 0;
+                    myAniMod = 14;
+                }
+                else {
+                    myAniam.Play("sk_sp_eatfish_LBs_eating");
+                    myEatFishLoopTimer += Time.deltaTime;
+                }
+                break;
+            case 32:
+                myAniam.Play("sk_sp_eatfish_LBs_end");
+                break;
+            case 33:
+                myAniam.Play("sk_sp_eatfish_LBs_QTEfail");
+                break;
+            //迴旋展相關動作---------------------------------------------
             case 15:
                 myAniam.Play("sk_sp_rollcut_ready");
                 break;
@@ -434,7 +468,6 @@ public class onIceBearForAniControll : MonoBehaviour
                     myGrohitLoopTimer += Time.deltaTime;
                     myAniam.Play("sk_sp_rollcut_rolling");
                 }
-
                 break;
             case 17:
                 myAniam.Play("sk_sp_rollcut_dizzing");
@@ -442,7 +475,7 @@ public class onIceBearForAniControll : MonoBehaviour
             case 18:
                 myAniam.Play("sk_sp_rollcut_dizzing_resume");
                 break;
-            //---------------------------------
+            //---------------------------------殘障系列動作
             case 19:
                 myAniam.Play("breaking_head_fighthitheadtodizzing");
                 break;
@@ -482,7 +515,8 @@ public class onIceBearForAniControll : MonoBehaviour
             case 28:
                 myAniam.Play("resume_leg");
                 break;
-            case 29:
+                
+            case 29://腿殘相關待機--------------
                 if (!isMouthgood && isBellygood)
                 {
                     if (myIdleRandom > 50) { myAniam.Play("idle_LBs"); }
@@ -499,15 +533,26 @@ public class onIceBearForAniControll : MonoBehaviour
                     if (myIdleRandom > 50) { myAniam.Play("idle_LBs"); }
                     else { myAniam.Play("breaking_LBs_belly"); }
                 }
-                else {
-                    myAniam.Play("idle_LBs");
-                }
-
+                else {myAniam.Play("idle_LBs");}
+                break;
+            case 35:
+                myAniam.Play("behit_basic");
+                break;
+            case 36:
+                myAniam.Play("angry_basic");
+                break;
+            case 37:
+                myAniam.Play("behit_LBs");
+                break;
+            case 38:
+                myAniam.Play("angry_LBs");
                 break;
             default:
                 break;
         }
     }
+
+    //on Monster KeyFram event function
     public void LastFram_10_FN() { isCDTtime_jumphit = true; }
     public void LastFram_11_FN() { isCDTtime_wave = true; }
     public void FirstFram_12_FN()
@@ -528,7 +573,6 @@ public class onIceBearForAniControll : MonoBehaviour
             myAniam.speed = 1;
             myAniMod = 13;
         }
-
     }
     public void LastFram_14_FN() { isCDTtime_eatfish = true; }
     public void LastFram_15_FN() { myAniMod = 16; }
@@ -543,7 +587,10 @@ public class onIceBearForAniControll : MonoBehaviour
         myAniMod = 0;
     }
     public void LastFram_LGIdle_FN() { myIdleRandom = Random.RandomRange(0, 101); }
-    public void LastFram_25_FN() { isLeggood = false; }
+    public void LastFram_25_FN() {
+        print("last fram 25 be call");
+        isLeggood = false;
+    }
     public void LastFram_28_FN()
     {
         isLeggood = true;
@@ -551,6 +598,7 @@ public class onIceBearForAniControll : MonoBehaviour
         myLegGetHurtValue = 0;
     }
 
+    //Monster attack MQ function
     public void myFindAllMQAndAttack()
     {
         GameObject[] myMQ = GameObject.FindGameObjectsWithTag("MQ");
@@ -559,85 +607,4 @@ public class onIceBearForAniControll : MonoBehaviour
             myMQ[a].GetComponent<onMQVer3>().myHP--;
         }
     }
-    public void myQTETouchCountFN()
-    {
-        if (isQTETime)
-        {
-            myQTECount++;
-        }
-    }
 }
-/*  if (isBigEyegood && isWinggood)
-   {//眼好翅好-------------------------------------------------------------------1
-       if (myWingHP <= 0)
-       {
-           myAniMod = 22;
-       }
-       else if (myBigeyeHP <= 0)
-       {
-           myAniMod = 61;
-       }
-       else {
-           if (isUnderAttack)
-           {
-
-           }
-           else { }
-           myAniMod = 13;
-       }
-   }
-   else if (isBigEyegood && !isWinggood)
-   {//眼好翅壞-------------------------------------------------------------------2
-       if (myWingResumeTimer > 10)
-       {
-           //myWingResumeTimer = 0;
-           myWingHP = 100;
-           myAniMod = 25;
-       }
-       else if (myBigeyeHP <= 0)
-       {
-           myAniMod = 62;
-       }
-       else {
-           myWingResumeTimer += Time.deltaTime;
-           myAniMod = 23;
-       }
-   }
-   else if (!isBigEyegood && isWinggood)
-   {//眼壞翅好-------------------------------------------------------------------3
-
-       if (myBigeyeResumeTimer > 10)
-       {
-           //myBigeyeResumeTimer = 0;
-           myBigeyeHP = 100;
-           myAniMod = 16;
-       }
-       else if (myWingHP <= 0)
-       {
-           myAniMod = 08;
-       }
-       else {
-           myBigeyeResumeTimer += Time.deltaTime;
-           myAniMod = 00;
-       }
-   }
-   else if (!isBigEyegood && !isWinggood)
-   {//眼壞翅壞-------------------------------------------------------------------4
-       if (myWingResumeTimer > 10)
-       {
-           //myWingResumeTimer = 0;
-           myWingHP = 100;
-           myAniMod = 07;
-       }
-       else if (myBigeyeResumeTimer > 10)
-       {
-           //myBigeyeResumeTimer = 0;
-           myBigeyeHP = 100;
-           myAniMod = 10;
-       }
-       else {
-           myWingResumeTimer += Time.deltaTime;
-           myBigeyeResumeTimer += Time.deltaTime;
-           myAniMod = 03;
-       }
-   }*/

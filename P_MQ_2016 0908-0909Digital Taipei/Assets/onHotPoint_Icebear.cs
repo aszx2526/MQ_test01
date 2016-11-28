@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class onHotPoint_Icebear : MonoBehaviour {
-    public GameObject myfather;
     public GameObject[] myHitPoint;
     public Vector3[] myHitpointBasicPos;
+    [Header("布置微調用")]
+    public Vector3 myForSetting;
     public bool isSavePos;
     // Use this for initialization
     void Start()
@@ -35,22 +36,29 @@ public class onHotPoint_Icebear : MonoBehaviour {
                     switch (a)
                     {
                         case 0:
-                            sudden.y = myHitpointBasicPos[a].y - 2.1f;
+                            //myHitPoint[a].transform.position = myHitpointBasicPos[a]+new Vector3(-0.34f, -0.76f, -2.28f);
+                            sudden = myHitpointBasicPos[a]+ new Vector3(-0.34f, -0.76f, -2.28f);
                             break;
                         case 1:
-                            sudden.y = myHitpointBasicPos[a].y - 2.1f;
+                            //sudden.y = myHitpointBasicPos[a].y - 2.1f;
+                            //myHitPoint[a].transform.position = myHitpointBasicPos[a] + myForSetting;
+                            sudden = myHitpointBasicPos[a] + new Vector3(-0.33f, -0.5f, -1.97f);
+
                             break;
                         case 2:
-                            sudden.y = myHitpointBasicPos[a].y - 2.1f;
+                            //sudden.y = myHitpointBasicPos[a].y - 2.1f;
+                            sudden = myHitpointBasicPos[a] + new Vector3(-0.3f, 0.36f, -1.25f);
                             break;
                         case 3:
-                            sudden.y = myHitpointBasicPos[a].y - 2.1f;
+                            //sudden.y = myHitpointBasicPos[a].y - 2.1f;
+                            sudden = myHitpointBasicPos[a] + new Vector3(-0.3f, 0.39f, -0.21f);
                             break;
                         case 4:
-                            sudden.y = myHitpointBasicPos[a].y - 2.1f;
+                            //sudden.y = myHitpointBasicPos[a].y - 2.1f;
+                            sudden = myHitpointBasicPos[a] + new Vector3(-0.3f, 0.39f, -0.21f);
                             break;
                         default:
-                            print("on hotpoint_bigeye the a is null");
+                            print("on hotpoint_icebear the a is null");
                             break;
                     }
 
