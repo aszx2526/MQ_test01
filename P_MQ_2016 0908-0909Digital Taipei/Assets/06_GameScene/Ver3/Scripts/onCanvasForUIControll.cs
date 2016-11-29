@@ -17,6 +17,7 @@ public class onCanvasForUIControll : MonoBehaviour {
     public GameObject myAttackPartLocker;
     public AudioClip[] mySoundEffectData;
     public AudioSource myAudioSource;
+    [Header("=======================")]
     public bool isGameStart;
     public bool isPlayerLose;
     public int myAllLocalMQCount;
@@ -27,7 +28,7 @@ public class onCanvasForUIControll : MonoBehaviour {
     public int myScoreCount;//得分小記
     public int myCoinCount;//金幣
     public int myStarGet;//取得星星數
-
+    [Header("=======================")]
     [Header("怪物起始士氣值：")]
     public float myMonsterBasicMorale;
     [Header("設定怪物回氣值：")]
@@ -43,9 +44,12 @@ public class onCanvasForUIControll : MonoBehaviour {
     public int myLocalMQ_AmountFull;
     [Header("怪物士氣值：")]
     public float myMonsterMorale;
+    [Header("=======================")]
     //public float myMonsterMoraleBloodValue;
     public GameObject[] myMonsterMoraleCounter;
     public float myMonsterMoralCounterTimer;
+    [Header("=======================")]
+    public GameObject myUICenter;
     // Use this for initialization
     void Start () {
         myScoreGetAllStar = myLevelClear.GetComponent<onUI_LevelClear>().myScoreGetAllStar;

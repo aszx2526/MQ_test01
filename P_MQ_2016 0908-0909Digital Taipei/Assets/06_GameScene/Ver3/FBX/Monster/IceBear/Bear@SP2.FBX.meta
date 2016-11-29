@@ -506,7 +506,87 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: FirstFram_30_FN
+        data: 
+        objectReferenceParameter: {fileID: 1651863442595432, guid: 7a2d4d2193f66df48b2440b428cf7313,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: LastFram_30_FN
+        data: 
+        objectReferenceParameter: {fileID: 1651863442595432, guid: 7a2d4d2193f66df48b2440b428cf7313,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.023569105
+        functionName: myQTEFN_C
+        data: 
+        objectReferenceParameter: {fileID: 1651863442595432, guid: 7a2d4d2193f66df48b2440b428cf7313,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.07744114
+        functionName: myQTEFN_C
+        data: 
+        objectReferenceParameter: {fileID: 1651863442595432, guid: 7a2d4d2193f66df48b2440b428cf7313,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.1380472
+        functionName: myQTEFN_C
+        data: 
+        objectReferenceParameter: {fileID: 1651863442595432, guid: 7a2d4d2193f66df48b2440b428cf7313,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.22895621
+        functionName: myQTEFN_C
+        data: 
+        objectReferenceParameter: {fileID: 1651863442595432, guid: 7a2d4d2193f66df48b2440b428cf7313,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.30303034
+        functionName: myQTEFN_C
+        data: 
+        objectReferenceParameter: {fileID: 1651863442595432, guid: 7a2d4d2193f66df48b2440b428cf7313,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.41414142
+        functionName: myQTEFN_C
+        data: 
+        objectReferenceParameter: {fileID: 1651863442595432, guid: 7a2d4d2193f66df48b2440b428cf7313,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5185185
+        functionName: myQTEFN_C
+        data: 
+        objectReferenceParameter: {fileID: 1651863442595432, guid: 7a2d4d2193f66df48b2440b428cf7313,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5858586
+        functionName: myQTEFN_C
+        data: 
+        objectReferenceParameter: {fileID: 1651863442595432, guid: 7a2d4d2193f66df48b2440b428cf7313,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -836,7 +916,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: LastFram_32_FN
+        data: 
+        objectReferenceParameter: {fileID: 1651863442595432, guid: 7a2d4d2193f66df48b2440b428cf7313,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -1661,7 +1749,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: LastFram_33_FN
+        data: 
+        objectReferenceParameter: {fileID: 1651863442595432, guid: 7a2d4d2193f66df48b2440b428cf7313,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

@@ -6,6 +6,25 @@ public class onIceBearForAniControll : MonoBehaviour
     public int myAniMod;
     public Animator myAniam;
     public GameObject myFatherObject;//父物件
+    [Header("QTE模式(A,B,C)")]
+    public string myQTEMod;
+    [Header("QTE開始了嗎？")]
+    public bool isQTETime;
+    [Header("是否顯示QTEUI")]
+    public bool isShowQTEUI;
+    [Header("QTE目標UI")]
+    public GameObject[] myQTETargetUI;
+    [Header("A-目標次數")]
+    public int myQTE_A_Count;
+    [Header("B-連打次數")]
+    public int myQTE_B_Count;
+    [Header("B-連打次數目標值")]
+    public int myQTE_B_TargetValue;
+    [Header("C-反應秒數")]
+    public float myQTE_C_ActionTime;
+    [Header("C-目標次數")]
+    public int myQTE_C_Count;
+    [Header("========================")]
     [Header("死亡積分")]
     public int myBigeyeDeadScore;
     [Header("腿殘積分")]
@@ -89,10 +108,7 @@ public class onIceBearForAniControll : MonoBehaviour
     public float myGrohitLoopTimer;
 
     [Header("========================")]
-    public bool isQTETime;
-    public int myQTECount;
-    public int myQTETargetValue;
-    public float fadoutinSpeed;
+
     //-------------
     public GameObject myHotPoint;
     void Start()
@@ -108,26 +124,60 @@ public class onIceBearForAniControll : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)){myQTETouchCountFN();}
-       /* if (isQTETime) {
-            if (GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView > 30) {
-                GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView -= Time.deltaTime * fadoutinSpeed;
-            }
-        }
-        else {
-            if (GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView < 60) {
-                GameObject.Find("MainCamera").GetComponent<Camera>().fieldOfView += Time.deltaTime * fadoutinSpeed;
-            }
-        }*/
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart && myFatherObject.GetComponent<onMonsterVer3>().isMeToFight)
         {
             if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)//怪物死翹翹
             { myAniMod = 2; }
             else {
-                myBearAttackMod();
+                if (isQTETime) {
+                    switch (myQTEMod)
+                    {
+                        case "A":
+                            if (myQTE_A_Count == 5)
+                            {
+                                myAniam.speed = 1;
+                                if (isLeggood) { myAniMod = 34; }
+                                else { myAniMod = 33; }
+                                isCDTtime_eatfish = true;
+                                myQTE_A_Count = 0;
+                                print("qte a 成功");
+                            }
+                            break;
+                        case "B":
+                            if (myQTE_B_Count > myQTE_B_TargetValue)
+                            {
+                                myAniam.speed = 1;
+                                if (isLeggood) { myAniMod = 34; }
+                                else { myAniMod = 33; }
+                                print("qte B 成功");
+                                isCDTtime_eatfish = true;
+                                myQTE_B_Count = 0;
+                            }
+                            break;
+                        case "C":
+                            if (myQTE_C_Count == 8)
+                            {
+                                myAniam.speed = 1;
+                                if (isLeggood) { myAniMod = 34; }
+                                else { myAniMod = 33; }
+                                isCDTtime_eatfish = true;
+                                myQTE_C_Count = 0;
+                                print("qte C 成功");
+                            }
+                            break;
+                        default:
+                            print("你忘記設定QTE的ABC模式囉！！");
+                            break;
+                    }
+                }
+                else {
+                    myBearAttackMod();
+                }
+                
                 //myBearModControll();
             }
-            
+            //QTE時光
+            //if (isQTETime) { myQTEFN(); }
             myAniControll();
         }
     }
@@ -295,12 +345,140 @@ public class onIceBearForAniControll : MonoBehaviour
             
         }
     }
-
-   
-    //QTE function
-    public void myQTETouchCountFN()
+    
+    //QTE相關函釋 當isqtetime = true 的那個時候呼叫一次進行部屬
+    public void myQTEFN_set()
     {
-        if (isQTETime) { myQTECount++; }
+        isShowQTEUI = true;
+        switch (myQTEMod)
+        {
+            case "A":
+                for (int a = 0; a < 5; a++) {
+                    GameObject qteUI_1 = Instantiate(myQTETargetUI[0], transform.position, transform.rotation) as GameObject;
+                    qteUI_1.GetComponent<onQTEIcon>().myFather = this.gameObject;
+                    qteUI_1.transform.parent = GameObject.Find("Canvas").transform;
+                    Vector3 myrandomPos = GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myUICenter.transform.position;
+                    myrandomPos.x = Random.Range(myrandomPos.x - 250.0f, myrandomPos.x + 250.0f);
+                    myrandomPos.y = Random.Range(myrandomPos.y - 250.0f, myrandomPos.y + 250.0f);
+                    qteUI_1.transform.position = myrandomPos;
+                }
+                /*
+                一次出現5個icon
+                icon點擊後就會消失
+
+                時間內全打下來就可以阻止怪物發動技能
+                時間內如果還有icon怪物成功發動技能
+
+                */
+                break;
+            case "B":
+                /*
+                時間內連打達到目標值就可以阻止怪物發動技能
+                */
+                GameObject qteUI_2 = Instantiate(myQTETargetUI[1], transform.position, transform.rotation) as GameObject;
+                qteUI_2.GetComponent<onQTEIcon>().myFather = this.gameObject;
+                qteUI_2.transform.parent = GameObject.Find("Canvas").transform;
+                qteUI_2.transform.position = GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myUICenter.transform.position;
+
+                break;
+            case "C":
+          
+
+                /*
+                qte開始後依序出現8個icon
+                icon內會有倒數計時的數字
+                在倒數計時前要點到
+                依序點玩
+                成功怪物就不會施放技能
+                */
+                //if (Input.GetKeyDown(KeyCode.Space)) { myQTETouchCountFN(); }
+                break;
+            default:
+                print("你忘記設定QTE的ABC模式囉！！");
+                break;
+        }
+    }
+    public void myQTEFN_check()
+    {
+        isShowQTEUI = false;
+        myAniam.speed = 1;
+        switch (myQTEMod)
+        {
+            case "A":
+                if (myQTE_A_Count == 5)
+                {
+                    if (isLeggood) { myAniMod = 34; }
+                    else { myAniMod = 33; }
+                    isCDTtime_eatfish = true;
+                    myQTE_A_Count = 0;
+                    print("qte a 成功");
+                }
+                else {
+                    if (isLeggood) { myAniMod = 13; }
+                    else { myAniMod = 31; }
+                    isCDTtime_eatfish = true;
+                    myQTE_A_Count = 0;
+                    print("qte a fail");
+                }
+                break;
+            case "B":
+                if (myQTE_B_Count > myQTE_B_TargetValue)
+                {
+                    if (isLeggood) { myAniMod = 34; }
+                    else { myAniMod = 33; }
+                    print("qte B 成功");
+                    isCDTtime_eatfish = true;
+                    myQTE_B_Count = 0;
+                }
+                else {
+                    if (isLeggood) { myAniMod = 13; }
+                    else { myAniMod = 31; }
+                    myQTE_B_Count = 0;
+                    isCDTtime_eatfish = true;
+                    print("qte B fail");
+                }
+                break;
+            case "C":
+                if (myQTE_C_Count == 8)
+                {
+                    if (isLeggood) { myAniMod = 34; }
+                    else { myAniMod = 33; }
+                    isCDTtime_eatfish = true;
+                    myQTE_C_Count = 0;
+                    print("qte C 成功");
+                }
+                else {
+                    if (isLeggood) { myAniMod = 13; }
+                    else { myAniMod = 31; }
+                    isCDTtime_eatfish = true;
+                    myQTE_C_Count = 0;
+                    print("qte C fail");
+                }
+                break;
+            default:
+                print("你忘記設定QTE的ABC模式囉！！");
+                break;
+        }
+    }
+    public void myQTEFN_C() {
+        if (myQTEMod == "C") {
+            GameObject qteUI_3 = Instantiate(myQTETargetUI[2], transform.position, transform.rotation) as GameObject;
+            qteUI_3.GetComponent<onQTEIcon>().myTimer = myQTE_C_ActionTime;
+            qteUI_3.GetComponent<onQTEIcon>().myFather = this.gameObject;
+            qteUI_3.transform.parent = GameObject.Find("Canvas").transform;
+            Vector3 myrandomPos = GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myUICenter.transform.position;
+            myrandomPos.x = Random.Range(myrandomPos.x - 250.0f, myrandomPos.x + 250.0f);
+            myrandomPos.y = Random.Range(myrandomPos.y - 250.0f, myrandomPos.y + 250.0f);
+            qteUI_3.transform.position = myrandomPos;
+        }
+        else {
+        }
+        
+    }
+    //QTE function 連打
+    public void myQTEFN_B()
+    {
+        myQTE_B_Count++;
     }
 
     //怪物模式控制(待機用+復原CD計時)
@@ -590,27 +768,45 @@ public class onIceBearForAniControll : MonoBehaviour
     //on Monster KeyFram event function
     public void LastFram_10_FN() { isCDTtime_jumphit = true; }
     public void LastFram_11_FN() { isCDTtime_wave = true; }
+    //----------站著吃魚相關-----------
     public void FirstFram_12_FN()
     {
         myAniam.speed = 0.1f;
         isQTETime = true;
+        myQTEFN_set();
         GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().isMoveTime = true;
     }
-    public void LastFram_12_FN()
+    public void LastFram_12_FN(){myQTEFN_check();}
+    public void LastFram_14_FN()
     {
         isQTETime = false;
-        if (myQTECount > myQTETargetValue)
-        {
-            isCDTtime_eatfish = true;
-            myAniam.speed = 1;
-            myQTECount = 0;
-        }
-        else {
-            myAniam.speed = 1;
-            myAniMod = 13;
-        }
+        isCDTtime_eatfish = true;
     }
-    public void LastFram_14_FN() { isCDTtime_eatfish = true; }
+    public void LastFram_34_FN()
+    {
+        isQTETime = false;
+        isCDTtime_eatfish = true;
+    }
+    //----------坐著吃魚相關-----------
+    public void FirstFram_30_FN()
+    {
+        myAniam.speed = 0.1f;
+        isQTETime = true;
+        myQTEFN_set();
+        GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().isMoveTime = true;
+    }
+    public void LastFram_30_FN(){myQTEFN_check();}
+    public void LastFram_32_FN()
+    {
+        isQTETime = false;
+        isCDTtime_eatfish = true;
+    }
+    public void LastFram_33_FN()
+    {
+        isQTETime = false;
+        isCDTtime_eatfish = true;
+    }
+    //----------------------
     public void LastFram_15_FN() { myAniMod = 16; }
     public void LastFram_17_FN() { myAniMod = 20; }
     //public void LastFram_18_FN() { isCDTtime_gyrohit = true; }
